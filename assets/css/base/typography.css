@@ -1,0 +1,47 @@
+/*
+ * Typography Styles
+ * Base typography styles for headings, paragraphs, and text elements
+ */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: var(--letter-spacing-tight);
+    margin-bottom: var(--space-md);
+}
+
+h1 {
+    font-size: var(--heading-xl);
+    line-height: var(--line-height-tight);
+}
+
+h2 {
+    font-size: var(--heading-md);
+    line-height: var(--line-height-tight);
+}
+
+h3 {
+    font-size: var(--heading-sm);
+    line-height: var(--line-height-tight);
+}
+
+h4 {
+    font-size: var(--text-xl);
+    line-height: var(--line-height-tight);
+}
+
+h5 {
+    font-size: var(--text-lg);
+}
+
+h6 {
+    font-size: var(--text-base);
+}
+
+p {
+    margin-bottom: var(--space-md);
+}

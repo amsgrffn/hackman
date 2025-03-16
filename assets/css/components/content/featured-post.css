@@ -1,0 +1,48 @@
+/*
+ * Featured Post Styles
+ * Large featured post with image and content overlay
+ */
+
+.featured-post {
+    background-color: var(--gray-dark);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-bottom: var(--space-xl);
+    min-height: 320px;
+    overflow: hidden;
+    position: relative;
+}
+
+.featured-image {
+    display: block;
+    height: 400px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.featured-content {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    bottom: 0;
+    color: var(--secondary-color);
+    left: 0;
+    padding: var(--space-2xl) var(--space-xl);
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+}
+
+.featured-content h2 {
+    font-family: "new-spirit-condensed", serif;
+    font-size: 2rem;
+}
+
+.featured-tag {
+    background-color: var(--accent-color);
+    border-radius: 100px;
+    color: white;
+    display: inline-block;
+    font-size: var(--text-xs);
+    font-weight: var(--font-weight-medium);
+    margin-bottom: var(--space-xs);
+    padding: var(--space-2xs) var(--space-sm);
+}

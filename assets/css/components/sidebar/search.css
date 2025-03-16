@@ -1,0 +1,97 @@
+/*
+ * Search Container Styles
+ * Sidebar search component
+ */
+
+.search-container {
+    margin-bottom: 28px;
+}
+
+.search-form {
+    width: 100%;
+}
+
+.search-input-wrapper {
+    align-items: center;
+    background-color: var(--gray-light);
+    border: 1px solid transparent;
+    border-radius: 12px;
+    display: flex;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+.search-input-wrapper:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.search-input-wrapper:focus-within {
+    background-color: var(--secondary-color);
+    border-color: rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.1);
+}
+
+.search-icon {
+    color: var(--gray-medium);
+    left: 14px;
+    pointer-events: none;
+    position: absolute;
+}
+
+.search-input {
+    background: transparent;
+    border: none;
+    color: var(--primary-color);
+    flex: 1;
+    font-family: var(--font-primary);
+    font-size: 14px;
+    padding: 12px 12px 12px 44px;
+    width: 100%;
+}
+
+.search-input::placeholder {
+    color: var(--gray-medium);
+}
+
+.search-input:focus {
+    outline: none;
+}
+
+.search-clear {
+    background: transparent;
+    border: none;
+    color: var(--gray-medium);
+    cursor: pointer;
+    margin-right: 14px;
+    opacity: 0;
+    padding: 0;
+    transition: opacity 0.2s ease;
+    visibility: hidden;
+}
+
+.search-input:not(:placeholder-shown) ~ .search-clear {
+    opacity: 1;
+    visibility: visible;
+}
+
+.search-clear:hover {
+    color: var(--primary-color);
+}
+
+/* Dark mode styles */
+body.dark-mode .search-input-wrapper {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .search-input-wrapper:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+body.dark-mode .search-input-wrapper:focus-within {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+body.dark-mode .search-input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}

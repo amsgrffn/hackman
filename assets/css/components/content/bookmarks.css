@@ -1,0 +1,125 @@
+/*
+ * Bookmark Component Styles
+ * Styling for bookmark posts
+ */
+
+.bookmark {
+    background-color: var(--secondary-color);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-bottom: var(--space-xl);
+    overflow: hidden;
+}
+
+.bookmark-header {
+    align-items: flex-start;
+    display: flex;
+    gap: var(--space-md);
+    padding: var(--space-lg);
+}
+
+.bookmark-header h2 {
+    font-family: "new-spirit-condensed", serif;
+    font-size: 30px;
+    line-height: var(--line-height-tight);
+    margin: 0;
+    padding: 0;
+    text-wrap: pretty;
+}
+
+.bookmark-icon {
+    color: var(--accent-color);
+    font-size: var(--text-xl);
+    margin-top: 0.5rem;
+}
+
+.bookmark-comment {
+    border-top: 1px solid var(--seperator);
+    padding: var(--space-lg);
+}
+
+.bookmark-comment h6 {
+    color: var(--gray-medium);
+    font-family: var(--mono);
+    font-size: var(--text-xs);
+    letter-spacing: var(--letter-spacing-wide);
+    margin-bottom: var(--space-xs);
+    text-transform: uppercase;
+}
+
+.bookmark-comment a {
+    color: var(--accent-color);
+}
+
+/* Bookmark Source Styling */
+.bookmark-source {
+    align-items: center;
+    display: flex;
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-semibold);
+    gap: 3px;
+    padding-bottom: var(--space-lg);
+    padding-left: 3.35rem;
+}
+
+.bookmark-via {
+    font-style: italic;
+    font-weight: 400;
+    opacity: 0.8;
+}
+
+.bookmark-source-text {
+    color: var(--accent-color);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.bookmark-favicon {
+    align-items: center;
+    border-radius: 3px;
+    display: flex;
+    flex-shrink: 0;
+    height: 16px;
+    justify-content: center;
+    margin-top: 2px;
+    overflow: hidden;
+    width: 16px;
+}
+
+.bookmark-favicon-img {
+    height: 16px;
+    object-fit: contain;
+    width: 16px;
+}
+
+.bookmark-favicon svg {
+    color: var(--gray-medium);
+    height: 14px;
+    width: 14px;
+}
+
+.bookmark footer {
+    align-content: center;
+    display: flex;
+    justify-content: space-between;
+    padding: var(--space-xl) 0 0;
+}
+
+.bookmark footer p {
+    color: var(--gray-medium);
+    font-size: var(--text-sm);
+    margin: 0;
+}
+
+.bookmark footer p a {
+    color: var(--grey-medium);
+}
+
+/* Dark mode styles */
+body.dark-mode .bookmark-source {
+    background-color: rgba(255, 255, 255, 0.02);
+    border-top-color: rgba(255, 255, 255, 0.05);
+}

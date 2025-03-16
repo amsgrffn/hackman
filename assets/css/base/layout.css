@@ -1,0 +1,36 @@
+/*
+ * Layout Styles
+ * Container and layout structure
+ */
+
+.container {
+    margin: 0 auto;
+    max-width: var(--content-lg);
+    padding: 0 var(--space-lg);
+    width: 100%;
+}
+
+.layout {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-2xl) 0;
+}
+
+.content {
+    margin-bottom: var(--space-2xl);
+    width: 100%;
+}
+
+/* Responsive layout adjustments */
+@media (min-width: 768px) {
+    .layout {
+        align-items: flex-start;
+        flex-direction: row;
+        gap: var(--space-3xl);
+    }
+
+    .content {
+        flex: 1;
+        margin-bottom: 0;
+    }
+}

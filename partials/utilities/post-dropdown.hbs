@@ -1,0 +1,17 @@
+<div class="dropdown" title="Share and Support">
+    <button class="dropbtn" aria-label="Share this article">{{> "icons/ellipsis"}}</button>
+    <div class="dropdown-content">
+       <p class="title">Share and Support</p>
+       <p class="thanks">Thanks for dropping by. Use the links below to share this article and/or support this site.</p>
+       <a href="#" class="native-share" style="display: none;">{{> "icons/share"}} Share via Device</a>
+       <a href="#" class="copy-url">{{> "icons/link"}} Copy Article URL</a>
+       <a href="#" class="email-share">{{> "icons/at-sign"}} Email Article</a>
+       <a href="#" class="mastodon-share">{{> "icons/mastodon"}} Share on Mastodon</a>
+       <a href="https://bsky.app/intent/compose?text={{encode title}}{{encode (url absolute="true")}}" target="_blank" rel="noopener noreferrer">{{> "icons/bluesky"}} Share on Bluesky</a>
+       <a href="https://www.reddit.com/submit?url={{encode (url absolute="true")}}&title={{encode title}}" target="_blank" rel="noopener noreferrer">{{> "icons/reddit"}} Share on Reddit</a>
+       <a href="whatsapp://send?text={{encode (concat title ' ' (url absolute="true"))}}" class="whatsapp-share" target="_blank" rel="noopener noreferrer">{{> "icons/whatsapp"}} Share on WhatsApp</a>
+       <a href="/memberships">{{> "icons/thumb-up"}} Subscribe</a>
+       <a href="#/portal/support">{{> "icons/beer"}} Buy Us a Pint</a>
+       <a href="/contact">{{> "icons/mail"}} Contact Us</a>
+    </div>
+</div>

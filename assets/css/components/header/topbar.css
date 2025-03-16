@@ -1,0 +1,186 @@
+/*
+ * Topbar Styles
+ * Styling for the top navigation bar
+ */
+
+.topbar {
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    background-color: var(--gray-dark);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    font-size: var(--text-xs);
+    padding: var(--space-sm) 0;
+}
+
+.topbar-inner {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.topbar-inner .topbar-search-text {
+    color: var(--gray-medium);
+    font-size: var(--text-xs);
+    font-weight: 400;
+}
+
+.topbar-nav {
+    align-items: center;
+    display: flex;
+    gap: var(--space-xl);
+}
+
+.topbar-nav ul {
+    align-content: center;
+    color: var(--gray-light);
+    display: flex;
+    gap: var(--space-xl);
+}
+
+.topbar-nav ul li {
+    list-style-type: none;
+}
+
+.topbar-nav a {
+    color: var(--gray-light);
+    font-size: var(--text-xs);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.topbar span {
+    color: var(--gray-light);
+}
+
+.topbar-nav a:hover {
+    color: var(--accent-color);
+}
+
+.sidebar .topbar-search {
+    align-items: center;
+    background-color: var(--gray-light);
+    border: 1px solid transparent;
+    border-radius: 100px;
+    color: var(--gray-medium);
+    cursor: pointer;
+    display: flex;
+    height: 40px;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: 560px;
+    padding: 0 12px 0 16px;
+    transition: var(--transition);
+    width: 100%;
+}
+
+.topbar li.the-weather {
+    text-transform: capitalize;
+}
+
+.topbar li.the-weather svg {
+    display: inline;
+    height: 14px;
+    margin: -2px 3px 0 0;
+    vertical-align: middle;
+    width: 14px;
+}
+
+.topbar-inner svg.heart {
+    animation: heartbeat 1.5s infinite ease-in-out;
+    display: inline;
+    fill: #FF3B30;
+    height: 13px;
+    margin-top: -2px !important;
+    position: relative;
+    stroke: #FF3B30;
+    transform-origin: center;
+    vertical-align: center;
+    vertical-align: middle;
+    width: 13px;
+}
+
+.topbar-inner .topbar-search svg {
+    display: inline;
+    height: 14x;
+    margin-top: -2px;
+    vertical-align: middle;
+    width: 14x;
+}
+
+.topbar-search-text svg.heart {
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.topbar-search-text:hover svg.heart {
+    filter: brightness(1.2); /* Subtle brightness increase on hover */
+}
+
+.topbar-search:hover {
+    background-color: rgba(0, 0, 0, 0.08);
+}
+
+.topbar-search-left {
+    align-items: center;
+    display: flex;
+    gap: 8px;
+}
+
+.topbar-search svg {
+    height: 16px;
+    width: 16px;
+}
+
+.topbar-search-text {
+    font-size: var(--text-sm);
+    font-weight: 400;
+}
+
+.topbar-search-shortcut {
+    align-items: center;
+    border-radius: 4px;
+    color: var(--gray-medium);
+    display: flex;
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 500;
+    justify-content: center;
+    padding: 2px 6px;
+}
+
+/* Dark mode styles */
+body.dark-mode .topbar {
+    background-color: rgba(28, 28, 30, 0.7);
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .topbar-nav a {
+    color: var(--gray-light);
+}
+
+body.dark-mode .topbar-search {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .topbar-search:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+body.dark-mode .topbar-search-shortcut {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: var(--gray-light);
+}
+
+/* Responsive styles */
+@media (max-width: 767px) {
+    .topbar-nav {
+        gap: var(--space-md);
+    }
+
+    .topbar-search span {
+        display: none;
+    }
+    
+    .topbar-search {
+        max-width: 100%;
+    }
+}

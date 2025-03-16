@@ -1,0 +1,93 @@
+/*
+ * Site Header Styles
+ * Main site header with logo and navigation
+ */
+
+.site-header {
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    background-color: var(--secondary-color);
+    border-bottom: 1px solid var(--seperator);
+    padding: var(--space-md) 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-inner {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo-wrapper {
+    display: inline-block;
+    position: relative;
+}
+
+.logo {
+    color: var(--primary-color);
+    display: inline-block;
+    font-family: "new-spirit-condensed", serif;
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: var(--letter-spacing-tight);
+    position: relative;
+    z-index: 2;
+}
+
+.logo:visited {
+    color: var(--primary-color);
+}
+
+.exclamation-mark {
+    animation: dropBounce 4s cubic-bezier(0.17, 0.67, 0.83, 0.67) forwards 0.5s;
+    bottom: 0;
+    color: var(--primary-color);
+    font-size: var(--text-xl);
+    font-weight: 700;
+    opacity: 0;
+    position: absolute;
+    right: -10px; /* Position it just after the title */
+    transform-origin: bottom center;
+    z-index: 1;
+}
+
+.site-nav {
+    display: none;
+}
+
+.site-nav a {
+    color: var(--primary-color);
+    font-size: var(--text-sm);
+    margin-left: var(--space-xl);
+}
+
+.site-nav a.memberships {
+    color: var(--accent-color);
+    font-weight: var(--font-weight-bold);
+}
+
+.header-right {
+    align-items: center;
+    display: flex;
+}
+
+/* Dark mode styles */
+body.dark-mode .exclamation-mark {
+    color: var(--accent-color);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .exclamation-mark {
+        font-size: 1.3em;
+        right: -15px; /* Slightly closer on mobile */
+    }
+}
+
+@media (min-width: 768px) {
+    .site-nav {
+        display: flex;
+    }
+}

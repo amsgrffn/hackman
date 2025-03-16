@@ -1,0 +1,111 @@
+/*
+ * Card Component Styles
+ * Styling for content cards
+ */
+
+.posts-container article {
+    margin-bottom: var(--space-2xl);
+}
+
+.filter-nav {
+    margin-bottom: var(--space-2xl);
+}
+
+.card {
+    background-color: var(--secondary-color);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+.card:hover {
+    box-shadow: 0 7px 10px rgba(0, 0, 0, 0.15);
+    transform: translate(0, -5px) scale(1.01);
+    z-index: 10;
+}
+
+.card h2 {
+    font-family: "new-spirit-condensed", serif;
+    font-size: 2rem;
+    font-weight: var(--font-weight-semibold);
+}
+
+.card-image {
+    border-radius: var(--radius) var(--radius) 0 0;
+    height: 200px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.card-content {
+    padding: var(--space-xl);
+}
+
+.card-content p {
+    font-size: var(--text-base);
+}
+
+.card-content figure {
+    background: var(--gray-light);
+    border-radius: var(--radius);
+    margin: 0;
+    padding: .5rem;
+}
+
+.card-content figure + p,
+.card-content figure + h1,
+.card-content figure + h2,
+.card-content figure + h3,
+.card-content figure + h4,
+.card-content figure + h5,
+.card-content figure + h6,
+.card-content figure + blockquote,
+.card-content figure + ul,
+.card-content figure + ol {
+    margin-top: var(--space-lg);
+}
+
+.card-content img {
+    border-radius: var(--radius);
+}
+
+.card-content figcaption {
+    color: var(--gray-medium);
+    font-size: .7rem;
+    margin-top: var(--space-xs);
+    text-align: right;
+}
+
+.card-content a.readmore {
+    color: var(--accent-color);
+}
+
+.card-content a.readmore svg {
+    display: inline;
+    height: 16px;
+    vertical-align: middle;
+    width: 16px;
+}
+
+.card footer {
+    align-content: center;
+    display: flex;
+    justify-content: space-between;
+    padding: var(--space-xl) 0 0;
+}
+
+.card footer p {
+    color: var(--gray-medium);
+    font-size: var(--text-sm);
+    margin: 0;
+}
+
+.card footer p a {
+    color: var(--grey-medium);
+}
+
+/* Dark mode styles */
+body.dark-mode .card {
+    background-color: var(--secondary-color);
+}

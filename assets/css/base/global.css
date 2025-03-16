@@ -1,0 +1,34 @@
+/*
+ * Global Base Styles
+ * Basic styling for common elements
+ */
+
+body {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    background: var(--body-background);
+    color: var(--primary-color);
+    font-family: var(--font-primary);
+    font-size: var(--text-base);
+    line-height: var(--line-height-normal);
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+a:hover {
+    opacity: 0.8;
+}
+
+img {
+    height: auto;
+    max-width: 100%;
+}
+
+article, .card, .card-content, footer {
+  /* Ensure parent containers don't hide overflow */
+  overflow: visible !important;
+}

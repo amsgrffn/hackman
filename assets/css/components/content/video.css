@@ -1,0 +1,35 @@
+/*
+ * Video Container Styles
+ * Styling for video embeds
+ */
+
+.video-container {
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-bottom: var(--space-xl);
+    overflow: hidden;
+}
+
+.video-wrapper {
+    height: 0;
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    /* 16:9 aspect ratio */
+    position: relative;
+}
+
+.video-wrapper iframe,
+.video-wrapper img {
+    border: 0;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.video-comment {
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    color: var(--primary-color);
+    padding: var(--space-md);
+}

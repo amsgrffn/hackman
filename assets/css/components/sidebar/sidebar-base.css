@@ -1,0 +1,36 @@
+/*
+ * Sidebar Base Styles
+ * General sidebar structure and styling
+ */
+
+.sidebar {
+    width: 100%;
+    z-index: -1;
+}
+
+.sidebar-section {
+    margin-bottom: var(--space-xl);
+}
+
+.sidebar-title {
+    border-bottom: 1px solid var(--gray-light);
+    font-size: var(--text-base);
+    margin-bottom: var(--space-sm);
+    padding-bottom: var(--space-xs);
+}
+
+/* Dark mode styles */
+body.dark-mode .sidebar-title {
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+    color: var(--gray-light);
+}
+
+/* Responsive styles */
+@media (min-width: 768px) {
+    .sidebar {
+        flex-shrink: 0;
+        position: sticky;
+        top: 80px;
+        width: 280px;
+    }
+}

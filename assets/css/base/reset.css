@@ -1,0 +1,80 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    border: 0 solid transparent;
+    margin: 0;
+    padding: 0
+}
+
+body {
+    line-height: 1.5;
+    min-height: 100vh;
+    text-rendering: optimizeSpeed
+}
+
+html {
+  text-size-adjust: none;
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none
+}
+
+ul[role='list'],
+ol[role='list'] {
+    list-style: none
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%
+}
+
+input,
+button,
+textarea,
+select {
+    font-family: inherit;
+    font-size: inherit
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word
+}
+
+ul[role='list'],
+ol[role='list'] {
+  list-style: none
+}
+
+a:not([class]) {
+  color: currentColor;
+  text-decoration-skip-ink: auto
+}
+
+a:visited {
+  text-decoration: none
+}
+
+button {
+    background: none;
+    cursor: pointer
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+        scroll-behavior: auto
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important
+    }
+}

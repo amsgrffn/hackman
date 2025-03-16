@@ -1,0 +1,65 @@
+/*
+ * Sidebar Quotes Component Styles
+ * Testimonial/quote display in sidebar
+ */
+
+.sidebar .quotes {
+    background-color: #34C759;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: var(--space-xl);
+    min-height: 260px;
+    padding: var(--space-lg);
+    text-align: center;
+    text-wrap: balance;
+}
+
+.sidebar .quotes blockquote {
+    color: var(--secondary-color);
+    display: flex;
+    flex-direction: column;
+    font-family: "new-spirit-condensed", serif;
+    font-size: var(--text-xl);
+    font-weight: 500;
+    height: 100%;
+    justify-content: center;
+    line-height: 1.3;
+    position: relative;
+}
+
+.testimonial-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.sidebar .quotes img {
+    border-radius: 50%;
+    display: inline;
+    height: 30px;
+    vertical-align: middle;
+    width: 30px;
+}
+
+.sidebar .quotes blockquote cite {
+    align-items: center;
+    display: flex;
+    font-family: var(--font-primary);
+    font-size: var(--text-sm);
+    font-style: normal;
+    font-weight: var(--font-weight-normal);
+    gap: 3px;
+    justify-content: center;
+    margin-top: 14px;
+}
+
+.sidebar .quotes blockquote cite svg {
+    display: inline;
+    margin-left: -3px;
+    opacity: .8;
+    vertical-align: middle;
+}

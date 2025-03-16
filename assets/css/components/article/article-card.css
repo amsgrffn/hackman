@@ -1,0 +1,65 @@
+/*
+ * Author Card Styles
+ * Author information card at the end of articles
+ */
+
+.author-card {
+    background-color: var(--gray-light);
+    border-radius: var(--radius);
+    display: flex;
+    gap: 24px;
+    margin-bottom: 48px;
+    padding: 32px;
+}
+
+.author-card-image {
+    border-radius: 50%;
+    height: 80px;
+    object-fit: cover;
+    width: 80px;
+}
+
+.author-card-content {
+    flex: 1;
+}
+
+.author-card-name {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.author-card-bio {
+    color: var(--gray-medium);
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 16px;
+}
+
+.author-card-links {
+    display: flex;
+    gap: 16px;
+}
+
+.author-card-links a {
+    color: var(--accent-color);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Dark mode styles */
+body.dark-mode .author-card {
+    background-color: var(--gray-dark);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .author-card {
+        flex-direction: column;
+        padding: 24px;
+    }
+
+    .author-card-image {
+        margin-bottom: 16px;
+    }
+}

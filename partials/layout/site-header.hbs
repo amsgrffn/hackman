@@ -1,0 +1,97 @@
+<div class="topbar">
+    <div class="container">
+        <div class="topbar-inner">
+            <nav class="topbar-nav">
+                <ul>
+                    <li><a href="https://www.onthisday.com/">{{date format="dddd, MMMM Do, YYYY"}}</a></li>
+                    <li class="the-weather">Currently: <a href="https://en.wikipedia.org/wiki/Maine"><span id="current-temp"></span>,<span id="current-condition"></span></a></li>
+                    <li class="draught">Last Knicks Title: <a href="https://www.nytimes.com/1973/05/11/archives/knicks-win-title-top-lakers-10293-new-york-triumphs-in-five-games.html?unlocked_article_code=1.p04.Ennw.Aq7vqriHBZPh&smid=url-share"><span id="knicks-counter"></span></a></li>
+                    <li><a href="https://www.onthisday.com/">Second Left: 18,889 days</a></li>
+                    <li><span>Made in Maine {{> "icons/heart"}}</span></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+<header class="site-header">
+    <div class="container">
+        <div class="header-inner">
+           <div class="logo-wrapper">
+             <a href="{{@site.url}}" class="logo">{{{@site.title}}}</a>
+           </div>
+            <nav class="site-nav">
+                <a class="memberships" href="#">Memberships</a>
+                <a href="#">Member Login</a>
+            </nav>
+            <div class="header-right">
+                <div class="appearance-toggle-wrapper">
+                    <div class="appearance-toggle">
+                        <input type="radio" id="appearance-auto" name="appearance" value="auto" checked>
+                        <label for="appearance-auto" class="appearance-option" title="System preference">
+                            {{> "icons/desktop"}}
+                        </label>
+                        <input type="radio" id="appearance-light" name="appearance" value="light">
+                        <label for="appearance-light" class="appearance-option" title="Light mode">
+                           {{> "icons/sun"}}
+                        </label>
+                        <input type="radio" id="appearance-dark" name="appearance" value="dark">
+                        <label for="appearance-dark" class="appearance-option" title="Dark mode">
+                            {{> "icons/moon"}}
+                        </label>
+                    </div>
+                </div>
+                <button class="menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="mobile-menu">
+    <div class="sidebar-section">
+        <div class="search-box">
+            <input type="text" class="search-input" placeholder="Search...">
+            <button class="search-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Newsletter (Mobile) -->
+    <div class="sidebar-section">
+        <h3 class="sidebar-title">Newsletter</h3>
+        <form class="newsletter-form">
+            <input type="email" class="newsletter-input" placeholder="your@email.com" required>
+            <button type="submit" class="newsletter-button">Subscribe</button>
+        </form>
+    </div>
+
+    <div class="sidebar-section">
+        <h3 class="sidebar-title">Pages</h3>
+        <ul class="page-list">
+            <li class="page-item"><a href="#" class="page-link active">Home</a></li>
+            <li class="page-item"><a href="#" class="page-link">About</a></li>
+            <li class="page-item"><a href="#" class="page-link">Projects</a></li>
+            <li class="page-item"><a href="#" class="page-link">Articles</a></li>
+            <li class="page-item"><a href="#" class="page-link">Notes</a></li>
+            <li class="page-item"><a href="#" class="page-link">Bookmarks</a></li>
+            <li class="page-item"><a href="#" class="page-link">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Membership (Mobile) -->
+    <div class="sidebar-section">
+        <h3 class="sidebar-title">Membership</h3>
+        <p style="margin-bottom: 16px; color: var(--gray-medium); font-size: 14px;">
+            Support this blog and get exclusive content.
+        </p>
+        <a href="#" class="page-link" style="background-color: var(--accent-color); color: white;">
+            View Membership Options
+        </a>
+    </div>
+</div>
+<div class="overlay"></div>

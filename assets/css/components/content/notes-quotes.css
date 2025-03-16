@@ -1,0 +1,89 @@
+/*
+ * Notes and Quotes Styles
+ * Styling for note and quote components
+ */
+
+/* Notes */
+.note {
+    background-color: var(--secondary-color);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    font-family: var(--mono);
+    margin-bottom: var(--space-xl);
+    padding: var(--space-xl);
+}
+
+.note h2 {
+   display: none;
+}
+
+.note .post-content {
+    margin-bottom: var(--space-lg);
+}
+
+.note ol, .note p, .note ul {
+    font-size: var(--text-sm);
+    margin-bottom: 0;
+}
+
+.note footer {
+    align-content: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.note footer p {
+    color: var(--gray-medium);
+    font-size: var(--text-xs);
+}
+
+/* Quotes */
+.quote {
+    background-color: var(--gray-dark);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    color: var(--secondary-color);
+    margin-bottom: var(--space-xl);
+    padding: var(--space-xl);
+    position: relative;
+}
+
+.quote footer {
+    align-content: center;
+    display: flex;
+    justify-content: space-between;
+    margin: var(--space-lg) 0 0;
+}
+
+.quote footer p {
+    font-size: var(--text-sm);
+    margin: 0;
+    opacity: .8;
+}
+
+.quote footer svg {
+    fill: #fff;
+    stroke: #fff;
+}
+
+.quote-text {
+    font-size: var(--heading-md);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-tight);
+    margin-bottom: var(--space-md);
+}
+
+.quote-author {
+    font-size: var(--text-sm);
+    margin-bottom: var(--space-md);
+    opacity: 0.8;
+}
+
+.quote-comment {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: var(--text-lg);
+    line-height: var(--line-height-normal);
+    margin-top: var(--space-lg);
+    opacity: 0.9;
+    padding-top: var(--space-md);
+}

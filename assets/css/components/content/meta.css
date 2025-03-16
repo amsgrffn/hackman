@@ -1,0 +1,22 @@
+/*
+ * Meta Information Styles
+ * Styles for meta information, tags, categories, etc.
+ */
+
+.meta {
+    align-items: center;
+    color: var(--gray-medium);
+    display: flex;
+    font-size: var(--text-sm);
+    gap: var(--space-xs);
+    margin-bottom: var(--space-md);
+}
+
+.tag {
+    background-color: var(--accent-color);
+    border-radius: 100px;
+    color: white;
+    font-size: var(--text-xs);
+    font-weight: var(--font-weight-medium);
+    padding: var(--space-2xs) var(--space-sm);
+}

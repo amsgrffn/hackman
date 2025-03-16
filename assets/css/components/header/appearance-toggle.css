@@ -1,0 +1,85 @@
+/*
+ * Appearance Toggle Styles
+ * Dark mode toggle switch
+ */
+
+.appearance-toggle-wrapper {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.appearance-toggle {
+    background-color: var(--toggle-bg-light);
+    border-radius: 28px;
+    display: inline-flex;
+    height: 36px;
+    padding: 4px;
+    position: relative;
+    transition: background-color 0.2s ease;
+}
+
+.appearance-toggle input {
+    height: 0;
+    opacity: 0;
+    position: absolute;
+    width: 0;
+}
+
+.appearance-option {
+    align-items: center;
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex;
+    height: 28px;
+    justify-content: center;
+    position: relative;
+    transition: all 0.2s ease;
+    width: 32px;
+    z-index: 1;
+}
+
+.appearance-option svg {
+    fill: var(--toggle-icon-light);
+    height: 16px;
+    transition: all 0.2s ease;
+    width: 16px;
+}
+
+/* Active state styling */
+input:checked + .appearance-option {
+    background-color: var(--toggle-active-light);
+    box-shadow: var(--toggle-shadow-light);
+}
+
+input:checked + .appearance-option svg {
+    fill: var(--toggle-icon-active-light);
+}
+
+/* Hover state */
+.appearance-option:hover svg {
+    fill: var(--toggle-icon-active-light);
+}
+
+/* Dark mode styles */
+body.dark-mode .appearance-toggle {
+    background-color: var(--toggle-bg-dark);
+}
+
+body.dark-mode .appearance-option svg {
+    fill: var(--toggle-icon-dark);
+}
+
+body.dark-mode input:checked + .appearance-option {
+    background-color: var(--toggle-active-dark);
+    box-shadow: var(--toggle-shadow-dark);
+}
+
+body.dark-mode input:checked + .appearance-option svg {
+    fill: var(--toggle-icon-active-dark);
+}
+
+body.dark-mode .appearance-option:hover svg {
+    fill: var(--toggle-icon-active-dark);
+}

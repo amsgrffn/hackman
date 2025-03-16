@@ -1,0 +1,75 @@
+/*
+ * Code Syntax Highlighting Styles
+ * Styling for code blocks and syntax highlighting
+ */
+
+/* Code syntax highlighting */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color: #8e908c;
+}
+
+.token.punctuation {
+    color: #525252;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol {
+    color: #c76dbc;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+    color: #47a88b;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+    color: #a77e58;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+    color: #007ee5;
+}
+
+.token.function {
+    color: #d95757;
+}
+
+.token.regex,
+.token.important {
+    color: #e90;
+}
+
+.token.important,
+.token.bold {
+    font-weight: bold;
+}
+
+.token.italic {
+    font-style: italic;
+}
+
+.token.entity {
+    cursor: help;
+}
+
+.token.deleted {
+    color: #e14283;
+}

@@ -1,0 +1,19 @@
+/*
+ * Progress Bar Styles
+ * Reading progress indicator
+ */
+
+.progress-container {
+    background: transparent;
+    height: 4px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.progress-bar {
+    background: var(--accent-color);
+    height: 4px;
+    width: 0%;
+}

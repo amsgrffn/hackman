@@ -1,0 +1,84 @@
+/*
+ * Newsletter Component Styles
+ * Sidebar newsletter signup form
+ */
+
+.newsletter-container {
+    background-color: var(--accent-color);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-bottom: var(--space-xl);
+    padding: var(--space-lg);
+    text-align: center;
+}
+
+.newsletter-title {
+    color: rgb(247, 251, 255);
+    font-family: "new-spirit-condensed", serif;
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-xs);
+}
+
+.newsletter-description {
+    color: rgb(221, 238, 255);
+    font-size: var(--text-sm);
+    line-height: 1.3;
+    margin-bottom: var(--space-md);
+}
+
+.newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.newsletter-input {
+    background-color: rgb(211, 233, 255);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: var(--radius);
+    font-family: var(--font-primary);
+    font-size: var(--text-sm);
+    padding: var(--space-sm) var(--space-md);
+    text-align: center;
+}
+
+.newsletter-input::placeholder {
+    color: var(--accent-color);
+    font-weight: var(--font-weight-medium);
+}
+
+.newsletter-button {
+    background-color: var(--accent-color);
+    border: none;
+    border-radius: 50px;
+    color: white;
+    cursor: pointer;
+    font-family: var(--font-primary);
+    font-size: var(--text-sm);
+    font-weight: var(--font-weight-semibold);
+    padding: var(--space-sm) var(--space-lg);
+    text-align: center;
+    transition: var(--transition);
+    width: 100%;
+}
+
+.newsletter-button:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+    transform: translateY(-2px);
+}
+
+.newsletter-footnote {
+    color: rgb(221, 238, 255);
+    font-size: 11px;
+    line-height: 1.3;
+    margin-top: var(--space-sm);
+    text-align: center;
+    text-wrap: balance;
+}
+
+/* Dark mode styles */
+body.dark-mode .newsletter-input {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+    color: var(--primary-color);
+}

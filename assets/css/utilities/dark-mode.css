@@ -1,0 +1,15 @@
+/*
+ * Dark Mode Styles
+ * Global dark mode overrides
+ */
+
+body.dark-mode {
+    --body-background: #000;
+    --gray-dark: #2a2a30;
+    --gray-light: #3A3A3C;
+    --gray-medium: #8e8e93;
+    --primary-color: #fff;
+    --secondary-color: #1C1C1E;
+    --shadow: 0 0 6px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.06);
+    --text-base-color: #f5f5f7;
+}

@@ -1,0 +1,16 @@
+<!-- Note -->
+<article class="note {{post_class}}">
+    <div class="sticky-note">
+        {{> "icons/sticky-note"}}
+    </div>
+    <header>
+        <h2><a href="{{url}}">{{title}}</a></h2>
+    </header>
+    <div class="post-content">
+        {{content}}
+    </div>
+    <footer>
+        <p class="post-tags"><time datetime="{{date format="YYYY-MM-DD"}}"><a href="{{url}}"><time datetime="{{date format="YYYY-MM-DD"}}">{{date published_at format="MMM D, YYYY"}}</time>{{> "icons/hash"}}</a></time> &bull; {{tags limit="3" separator=", "}}</p>
+        {{> "utilities/post-dropdown"}}
+    </footer>
+</article>

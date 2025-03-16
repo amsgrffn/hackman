@@ -1,0 +1,69 @@
+/*
+ * Article Header Styles
+ * Article title, meta, and author information
+ */
+
+.article-header {
+    margin-bottom: 32px;
+}
+
+.article-meta {
+    align-items: center;
+    color: var(--gray-medium);
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 14px;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.article-tag {
+    background-color: var(--accent-color);
+    border-radius: 100px;
+    color: white;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 12px;
+}
+
+.article-title {
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.article-excerpt {
+    color: var(--gray-medium);
+    font-size: clamp(18px, 3vw, 22px);
+    line-height: 1.4;
+    margin-bottom: 24px;
+    max-width: 700px;
+}
+
+.article-author {
+    align-items: center;
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.author-image {
+    border-radius: 50%;
+    height: 40px;
+    object-fit: cover;
+    width: 40px;
+}
+
+.author-name {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 2px;
+}
+
+.author-bio {
+    color: var(--gray-medium);
+    font-size: 14px;
+}

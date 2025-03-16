@@ -1,0 +1,20 @@
+<!-- Bookmark -->
+<article class="bookmark {{post_class}}">
+    <div class="bookmark-header">
+        <div class="bookmark-icon">
+            {{> "icons/globe"}}
+        </div>
+        <div>
+            <h2><a href="{{url}}">{{title}}</a></h2>
+        </div>
+    </div>
+    <div class="bookmark-comment">
+        <div class="post-content">
+            {{content}}
+        </div>
+        <footer>
+            <p class="post-topics"><time datetime="{{date format="YYYY-MM-DD"}}">{{date published_at format="MMM D, YYYY"}}</time> &bull; {{tags limit="3" separator=", "}}</p>
+            {{> "utilities/post-dropdown"}}
+        </footer>
+    </div>
+</article>

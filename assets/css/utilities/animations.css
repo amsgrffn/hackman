@@ -1,0 +1,71 @@
+/*
+ * Animation Styles
+ * Global animations and keyframes
+ */
+
+/* Heart beat animation */
+@keyframes heartbeat {
+    0% {
+        transform: scale(1);
+    }
+    15% {
+        transform: scale(1.1);
+    }
+    30% {
+        transform: scale(1);
+    }
+    45% {
+        transform: scale(1.14);
+    }
+    60% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Exclamation mark drop and bounce animation */
+@keyframes dropBounce {
+    /* Initial drop and bounce */
+    0% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    30% {
+        opacity: 1;
+        transform: translateY(5px);
+    }
+    45% {
+        transform: translateY(-7px);
+    }
+    60% {
+        transform: translateY(3px);
+    }
+    /* Settle in place */
+    65% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    /* Stay visible for a moment before beginning fade */
+    75% {
+        opacity: 1;
+    }
+    /* Very gradual fade out */
+    80% {
+        opacity: 0.95;
+    }
+    85% {
+        opacity: 0.85;
+    }
+    90% {
+        opacity: 0.7;
+    }
+    95% {
+        opacity: 0.3;
+    }
+    /* Complete fade */
+    100% {
+        opacity: 0;
+    }
+}
