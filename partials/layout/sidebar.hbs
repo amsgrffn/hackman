@@ -1,13 +1,15 @@
         <aside class="sidebar">
     <!-- Search -->
     <div class="search-container">
-        <div class="topbar-search">
-            <div class="topbar-search-left">
-               {{> "icons/search"}}
-                <span class="topbar-search-text">Search Everything</span>
+        <form class="search-form" action="/search/" method="get" role="search">
+            <div class="sidebar-search">
+                <div class="sidebar-search-left">
+                    {{> "icons/search"}}
+                    <input data-ghost-search type="search" class="sidebar-search-input" name="q" placeholder="Search Everything" aria-label="Search" required>
+                </div>
+                <div class="sidebar-search-shortcut">⌘K</div>
             </div>
-            <div class="topbar-search-shortcut">⌘K</div>
-        </div>
+        </form>
     </div>
     <!-- About -->
     <div class="about-site">
