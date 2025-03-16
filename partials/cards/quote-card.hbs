@@ -4,6 +4,7 @@
     <div class="post-content">
         {{content}}
     </div>
+    <div class="card-separator"></div>
     <footer>
         <p class="post-tags"><time datetime="{{date format="YYYY-MM-DD"}}"><a href="{{url}}"><time datetime="{{date format="YYYY-MM-DD"}}">{{date published_at format="MMM D, YYYY"}}</time>{{> "icons/hash"}}</a></time> &bull; {{tags limit="3" separator=", "}}</p>
         {{> "utilities/post-dropdown"}}

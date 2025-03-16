@@ -496,6 +496,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initTestimonials();
     initWeatherDisplay();
     initKnicksCounter();
+    initStickyHeaderEffect();
 
     // Log to confirm script is running
     console.log('Theme JS initialized including social sharing');
@@ -646,19 +647,20 @@ function initTouchFeedback() {
 /**
  * Extract and display root domain and favicon from bookmark URLs
  *
- * This function finds the first link in bookmark post content,
- * extracts the root domain, and attempts to load the favicon
- * for display purposes.
+ * This updated function finds the first link in bookmark post content,
+ * extracts the root domain, and adds it to the bookmark-source-container
+ * which is positioned above the title.
  */
 function initBookmarkDomainExtractor() {
    // Find all bookmark articles
    const bookmarks = document.querySelectorAll('.bookmark');
 
    bookmarks.forEach(bookmark => {
-     // Find the first link within the bookmark comment section
+     // Find the bookmark comment section
      const bookmarkComment = bookmark.querySelector('.bookmark-comment');
      if (!bookmarkComment) return;
 
+     // Find the first link within the bookmark comment section
      const firstLink = bookmarkComment.querySelector('a');
      if (!firstLink) return;
 
@@ -669,7 +671,6 @@ function initBookmarkDomainExtractor() {
        // Parse the URL to extract the hostname
        const urlObj = new URL(url);
        let domain = urlObj.hostname;
-       const origin = urlObj.origin;
 
        // Remove 'www.' prefix if present for display
        let displayDomain = domain;
@@ -713,10 +714,10 @@ function initBookmarkDomainExtractor() {
        // Add "via" text before the domain name
        sourceEl.innerHTML += `<span class="bookmark-source-text"><span class="bookmark-via">via</span> ${displayDomain}</span>`;
 
-       // Add the source element after the bookmark header
-       const bookmarkHeader = bookmark.querySelector('.bookmark-header');
-       if (bookmarkHeader) {
-         bookmarkHeader.insertAdjacentElement('afterend', sourceEl);
+       // Find the source container which is positioned before the title
+       const sourceContainer = bookmark.querySelector('.bookmark-source-container');
+       if (sourceContainer) {
+         sourceContainer.appendChild(sourceEl);
        }
      } catch (e) {
        console.error('Error parsing URL:', e);
@@ -1105,6 +1106,30 @@ function initBookmarkDomainExtractor() {
      }
 
      setMidnightUpdate();
+ }
+
+/**
+  * Sticky Header Scroll Effect
+  * Adds a class to the header when scrolling to enable subtle shadow and transparency
+  */
+ function initStickyHeaderEffect() {
+     const header = document.querySelector('.site-header');
+     if (!header) return;
+
+     // Initial check in case page is loaded scrolled down
+     checkHeaderScroll();
+
+     // Listen for scroll events
+     window.addEventListener('scroll', checkHeaderScroll);
+
+     function checkHeaderScroll() {
+         // Add .scrolled class when scrolled down (using 10px threshold)
+         if (window.scrollY > 10) {
+             header.classList.add('scrolled');
+         } else {
+             header.classList.remove('scrolled');
+         }
+     }
  }
 
 /**

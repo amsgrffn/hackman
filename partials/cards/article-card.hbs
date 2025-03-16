@@ -29,8 +29,11 @@
     {{/if}}
     <div class="card-content">
         <h2><a href="{{url}}">{{title}}</a></h2>
-    {{#if custom_excerpt}}
-        <!-- If there's a custom excerpt -->
+        <div class="meta">
+            <span class="tag">Design</span>
+            <span><time datetime="{{date format="YYYY-MM-DD"}}">{{date published_at format="MMM D, h:mm"}}</time></span>
+        </div>
+    <!-- {{#if custom_excerpt}}
         <p>{{custom_excerpt}}</p>
         <a class="readmore" href="{{url}}">Read more{{> "icons/arrow-right"}}</a>
     {{else}}
@@ -42,6 +45,6 @@
                 <p><time datetime="{{date format="YYYY-MM-DD"}}">{{date published_at format="MMM D, YYYY"}}</time> &bull; {{tags limit="3" separator=", "}}</p>
                 {{> "utilities/post-dropdown"}}
             </footer>
-        {{/if}}
+        {{/if}} -->
     </div>
 </article>
