@@ -67,8 +67,8 @@ production stylesheet in assets/built/screen.css using: npm run dev
     --accent-color: #0077ED;
     --body-background: linear-gradient(to bottom, #fefefe, #fafafa, #f5f5f7);
     --gray-dark: #1d1d1f;
-    --gray-light: #F2F2F7;
-    --gray-medium: #8E8E93;
+    --gray-light: #F9F9FB;
+    --gray-medium: #76767A;
     --primary-color: #000;
     --secondary-color: #fff;
     --seperator: oklch(29.5% 0.004 264 / 0.1);
@@ -88,8 +88,8 @@ production stylesheet in assets/built/screen.css using: npm run dev
     --yellow: #FFCC00;
 
     /* Typography */
-    --display: adelle-condensed,aktiv-grotesk, sans-serif;
-    --font-primary: adelle,portada,aktiv-grotesk, neue-haas-unica, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    --display: neue-haas-unica,aktiv-grotesk, sans-serif;
+    --font-primary: neue-haas-unica, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     --mono: 'JetBrains Mono', "source-code-pro", 'SF Mono', ui-monospace, Menlo, Consolas, Roboto Mono, 'Ubuntu Mono', 'DejaVu Sans Mono', monospace;
 
     /* Font sizes - core sizes with rem units */
@@ -130,8 +130,9 @@ production stylesheet in assets/built/screen.css using: npm run dev
     --line-height-tight: 1.2;
 
     /* Font weights */
-    --font-weight-black: 900;
+    --font-weight-black: 800;
     --font-weight-bold: 700;
+    --font-weight-heavy: 900;
     --font-weight-light: 300;
     --font-weight-medium: 500;
     --font-weight-normal: 400;
@@ -139,7 +140,7 @@ production stylesheet in assets/built/screen.css using: npm run dev
 
     /* Letter spacing */
     --letter-spacing-normal: 0;
-    --letter-spacing-tight: -0.005em;
+    --letter-spacing-tight: -0.03rem;
     --letter-spacing-tightest: -0.03rem;
     --letter-spacing-wide: 0.05em;
 
@@ -161,8 +162,8 @@ production stylesheet in assets/built/screen.css using: npm run dev
     --content-xs: 20rem; /* 320px */
 
     /* UI Elements */
-    --radius: 0.75rem;
-    --shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    --radius: 0.5rem;
+    --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1), 0 0 0 1px rgb(17 24 39 / 0.1);
     --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 
     /* Toggle appearance */
@@ -298,6 +299,7 @@ p {
 }
 
 .topbar-nav ul li {
+    font-weight: var(--font-weight-light);
     list-style-type: none;
 }
 
@@ -399,9 +401,9 @@ p {
 .site-header {
     backdrop-filter: saturate(180%) blur(20px);
     -webkit-backdrop-filter: saturate(180%) blur(20px);
-    background-color: rgba(255, 255, 255, 0.98);
+    background-color: rgba(249, 249, 251, 0.98);
     border-bottom: var(--size-1) solid var(--seperator);
-    padding: var(--space-md) 0;
+    padding: var(--space-xs) 0;
     position: sticky;
     top: 0;
     z-index: 100;
@@ -438,9 +440,8 @@ body.dark-mode .site-header.scrolled {
     color: var(--primary-color);
     display: inline-block;
     font-family: var(--display);
-    font-size: var(--heading-lg);
-    font-style: italic;
-    font-weight: 900;
+    font-size: var(--heading-sm);
+    font-weight: var(--font-weight-heavy);
     letter-spacing: var(--letter-spacing-tight);
     position: relative;
     z-index: 2;
@@ -539,7 +540,7 @@ body.dark-mode .site-header.scrolled {
 }
 
 .appearance-toggle {
-    background-color: var(--toggle-bg-light);
+    background-color: rgb(235, 235, 240);
     border-radius: 28px;
     display: inline-flex;
     height: 36px;
@@ -595,7 +596,7 @@ input:checked+.appearance-option svg {
 
 /* 7.1 Posts Container */
 .posts-container article {
-    margin-bottom: 1.5rem;
+    margin-bottom: 3rem;
     position: relative;
     z-index: auto;
 }
@@ -605,8 +606,9 @@ input:checked+.appearance-option svg {
   }
 
 .filter-tabs {
-    background: var(--gray-light);
-    border-radius: 9999px;
+    background: var(--secondary-color);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
     display: flex;
     flex-wrap: nowrap;
     gap: 0.5rem;
@@ -626,7 +628,7 @@ input:checked+.appearance-option svg {
   color: var(--gray-medium);
   cursor: pointer;
   font-family: var(--display);
-  font-size: 16px;
+  font-size: var(--text-sm);
   font-weight: 400;
   position: relative;
   text-decoration: none;
@@ -639,31 +641,19 @@ input:checked+.appearance-option svg {
 }
 
 .filter-tab:hover {
-  background-color: white;
-  color: var(--gray-dark);
+  background-color: var(--blue);
+  color: var(--secondary-color);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
 .filter-tab.active {
-  background-color: white;
+  background-color: var(--yellow);
   color: var(--primary-color);
   font-weight: var(--font-weight-semibold);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
-.filter-tab.active::after {
-  background-color: var(--accent-color);
-  border-radius: 50%;
-  content: "";
-  display: inline-block;
-  height: 6px;
-  margin-left: 0.5rem;
-  width: 6px;
-  position: absolute;
-  right: 8px; /* Position the dot to the right side */
-  top: 50%;
-  transform: translateY(-50%);
-}
+
 
 .filter-divider {
     background-color: var(--seperator);
@@ -735,7 +725,7 @@ footer {
 /* 7.2 Cards */
 .card {
     background-color: var(--secondary-color);
-    border: 1px solid var(--seperator);
+    box-shadow: var(--shadow);
     border-radius: var(--radius);
     overflow: hidden;
     transition: all 0.3s ease-in-out;
@@ -746,7 +736,6 @@ footer {
     font-size: var(--heading-sm);
     font-weight: 700;
     letter-spacing: var(--letter-spacing-tight);
-    margin: 0;
 }
 
 .card-image {
@@ -757,7 +746,7 @@ footer {
 }
 
 .card-content {
-    padding: var(--space-2xl) var(--space-2xl) var(--space-sm);
+    padding: var(--space-lg) var(--space-2xl) 0;
 }
 
 .card-content p {
@@ -829,10 +818,17 @@ footer {
 .quote footer,
 .video-container footer {
     align-items: center;
+    background: var(--gray-light);
+    border-top: 1px solid rgba(17, 24, 39, 0.1);
+    border-bottom-left-radius: var(--radius);
+    border-bottom-right-radius: var(--radius);
     display: flex;
-    justify-content: space-around;
-    margin-bottom: var(--space-md);
-    padding: 0;
+    justify-content: space-between;
+    margin-top: 2rem;
+    margin-left: calc(var(--space-2xl) * -1);
+    margin-right: calc(var(--space-2xl) * -1);
+    padding: var(--space-sm) var(--space-2xl);
+    width: calc(100% + var(--space-2xl) * 2);
 }
 
 /* Consistent footer text styling */
@@ -843,7 +839,7 @@ footer {
 .video-container footer p {
     color: var(--gray-medium);
     font-family: var(--display);
-    font-size: var(--text-md);
+    font-size: var(--text-sm);
     margin: 0;
 }
 
@@ -854,6 +850,7 @@ footer {
 .quote footer p a,
 .video-container footer p a {
     color: var(--gray-medium);
+    font-weight: var(--font-weight-light);
 }
 
 /* Consistent hover states for links in footers */
@@ -879,12 +876,12 @@ footer {
 
 .card-separator {
     border-top: 1px solid var(--seperator);
-    margin: var(--space-3xl) 0 var(--space-md);
     width: 100%;
 }
 
 /* Standard article cards */
 .card .card-separator {
+    margin-top: var(--space-xl);
     margin-left: calc(var(--space-2xl) * -1);
     margin-right: calc(var(--space-2xl) * -1);
     width: calc(100% + var(--space-2xl) * 2);
@@ -973,16 +970,26 @@ footer {
     color: var(--gray-medium);
     display: flex;
     font-size: var(--text-sm);
+    font-weight: var(--font-weight-light);
     gap: var(--space-xs);
-    margin-bottom: var(--space-md);
+    margin-bottom: var(--space-lg);
+    text-transform: uppercase;
 }
 
 .tag {
-    color: var(--accent-color);
-    font-size: var(--text-sm);
-    font-weight: var(--font-weight-medium);
-    text-transform: uppercase;
+    background-color: var(--accent-color);
+    border-radius: var(--radius);
+    color: var(--secondary-color);
+    font-size: var(--text-xs);
+    font-weight: var(--font-weight-semibold);
+    opacity: 0.9;
+    padding: var(--space-2xs) var(--space-sm);
     transition: transform 0.3s ease;
+}
+
+.bookmark .tag {
+    background-color: var(--orange);
+    color: var(--secondary-color);
 }
 
 .tag:hover {
@@ -997,11 +1004,11 @@ footer {
 
 /* 7.4 Bookmarks */
 .bookmark {
-    background-color: var(--secondary-color);
-    border: 1px solid var(--seperator);
     border-radius: var(--radius);
+    box-shadow: var(--shadow);
     margin-bottom: var(--space-xl);
     overflow: hidden;
+    position: relative;
 }
 
 .bookmark-header {
@@ -1016,6 +1023,7 @@ footer {
     font-family: var(--display);
     font-size: var(--heading-sm);
     font-weight: var(--font-weight-bold);
+    letter-spacing: var(--letter-spacing-tight);
     line-height: 1.2;
     margin: 0;
     padding: 0;
@@ -1023,19 +1031,19 @@ footer {
 }
 
 .bookmark-icon {
-    align-items: center;
-    color: var(--accent-color);
-    display: flex;
-    flex-shrink: 0;
-    height: 32px;
-    justify-content: center;
-    margin-top: 0.2rem;
-    width: 32px;
+    border-radius: var(--radius);
+    position: absolute;
+    right: calc(var(--size-5) * -1);
+    top: calc(var(--size-8) * -1);
+    background: var(--orange);
+    opacity: 0.8;
+    padding: var(--size-6);
 }
 
 .bookmark-icon svg {
-    height: var(--text-2xl);
-    width: var(--text-2xl);
+    height: var(--text-base);
+    stroke: white;
+    width: var(--text-base);
 }
 
 .bookmark-comment {
@@ -1058,17 +1066,19 @@ footer {
 /* Bookmark Source Styling */
 .bookmark-source {
     align-items: center;
+    color: var(--gray-medium);
     display: flex;
     font-family: var(--display);
-    font-size: var(--text-lg);
-    font-weight: var(--font-weight-normal);
+    font-size: var(--text-base);
+    font-weight: var(--font-weight-light);
     gap: var(--size-3);
+    margin-top: 2px;
     padding-bottom: var(--space-lg);
-    padding-left: 4.8rem;
+    padding-left: var(--space-2xl);
 }
 
 .bookmark-via {
-    font-style: italic;
+
 }
 
 .bookmark-source-text {
@@ -1079,12 +1089,12 @@ footer {
 
 .bookmark-favicon {
     align-items: center;
-    border-radius: var(--size-3);
+    border-radius: 3px;
     display: flex;
     flex-shrink: 0;
     height: var(--text-base);
     justify-content: center;
-    margin-top: var(--size-2);
+    margin-top: var(--size-4);
     overflow: hidden;
     width: var(--text-base);
 }
@@ -1125,9 +1135,8 @@ footer {
 
 /* 7.5 Notes & Quotes */
 .note {
-    background-color: var(--secondary-color);
-    border: 1px solid var(--seperator);
     border-radius: var(--radius);
+    box-shadow: var(--shadow);
     margin-bottom: var(--space-xl);
     padding: var(--space-2xl) var(--space-xl) var(--space-sm) var(--space-xl);
     position: relative;
@@ -1157,9 +1166,9 @@ footer {
 .note .sticky-note {
     border-radius: 9999px;
     position: absolute;
-    left: calc(var(--size-5) * -1);
+    right: calc(var(--size-5) * -1);
     top: calc(var(--size-8) * -1);
-    background: var(--orange);
+    background: var(--yellow);
     opacity: 0.8;
     padding: var(--size-6);
 }
@@ -1170,7 +1179,16 @@ footer {
     width: var(--text-base);
 }
 
+.note footer {
+    align-content: center;
+    display: flex;
+    justify-content: space-between;
+}
 
+.note footer p {
+    color: var(--gray-medium);
+    font-size: var(--text-sm);
+}
 
 .quote {
     background-color: var(--primary-color);
@@ -1302,11 +1320,15 @@ footer {
 
 /* 7.6 Video Container */
 .video-container {
-    border: 1px solid var(--seperator);
     border-radius: var(--radius);
+    box-shadow: var(--shadow);
     margin-bottom: var(--space-xl);
     overflow: hidden;
     padding: 0;
+}
+
+.video-container h2 {
+    display: none;
 }
 
 .video-container footer {
@@ -1343,15 +1365,6 @@ footer {
     position: absolute;
     top: 0;
     width: 100%;
-}
-
-.video-container h2 {
-    font-family: var(--display);
-    font-size: var(--heading-md);
-    font-weight: var(--font-weight-bold);
-    line-height: 1.2;
-    margin: var(--space-xl) var(--space-xl) var(--space-md) var(--space-xl);
-    text-wrap: pretty;
 }
 
 .video-comment {
@@ -1400,11 +1413,11 @@ footer {
 .about-site {
     background-color: var(--gray-light);
     border-radius: var(--radius);
+    box-shadow: var(--shadow);
     color: var(--gray-dark);
     margin-bottom: var(--space-2xl);
-    padding: var(--space-2xl);
+    padding: var(--space-lg) var(--space-2xl);
     transition: var(--transition);
-    border: 1px solid var(--seperator);
 }
 
 .about-site-header {
@@ -1417,8 +1430,9 @@ footer {
 .about-site-title {
     color: var(--gray-dark);
     font-family: var(--display);
-    font-size: var(--text-xl);
-    font-weight: var(--font-weight-semibold);
+    font-size: var(--text-lg);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: var(--letter-spacing-tight);
     margin: 0;
 }
 
@@ -1463,7 +1477,7 @@ footer {
     color: var(--gray-dark);
     font-family: var(--display);
     font-size: var(--text-lg);
-    font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-black);
 }
 
 .stat-label {
@@ -1473,12 +1487,13 @@ footer {
 }
 
 .sidebar .about-site-link {
-    color: var(--gray-dark);
+    background: var(--accent-color);
+    border-radius: var(--radius);
+    color: var(--gray-light);
     display: inline-block;
-    font-family: var(--display);
     font-size: var(--text-sm);
-    font-style: italic;
     font-weight: var(--font-weight-normal);
+    padding: var(--space-2xs) var(--space-sm);
     text-align: center;
     transition: var(--transition);
 }
@@ -1612,18 +1627,19 @@ footer {
 
 /* 8.4 Newsletter */
 .newsletter-container {
-    background: var(--gray-light);
-    border: 1px solid var(--seperator);
+    background-color: var(--gray-light);
     border-radius: var(--radius);
+    box-shadow: var(--shadow);
     margin-bottom: var(--space-2xl);
-    padding: var(--space-2xl);
+    padding: var(--space-lg) var(--space-2xl);
 }
 
 .newsletter-title {
     color: var(--gray-dark);
     font-family: var(--display);
-    font-size: var(--text-xl);
-    font-weight: var(--font-weight-semibold);
+    font-size: var(--text-lg);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: var(--letter-spacing-tight);
     margin-bottom: var(--space-xs);
 }
 
@@ -1650,8 +1666,8 @@ footer {
 
 .newsletter-input::placeholder {
     color: var(--gray-dark);
-    font-size: var(--text-base);
-    font-weight: var(--font-weight-medium);
+    font-size: var(--text-sm);
+
 }
 
 .newsletter-button {
@@ -1663,7 +1679,7 @@ footer {
     color: var(--gray-dark);
     font-size: var(--text-xxs);
     line-height: 1.3;
-    margin-top: var(--space-sm);
+    margin: var(--space-sm) 0 0;
     opacity: 0.9;
     text-wrap: pretty;
 }
@@ -1671,8 +1687,8 @@ footer {
 /* 8.5 Sidebar Quotes */
 .sidebar .quotes {
     background-color: var(--gray-light);
-    border: 1px solid var(--seperator);
     border-radius: var(--radius);
+    box-shadow: var(--shadow);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1697,9 +1713,10 @@ footer {
     font-family: var(--display);
     font-size: var(--text-xl);
     font-style: normal;
-    font-weight: var(--font-weight-semibold);
+    font-weight: var(--font-weight-bold);
     height: 100%;
     justify-content: center;
+    letter-spacing: var(--letter-spacing-tight);
     line-height: 1.4;
     position: relative;
 }
@@ -1707,13 +1724,18 @@ footer {
 .sidebar .quotes blockquote cite {
     align-items: center;
     display: flex;
-    font-size: var(--text-base);
+    font-size: var(--text-sm);
     font-style: normal;
     font-weight: var(--font-weight-normal);
     gap: var(--size-6);
     justify-content: center;
-    margin-top: var(--space-md);
+    letter-spacing: var(--letter-spacing-normal);
+    margin-top: var(--space-lg);
     opacity: 0.9;
+}
+
+.sidebar .quotes blockquote cite a:hover {
+    color: var(--red);
 }
 
 .sidebar .quotes blockquote cite svg {
@@ -1841,8 +1863,9 @@ footer {
 
 .sidebar-search {
   align-items: center;
-  background-color: var(--gray-light);
-  border-radius: 9999px;
+  background-color: var(--secondary-color);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
   color: var(--gray-medium);
   cursor: pointer;
   display: flex;
@@ -1886,7 +1909,7 @@ footer {
 .sidebar-search-input::placeholder {
     color: var(--gray-medium);
     font-family: var(--display);
-    font-size: var(--text-md);
+    font-size: var(--text-sm);
 }
 
 .sidebar-search-shortcut {
@@ -1894,7 +1917,7 @@ footer {
     color: var(--gray-medium);
     display: flex;
     font-family: var(--mono);
-    font-size: var(--text-md);
+    font-size: var(--text-sm);
     justify-content: center;
 }
 

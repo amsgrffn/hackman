@@ -647,20 +647,19 @@ function initTouchFeedback() {
 /**
  * Extract and display root domain and favicon from bookmark URLs
  *
- * This updated function finds the first link in bookmark post content,
- * extracts the root domain, and adds it to the bookmark-source-container
- * which is positioned above the title.
+ * This function finds the first link in bookmark post content,
+ * extracts the root domain, and attempts to load the favicon
+ * for display purposes.
  */
 function initBookmarkDomainExtractor() {
    // Find all bookmark articles
    const bookmarks = document.querySelectorAll('.bookmark');
 
    bookmarks.forEach(bookmark => {
-     // Find the bookmark comment section
+     // Find the first link within the bookmark comment section
      const bookmarkComment = bookmark.querySelector('.bookmark-comment');
      if (!bookmarkComment) return;
 
-     // Find the first link within the bookmark comment section
      const firstLink = bookmarkComment.querySelector('a');
      if (!firstLink) return;
 
@@ -671,6 +670,7 @@ function initBookmarkDomainExtractor() {
        // Parse the URL to extract the hostname
        const urlObj = new URL(url);
        let domain = urlObj.hostname;
+       const origin = urlObj.origin;
 
        // Remove 'www.' prefix if present for display
        let displayDomain = domain;
@@ -714,10 +714,10 @@ function initBookmarkDomainExtractor() {
        // Add "via" text before the domain name
        sourceEl.innerHTML += `<span class="bookmark-source-text"><span class="bookmark-via">via</span> ${displayDomain}</span>`;
 
-       // Find the source container which is positioned before the title
-       const sourceContainer = bookmark.querySelector('.bookmark-source-container');
-       if (sourceContainer) {
-         sourceContainer.appendChild(sourceEl);
+       // Add the source element after the bookmark header
+       const bookmarkHeader = bookmark.querySelector('.bookmark-header');
+       if (bookmarkHeader) {
+         bookmarkHeader.insertAdjacentElement('afterend', sourceEl);
        }
      } catch (e) {
        console.error('Error parsing URL:', e);
