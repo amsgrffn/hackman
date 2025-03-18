@@ -2,8 +2,13 @@
 <article class="video-container {{post_class}}">
     <div class="video-comment">
         <h2><a href="{{url}}">{{title}}</a></h2>
-        {{content}}
-        <div class="card-separator"></div>
+        <div class="meta">
+            <span class="tag">Bookmark</span>
+            <span><time datetime="{{date format="YYYY-MM-DD"}}">{{date published_at format="MMM D, h:mmA"}}</time></span>
+        </div>
+        <div class="post-content">
+            {{content}}
+        </div>
         <footer>
             <p class="post-tags"><time datetime="{{date format="YYYY-MM-DD"}}"><a href="{{url}}"><time datetime="{{date format="YYYY-MM-DD"}}">{{date published_at format="MMM D, YYYY"}}</time>{{> "icons/hash"}}</a></time> &bull; {{tags limit="3" separator=", "}}</p>
             {{> "utilities/post-dropdown"}}

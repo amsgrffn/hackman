@@ -1,17 +1,11 @@
 <!-- Bookmark -->
 <article class="bookmark {{post_class}}">
     <div class="bookmark-header">
-        <div class="bookmark-icon">
-            {{> "icons/globe"}}
-        </div>
         <div>
             <div class="meta">
                 <span class="tag">Bookmark</span>
                 <span><time datetime="{{date format="YYYY-MM-DD"}}">{{date published_at format="MMM D, h:mmA"}}</time></span>
-
-
             </div>
-            <!--  <div class="bookmark-source-container"></div> -->
             <h2><a href="{{url}}">{{title}}</a></h2>
         </div>
     </div>
@@ -19,7 +13,6 @@
         <div class="post-content">
             {{content}}
         </div>
-        <div class="card-separator"></div>
         <footer>
             <p class="post-topics">{{tags limit="3" separator=", "}}</p>
             {{> "utilities/post-dropdown"}}
