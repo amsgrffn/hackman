@@ -29,8 +29,8 @@
     {{/if}}
     <div class="card-content">
         <div class="meta">
-            <span class="tag">Design</span>
-            <span><time datetime="{{date format="YYYY-MM-DD"}}">{{date published_at format="MMM D, h:mmA"}}</time></span>
+            <span class="tag">{{#primary_tag}}<a href="{{url}}">{{name}}</a>{{/primary_tag}}</span>
+            <span><time datetime="{{date format="YYYY-MM-DD"}}">{{date published_at format="MMMM D, Y, h:mm A"}}</time></span>
         </div>
         <h2><a href="{{url}}">{{title}}</a></h2>
     {{#if custom_excerpt}}
@@ -42,7 +42,13 @@
                 {{content}}
             </div>
             <footer>
-                <p>{{tags limit="3" separator=", "}}</p>
+                <ul class="post-tags">
+                    {{#if tags}}
+                    {{#foreach tags}}
+                        <li><a href="{{url}}" title="{{name}}">{{> "icons/hash"}}{{name}}</a></li>
+                    {{/foreach}}
+                    {{/if}}
+                </ul>
                 {{> "utilities/post-dropdown"}}
             </footer>
         {{/if}}

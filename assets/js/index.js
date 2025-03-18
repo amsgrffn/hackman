@@ -252,27 +252,30 @@ function showCopyAlert(target, success = true) {
         position: 'fixed',
         left: `${rect.left + (rect.width / 2)}px`,
         bottom: `${window.innerHeight - rect.top + 10}px`,
-        backgroundColor: success ? '#333' : '#dc3545',
-        color: 'white',
+        backgroundColor: success ? '#ffe680' : '#dc3545',
+        boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1), 0 0 0 1px rgb(17 24 39 / 0.1)',
+        color: '#403e38',
         padding: '12px 24px',
-        borderRadius: '8px',
+        borderRadius: '0.5rem',
         zIndex: '1000',
-        fontSize: '16px',
-        fontFamily: 'var(--font-primary)',
+        fontSize: '18px',
+        fontFamily: 'var(--display)',
+        fontWeight: '800',
         opacity: '0',
+        textTransform: 'uppercase',
         transition: 'opacity 0.3s ease-in-out',
         whiteSpace: 'nowrap',
         transform: 'translateX(-50%)'
     });
 
-    alertBox.textContent = success ? 'URL copied to clipboard' : 'Failed to copy URL';
+    alertBox.textContent = success ? 'Success! URL copied to clipboard' : 'Failed to copy URL';
     document.body.appendChild(alertBox);
 
     requestAnimationFrame(() => {
         alertBox.style.opacity = '1';
         setTimeout(() => {
             alertBox.style.opacity = '0';
-            setTimeout(() => alertBox.remove(), 300);
+            setTimeout(() => alertBox.remove(), 350);
         }, 2000);
     });
 }

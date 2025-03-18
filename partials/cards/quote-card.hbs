@@ -1,15 +1,21 @@
 <!-- Quote -->
 <article class="quote {{post_class}}">
     <div class="meta">
-        <span class="tag">Design</span>
-        <span><time datetime="{{date format="YYYY-MM-DD"}}">{{date published_at format="MMM D, h:mmA"}}</time></span>
+        <span class="tag">{{#primary_tag}}<a href="{{url}}">{{name}}</a>{{/primary_tag}}</span>
+        <span><a href="{{url}}"><time datetime="{{date format="YYYY-MM-DD"}}">{{date published_at format="MMMM D, h:mmA"}}</time></a></span>
     </div>
     <h2><a href="{{url}}">{{title}}</a></h2>
     <div class="post-content">
         {{content}}
     </div>
     <footer>
-        <p class="post-tags"><time datetime="{{date format="YYYY-MM-DD"}}"><a href="{{url}}"><time datetime="{{date format="YYYY-MM-DD"}}">{{date published_at format="MMM D, YYYY"}}</time>{{> "icons/hash"}}</a></time> &bull; {{tags limit="3" separator=", "}}</p>
+        <ul class="post-tags">
+            {{#if tags}}
+            {{#foreach tags}}
+                <li><a href="{{url}}" title="{{name}}">{{> "icons/hash"}}{{name}}</a></li>
+            {{/foreach}}
+            {{/if}}
+        </ul>
         {{> "utilities/post-dropdown"}}
     </footer>
 </article>
