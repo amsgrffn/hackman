@@ -40,6 +40,27 @@
                             {{content}}
                         </div>
 
+                        {{#if primary_author}}
+                        <section class="author-card">
+                            <img src="{{primary_author.profile_image}}" alt="{{primary_author.name}}" class="author-card-image">
+                            <div class="author-card-content">
+                                <h3 class="author-card-name">by {{primary_author.name}}</h3>
+                                {{#if primary_author.bio}}
+                                <p class="author-card-bio">{{primary_author.bio}}</p>
+                                {{/if}}
+                                <div class="author-card-links">
+                                    {{#if primary_author.website}}
+                                    <a href="{{primary_author.website}}" target="_blank" rel="noopener noreferrer">Website</a>
+                                    {{/if}}
+                                    {{#if primary_author.twitter}}
+                                    <a href="{{primary_author.twitter}}" target="_blank" rel="noopener noreferrer">Twitter</a>
+                                    {{/if}}
+                                    <a href="{{primary_author.url}}">More posts</a>
+                                </div>
+                            </div>
+                        </section>
+                        {{/if}}
+
                         <div class="article-footer">
                             <div class="article-tags">
                                 {{#if tags}}
@@ -77,19 +98,48 @@
                                 </button>
                             </div>
                         </div>
+                        <!-- Related articles -->
+                        <section class="related-articles">
+                            <h2 class="section-title">Related articles</h2>
+                            <div class="related-grid">
+                                {{#get "posts" filter="tags:[{{primary_tag.slug}}]+id:-{{id}}" limit="3" include="tags" as |related|}}
+                                {{#foreach related}}
+                                <div class="card">
+                                    {{#if feature_image}}
+                                    <img src="{{img_url feature_image size="medium"}}" alt="{{title}}" class="card-image">
+                                    {{else}}
+                                    <div class="card-image-placeholder"></div>
+                                    {{/if}}
+                                    <div class="card-content">
+                                        <div class="meta">
+                                            {{#primary_tag}}
+                                            <span class="tag">{{name}}</span>
+                                            {{/primary_tag}}
+                                            <span>{{date published_at format="MMM D, YYYY"}}</span>
+                                        </div>
+                                        <h3 class="card-title"><a href="{{url}}">{{title}}</a></h3>
+                                        <p class="card-excerpt">{{excerpt words="25"}}</p>
+                                    </div>
+                                </div>
+                                {{/foreach}}
+                                {{/get}}
+                            </div>
+                        </section>
                     </div>
 
                     <!-- Sidebar -->
                     <aside class="sidebar">
                         <!-- Search -->
                         <div class="search-container">
-                            <div class="topbar-search">
-                                <div class="topbar-search-left">
-                                   {{> "icons/search"}}
-                                    <span class="topbar-search-text">Search Everything</span>
+                            <form class="search-form" action="/search/" method="get" role="search">
+                                <div class="sidebar-search">
+                                    <div class="sidebar-search-left">
+                                        {{> "icons/search"}}
+                                        <input data-ghost-search type="search" class="sidebar-search-input" name="q" placeholder="Search Everything" aria-label="Search" required>
+                                    </div>
+                                    <div class="sidebar-search-shortcut">⌘K</div>
                                 </div>
-                                <div class="topbar-search-shortcut">⌘K</div>
-                            </div>
+                            </form>
                         </div>
                         <!-- About -->
                         <div class="about-site">
@@ -289,73 +339,6 @@
             </div>
         </div>
     </article>
-
-    <div class="container">
-        <div class="content">
-            <!-- Author bio section -->
-            {{#if primary_author}}
-            <section class="author-card">
-                <img src="{{primary_author.profile_image}}" alt="{{primary_author.name}}" class="author-card-image">
-                <div class="author-card-content">
-                    <h3 class="author-card-name">{{primary_author.name}}</h3>
-                    {{#if primary_author.bio}}
-                    <p class="author-card-bio">{{primary_author.bio}}</p>
-                    {{/if}}
-                    <div class="author-card-links">
-                        {{#if primary_author.website}}
-                        <a href="{{primary_author.website}}" target="_blank" rel="noopener noreferrer">Website</a>
-                        {{/if}}
-                        {{#if primary_author.twitter}}
-                        <a href="{{primary_author.twitter}}" target="_blank" rel="noopener noreferrer">Twitter</a>
-                        {{/if}}
-                        <a href="{{primary_author.url}}">More posts</a>
-                    </div>
-                </div>
-            </section>
-            {{/if}}
-
-            <!-- Related articles -->
-            <section class="related-articles">
-                <h2 class="section-title">Related articles</h2>
-                <div class="related-grid">
-                    {{#get "posts" filter="tags:[{{primary_tag.slug}}]+id:-{{id}}" limit="3" include="tags" as |related|}}
-                    {{#foreach related}}
-                    <div class="card">
-                        {{#if feature_image}}
-                        <img src="{{img_url feature_image size="medium"}}" alt="{{title}}" class="card-image">
-                        {{else}}
-                        <div class="card-image-placeholder"></div>
-                        {{/if}}
-                        <div class="card-content">
-                            <div class="meta">
-                                {{#primary_tag}}
-                                <span class="tag">{{name}}</span>
-                                {{/primary_tag}}
-                                <span>{{date published_at format="MMM D, YYYY"}}</span>
-                            </div>
-                            <h3 class="card-title"><a href="{{url}}">{{title}}</a></h3>
-                            <p class="card-excerpt">{{excerpt words="25"}}</p>
-                        </div>
-                    </div>
-                    {{/foreach}}
-                    {{/get}}
-                </div>
-            </section>
-
-            <!-- Newsletter subscribe -->
-            <section class="article-newsletter">
-                <div class="newsletter-container">
-                    <h3 class="newsletter-title">Subscribe to our newsletter</h3>
-                    <p class="newsletter-description">Get the latest posts delivered right to your inbox.</p>
-                    <form class="newsletter-form" data-members-form="subscribe">
-                        <input type="email" class="newsletter-input" data-members-email placeholder="your@email.com" required>
-                        <button class="newsletter-button" type="submit">Subscribe</button>
-                    </form>
-                    <p class="newsletter-footnote">No spam. Just the latest releases and tips, interesting articles, and exclusive interviews in your inbox every week.</p>
-                </div>
-            </section>
-        </div>
-    </div>
 </main>
-
 {{/post}}
+{{> "layout/site-footer"}}

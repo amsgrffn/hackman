@@ -63,18 +63,6 @@
     transition: transform 0.3s ease;
 }
 
-    .quote .dropdown-content a {
-        color: var(--text-base-color);
-    }
-
-    .note .dropdown-content a {
-        font-family: var(--font-primary);
-    }
-
-.dropdown-content a:last-child {
-    border-bottom: none;
-}
-
 .dropdown-content p.title {
     color: var(--gray-dark);
     font-family: var(--display);
@@ -95,14 +83,6 @@
     text-align: left;
     text-wrap: pretty;
 }
-
-    .note .dropdown-content p.thanks {
-        font-family: var(--font-primary);
-    }
-
-    .quote .dropdown-content p.thanks {
-        color: var(--text-base-color);
-    }
 
 .dropdown-content a:hover {
     background: var(--yellow);

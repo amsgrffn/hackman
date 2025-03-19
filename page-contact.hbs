@@ -1,0 +1,192 @@
+{{!< default}}
+{{> "layout/site-header"}}
+<div class="container-without-sidebar">
+    <main class="post-or-page" tabindex="-1">
+        {{#post}}
+            <article class="{{post_class}}">
+                <header>
+                    <h2>{{title}}</h2>
+                    {{#if custom_excerpt}}<p class="excerpt">{{custom_excerpt}}</p>{{/if}}
+                    {{#if feature_image}}{{> "components/post-hero-image"}}{{/if}}
+                </header>
+                <div class="article-content">
+                    <p>Directed your emails to the appropriate address below. Simply click the eye icon (<svg class="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                            <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            <path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                        </svg>) to reveal the respective email address. Clicking the uncovered link will open your default email client. You can take it from there. We look forward to chatting with you.</p>
+                        <p>You can see our <a href="/office-hours">office hours on this page</a>.</p>
+                <div class="nested-wide-container">
+                    <div class="contact-cards-wrap">
+                    {{!-- Honeypot fields --}}
+                    <div class="contact-field">
+                        <input type="email" name="contact_email" tabindex="-1" aria-hidden="true" autocomplete="off">
+                        <input type="text" name="contact_name" tabindex="-1" aria-hidden="true" autocomplete="off">
+                        <input type="url" name="website" tabindex="-1" aria-hidden="true" autocomplete="off">
+                    </div>
+                    <div id="contactCards"></div>
+                    {{#contentFor "scripts"}}
+                    <script>
+                        // Track if honeypot was triggered
+                        let botDetected = false;
+
+                        // Add honeypot detection
+                        document.querySelectorAll('.contact-field input').forEach(input => {
+                            input.addEventListener('change', (e) => {
+                                console.log('Bot detected via honeypot');
+                                botDetected = true;
+                                e.preventDefault();
+                                return false;
+                            });
+                        });
+
+                        const contacts = [
+                            {
+                                id: 'general',
+                                title: 'General Feedback',
+                                description: 'Say hello, provide feedback, notify us we screwed up.',
+                                email: btoa('hello@domain.com')
+                            },
+                            {
+                                id: 'support',
+                                title: 'Help Center',
+                                description: 'For questions about any of our products or services, like memberships and subscriptions',
+                                email: btoa('support@domain.com')
+                            },
+                            {
+                                id: 'authors',
+                                title: 'Contact Authors',
+                                description: `Contact a particular author of <em>You Can't Be Serious</em>`,
+                                emails: [
+                                    {
+                                        label: '<strong>Amos</strong>',
+                                        email: btoa('fiction@domain.com')
+                                    },
+                                    {
+                                        label: '<strong>Dolly</strong>',
+                                        email: btoa('nonfiction@domain.com')
+                                    },
+                                    {
+                                        label: '<strong>Eileen</strong>',
+                                        email: btoa('poetry@domain.com')
+                                    }
+                                ]
+                            },
+                            {
+                                id: 'business',
+                                title: 'Business Inquiries',
+                                description: 'Questions about partnerships and business opportunities',
+                                email: btoa('business@domain.com')
+                            }
+                        ];
+
+                        const pageLoadTime = Date.now();
+
+                        function createContactCards() {
+                            const container = document.getElementById('contactCards');
+
+                            contacts.forEach(contact => {
+                                const card = document.createElement('div');
+                                card.className = 'contact-card';
+
+                                // Different HTML structure for multiple emails vs single email
+                                const emailSection = contact.emails ?
+                                    `<div class="contact-email-container">
+                                        <div class="contact-email-list">
+                                            ${contact.emails.map(emailObj => `
+                                                <div class="contact-email hidden" id="email-${contact.id}-${emailObj.label.toLowerCase().replace(/\s+/g, '-')}">
+                                                    <span class="contact-email-label">${emailObj.label}:</span>
+                                                    <span class="email-text">Click to reveal email</span>
+                                                </div>
+                                            `).join('')}
+                                        </div>
+                                        <button class="reveal-button" onclick="toggleEmail('${contact.id}')"
+                                                aria-label="Toggle email visibility">
+                                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                                                <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                                <path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                            </svg>
+                                        </button>
+                                    </div>` :
+                                    `<div class="contact-email-container">
+                                        <span class="contact-email hidden" id="email-${contact.id}"
+                                              data-email="${contact.email}">Click to reveal email</span>
+                                        <button class="reveal-button" onclick="toggleEmail('${contact.id}')"
+                                                aria-label="Toggle email visibility">
+                                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                                                <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                                <path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                            </svg>
+                                        </button>
+                                    </div>`;
+
+                                card.innerHTML = `
+                                    <h4 class="contact-title">${contact.title}</h4>
+                                    <p class="contact-description">${contact.description}</p>
+                                    ${emailSection}
+                                `;
+                                container.appendChild(card);
+                            });
+                        }
+
+                        function toggleEmail(id) {
+                            // Check if bot was detected
+                            if (botDetected) {
+                                console.log('Email reveal blocked - bot detected');
+                                return;
+                            }
+
+                            // Check time on page
+                            const timeOnPage = (Date.now() - pageLoadTime) / 1000;
+                            if (timeOnPage < 1) {
+                                console.log('Too fast - likely a bot');
+                                return;
+                            }
+
+                            const contact = contacts.find(c => c.id === id);
+
+                            if (contact.emails) {
+                                // Handle multiple emails
+                                contact.emails.forEach(emailObj => {
+                                    const emailElement = document.getElementById(`email-${id}-${emailObj.label.toLowerCase().replace(/\s+/g, '-')}`);
+                                    const emailTextElement = emailElement.querySelector('.email-text');
+
+                                    if (emailElement.classList.contains('hidden')) {
+                                        const email = atob(emailObj.email);
+                                        emailTextElement.innerHTML = `<a href="mailto:${email}">${email}</a>`;
+                                        emailElement.classList.remove('hidden');
+                                    } else {
+                                        emailTextElement.textContent = 'Click to reveal email';
+                                        emailElement.classList.add('hidden');
+                                    }
+                                });
+                            } else {
+                                // Handle single email
+                                const emailElement = document.getElementById(`email-${id}`);
+                                const encodedEmail = emailElement.dataset.email;
+
+                                if (emailElement.classList.contains('hidden')) {
+                                    const email = atob(encodedEmail);
+                                    emailElement.innerHTML = `<a href="mailto:${email}">${email}</a>`;
+                                    emailElement.classList.remove('hidden');
+                                } else {
+                                    emailElement.textContent = 'Click to reveal email';
+                                    emailElement.classList.add('hidden');
+                                }
+                            }
+                        }
+
+                        // Initialize the contact cards
+                        createContactCards();
+                    </script>
+                    {{/contentFor}}
+                </div>
+                </div>
+            </div>
+                <footer>
+                    <p>The {{title}} page was created on {{date format="MMMM D, YYYY"}}. {{#match updated at}}It was updated on <time class="updated" datetime="{{updated_at}}">{{date updated_at format="MMMM D, YYYY"}}</time>.{{/match}}</p>
+                </footer>
+            </article>
+        {{/post}}
+    </main>
+</div>
+{{> "layout/site-footer"}}

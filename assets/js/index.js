@@ -268,7 +268,7 @@ function showCopyAlert(target, success = true) {
         transform: 'translateX(-50%)'
     });
 
-    alertBox.textContent = success ? 'Success! URL copied to clipboard' : 'Failed to copy URL';
+    alertBox.textContent = success ? 'URL copied to clipboard' : 'Failed to copy URL';
     document.body.appendChild(alertBox);
 
     requestAnimationFrame(() => {
@@ -500,6 +500,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initWeatherDisplay();
     initKnicksCounter();
     initStickyHeaderEffect();
+    initYouTubeLightbox();
 
     // Log to confirm script is running
     console.log('Theme JS initialized including social sharing');
@@ -1132,6 +1133,104 @@ function initBookmarkDomainExtractor() {
          } else {
              header.classList.remove('scrolled');
          }
+     }
+ }
+
+// YouTube Lightbox Function
+ // Add this to your existing index.js file or create a new one
+
+ /**
+  * Initialize YouTube Lightbox functionality
+  * This function creates a modal for YouTube videos and
+  * attaches click handlers to all YouTube links
+  */
+ function initYouTubeLightbox() {
+     // Create the modal element if it doesn't exist
+     if (!document.getElementById('youtube-modal')) {
+         const modal = document.createElement('div');
+         modal.id = 'youtube-modal';
+         modal.className = 'youtube-modal';
+         modal.innerHTML = `
+             <div class="youtube-modal-content">
+                 <button class="youtube-modal-close" aria-label="Close video">
+                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                         <circle cx="12" cy="12" r="10"/>
+                         <line x1="15" y1="9" x2="9" y2="15"/>
+                         <line x1="9" y1="9" x2="15" y2="15"/>
+                     </svg>
+                 </button>
+                 <div class="youtube-modal-iframe-container">
+                     <iframe id="youtube-iframe" frameborder="0" allowfullscreen
+                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+                     </iframe>
+                 </div>
+             </div>
+         `;
+         document.body.appendChild(modal);
+
+         // Add event listener to close button
+         const closeBtn = modal.querySelector('.youtube-modal-close');
+         closeBtn.addEventListener('click', closeYouTubeModal);
+
+         // Close modal when clicking outside the content
+         modal.addEventListener('click', function(event) {
+             if (event.target === modal) {
+                 closeYouTubeModal();
+             }
+         });
+
+         // Close modal with escape key
+         document.addEventListener('keydown', function(event) {
+             if (event.key === 'Escape' && modal.style.display === 'flex') {
+                 closeYouTubeModal();
+             }
+         });
+     }
+
+     // Find YouTube links with specific patterns
+     const youtubeLinks = document.querySelectorAll('a[href*="youtube.com/watch"], a[href*="youtu.be/"]');
+
+     youtubeLinks.forEach(link => {
+         link.addEventListener('click', openYouTubeModal);
+     });
+ }
+
+ function openYouTubeModal(event) {
+     event.preventDefault();
+
+     const url = new URL(this.href);
+     let videoId;
+
+     // Extract video ID from different YouTube URL formats
+     if (url.hostname.includes('youtube.com')) {
+         videoId = url.searchParams.get('v');
+     } else if (url.hostname.includes('youtu.be')) {
+         videoId = url.pathname.substring(1);
+     }
+
+     if (videoId) {
+         const iframe = document.getElementById('youtube-iframe');
+         iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+
+         const modal = document.getElementById('youtube-modal');
+         modal.style.display = 'flex';
+
+         // Add class to body to prevent scrolling
+         document.body.classList.add('youtube-modal-open');
+     }
+ }
+
+ function closeYouTubeModal() {
+     const modal = document.getElementById('youtube-modal');
+     if (modal) {
+         modal.style.display = 'none';
+
+         // Reset iframe src to stop video playback
+         const iframe = document.getElementById('youtube-iframe');
+         iframe.src = '';
+
+         // Remove class from body to re-enable scrolling
+         document.body.classList.remove('youtube-modal-open');
      }
  }
 

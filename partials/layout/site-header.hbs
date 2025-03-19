@@ -17,10 +17,19 @@
     <div class="container">
         <div class="header-inner">
              <a href="{{@site.url}}" class="logo">{{{@site.title}}}</a>
-            <nav class="site-nav">
-                <a class="memberships" href="#">Memberships</a>
-                <a class="login" href="#">Member Login</a>
-            </nav>
+           <nav class="site-nav">
+               <a class="memberships" href="#">Memberships</a>
+               {{#if @member}}
+                   <a data-portal="account" class="login" href="#">
+                       <div class="member-avatar-icon">
+                           {{> "icons/user"}}
+                       </div>
+                       My Account
+                   </a>
+               {{else}}
+                   <a data-portal="signin" class="login" href="#">Member Login</a>
+               {{/if}}
+           </nav>
             <div class="header-right">
                 <div class="appearance-toggle-wrapper">
                     <div class="appearance-toggle">
