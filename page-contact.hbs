@@ -1,192 +1,230 @@
 {{!< default}}
 {{> "layout/site-header"}}
-<div class="container-without-sidebar">
-    <main class="post-or-page" tabindex="-1">
-        {{#post}}
-            <article class="{{post_class}}">
-                <header>
-                    <h2>{{title}}</h2>
-                    {{#if custom_excerpt}}<p class="excerpt">{{custom_excerpt}}</p>{{/if}}
-                    {{#if feature_image}}{{> "components/post-hero-image"}}{{/if}}
-                </header>
-                <div class="article-content">
-                    <p>Directed your emails to the appropriate address below. Simply click the eye icon (<svg class="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
-                            <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                            <path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                        </svg>) to reveal the respective email address. Clicking the uncovered link will open your default email client. You can take it from there. We look forward to chatting with you.</p>
-                        <p>You can see our <a href="/office-hours">office hours on this page</a>.</p>
-                <div class="nested-wide-container">
-                    <div class="contact-cards-wrap">
-                    {{!-- Honeypot fields --}}
-                    <div class="contact-field">
-                        <input type="email" name="contact_email" tabindex="-1" aria-hidden="true" autocomplete="off">
-                        <input type="text" name="contact_name" tabindex="-1" aria-hidden="true" autocomplete="off">
-                        <input type="url" name="website" tabindex="-1" aria-hidden="true" autocomplete="off">
+
+{{#post}}
+<main class="page-main page-fullwidth">
+    <article class="page {{post_class}}">
+        <header class="page-header">
+            <div class="container-wide">
+                <h1 class="page-title">{{title}}</h1>
+                {{#if custom_excerpt}}
+                <p class="page-excerpt">{{custom_excerpt}}</p>
+                {{/if}}
+            </div>
+        </header>
+
+        {{#if feature_image}}
+        <figure class="page-feature-image">
+           <img src="{{img_url feature_image size="xl"}}" alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" class="feature-image-content">
+            {{#if feature_image_caption}}
+            <figcaption>{{feature_image_caption}}</figcaption>
+            {{/if}}
+        </figure>
+        {{/if}}
+
+                       <div class="page-content-wrapper">
+                       <div class="container-wide">
+                           <div class="content-fullwidth">
+                               <div class="page-content">
+                                   <p>Direct your emails to the appropriate address below. Simply click the eye icon (
+                                       <svg class="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                                           <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                           <path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                       </svg>
+                                   ) to reveal the respective email address. Clicking the uncovered link will open your default email client. You can take it from there. We look forward to chatting with you.</p>
+
+                                   <p>You can see our <a href="/office-hours">office hours on this page</a>.</p>
+
+                                   {{!-- Honeypot fields --}}
+                                   <div class="contact-field">
+                                       <input type="email" name="contact_email" tabindex="-1" aria-hidden="true" autocomplete="off">
+                                       <input type="text" name="contact_name" tabindex="-1" aria-hidden="true" autocomplete="off">
+                                       <input type="url" name="website" tabindex="-1" aria-hidden="true" autocomplete="off">
+                                   </div>
+
+                                   <div class="contact-cards-wrap">
+                                       <div class="contact-card" id="general-card">
+                                           <h3 class="contact-title">General Feedback</h3>
+                                           <p class="contact-description">Say hello, provide feedback, notify us we screwed up.</p>
+                                           <div class="contact-email-container">
+                                               <span class="contact-email hidden" id="email-general">Click to reveal email</span>
+                                               <button class="reveal-button" onclick="toggleEmail('general')" aria-label="Toggle email visibility">
+                                                   <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                                                       <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                                       <path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                                   </svg>
+                                               </button>
+                                           </div>
+                                       </div>
+
+                                       <div class="contact-card" id="support-card">
+                                           <h3 class="contact-title">Help Center</h3>
+                                           <p class="contact-description">For questions about any of our products or services, like memberships and subscriptions</p>
+                                           <div class="contact-email-container">
+                                               <span class="contact-email hidden" id="email-support">Click to reveal email</span>
+                                               <button class="reveal-button" onclick="toggleEmail('support')" aria-label="Toggle email visibility">
+                                                   <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                                                       <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                                       <path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                                   </svg>
+                                               </button>
+                                           </div>
+                                       </div>
+
+                                       <div class="contact-card" id="authors-card">
+                                           <h3 class="contact-title">Contact Authors</h3>
+                                           <p class="contact-description">Contact a particular author of <em>You Can't Be Serious</em></p>
+                                           <div class="contact-email-container">
+                                               <div class="contact-email-list">
+                                                   <div class="contact-email hidden" id="email-authors-amos">
+                                                       <span class="contact-email-label"><strong>Amos</strong>:</span>
+                                                       <span class="email-text">Click to reveal email</span>
+                                                   </div>
+                                                   <div class="contact-email hidden" id="email-authors-dolly">
+                                                       <span class="contact-email-label"><strong>Dolly</strong>:</span>
+                                                       <span class="email-text">Click to reveal email</span>
+                                                   </div>
+                                                   <div class="contact-email hidden" id="email-authors-eileen">
+                                                       <span class="contact-email-label"><strong>Eileen</strong>:</span>
+                                                       <span class="email-text">Click to reveal email</span>
+                                                   </div>
+                                               </div>
+                                               <button class="reveal-button" onclick="toggleEmail('authors')" aria-label="Toggle email visibility">
+                                                   <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                                                       <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                                       <path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                                   </svg>
+                                               </button>
+                                           </div>
+                                       </div>
+
+                                       <div class="contact-card" id="business-card">
+                                           <h3 class="contact-title">Business Inquiries</h3>
+                                           <p class="contact-description">Questions about partnerships and business opportunities</p>
+                                           <div class="contact-email-container">
+                                               <span class="contact-email hidden" id="email-business">Click to reveal email</span>
+                                               <button class="reveal-button" onclick="toggleEmail('business')" aria-label="Toggle email visibility">
+                                                   <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                                                       <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                                       <path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                                   </svg>
+                                               </button>
+                                           </div>
+                                       </div>
+                                   </div>
+                               </div>
+
+                    <div class="page-footer">
+                        <p>The {{title}} page was created on {{date format="MMMM D, YYYY"}}. {{#match updated at}}It was updated on <time class="updated" datetime="{{updated_at}}">{{date updated_at format="MMMM D, YYYY"}}</time>.{{/match}}</p>
+
+                        <div class="page-share">
+                            <div class="dropdown">
+                                <button class="dropbtn share-btn" aria-label="Share this page">Share This Page</button>
+                                <div class="dropdown-content">
+                                    <p class="title">Share and Support</p>
+                                    <p class="thanks">Thanks for visiting. Use the links below to share this page.</p>
+                                    <a href="#" class="native-share" style="display: none;">{{> "icons/share"}} Share via Device</a>
+                                    <a href="#" class="copy-url">{{> "icons/link"}} Copy Page URL</a>
+                                    <a href="#" class="email-share">{{> "icons/at-sign"}} Email Page</a>
+                                    <a href="#" class="mastodon-share">{{> "icons/mastodon"}} Share on Mastodon</a>
+                                    <a href="https://bsky.app/intent/compose?text={{encode title}}{{encode (url absolute="true")}}" target="_blank" rel="noopener noreferrer">{{> "icons/bluesky"}} Share on Bluesky</a>
+                                    <a href="https://www.reddit.com/submit?url={{encode (url absolute="true")}}&title={{encode title}}" target="_blank" rel="noopener noreferrer">{{> "icons/reddit"}} Share on Reddit</a>
+                                    <a href="whatsapp://send?text={{encode (concat title ' ' (url absolute="true"))}}" class="whatsapp-share" target="_blank" rel="noopener noreferrer">{{> "icons/whatsapp"}} Share on WhatsApp</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div id="contactCards"></div>
-                    {{#contentFor "scripts"}}
-                    <script>
-                        // Track if honeypot was triggered
-                        let botDetected = false;
-
-                        // Add honeypot detection
-                        document.querySelectorAll('.contact-field input').forEach(input => {
-                            input.addEventListener('change', (e) => {
-                                console.log('Bot detected via honeypot');
-                                botDetected = true;
-                                e.preventDefault();
-                                return false;
-                            });
-                        });
-
-                        const contacts = [
-                            {
-                                id: 'general',
-                                title: 'General Feedback',
-                                description: 'Say hello, provide feedback, notify us we screwed up.',
-                                email: btoa('hello@domain.com')
-                            },
-                            {
-                                id: 'support',
-                                title: 'Help Center',
-                                description: 'For questions about any of our products or services, like memberships and subscriptions',
-                                email: btoa('support@domain.com')
-                            },
-                            {
-                                id: 'authors',
-                                title: 'Contact Authors',
-                                description: `Contact a particular author of <em>You Can't Be Serious</em>`,
-                                emails: [
-                                    {
-                                        label: '<strong>Amos</strong>',
-                                        email: btoa('fiction@domain.com')
-                                    },
-                                    {
-                                        label: '<strong>Dolly</strong>',
-                                        email: btoa('nonfiction@domain.com')
-                                    },
-                                    {
-                                        label: '<strong>Eileen</strong>',
-                                        email: btoa('poetry@domain.com')
-                                    }
-                                ]
-                            },
-                            {
-                                id: 'business',
-                                title: 'Business Inquiries',
-                                description: 'Questions about partnerships and business opportunities',
-                                email: btoa('business@domain.com')
-                            }
-                        ];
-
-                        const pageLoadTime = Date.now();
-
-                        function createContactCards() {
-                            const container = document.getElementById('contactCards');
-
-                            contacts.forEach(contact => {
-                                const card = document.createElement('div');
-                                card.className = 'contact-card';
-
-                                // Different HTML structure for multiple emails vs single email
-                                const emailSection = contact.emails ?
-                                    `<div class="contact-email-container">
-                                        <div class="contact-email-list">
-                                            ${contact.emails.map(emailObj => `
-                                                <div class="contact-email hidden" id="email-${contact.id}-${emailObj.label.toLowerCase().replace(/\s+/g, '-')}">
-                                                    <span class="contact-email-label">${emailObj.label}:</span>
-                                                    <span class="email-text">Click to reveal email</span>
-                                                </div>
-                                            `).join('')}
-                                        </div>
-                                        <button class="reveal-button" onclick="toggleEmail('${contact.id}')"
-                                                aria-label="Toggle email visibility">
-                                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
-                                                <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                                <path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                            </svg>
-                                        </button>
-                                    </div>` :
-                                    `<div class="contact-email-container">
-                                        <span class="contact-email hidden" id="email-${contact.id}"
-                                              data-email="${contact.email}">Click to reveal email</span>
-                                        <button class="reveal-button" onclick="toggleEmail('${contact.id}')"
-                                                aria-label="Toggle email visibility">
-                                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
-                                                <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                                <path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                            </svg>
-                                        </button>
-                                    </div>`;
-
-                                card.innerHTML = `
-                                    <h4 class="contact-title">${contact.title}</h4>
-                                    <p class="contact-description">${contact.description}</p>
-                                    ${emailSection}
-                                `;
-                                container.appendChild(card);
-                            });
-                        }
-
-                        function toggleEmail(id) {
-                            // Check if bot was detected
-                            if (botDetected) {
-                                console.log('Email reveal blocked - bot detected');
-                                return;
-                            }
-
-                            // Check time on page
-                            const timeOnPage = (Date.now() - pageLoadTime) / 1000;
-                            if (timeOnPage < 1) {
-                                console.log('Too fast - likely a bot');
-                                return;
-                            }
-
-                            const contact = contacts.find(c => c.id === id);
-
-                            if (contact.emails) {
-                                // Handle multiple emails
-                                contact.emails.forEach(emailObj => {
-                                    const emailElement = document.getElementById(`email-${id}-${emailObj.label.toLowerCase().replace(/\s+/g, '-')}`);
-                                    const emailTextElement = emailElement.querySelector('.email-text');
-
-                                    if (emailElement.classList.contains('hidden')) {
-                                        const email = atob(emailObj.email);
-                                        emailTextElement.innerHTML = `<a href="mailto:${email}">${email}</a>`;
-                                        emailElement.classList.remove('hidden');
-                                    } else {
-                                        emailTextElement.textContent = 'Click to reveal email';
-                                        emailElement.classList.add('hidden');
-                                    }
-                                });
-                            } else {
-                                // Handle single email
-                                const emailElement = document.getElementById(`email-${id}`);
-                                const encodedEmail = emailElement.dataset.email;
-
-                                if (emailElement.classList.contains('hidden')) {
-                                    const email = atob(encodedEmail);
-                                    emailElement.innerHTML = `<a href="mailto:${email}">${email}</a>`;
-                                    emailElement.classList.remove('hidden');
-                                } else {
-                                    emailElement.textContent = 'Click to reveal email';
-                                    emailElement.classList.add('hidden');
-                                }
-                            }
-                        }
-
-                        // Initialize the contact cards
-                        createContactCards();
-                    </script>
-                    {{/contentFor}}
-                </div>
                 </div>
             </div>
-                <footer>
-                    <p>The {{title}} page was created on {{date format="MMMM D, YYYY"}}. {{#match updated at}}It was updated on <time class="updated" datetime="{{updated_at}}">{{date updated_at format="MMMM D, YYYY"}}</time>.{{/match}}</p>
-                </footer>
-            </article>
-        {{/post}}
-    </main>
-</div>
+        </div>
+    </article>
+</main>
+{{/post}}
+
+{{#contentFor "scripts"}}
+<script>
+    // Track if honeypot was triggered
+    let botDetected = false;
+
+    // Add honeypot detection
+    document.querySelectorAll('.contact-field input').forEach(input => {
+        input.addEventListener('change', (e) => {
+            console.log('Bot detected via honeypot');
+            botDetected = true;
+            e.preventDefault();
+            return false;
+        });
+    });
+
+    // Store encoded emails
+    const emailData = {
+        'general': 'hello@domain.com',
+        'support': 'support@domain.com',
+        'business': 'business@domain.com',
+        'authors': {
+            'amos': 'fiction@domain.com',
+            'dolly': 'nonfiction@domain.com',
+            'eileen': 'poetry@domain.com'
+        }
+    };
+
+    // Base64 encode for basic email protection
+    Object.keys(emailData).forEach(key => {
+        if (typeof emailData[key] === 'string') {
+            emailData[key] = btoa(emailData[key]);
+        } else if (typeof emailData[key] === 'object') {
+            Object.keys(emailData[key]).forEach(subKey => {
+                emailData[key][subKey] = btoa(emailData[key][subKey]);
+            });
+        }
+    });
+
+    const pageLoadTime = Date.now();
+
+    function toggleEmail(id) {
+        // Check if bot was detected
+        if (botDetected) {
+            console.log('Email reveal blocked - bot detected');
+            return;
+        }
+
+        // Check time on page
+        const timeOnPage = (Date.now() - pageLoadTime) / 1000;
+        if (timeOnPage < 1) {
+            console.log('Too fast - likely a bot');
+            return;
+        }
+
+        if (id === 'authors') {
+            // Handle multiple emails
+            ['amos', 'dolly', 'eileen'].forEach(author => {
+                const emailElement = document.getElementById(`email-authors-${author}`);
+                const emailTextElement = emailElement.querySelector('.email-text');
+
+                if (emailElement.classList.contains('hidden')) {
+                    const email = atob(emailData.authors[author]);
+                    emailTextElement.innerHTML = `<a href="mailto:${email}">${email}</a>`;
+                    emailElement.classList.remove('hidden');
+                } else {
+                    emailTextElement.textContent = 'Click to reveal email';
+                    emailElement.classList.add('hidden');
+                }
+            });
+        } else {
+            // Handle single email
+            const emailElement = document.getElementById(`email-${id}`);
+            const encodedEmail = emailData[id];
+
+            if (emailElement.classList.contains('hidden')) {
+                const email = atob(encodedEmail);
+                emailElement.innerHTML = `<a href="mailto:${email}">${email}</a>`;
+                emailElement.classList.remove('hidden');
+            } else {
+                emailElement.textContent = 'Click to reveal email';
+                emailElement.classList.add('hidden');
+            }
+        }
+    }
+</script>
+{{/contentFor}}
 {{> "layout/site-footer"}}

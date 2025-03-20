@@ -1,0 +1,157 @@
+{{!< default}}
+{{> "layout/site-header"}}
+<div class="container-without-sidebar">
+    <main class="post-or-page" tabindex="-1">
+        {{#post}}
+        <article class="{{post_class}}">
+            <header>
+                <h2>{{title}}</h2>
+                {{#if custom_excerpt}}<p class="excerpt">{{custom_excerpt}}</p>{{/if}}
+                {{#if feature_image}}{{> "components/post-hero-image"}}{{/if}}
+            </header>
+            <div class="article-content">
+                {{> "components/membership-card"}}
+                {{content}}
+                <div id="sliding-scale"></div>
+                {{#contentFor "scripts"}}
+                <script>
+                   class SlidingScale {
+                       constructor() {
+                           // Insert the slider HTML before the membership cards
+                           this.insertSliderHTML();
+
+                           // Initialize the slider and highlighting functionality
+                           this.init();
+                       }
+
+                       insertSliderHTML() {
+                           const membershipSection = document.querySelector('.membership-section');
+                           const sliderHTML = `
+                               <div class="income-slider-section">
+                                   <div class="slider-card">
+                                       <div class="slider-header">
+                                           <h2><span>Select Your Income Level</span></h2>
+                                           <p>Membership pricing is based on individual annual income</p>
+                                       </div>
+                                       <div class="slider-content">
+                                           <div class="income-display">Annual Income: $<span id="income-display">40,000</span></div>
+                                           <input type="range" id="income-slider"
+                                                  min="20000" max="150000"
+                                                  step="1000" value="40000"
+                                                  class="income-slider">
+                                       </div>
+                                   </div>
+                               </div>
+                           `;
+
+                           // Insert after the toggle wrapper if it exists, otherwise at the start of the section
+                           const toggleWrapper = membershipSection.querySelector('.toggle-wrapper');
+                           if (toggleWrapper) {
+                               toggleWrapper.insertAdjacentHTML('afterend', sliderHTML);
+                           } else {
+                               membershipSection.insertAdjacentHTML('afterbegin', sliderHTML);
+                           }
+                       }
+
+                       getTierFromIncome(income) {
+                           if (income < 40000) return 3;
+                           if (income < 85000) return 6;
+                           return 12;
+                       }
+
+                       highlightTier(price) {
+                           // Remove highlight from all cards
+                           const cards = document.querySelectorAll('.membership-card');
+                           cards.forEach(card => {
+                               card.classList.remove('highlight-tier');
+                               card.style.transform = '';
+                               if (card.querySelector('.recommended-badge')) {
+                                   card.querySelector('.recommended-badge').remove();
+                               }
+                           });
+
+                           // Find and highlight the appropriate card
+                           cards.forEach(card => {
+                               const priceElement = card.querySelector('.membership-card-price[data-monthly]');
+                               if (!priceElement) return;
+
+                               const cardPrice = parseFloat(priceElement.textContent.replace('$', ''));
+                               if (cardPrice === price) {
+                                   card.classList.add('highlight-tier');
+                                   card.style.transform = 'translateY(-8px)';
+
+                                   // Add recommended badge
+                                   const header = card.querySelector('.membership-card-header');
+                                   const badge = document.createElement('div');
+                                   badge.className = 'recommended-badge';
+                                   badge.textContent = 'Recommended';
+                                   header.insertBefore(badge, header.firstChild);
+                               }
+                           });
+                       }
+
+                       init() {
+                           const slider = document.getElementById('income-slider');
+                           const incomeDisplay = document.getElementById('income-display');
+
+                           slider.addEventListener('input', (e) => {
+                               const income = parseInt(e.target.value);
+                               incomeDisplay.textContent = income >= 150000 ? '150,000+' : income.toLocaleString();
+
+                               const suggestedPrice = this.getTierFromIncome(income);
+                               this.highlightTier(suggestedPrice);
+                           });
+
+                           // Initial highlight
+                           const initialIncome = parseInt(slider.value);
+                           const initialPrice = this.getTierFromIncome(initialIncome);
+                           this.highlightTier(initialPrice);
+                       }
+                   }
+
+                   // Add necessary CSS
+                   const style = document.createElement('style');
+                   style.textContent = `
+                       .highlight-tier {
+                           border: 2px solid #000 !important;
+                           transition: all 0.3s ease-in-out;
+                       }
+
+                       .recommended-badge {
+                           position: absolute;
+                           top: -1.5rem;
+                           left: 50%;
+                           transform: translateX(-50%);
+                           background: #000;
+                           color: white;
+                           padding: 0.5rem 1.5rem;
+                           border-radius: 2rem;
+                           font-family: var(--display);
+                           font-size: 1.4rem;
+                           font-weight: 600;
+                           z-index: 1;
+                       }
+
+                       .membership-card {
+                           position: relative;
+                           transition: all 0.3s ease-in-out;
+                       }
+                   `;
+                   document.head.appendChild(style);
+
+                   // Initialize the sliding scale when the DOM is loaded
+                   document.addEventListener('DOMContentLoaded', function() {
+                       new SlidingScale();
+                   });
+                </script>
+                {{/contentFor}}
+            </div>
+            <footer>
+                <p>{{#foreach authors}}<a href="{{url}}">{{name}}</a>{{/foreach}} published <em>{{title}}</em> on {{date format="MMMM D, YYYY"}} and filed it under {{tags separator=", "}}. {{#has tag="#remastered"}}This is a <a href="/remastered">remastered post</a>. {{/has}}{{#match updated at}}It was updated on <time class="updated" datetime="{{updated_at}}">{{date updated_at format="MMMM D, YYYY"}}</time>.{{/match}}</p>
+            </footer>
+        </article>
+        {{/post}}
+    </main>
+</div>
+
+{{> "layout/site-footer"}}

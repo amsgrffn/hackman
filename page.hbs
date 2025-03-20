@@ -1,29 +1,62 @@
 {{!< default}}
-
+{{> "layout/site-header"}}
 {{#post}}
-<article class="gh-article {{post_class}}">
-    {{#match @page.show_title_and_feature_image}}
-    <header class="gh-header gh-canvas">
-        <h1 class="gh-title">{{title}}</h1>
-
-        {{#if custom_excerpt}}
-            <p class="gh-excerpt">{{custom_excerpt}}</p>
-        {{/if}}
-
-        {{#if feature_image}}
-            <figure class="gh-feature-image">
-                <img src="{{feature_image}}" alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" />
-                {{#if feature_image_caption}}
-                    <figcaption>{{feature_image_caption}}</figcaption>
+<main class="page-main">
+    <article class="page {{post_class}}">
+        <header class="page-header">
+            <div class="container">
+                <div class="page-meta">
+                    {{#if featured}}
+                    <span class="featured-badge">Featured</span>
+                    {{/if}}
+                    <span class="page-date">{{date published_at format="MMMM D, YYYY"}}</span>
+                </div>
+                <h1 class="page-title">{{title}}</h1>
+                {{#if custom_excerpt}}
+                <p class="page-excerpt">{{custom_excerpt}}</p>
                 {{/if}}
-            </figure>
+            </div>
+        </header>
+        {{#if feature_image}}
+        <figure class="page-feature-image">
+           <img src="{{img_url feature_image size="xl"}}" alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" class="feature-image-content">
+            {{#if feature_image_caption}}
+            <figcaption>{{feature_image_caption}}</figcaption>
+            {{/if}}
+        </figure>
         {{/if}}
-    </header>
-    {{/match}}
-
-    <div class="gh-content gh-canvas">
-        {{content}}
-    </div>
-
-</article>
+        <div class="page-content-wrapper">
+            <div class="container">
+                <div class="layout">
+                    <div class="content">
+                        <div class="page-content">
+                            {{content}}
+                        </div>
+                        <div class="page-footer">
+                            <div class="page-share">
+                                <div class="dropdown">
+                                    <button class="dropbtn share-btn" aria-label="Share this page">Share This Page</button>
+                                    <div class="dropdown-content">
+                                        <p class="title">Share and Support</p>
+                                        <p class="thanks">Thanks for reading. Use the links below to share this page.</p>
+                                        <a href="#" class="native-share" style="display: none;">{{> "icons/share"}} Share via Device</a>
+                                        <a href="#" class="copy-url">{{> "icons/link"}} Copy Page URL</a>
+                                        <a href="#" class="email-share">{{> "icons/at-sign"}} Email Page</a>
+                                        <a href="#" class="mastodon-share">{{> "icons/mastodon"}} Share on Mastodon</a>
+                                        <a href="https://bsky.app/intent/compose?text={{encode title}}{{encode (url absolute="true")}}" target="_blank" rel="noopener noreferrer">{{> "icons/bluesky"}} Share on Bluesky</a>
+                                        <a href="https://www.reddit.com/submit?url={{encode (url absolute="true")}}&title={{encode title}}" target="_blank" rel="noopener noreferrer">{{> "icons/reddit"}} Share on Reddit</a>
+                                        <a href="whatsapp://send?text={{encode (concat title ' ' (url absolute="true"))}}" class="whatsapp-share" target="_blank" rel="noopener noreferrer">{{> "icons/whatsapp"}} Share on WhatsApp</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Sidebar -->
+                    {{> "layout/sidebar"}}
+                </div>
+            </div>
+        </div>
+    </article>
+</main>
 {{/post}}
+{{> "layout/site-footer"}}
