@@ -12,9 +12,6 @@
                     <a href="{{url}}" class="article-tag">{{name}}</a>
                     {{/primary_tag}}
                     <span class="article-date">{{date published_at format="MMMM D, YYYY"}}</span>
-                    {{#if reading_time}}
-                    <span class="article-reading-time">{{reading_time}}</span>
-                    {{/if}}
                 </div>
                 <h1 class="article-title">{{title}}</h1>
                 {{#if custom_excerpt}}
@@ -40,6 +37,36 @@
                             {{content}}
                         </div>
 
+                        <div class="article-footer">
+                            <div class="article-tags">
+                                {{#if tags}}
+                                {{#foreach tags}}
+                                <a href="{{url}}" class="article-tag-item">{{> "icons/hash"}}{{name}}</a>
+                                {{/foreach}}
+                                {{/if}}
+                            </div>
+
+                            <div class="article-share">
+                                <div class="dropdown">
+                                    <button class="dropbtn share-btn" aria-label="Share this article">Share This Article</button>
+                                    <div class="dropdown-content">
+                                        <p class="title">Share and Support</p>
+                                        <p class="thanks">Thanks for reading. Use the links below to share this article and/or support this site.</p>
+                                        <a href="#" class="native-share" style="display: none;">{{> "icons/share"}} Share via Device</a>
+                                        <a href="#" class="copy-url">{{> "icons/link"}} Copy Article URL</a>
+                                        <a href="#" class="email-share">{{> "icons/at-sign"}} Email Article</a>
+                                        <a href="#" class="mastodon-share">{{> "icons/mastodon"}} Share on Mastodon</a>
+                                        <a href="https://bsky.app/intent/compose?text={{encode title}}{{encode (url absolute="true")}}" target="_blank" rel="noopener noreferrer">{{> "icons/bluesky"}} Share on Bluesky</a>
+                                        <a href="https://www.reddit.com/submit?url={{encode (url absolute="true")}}&title={{encode title}}" target="_blank" rel="noopener noreferrer">{{> "icons/reddit"}} Share on Reddit</a>
+                                        <a href="whatsapp://send?text={{encode (concat title ' ' (url absolute="true"))}}" class="whatsapp-share" target="_blank" rel="noopener noreferrer">{{> "icons/whatsapp"}} Share on WhatsApp</a>
+                                        <a href="/memberships">{{> "icons/thumb-up"}} Subscribe</a>
+                                        <a href="#/portal/support">{{> "icons/beer"}} Buy Us a Pint</a>
+                                        <a href="/contact">{{> "icons/mail"}} Contact Us</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         {{#if primary_author}}
                         <section class="author-card">
                             <img src="{{primary_author.profile_image}}" alt="{{primary_author.name}}" class="author-card-image">
@@ -61,70 +88,66 @@
                         </section>
                         {{/if}}
 
-                        <div class="article-footer">
-                            <div class="article-tags">
-                                {{#if tags}}
-                                <span>Topics:</span>
-                                {{#foreach tags}}
-                                <a href="{{url}}" class="article-tag-item">{{name}}</a>
-                                {{/foreach}}
-                                {{/if}}
-                            </div>
+                       <section class="related-articles">
+                           <div class="related-header">
+                               <h2 class="related-title">Related articles</h2>
+                               <p class="related-subtitle">You might also enjoy these posts</p>
+                           </div>
 
-                            <div class="article-share">
-                                <span>Share:</span>
-                                <a href="https://twitter.com/intent/tweet?text={{encode title}}&url={{url absolute="true"}}" target="_blank" rel="noopener noreferrer" class="share-button twitter">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
-                                    </svg>
-                                </a>
-                                <a href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}" target="_blank" rel="noopener noreferrer" class="share-button facebook">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-                                    </svg>
-                                </a>
-                                <a href="https://www.linkedin.com/shareArticle?mini=true&url={{url absolute="true"}}&title={{encode title}}" target="_blank" rel="noopener noreferrer" class="share-button linkedin">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                                        <rect x="2" y="9" width="4" height="12"></rect>
-                                        <circle cx="4" cy="4" r="2"></circle>
-                                    </svg>
-                                </a>
-                                <button class="share-button copy-link" id="copy-link" title="Copy link">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
-                                        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
-                        <!-- Related articles -->
-                        <section class="related-articles">
-                            <h2 class="section-title">Related articles</h2>
-                            <div class="related-grid">
-                                {{#get "posts" filter="tags:[{{primary_tag.slug}}]+id:-{{id}}" limit="3" include="tags" as |related|}}
-                                {{#foreach related}}
-                                <div class="card">
-                                    {{#if feature_image}}
-                                    <img src="{{img_url feature_image size="medium"}}" alt="{{title}}" class="card-image">
-                                    {{else}}
-                                    <div class="card-image-placeholder"></div>
-                                    {{/if}}
-                                    <div class="card-content">
-                                        <div class="meta">
-                                            {{#primary_tag}}
-                                            <span class="tag">{{name}}</span>
-                                            {{/primary_tag}}
-                                            <span>{{date published_at format="MMM D, YYYY"}}</span>
-                                        </div>
-                                        <h3 class="card-title"><a href="{{url}}">{{title}}</a></h3>
-                                        <p class="card-excerpt">{{excerpt words="25"}}</p>
-                                    </div>
-                                </div>
-                                {{/foreach}}
-                                {{/get}}
-                            </div>
-                        </section>
+                           <div class="related-list">
+                               {{#get "posts" filter="tags:[{{primary_tag.slug}}]+id:-{{id}}" limit="5" include="tags,authors" as |related|}}
+                               {{#foreach related}}
+                               <article class="related-card">
+                                   <a href="{{url}}" class="related-card-link" aria-label="{{title}}">
+                                       <div class="related-card-image-container">
+                                           {{#if feature_image}}
+                                           <picture>
+                                               <source
+                                                   srcset="{{img_url feature_image size="s" format="webp"}}"
+                                                   type="image/webp">
+                                               <img
+                                                   src="{{img_url feature_image size="s"}}"
+                                                   class="related-card-image"
+                                                   alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+                                                   loading="lazy">
+                                           </picture>
+                                           {{else}}
+                                           <div class="related-card-image-placeholder">
+                                               <span>{{primary_tag.name}}</span>
+                                           </div>
+                                           {{/if}}
+
+                                           {{#primary_tag}}
+                                           <span class="related-card-tag">{{name}}</span>
+                                           {{/primary_tag}}
+                                       </div>
+
+                                       <div class="related-card-content">
+                                           <h3 class="related-card-title">{{title}}</h3>
+
+                                           <div class="related-card-meta">
+                                               {{#if primary_author.profile_image}}
+                                               <img class="related-author-image"
+                                                    src="{{img_url primary_author.profile_image size="xs"}}"
+                                                    alt="{{primary_author.name}}">
+                                               {{/if}}
+                                               <span class="related-author-name">{{primary_author.name}}</span>
+                                               <span class="related-date">{{date published_at format="MMM D, YYYY"}}</span>
+                                           </div>
+                                       </div>
+                                   </a>
+                               </article>
+                               {{/foreach}}
+                               {{/get}}
+                           </div>
+
+                           <div class="related-cta">
+                               <a href="/tag/{{primary_tag.slug}}" class="related-cta-button">
+                                   See more in {{primary_tag.name}}
+                                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                               </a>
+                           </div>
+                       </section>
                     </div>
 
                     <!-- Sidebar -->
