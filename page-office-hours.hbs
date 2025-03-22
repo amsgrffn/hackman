@@ -1,16 +1,22 @@
 {{!< default}}
 {{> "layout/site-header"}}
 {{#post}}
-<main class="page-main page-fullwidth">
+<main class="page-fullwidth">
     <article class="page {{post_class}}">
         <header class="page-header">
             <div class="container-wide">
+                <div class="page-meta">
+                    {{#if featured}}
+                    <span class="featured-badge">Featured</span>
+                    {{/if}}
+                </div>
                 <h1 class="page-title">{{title}}</h1>
                 {{#if custom_excerpt}}
                 <p class="page-excerpt">{{custom_excerpt}}</p>
                 {{/if}}
             </div>
         </header>
+
         {{#if feature_image}}
         <figure class="page-feature-image">
            <img src="{{img_url feature_image size="xl"}}" alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" class="feature-image-content">
@@ -22,43 +28,212 @@
 
         <div class="page-content-wrapper">
             <div class="container-wide">
-                <div class="content-fullwidth">
-                    <div class="page-content">
-                        <p>Direct your emails to the appropriate address below. Simply click the eye icon (<svg class="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
-                                <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                <path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                            </svg>) to reveal the respective email address. Clicking the uncovered link will open your default email client. You can take it from there. We look forward to chatting with you.</p>
+                <!-- Office Hours Section -->
+                <section class="office-hours-container">
 
-                        <p>You can see our <a href="/office-hours">office hours on this page</a>.</p>
 
-                        <div class="contact-cards-wrap">
-                            {{!-- Honeypot fields --}}
-                            <div class="contact-field">
-                                <input type="email" name="contact_email" tabindex="-1" aria-hidden="true" autocomplete="off">
-                                <input type="text" name="contact_name" tabindex="-1" aria-hidden="true" autocomplete="off">
-                                <input type="url" name="website" tabindex="-1" aria-hidden="true" autocomplete="off">
+                    <div class="office-hours-grid">
+                        <div class="office-hours-card" data-day="Monday">
+                            <div class="office-hours-card-inner">
+                                <div class="office-hours-day">Monday</div>
+                                <div class="office-hours-time">2:00 PM - 3:30 PM</div>
+                                <div class="office-hours-status">Available</div>
                             </div>
-                            <div id="contactCards"></div>
+                        </div>
+
+                        <div class="office-hours-card" data-day="Tuesday">
+                            <div class="office-hours-card-inner">
+                                <div class="office-hours-day">Tuesday</div>
+                                <div class="office-hours-time">GONE FISHIN'</div>
+                                <div class="office-hours-status closed">CLOSED</div>
+                            </div>
+                        </div>
+
+                        <div class="office-hours-card" data-day="Wednesday">
+                            <div class="office-hours-card-inner">
+                                <div class="office-hours-day">Wednesday</div>
+                                <div class="office-hours-time">2:00 PM - 3:30 PM</div>
+                                <div class="office-hours-status">Available</div>
+                            </div>
+                        </div>
+
+                        <div class="office-hours-card" data-day="Thursday">
+                            <div class="office-hours-card-inner">
+                                <div class="office-hours-day">Thursday</div>
+                                <div class="office-hours-time">2:00 PM - 3:30 PM</div>
+                                <div class="office-hours-status">Available</div>
+                            </div>
+                        </div>
+
+                        <div class="office-hours-card" data-day="Friday">
+                            <div class="office-hours-card-inner">
+                                <div class="office-hours-day">Friday</div>
+                                <div class="office-hours-time">2:00 PM - 3:30 PM</div>
+                                <div class="office-hours-status">Available</div>
+                            </div>
+                        </div>
+
+                        <div class="office-hours-card" data-day="Saturday">
+                            <div class="office-hours-card-inner">
+                                <div class="office-hours-day">Saturday</div>
+                                <div class="office-hours-time">GONE FISHIN'</div>
+                                <div class="office-hours-status closed">CLOSED</div>
+                            </div>
+                        </div>
+
+                        <div class="office-hours-card" data-day="Sunday">
+                            <div class="office-hours-card-inner">
+                                <div class="office-hours-day">Sunday</div>
+                                <div class="office-hours-time">GONE FISHIN'</div>
+                                <div class="office-hours-status closed">CLOSED</div>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="page-footer">
-                        <p>The {{title}} page was created on {{date format="MMMM D, YYYY"}}. {{#match updated at}}It was updated on <time class="updated" datetime="{{updated_at}}">{{date updated_at format="MMMM D, YYYY"}}</time>.{{/match}}</p>
+                    <div class="current-time-container">
+                        <div class="current-time">
+                            <span class="time-icon">{{> "icons/clock"}}</span>
+                            <span class="time-text" id="current-time-display">Current time: loading...</span>
+                        </div>
+                        <div class="office-status-indicator" id="office-status">
+                            <!-- Will be filled by JavaScript -->
+                        </div>
+                    </div>
+                </section>
+                <!-- Holiday Schedule Section -->
+                <section class="holiday-schedule-container">
+                    <div class="holiday-header">
+                        <h2 class="holiday-title">Holiday Schedule</h2>
+                        <p class="holiday-subtitle">We do not work on the following days of the year. If you expect to reach us or anticipate a reply on these days you will be disappointed.</p>
+                    </div>
 
-                        <div class="page-share">
-                            <div class="dropdown">
-                                <button class="dropbtn share-btn" aria-label="Share this page">Share This Page</button>
-                                <div class="dropdown-content">
-                                    <p class="title">Share and Support</p>
-                                    <p class="thanks">Thanks for visiting. Use the links below to share this page.</p>
-                                    <a href="#" class="native-share" style="display: none;">{{> "icons/share"}} Share via Device</a>
-                                    <a href="#" class="copy-url">{{> "icons/link"}} Copy Page URL</a>
-                                    <a href="#" class="email-share">{{> "icons/at-sign"}} Email Page</a>
-                                    <a href="#" class="mastodon-share">{{> "icons/mastodon"}} Share on Mastodon</a>
-                                    <a href="https://bsky.app/intent/compose?text={{encode title}}{{encode (url absolute="true")}}" target="_blank" rel="noopener noreferrer">{{> "icons/bluesky"}} Share on Bluesky</a>
-                                    <a href="https://www.reddit.com/submit?url={{encode (url absolute="true")}}&title={{encode title}}" target="_blank" rel="noopener noreferrer">{{> "icons/reddit"}} Share on Reddit</a>
-                                    <a href="whatsapp://send?text={{encode (concat title ' ' (url absolute="true"))}}" class="whatsapp-share" target="_blank" rel="noopener noreferrer">{{> "icons/whatsapp"}} Share on WhatsApp</a>
+                    <div class="holiday-grid">
+                        <div class="holiday-card federal">
+                            <div class="holiday-card-inner">
+                                <div class="holiday-type">
+                                    <span class="holiday-badge">US/Maine Holidays</span>
                                 </div>
+                                <ul class="holiday-list">
+                                    <li class="holiday-item">
+                                        <span class="holiday-name">New Year's Day <a href="https://en.wikipedia.org/wiki/Patriots%27_Day">{{> "icons/info"}}</a></span>
+                                        <span class="holiday-date">January 1</span>
+                                    </li>
+                                    <li class="holiday-item">
+                                        <span class="holiday-name">Martin Luther King Jr. Day <a href="https://en.wikipedia.org/wiki/Patriots%27_Day">{{> "icons/info"}}</a></span>
+                                        <span class="holiday-date">Third Monday in January</span>
+                                    </li>
+                                    <li class="holiday-item">
+                                        <span class="holiday-name">Washington's Birthday/Presidents' Day <a href="https://en.wikipedia.org/wiki/Patriots%27_Day">{{> "icons/info"}}</a></span>
+                                        <span class="holiday-date">Third Monday in February</span>
+                                    </li>
+                                    <li class="holiday-item">
+                                        <span class="holiday-name">Patriot's Day <a href="https://en.wikipedia.org/wiki/Patriots%27_Day">{{> "icons/info"}}</a></span>
+                                        <span class="holiday-date">Third Monday in April</span>
+                                    </li>
+                                    <li class="holiday-item">
+                                        <span class="holiday-name">Memorial Day <a href="https://en.wikipedia.org/wiki/Juneteenth">{{> "icons/info"}}</a></span>
+                                        <span class="holiday-date">Last Monday in May</span>
+                                    </li>
+                                    <li class="holiday-item">
+                                        <span class="holiday-name">Juneteenth <a href="https://en.wikipedia.org/wiki/Juneteenth">{{> "icons/info"}}</a></span>
+                                        <span class="holiday-date">June 19</span>
+                                    </li>
+                                    <li class="holiday-item">
+                                        <span class="holiday-name">Independence Day <a href="https://en.wikipedia.org/wiki/Patriots%27_Day">{{> "icons/info"}}</a></span>
+                                        <span class="holiday-date">July 4</span>
+                                    </li>
+                                    <li class="holiday-item">
+                                        <span class="holiday-name">Labor Day <a href="https://en.wikipedia.org/wiki/Labor_Day">{{> "icons/info"}}</a></span>
+                                        <span class="holiday-date">First Monday in September</span>
+                                    </li>
+                                    <li class="holiday-item">
+                                        <span class="holiday-name">Columbus Day/Indigenous Peoples' Day <a href="https://en.wikipedia.org/wiki/Columbus_Day">{{> "icons/info"}}</a></span>
+                                        <span class="holiday-date">Second Monday in October</span>
+                                    </li>
+                                    <li class="holiday-item">
+                                        <span class="holiday-name">Veterans Day <a href="https://en.wikipedia.org/wiki/Veterans_Day">{{> "icons/info"}}</a></span>
+                                        <span class="holiday-date">November 11</span>
+                                    </li>
+                                    <li class="holiday-item">
+                                        <span class="holiday-name">Thanksgiving Day <a href="https://en.wikipedia.org/wiki/Patriots%27_Day">{{> "icons/info"}}</a></span>
+                                        <span class="holiday-date">Fourth Thursday in November</span>
+                                    </li>
+                                    <li class="holiday-item">
+                                        <span class="holiday-name">Thanksgiving Friday <a href="https://en.wikipedia.org/wiki/Patriots%27_Day">{{> "icons/info"}}</a></span>
+                                        <span class="holiday-date">Day after Thanksgiving</span>
+                                    </li>
+                                    <li class="holiday-item">
+                                        <span class="holiday-name">Christmas Day <a href="https://en.wikipedia.org/wiki/Patriots%27_Day">{{> "icons/info"}}</a></span>
+                                        <span class="holiday-date">December 25</span>
+                                    </li>
+                                </ul>
+                                <div class="holiday-type">
+                                    <span class="holiday-badge">Personal Holidays</span>
+                                </div>
+                                <ul class="holiday-list">
+                                    <li class="holiday-item">
+                                        <span class="holiday-name">Super Bowl <a href="https://en.wikipedia.org/wiki/Juneteenth">{{> "icons/info"}}</a></span>
+                                        <span class="holiday-date">The day of, obviously, and the following Monday</span>
+                                    </li>
+                                    <li class="holiday-item">
+                                        <span class="holiday-name">Valenine's Day <a href="https://en.wikipedia.org/wiki/Patriots%27_Day">{{> "icons/info"}}</a></span>
+                                        <span class="holiday-date">Febuary 14</span>
+                                    </li>
+                                    <li class="holiday-item">
+                                        <span class="holiday-name">March Madness <a href="https://en.wikipedia.org/wiki/Juneteenth">{{> "icons/info"}}</a></span>
+                                        <span class="holiday-date">First week, Thursday through Sunday</span>
+                                    </li>
+                                    <li class="holiday-item">
+                                        <span class="holiday-name">Mother's Day <a href="https://en.wikipedia.org/wiki/Patriots%27_Day">{{> "icons/info"}}</a></span>
+                                        <span class="holiday-date">Second Sunday in May</span>
+                                    </li>
+                                    <li class="holiday-item">
+                                        <span class="holiday-name">Father's Day <a href="https://en.wikipedia.org/wiki/Patriots%27_Day">{{> "icons/info"}}</a></span>
+                                        <span class="holiday-date">Third Sunday in June</span>
+                                    </li>
+                                    <li class="holiday-item">
+                                        <span class="holiday-name">Dolly's Birthday <a href="https://en.wikipedia.org/wiki/Patriots%27_Day">{{> "icons/heart"}}</a></span>
+                                        <span class="holiday-date">August 23</span>
+                                    </li>
+                                    <li class="holiday-item">
+                                        <span class="holiday-name">Halloween <a href="https://en.wikipedia.org/wiki/Patriots%27_Day">{{> "icons/info"}}</a></span>
+                                        <span class="holiday-date">October 31</span>
+                                    </li>
+                                    <li class="holiday-item">
+                                        <span class="holiday-name">Election Day <a href="https://en.wikipedia.org/wiki/Patriots%27_Day">{{> "icons/info"}}</a></span>
+                                        <span class="holiday-date">The Tuesday after the first Monday of November</span>
+                                    </li>
+                                    <li class="holiday-item">
+                                        <span class="holiday-name">Saint Stephen's Day <a href="https://en.wikipedia.org/wiki/Patriots%27_Day">{{> "icons/info"}}</a></span>
+                                        <span class="holiday-date">December 26</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <div class="content-fullwidth">
+                <div class="page-content">
+                {{content}}
+                </div>
+                </div>
+            </div>
+        </div>
+                {{/post}}
+                <div class="page-footer">
+                    <div class="page-share">
+                        <div class="dropdown">
+                            <button class="dropbtn share-btn" aria-label="Share this page">Share This Page</button>
+                            <div class="dropdown-content">
+                                <p class="title">Share and Support</p>
+                                <p class="thanks">Thanks for reading. Use the links below to share this page.</p>
+                                <a href="#" class="native-share" style="display: none;">{{> "icons/share"}} Share via Device</a>
+                                <a href="#" class="copy-url">{{> "icons/link"}} Copy Page URL</a>
+                                <a href="#" class="email-share">{{> "icons/at-sign"}} Email Page</a>
+                                <a href="#" class="mastodon-share">{{> "icons/mastodon"}} Share on Mastodon</a>
+                                <a href="https://bsky.app/intent/compose?text={{encode title}}{{encode (url absolute="true")}}" target="_blank" rel="noopener noreferrer">{{> "icons/bluesky"}} Share on Bluesky</a>
+                                <a href="https://www.reddit.com/submit?url={{encode (url absolute="true")}}&title={{encode title}}" target="_blank" rel="noopener noreferrer">{{> "icons/reddit"}} Share on Reddit</a>
+                                <a href="whatsapp://send?text={{encode (concat title ' ' (url absolute="true"))}}" class="whatsapp-share" target="_blank" rel="noopener noreferrer">{{> "icons/whatsapp"}} Share on WhatsApp</a>
                             </div>
                         </div>
                     </div>
@@ -67,163 +242,65 @@
         </div>
     </article>
 </main>
-
+{{> "layout/site-footer"}}
 {{#contentFor "scripts"}}
 <script>
-    // Track if honeypot was triggered
-    let botDetected = false;
+document.addEventListener('DOMContentLoaded', function() {
+    // Get the current day of the week
+    const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    const today = new Date();
+    const currentDay = daysOfWeek[today.getDay()];
 
-    // Add honeypot detection
-    document.querySelectorAll('.contact-field input').forEach(input => {
-        input.addEventListener('change', (e) => {
-            console.log('Bot detected via honeypot');
-            botDetected = true;
-            e.preventDefault();
-            return false;
-        });
+    // Highlight current day in the office hours grid
+    const dayCards = document.querySelectorAll('.office-hours-card');
+
+    dayCards.forEach(card => {
+        if (card.getAttribute('data-day') === currentDay) {
+            card.classList.add('today');
+        }
     });
 
-    const contacts = [
-        {
-            id: 'general',
-            title: 'General Feedback',
-            description: 'Say hello, provide feedback, notify us we screwed up.',
-            email: btoa('hello@domain.com')
-        },
-        {
-            id: 'support',
-            title: 'Help Center',
-            description: 'For questions about any of our products or services, like memberships and subscriptions',
-            email: btoa('support@domain.com')
-        },
-        {
-            id: 'authors',
-            title: 'Contact Authors',
-            description: `Contact a particular author of <em>You Can't Be Serious</em>`,
-            emails: [
-                {
-                    label: '<strong>Amos</strong>',
-                    email: btoa('fiction@domain.com')
-                },
-                {
-                    label: '<strong>Dolly</strong>',
-                    email: btoa('nonfiction@domain.com')
-                },
-                {
-                    label: '<strong>Eileen</strong>',
-                    email: btoa('poetry@domain.com')
-                }
-            ]
-        },
-        {
-            id: 'business',
-            title: 'Business Inquiries',
-            description: 'Questions about partnerships and business opportunities',
-            email: btoa('business@domain.com')
-        }
-    ];
+    // Update current time
+    function updateClock() {
+        const now = new Date();
+        const hours = now.getHours();
+        const minutes = now.getMinutes();
+        const seconds = now.getSeconds();
 
-    const pageLoadTime = Date.now();
+        // Format time as 12-hour with AM/PM
+        const period = hours >= 12 ? 'PM' : 'AM';
+        const formattedHours = hours % 12 || 12;
+        const formattedMinutes = minutes < 10 ? `0${minutes}` : minutes;
+        const formattedSeconds = seconds < 10 ? `0${seconds}` : seconds;
 
-    function createContactCards() {
-        const container = document.getElementById('contactCards');
+        const timeString = `Current time: ${formattedHours}:${formattedMinutes}:${formattedSeconds} ${period} EST`;
+        document.getElementById('current-time-display').textContent = timeString;
 
-        contacts.forEach(contact => {
-            const card = document.createElement('div');
-            card.className = 'contact-card';
+        // Check if office is currently open
+        const dayOfWeek = now.getDay(); // 0 is Sunday, 1 is Monday, etc.
+        const isWeekday = dayOfWeek >= 1 && dayOfWeek <= 5; // Monday to Friday
+        const isOffDay = dayOfWeek === 2 || dayOfWeek === 6 || dayOfWeek === 0; // Tuesday, Saturday, Sunday
 
-            // Different HTML structure for multiple emails vs single email
-            const emailSection = contact.emails ?
-                `<div class="contact-email-container">
-                    <div class="contact-email-list">
-                        ${contact.emails.map(emailObj => `
-                            <div class="contact-email hidden" id="email-${contact.id}-${emailObj.label.toLowerCase().replace(/\s+/g, '-').replace(/<\/?strong>/g, '')}">
-                                <span class="contact-email-label">${emailObj.label}:</span>
-                                <span class="email-text">Click to reveal email</span>
-                            </div>
-                        `).join('')}
-                    </div>
-                    <button class="reveal-button" onclick="toggleEmail('${contact.id}')"
-                            aria-label="Toggle email visibility">
-                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
-                            <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                            <path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                        </svg>
-                    </button>
-                </div>` :
-                `<div class="contact-email-container">
-                    <span class="contact-email hidden" id="email-${contact.id}"
-                          data-email="${contact.email}">Click to reveal email</span>
-                    <button class="reveal-button" onclick="toggleEmail('${contact.id}')"
-                            aria-label="Toggle email visibility">
-                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
-                            <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                            <path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                        </svg>
-                    </button>
-                </div>`;
+        // Check if current time is between 2:00 PM and 3:30 PM (14:00 - 15:30)
+        const isOfficeHours =
+            hours >= 14 && (hours < 15 || (hours === 15 && minutes <= 30));
 
-            card.innerHTML = `
-                <h4 class="contact-title">${contact.title}</h4>
-                <p class="contact-description">${contact.description}</p>
-                ${emailSection}
-            `;
-            container.appendChild(card);
-        });
-    }
+        const officeStatusElement = document.getElementById('office-status');
 
-    function toggleEmail(id) {
-        // Check if bot was detected
-        if (botDetected) {
-            console.log('Email reveal blocked - bot detected');
-            return;
-        }
-
-        // Check time on page
-        const timeOnPage = (Date.now() - pageLoadTime) / 1000;
-        if (timeOnPage < 1) {
-            console.log('Too fast - likely a bot');
-            return;
-        }
-
-        const contact = contacts.find(c => c.id === id);
-
-        if (contact.emails) {
-            // Handle multiple emails
-            contact.emails.forEach(emailObj => {
-                const labelText = emailObj.label.replace(/<\/?strong>/g, '').trim().toLowerCase().replace(/\s+/g, '-');
-                const emailElement = document.getElementById(`email-${id}-${labelText}`);
-                const emailTextElement = emailElement.querySelector('.email-text');
-
-                if (emailElement.classList.contains('hidden')) {
-                    const email = atob(emailObj.email);
-                    emailTextElement.innerHTML = `<a href="mailto:${email}">${email}</a>`;
-                    emailElement.classList.remove('hidden');
-                } else {
-                    emailTextElement.textContent = 'Click to reveal email';
-                    emailElement.classList.add('hidden');
-                }
-            });
+        if (isWeekday && !isOffDay && isOfficeHours) {
+            officeStatusElement.textContent = 'Currently Available';
+            officeStatusElement.className = 'office-status-indicator open';
         } else {
-            // Handle single email
-            const emailElement = document.getElementById(`email-${id}`);
-            const encodedEmail = emailElement.dataset.email;
-
-            if (emailElement.classList.contains('hidden')) {
-                const email = atob(encodedEmail);
-                emailElement.innerHTML = `<a href="mailto:${email}">${email}</a>`;
-                emailElement.classList.remove('hidden');
-            } else {
-                emailElement.textContent = 'Click to reveal email';
-                emailElement.classList.add('hidden');
-            }
+            officeStatusElement.textContent = 'Currently Unavailable';
+            officeStatusElement.className = 'office-status-indicator closed';
         }
     }
 
-    // Initialize the contact cards
-    document.addEventListener('DOMContentLoaded', createContactCards);
+    // Initial call to set current time
+    updateClock();
+
+    // Update time every second
+    setInterval(updateClock, 1000);
+});
 </script>
 {{/contentFor}}
-{{/post}}
-
-{{> "layout/site-footer"}}

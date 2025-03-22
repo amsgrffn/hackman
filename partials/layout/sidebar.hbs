@@ -12,6 +12,7 @@
         </form>
     </div>
     <!-- About -->
+    {{^has slug="about"}}
     <div class="about-site">
         <div class="about-site-header">
             <h3 class="about-site-title">About This Site</h3>
@@ -19,7 +20,7 @@
                 <img src="{{asset "media/img/avatar.jpg"}}" alt="Your image description">
             </div> -->
         </div>
-        <p class="about-site-description">We use this electronic scrapbook to stay more or less sane and charitable. Planet is a marvelous nuthouse if you haven't noticed and equanimity created is closer than equanimity found. Topics vary.</p>
+        <p class="about-site-description">We're all trapped on this marvelous nuthouse. It'll drive you mad. Seeing how equanimity created is closer than equanimity found we use this place as an electronic scrapbook to stay more or less sane and charitable. Topics vary.</p>
         <div class="about-site-stats">
             <div class="site-stat">
                 <span class="stat-value">500</span>
@@ -36,10 +37,11 @@
         </div>
         <a href="{{@site.url}}/about/" class="about-site-link">Learn more</a>
     </div>
+    {{/has}}
     <!-- Newsletter -->
     <div class="newsletter-container">
         <div class="newsletter-header">
-            <h3 class="newsletter-title">Subscribe to Newsletter</h3>
+            <h3 class="newsletter-title">Grab the Newsletter</h3>
             <p class="newsletter-description">Get the latest posts delivered right to your inbox.</p>
         </div>
         <form class="newsletter-form">
@@ -76,7 +78,7 @@
     <!-- Collapsible section (will be closed by default) -->
       <div class="collapsible-section">
         <div class="collapsible-header">
-          <span class="collapsible-title">Policies</span>
+          <span class="collapsible-title">Site Info</span>
           <svg class="collapsible-icon collapsed" width="12" height="12" viewBox="0 0 12 12">
             <path fill="currentColor" d="M6 8.825l-4.9-4.9c-.3-.3-.3-.75 0-1.05.3-.3.75-.3 1.05 0L6 6.725l3.85-3.85c.3-.3.75-.3 1.05 0 .3.3.3.75 0 1.05l-4.9 4.9z"/>
           </svg>
@@ -84,23 +86,29 @@
         <div class="collapsible-content">
           <ul class="page-list">
             <li class="page-item">
-                <a href="#" class="page-link">
+                <a href="/contact" class="page-link">
                   {{> "icons/at-sign"}}
                   <span>Contact Us</span>
                 </a>
             </li>
             <li class="page-item">
-               <a href="#" class="page-link">
+               <a href="/office-hours" class="page-link">
                  {{> "icons/lamp"}}
                  <span>Office Hours</span>
                </a>
              </li>
              <li class="page-item">
-                 <a href="#" class="page-link">
+                 <a href="/nerd-alert" class="page-link">
                    {{> "icons/circuit"}}
                    <span>Nerd Alert</span>
                  </a>
-               </li>
+            </li>
+            <li class="page-item">
+                 <a href="/feeds" class="page-link">
+                   {{> "icons/rss"}}
+                   <span>Site Feeds</span>
+                 </a>
+            </li>
           </ul>
         </div>
       </div>

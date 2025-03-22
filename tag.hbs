@@ -25,78 +25,41 @@
             <div class="content">
                 <!-- Filter Navigation -->
                 <div class="filter-nav">
-                    <div class="filter-tabs">
-                        <a href="{{tag.url}}" class="filter-tab active">All</a>
-                        <a href="{{tag.url}}?filter=featured" class="filter-tab">Featured</a>
-                        <a href="{{tag.url}}?filter=latest" class="filter-tab">Latest</a>
-                    </div>
-                </div>
+                    <nav class="filter-tabs">
+                      <a href="#" class="filter-tab active">All</a>
+                      <a href="#" class="filter-tab">Featured</a>
+                      <a href="#" class="filter-tab">Bookmarks</a>
+                      <a href="#" class="filter-tab">Notes</a>
+                      <a href="#" class="filter-tab">Quotes</a>
+                      <a href="#" class="filter-tab">Videos</a>
+                    </nav>
+                  </div>
 
                 <!-- Posts Container -->
                 <div class="posts-container">
                     {{#foreach posts}}
-                    <article class="{{post_class}}">
-                        <div class="card">
-                            {{#if feature_image}}
-                            <img class="card-image" src="{{img_url feature_image size="medium"}}" alt="{{title}}">
-                            {{/if}}
-                            <div class="card-content">
-                                <div class="meta">
-                                    {{#primary_tag}}
-                                    <span class="tag">{{name}}</span>
-                                    {{/primary_tag}}
-                                    <span>{{date published_at format="MMM D, YYYY"}}</span>
-                                    {{#if reading_time}}
-                                    <span>{{reading_time}}</span>
-                                    {{/if}}
-                                </div>
-                                <h2><a href="{{url}}">{{title}}</a></h2>
-                                <p>{{excerpt words="25"}}</p>
-                                <a href="{{url}}" class="readmore">Read More
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M5 12h14"></path>
-                                        <path d="m12 5 7 7-7 7"></path>
-                                    </svg>
-                                </a>
-                            </div>
-                            <footer>
-                                <p class="author">By {{primary_author.name}}</p>
-                                <div class="post-actions dropdown">
-                                    <button class="dropbtn" aria-label="Post actions">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                            <circle cx="12" cy="12" r="1"></circle>
-                                            <circle cx="19" cy="12" r="1"></circle>
-                                            <circle cx="5" cy="12" r="1"></circle>
-                                        </svg>
-                                    </button>
-                                    <div class="dropdown-content">
-                                        <a href="#" class="copy-url">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                                                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                                            </svg>
-                                            Copy link
-                                        </a>
-                                        <a href="#" class="email-share">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                                                <polyline points="22,6 12,13 2,6"></polyline>
-                                            </svg>
-                                            Share via Email
-                                        </a>
-                                        <a href="#" class="native-share" style="display: none;">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                                <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path>
-                                                <polyline points="16 6 12 2 8 6"></polyline>
-                                                <line x1="12" y1="2" x2="12" y2="15"></line>
-                                            </svg>
-                                            Share
-                                        </a>
-                                    </div>
-                                </div>
-                            </footer>
-                        </div>
-                    </article>
+                    {{#has tag="#featured"}}
+                      {{> "cards/featured-card"}}
+                    {{else}}
+                      {{#has tag="#bookmark"}}
+                        {{> "cards/bookmark-card"}}
+                      {{else}}
+                        {{#has tag="#note"}}
+                          {{> "cards/note-card"}}
+                        {{else}}
+                          {{#has tag="#quote"}}
+                            {{> "cards/quote-card"}}
+                          {{else}}
+                            {{#has tag="#video"}}
+                              {{> "cards/video-card"}}
+                            {{else}}
+                              {{!-- Default post type if no special tag --}}
+                              {{> "cards/article-card"}}
+                            {{/has}}
+                          {{/has}}
+                        {{/has}}
+                      {{/has}}
+                    {{/has}}
                     {{else}}
                     <div class="no-posts">
                         <p>No posts found matching this tag.</p>
@@ -124,13 +87,15 @@
             <aside class="sidebar">
                 <!-- Search -->
                 <div class="search-container">
-                    <div class="topbar-search">
-                        <div class="topbar-search-left">
-                           {{> "icons/search"}}
-                            <span class="topbar-search-text">Search Everything</span>
+                    <form class="search-form" action="/search/" method="get" role="search">
+                        <div class="sidebar-search">
+                            <div class="sidebar-search-left">
+                                {{> "icons/search"}}
+                                <input data-ghost-search type="search" class="sidebar-search-input" name="q" placeholder="Search Everything" aria-label="Search" required>
+                            </div>
+                            <div class="sidebar-search-shortcut">⌘K</div>
                         </div>
-                        <div class="topbar-search-shortcut">⌘K</div>
-                    </div>
+                    </form>
                 </div>
                 <!-- About -->
                 <div class="about-site">
@@ -285,154 +250,3 @@
         </div>
     </div>
 </main>
-
-<style>
-.tag-header {
-    background-color: var(--gray-dark);
-    color: var(--secondary-color);
-    padding: var(--space-xl) 0;
-    margin-bottom: var(--space-xl);
-    border-radius: var(--radius);
-}
-
-.tag-header-content {
-    text-align: center;
-    padding: var(--space-xl) var(--space-xl);
-}
-
-.tag-title {
-    font-family: var(--display);
-    font-size: clamp(2.5rem, 5vw, 3.5rem);
-    font-weight: var(--font-weight-bold);
-    letter-spacing: var(--letter-spacing-tight);
-    margin-bottom: var(--space-md);
-    color: var(--secondary-color);
-}
-
-.tag-description {
-    font-size: var(--text-xl);
-    max-width: 700px;
-    margin: 0 auto var(--space-lg);
-    line-height: var(--line-height-relaxed);
-    opacity: 0.9;
-}
-
-.tag-meta {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: var(--space-md);
-    font-size: var(--text-sm);
-    opacity: 0.8;
-}
-
-.tag-image {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-.tag-count {
-    font-family: var(--mono);
-    font-size: var(--text-sm);
-}
-
-.filter-nav {
-    margin-bottom: var(--space-xl);
-}
-
-.filter-tabs {
-    display: flex;
-    gap: var(--space-md);
-    border-bottom: 1px solid var(--gray-light);
-    padding-bottom: var(--space-xs);
-}
-
-.filter-tab {
-    color: var(--gray-medium);
-    font-size: var(--text-sm);
-    font-weight: var(--font-weight-medium);
-    padding: var(--space-xs) var(--space-sm);
-    border-radius: 100px;
-    transition: var(--transition);
-}
-
-.filter-tab.active, .filter-tab:hover {
-    color: var(--accent-color);
-    background-color: rgba(0, 122, 255, 0.1);
-}
-
-.no-posts {
-    background-color: var(--secondary-color);
-    border-radius: var(--radius);
-    padding: var(--space-xl);
-    text-align: center;
-    margin-bottom: var(--space-xl);
-    box-shadow: var(--shadow);
-}
-
-.pagination {
-    margin: var(--space-xl) 0;
-    text-align: center;
-}
-
-.pagination-navigation {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: var(--space-md);
-}
-
-.pagination-navigation a {
-    color: var(--accent-color);
-    background-color: var(--secondary-color);
-    padding: var(--space-xs) var(--space-sm);
-    border-radius: 100px;
-    font-size: var(--text-sm);
-    font-weight: var(--font-weight-medium);
-    transition: var(--transition);
-}
-
-.pagination-navigation a:hover {
-    background-color: var(--accent-color);
-    color: var(--secondary-color);
-}
-
-.page-number {
-    color: var(--gray-medium);
-    font-size: var(--text-sm);
-}
-
-/* Card hover enhancements */
-.card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-}
-
-/* Mobile optimizations */
-@media (max-width: 767px) {
-    .tag-header-content {
-        padding: var(--space-lg) var(--space-md);
-    }
-
-    .tag-description {
-        font-size: var(--text-lg);
-    }
-
-    .filter-tabs {
-        overflow-x: auto;
-        padding-bottom: var(--space-sm);
-        -webkit-overflow-scrolling: touch;
-    }
-
-    .pagination-navigation {
-        flex-direction: column;
-        gap: var(--space-sm);
-    }
-}
-</style>

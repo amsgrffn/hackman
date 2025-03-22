@@ -115,7 +115,7 @@
                                </div>
 
                     <div class="page-footer">
-                        <p>The {{title}} page was created on {{date format="MMMM D, YYYY"}}. {{#match updated at}}It was updated on <time class="updated" datetime="{{updated_at}}">{{date updated_at format="MMMM D, YYYY"}}</time>.{{/match}}</p>
+                        <p>{{title}} page created on {{date format="M/D/YYYY"}}. {{#match updated at}}Updated on <time class="updated" datetime="{{updated_at}}">{{date updated_at format="M/D/YYYY"}}</time>.{{/match}}</p>
 
                         <div class="page-share">
                             <div class="dropdown">
@@ -140,7 +140,7 @@
     </article>
 </main>
 {{/post}}
-
+{{> "layout/site-footer"}}
 {{#contentFor "scripts"}}
 <script>
     // Track if honeypot was triggered
@@ -227,4 +227,3 @@
     }
 </script>
 {{/contentFor}}
-{{> "layout/site-footer"}}
