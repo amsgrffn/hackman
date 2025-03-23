@@ -501,6 +501,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initKnicksCounter();
     initStickyHeaderEffect();
     initYouTubeLightbox();
+    initPriceToggle();
 
     // Log to confirm script is running
     console.log('Theme JS initialized including social sharing');
@@ -1233,6 +1234,56 @@ function initBookmarkDomainExtractor() {
          document.body.classList.remove('youtube-modal-open');
      }
  }
+
+ ////////// Price Toggle //////////
+ function initPriceToggle() {
+     const toggle = document.querySelector('.membership-toggle');
+     if (!toggle) return;
+
+     const toggleButtons = document.querySelectorAll('.toggle button');
+     const yearlyElements = document.querySelectorAll('[data-yearly]');
+     const monthlyElements = document.querySelectorAll('[data-monthly]');
+
+     toggleButtons.forEach(button => {
+         // Add ARIA attributes
+         button.setAttribute('role', 'switch');
+         button.setAttribute(ARIA_ATTRS.CHECKED, 'false');
+
+         button.addEventListener('click', () => {
+             const priceType = button.getAttribute('data-price');
+             if (!['yearly', 'monthly'].includes(priceType)) return;
+
+             // Update ARIA states
+             toggleButtons.forEach(btn => {
+                 btn.classList.remove('active');
+                 btn.setAttribute(ARIA_ATTRS.CHECKED, 'false');
+             });
+             button.classList.add('active');
+             button.setAttribute(ARIA_ATTRS.CHECKED, 'true');
+
+             toggle.setAttribute('data-active-price', priceType);
+
+             const isYearly = priceType === 'yearly';
+             yearlyElements.forEach(el => {
+                 el.style.display = isYearly ? 'block' : 'none';
+                 el.setAttribute(ARIA_ATTRS.HIDDEN, (!isYearly).toString());
+             });
+             monthlyElements.forEach(el => {
+                 el.style.display = isYearly ? 'none' : 'block';
+                 el.setAttribute(ARIA_ATTRS.HIDDEN, isYearly.toString());
+             });
+         });
+
+         // Add keyboard support
+         button.addEventListener('keydown', (e) => {
+             if (e.key === KEYS.ENTER || e.key === KEYS.SPACE) {
+                 e.preventDefault();
+                 button.click();
+             }
+         });
+     });
+ }
+
 
 /**
  * Utility: Safely get value from localStorage
