@@ -3,16 +3,16 @@
 {{#post}}
 <main class="page-fullwidth">
     <article class="page {{post_class}}">
-        <header class="page-header">
+        <header class="office-hours-header">
             <div class="container-wide">
                 <div class="page-meta">
                     {{#if featured}}
                     <span class="featured-badge">Featured</span>
                     {{/if}}
                 </div>
-                <h1 class="page-title">{{title}}</h1>
+                <h1 class="office-hours-title">{{title}}</h1>
                 {{#if custom_excerpt}}
-                <p class="page-excerpt">{{custom_excerpt}}</p>
+                <p class="office-hours-subtitle">{{custom_excerpt}}</p>
                 {{/if}}
             </div>
         </header>
@@ -102,7 +102,7 @@
                 </section>
                 <!-- Holiday Schedule Section -->
                 <section class="holiday-schedule-container">
-                    <div class="holiday-header">
+                    <div class="office-hours-header">
                         <h2 class="holiday-title">Holiday Schedule</h2>
                         <p class="holiday-subtitle">We do not work on the following days of the year. If you expect to reach us or anticipate a reply on these days you will be disappointed.</p>
                     </div>
@@ -192,7 +192,7 @@
                                         <span class="holiday-date">Third Sunday in June</span>
                                     </li>
                                     <li class="holiday-item">
-                                        <span class="holiday-name">Dolly's Birthday <a href="https://en.wikipedia.org/wiki/Patriots%27_Day">{{> "icons/heart"}}</a></span>
+                                        <span class="holiday-name"><img src="{{asset 'media/img/dollyd.jpg'}}" alt="UFO in deep space"> Birthday <a href="https://en.wikipedia.org/wiki/Patriots%27_Day">{{> "icons/heart"}}</a></span>
                                         <span class="holiday-date">August 23</span>
                                     </li>
                                     <li class="holiday-item">
@@ -215,18 +215,15 @@
                 <div class="content-fullwidth">
                 <div class="page-content">
                 {{content}}
-                </div>
-                </div>
-            </div>
-        </div>
-                {{/post}}
                 <div class="page-footer">
+                    <p>{{title}} was created on {{date format="M/D/YYYY"}}. {{#match updated at}}Updated on <time class="updated" datetime="{{updated_at}}">{{date updated_at format="M/D/YYYY"}}</time>.{{/match}}</p>
+
                     <div class="page-share">
                         <div class="dropdown">
                             <button class="dropbtn share-btn" aria-label="Share this page">Share This Page</button>
                             <div class="dropdown-content">
                                 <p class="title">Share and Support</p>
-                                <p class="thanks">Thanks for reading. Use the links below to share this page.</p>
+                                <p class="thanks">Thanks for visiting. Use the links below to share this page.</p>
                                 <a href="#" class="native-share" style="display: none;">{{> "icons/share"}} Share via Device</a>
                                 <a href="#" class="copy-url">{{> "icons/link"}} Copy Page URL</a>
                                 <a href="#" class="email-share">{{> "icons/at-sign"}} Email Page</a>
@@ -238,6 +235,11 @@
                         </div>
                     </div>
                 </div>
+                </div>
+                </div>
+            </div>
+        </div>
+                {{/post}}
             </div>
         </div>
     </article>

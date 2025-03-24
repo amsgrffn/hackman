@@ -5,9 +5,9 @@
     <div class="membership-header">
         <div class="container">
             <h1 class="membership-title">{{title}}</h1>
-            {{#if custom_excerpt}}
-            <p class="membership-excerpt">{{custom_excerpt}}</p>
-            {{/if}}
+
+            <p class="membership-excerpt">{{excerpt}}</p>
+
         </div>
     </div>
     <div class="membership-content">
@@ -16,8 +16,8 @@
                 {{#if @site.paid_members_enabled}}
                 <div class="toggle-wrapper price-toggle">
                     <div class="membership-toggle" data-active-price="{{@site.portal_default_plan}}" data-active-price-plans="{{@site.portal_plans}}">
-                        <button class="active" data-price="monthly">{{t "Monthly"}}</button>
-                        <button data-price="yearly">{{t "Yearly"}}</button>
+                        <button class="active" data-price="monthly">{{t "Monthly"}} Pricing</button>
+                        <button data-price="yearly">{{t "Yearly"}} Pricing: <span>up to 17% off</span></button>
                     </div>
                 </div>
                 {{/if}}
@@ -29,7 +29,7 @@
                         <div class="membership-card-header">
                             <h2 class="membership-card-title"><span>{{name}}</span></h2>
                         </div>
-                        <div class="membership-card-price">0</div>
+                        <div class="membership-card-price">as in beer</div>
                         {{#if description}}<p class="membership-card-description">{{description}}</p>{{/if}}
                         {{#if benefits}}
                         <ul class="membership-features-list">
@@ -47,10 +47,10 @@
                     <div class="membership-card">
                         <div class="membership-card-header">
                             <h2 class="membership-card-title"><span>{{name}}</span></h2>
-                            {{#if trial_days}}<div class="membership-card-tag">{{trial_days}} days free</div>{{/if}}
+                            {{#if trial_days}}<div class="membership-card-tag">{{trial_days}} days free trail</div>{{/if}}
                         </div>
                         <div class="membership-card-price" data-monthly>{{#if monthly_price}}${{price monthly_price}}<span>/{{t "month"}}</span>{{else}}0<span>/{{t "month"}}</span>{{/if}}</div>
-                        <div class="membership-card-price" data-yearly style="display: none;">{{#if yearly_price}}{{price yearly_price}}<span>/{{t "year"}}</span>{{else}}0<span>/{{t "year"}}</span>{{/if}}</div>
+                        <div class="membership-card-price" data-yearly style="display: none;">{{#if yearly_price}}${{price yearly_price}}<span>/{{t "year"}}</span>{{else}}0<span>/{{t "year"}}</span>{{/if}}</div>
                         {{#if description}}<p class="membership-card-description">{{description}}</p>{{/if}}
                         {{#if benefits}}
                         <ul class="membership-features-list">
@@ -65,15 +65,31 @@
                     {{/if}}
                 </div>
                 <div class="membership-footnote">
-                    <p>All memberships auto-renew but can be cancelled anytime. By joining, you agree to our <a href="/terms">Terms of Service</a>.</p>
+                    <p><span>All memberships auto-renew after a free trial ends but can be cancelled anytime. By joining, you agree to our <a href="/terms">Terms of Service</a>.</span></p>
                 </div>
             </section>
             <div class="page-content">
             {{content}}
+            <div class="page-footer">
+                <p>{{title}} was created on {{date format="M/D/YYYY"}}. {{#match updated at}}Updated on <time class="updated" datetime="{{updated_at}}">{{date updated_at format="M/D/YYYY"}}</time>.{{/match}}</p>
+                <div class="page-share">
+                    <div class="dropdown">
+                        <button class="dropbtn share-btn" aria-label="Share this page">Share This Page</button>
+                        <div class="dropdown-content">
+                            <p class="title">Share and Support</p>
+                            <p class="thanks">Thanks for visiting. Use the links below to share this page.</p>
+                            <a href="#" class="native-share" style="display: none;">{{> "icons/share"}} Share via Device</a>
+                            <a href="#" class="copy-url">{{> "icons/link"}} Copy Page URL</a>
+                            <a href="#" class="email-share">{{> "icons/at-sign"}} Email Page</a>
+                            <a href="#" class="mastodon-share">{{> "icons/mastodon"}} Share on Mastodon</a>
+                            <a href="https://bsky.app/intent/compose?text={{encode title}}{{encode (url absolute="true")}}" target="_blank" rel="noopener noreferrer">{{> "icons/bluesky"}} Share on Bluesky</a>
+                            <a href="https://www.reddit.com/submit?url={{encode (url absolute="true")}}&title={{encode title}}" target="_blank" rel="noopener noreferrer">{{> "icons/reddit"}} Share on Reddit</a>
+                            <a href="whatsapp://send?text={{encode (concat title ' ' (url absolute="true"))}}" class="whatsapp-share" target="_blank" rel="noopener noreferrer">{{> "icons/whatsapp"}} Share on WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <footer>
-                <p>{{#foreach authors}}<a href="{{url}}">{{name}}</a>{{/foreach}} published <em>{{title}}</em> on {{date format="MMMM D, YYYY"}} and filed it under {{tags separator=", "}}. {{#has tag="#remastered"}}This is a <a href="/remastered">remastered post</a>. {{/has}}{{#match updated at}}It was updated on <time class="updated" datetime="{{updated_at}}">{{date updated_at format="MMMM D, YYYY"}}</time>.{{/match}}</p>
-            </footer>
+            </div>
         </div>
     </div
 {{/post}}
@@ -149,104 +165,107 @@
         }
     });
 
-   // Sliding Scale functionality - keep this part unchanged
-   class SlidingScale {
-       constructor() {
-           // Insert the slider HTML before the membership cards
-           this.insertSliderHTML();
+    class SlidingScale {
+        constructor() {
+            // Insert the slider HTML before the membership cards
+            this.insertSliderHTML();
 
-           // Initialize the slider and highlighting functionality
-           this.init();
-       }
+            // Initialize the slider and highlighting functionality
+            this.init();
+        }
 
-       insertSliderHTML() {
-           const membershipSection = document.querySelector('.membership-section');
-           const sliderHTML = `
-               <div class="income-slider-section">
-                   <div class="slider-card">
-                       <div class="slider-header">
-                           <h2><span>Select Your Income Level</span></h2>
-                           <p>Membership pricing is based on individual annual income</p>
-                       </div>
-                       <div class="slider-content">
-                           <div class="income-display">Annual Income: $<span id="income-display">40,000</span></div>
-                           <input type="range" id="income-slider"
-                                  min="20000" max="150000"
-                                  step="1000" value="40000"
-                                  class="income-slider">
-                       </div>
-                   </div>
-               </div>
-           `;
+        insertSliderHTML() {
+            const membershipSection = document.querySelector('.membership-section');
+            const sliderHTML = `
+                <div class="income-slider-section">
+                    <div class="slider-card">
+                        <div class="slider-header">
+                            <h2><span>Select Your Income Level</span></h2>
+                            <p>Membership pricing is based on individual annual income</p>
+                        </div>
+                        <div class="slider-content">
+                            <div class="income-display">Annual Income: $<span id="income-display">40,000</span></div>
+                            <input type="range" id="income-slider"
+                                   min="20000" max="150000"
+                                   step="1000" value="40000"
+                                   class="income-slider">
+                        </div>
+                    </div>
+                </div>
+            `;
 
-           // Insert after the toggle wrapper if it exists, otherwise at the start of the section
-           const toggleWrapper = membershipSection.querySelector('.toggle-wrapper');
-           if (toggleWrapper) {
-               toggleWrapper.insertAdjacentHTML('afterend', sliderHTML);
-           } else {
-               membershipSection.insertAdjacentHTML('afterbegin', sliderHTML);
-           }
-       }
+            // Insert at the beginning of the membership section
+            membershipSection.insertAdjacentHTML('afterbegin', sliderHTML);
 
-       getTierFromIncome(income) {
-           if (income < 40000) return 3;
-           if (income < 85000) return 6;
-           return 12;
-       }
+            // Now move the toggle after the slider
+            const toggleWrapper = membershipSection.querySelector('.toggle-wrapper');
+            const sliderSection = membershipSection.querySelector('.income-slider-section');
 
-       highlightTier(price) {
-           // Remove highlight from all cards
-           const cards = document.querySelectorAll('.membership-card');
-           cards.forEach(card => {
-               card.classList.remove('highlight-tier');
-               card.style.transform = '';
-               if (card.querySelector('.recommended-badge')) {
-                   card.querySelector('.recommended-badge').remove();
-               }
-           });
+            if (toggleWrapper && sliderSection) {
+                // Move toggle after slider
+                sliderSection.after(toggleWrapper);
+            }
+        }
 
-           // Find and highlight the appropriate card
-           cards.forEach(card => {
-               const priceElement = card.querySelector('.membership-card-price[data-monthly]');
-               if (!priceElement) return;
+        getTierFromIncome(income) {
+            if (income < 40000) return 3;
+            if (income < 85000) return 6;
+            return 12;
+        }
 
-               const cardPrice = parseFloat(priceElement.textContent.replace('$', ''));
-               if (cardPrice === price) {
-                   card.classList.add('highlight-tier');
-                   card.style.transform = 'translateY(-8px)';
+        highlightTier(price) {
+            // Remove highlight from all cards
+            const cards = document.querySelectorAll('.membership-card');
+            cards.forEach(card => {
+                card.classList.remove('highlight-tier');
+                card.style.transform = '';
+                if (card.querySelector('.recommended-badge')) {
+                    card.querySelector('.recommended-badge').remove();
+                }
+            });
 
-                   // Add recommended badge
-                   const header = card.querySelector('.membership-card-header');
-                   const badge = document.createElement('div');
-                   badge.className = 'recommended-badge';
-                   badge.textContent = 'Recommended';
-                   header.insertBefore(badge, header.firstChild);
-               }
-           });
-       }
+            // Find and highlight the appropriate card
+            cards.forEach(card => {
+                const priceElement = card.querySelector('.membership-card-price[data-monthly]');
+                if (!priceElement) return;
 
-       init() {
-           const slider = document.getElementById('income-slider');
-           const incomeDisplay = document.getElementById('income-display');
+                const cardPrice = parseFloat(priceElement.textContent.replace('$', ''));
+                if (cardPrice === price) {
+                    card.classList.add('highlight-tier');
+                    card.style.transform = 'translateY(-8px)';
 
-           slider.addEventListener('input', (e) => {
-               const income = parseInt(e.target.value);
-               incomeDisplay.textContent = income >= 150000 ? '150,000+' : income.toLocaleString();
+                    // Add recommended badge
+                    const header = card.querySelector('.membership-card-header');
+                    const badge = document.createElement('div');
+                    badge.className = 'recommended-badge';
+                    badge.textContent = 'Recommended';
+                    header.insertBefore(badge, header.firstChild);
+                }
+            });
+        }
 
-               const suggestedPrice = this.getTierFromIncome(income);
-               this.highlightTier(suggestedPrice);
-           });
+        init() {
+            const slider = document.getElementById('income-slider');
+            const incomeDisplay = document.getElementById('income-display');
 
-           // Initial highlight
-           const initialIncome = parseInt(slider.value);
-           const initialPrice = this.getTierFromIncome(initialIncome);
-           this.highlightTier(initialPrice);
-       }
-   }
+            slider.addEventListener('input', (e) => {
+                const income = parseInt(e.target.value);
+                incomeDisplay.textContent = income >= 150000 ? '150,000+' : income.toLocaleString();
 
-   // Initialize the sliding scale when the DOM is loaded
-   document.addEventListener('DOMContentLoaded', function() {
-       new SlidingScale();
-   });
+                const suggestedPrice = this.getTierFromIncome(income);
+                this.highlightTier(suggestedPrice);
+            });
+
+            // Initial highlight
+            const initialIncome = parseInt(slider.value);
+            const initialPrice = this.getTierFromIncome(initialIncome);
+            this.highlightTier(initialPrice);
+        }
+    }
+
+    // Initialize the sliding scale when the DOM is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+        new SlidingScale();
+    });
 </script>
 {{/contentFor}}

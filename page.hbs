@@ -32,24 +32,25 @@
                             {{content}}
                         </div>
                         <div class="page-footer">
-                            <div class="page-share">
-                                <div class="dropdown">
-                                    <button class="dropbtn share-btn" aria-label="Share this page">Share This Page</button>
-                                    <div class="dropdown-content">
-                                        <p class="title">Share and Support</p>
-                                        <p class="thanks">Thanks for reading. Use the links below to share this page.</p>
-                                        <a href="#" class="native-share" style="display: none;">{{> "icons/share"}} Share via Device</a>
-                                        <a href="#" class="copy-url">{{> "icons/link"}} Copy Page URL</a>
-                                        <a href="#" class="email-share">{{> "icons/at-sign"}} Email Page</a>
-                                        <a href="#" class="mastodon-share">{{> "icons/mastodon"}} Share on Mastodon</a>
-                                        <a href="https://bsky.app/intent/compose?text={{encode title}}{{encode (url absolute="true")}}" target="_blank" rel="noopener noreferrer">{{> "icons/bluesky"}} Share on Bluesky</a>
-                                        <a href="https://www.reddit.com/submit?url={{encode (url absolute="true")}}&title={{encode title}}" target="_blank" rel="noopener noreferrer">{{> "icons/reddit"}} Share on Reddit</a>
-                                        <a href="whatsapp://send?text={{encode (concat title ' ' (url absolute="true"))}}" class="whatsapp-share" target="_blank" rel="noopener noreferrer">{{> "icons/whatsapp"}} Share on WhatsApp</a>
+                                <p>Page created on {{date format="M/D/YYYY"}}. {{#match updated at}}Updated on <time class="updated" datetime="{{updated_at}}">{{date updated_at format="M/D/YYYY"}}</time>.{{/match}}</p>
+                                <div class="page-share">
+                                    <div class="dropdown">
+                                        <button class="dropbtn share-btn" aria-label="Share this page">Share This Page</button>
+                                        <div class="dropdown-content">
+                                            <p class="title">Share and Support</p>
+                                            <p class="thanks">Thanks for reading. Use the links below to share this page.</p>
+                                            <a href="#" class="native-share" style="display: none;">{{> "icons/share"}} Share via Device</a>
+                                            <a href="#" class="copy-url">{{> "icons/link"}} Copy Page URL</a>
+                                            <a href="#" class="email-share">{{> "icons/at-sign"}} Email Page</a>
+                                            <a href="#" class="mastodon-share">{{> "icons/mastodon"}} Share on Mastodon</a>
+                                            <a href="https://bsky.app/intent/compose?text={{encode title}}{{encode (url absolute="true")}}" target="_blank" rel="noopener noreferrer">{{> "icons/bluesky"}} Share on Bluesky</a>
+                                            <a href="https://www.reddit.com/submit?url={{encode (url absolute="true")}}&title={{encode title}}" target="_blank" rel="noopener noreferrer">{{> "icons/reddit"}} Share on Reddit</a>
+                                            <a href="whatsapp://send?text={{encode (concat title ' ' (url absolute="true"))}}" class="whatsapp-share" target="_blank" rel="noopener noreferrer">{{> "icons/whatsapp"}} Share on WhatsApp</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
                     <!-- Sidebar -->
                     {{> "layout/sidebar"}}
                 </div>
