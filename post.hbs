@@ -369,3 +369,22 @@
 </main>
 {{/post}}
 {{> "layout/site-footer"}}
+<div class="panel-overlay" aria-hidden="true"></div>
+ <!-- Comments Panel -->
+ <aside id="comments-panel" class="related-panel" aria-hidden="true">
+     <div class="panel-header">
+         <div class="header-content">
+             <h2>Comments</h2>
+             <p class="header-description">The Times needs your voice. We welcome your on-topic commentary, criticism and expertise. Comments are moderated for civility..</p>
+         </div>
+         <button class="close-panel" aria-label="Close related articles">×</button>
+     </div>
+
+     <div class="panel-content">
+             {{#if comments}}
+                 <div class="gh-post-comments mt-20">
+                     {{comments title="" mode="light"}}
+                 </div>
+             {{/if}}
+     </div>
+ </aside>

@@ -535,21 +535,23 @@ body.dark-mode .site-header.scrolled {
 
 .mobile-menu {
     background-color: var(--secondary-color);
+    border-radius: 16px;
     box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
-    height: 100vh;
-    max-width: 320px;
+    height: 85vh;
+    max-width: 360px;
     overflow-y: auto;
     padding: var(--space-3xl) var(--space-xl) var(--space-xl);
     position: fixed;
     right: -100%;
-    top: 0;
+    top: 50%;
+    transform: translateY(-50%);
     transition: var(--transition);
     width: 80%;
     z-index: 150;
 }
 
 .mobile-menu.active {
-    right: 0;
+    right: 16px;
 }
 
 .overlay {
@@ -628,6 +630,21 @@ input:checked+.appearance-option svg {
 /* Hover state */
 .appearance-option:hover svg {
     fill: var(--toggle-icon-active-light);
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-height: 600px) {
+    .mobile-menu {
+        height: 75vh;
+        top: 12vh;
+        transform: none;
+    }
+}
+
+@media (max-width: 380px) {
+    .mobile-menu.active {
+        right: 8px;
+    }
 }
 
 /* ***************************************
