@@ -907,7 +907,7 @@ function initBookmarkDomainExtractor() {
              transform: translateY(20px);
          }
          .testimonial-content.fade-in {
-             opacity: 0;
+             opacity: 1;
              transform: translateY(-20px);
          }
      `;
