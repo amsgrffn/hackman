@@ -1,42 +1,42 @@
 <!-- Regular Article -->
 <article class="card {{post_class}}">
-    {{#if feature_image}}
-        <picture>
-            <source
-                srcset="
-                    {{img_url feature_image size="s" format="avif"}} 560w,
-                    {{img_url feature_image size="l" format="avif"}} 1120w"
-                sizes="(min-width: 1200px) 560px, 100vw"
-                type="image/avif">
-            <source
-                srcset="
-                    {{img_url feature_image size="s" format="webp"}} 560w,
-                    {{img_url feature_image size="l" format="webp"}} 1120w"
-                sizes="(min-width: 1200px) 560px, 100vw"
-                type="image/webp">
-            <img
-                srcset="
-                    {{img_url feature_image size="s"}} 560w,
-                    {{img_url feature_image size="l"}} 1120w"
-                sizes="(min-width: 1200px) 560px, 100vw"
-                src="{{img_url feature_image size="s"}}"
-                class="card-image"
-                alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
-                loading="lazy"
-                width="560"
-                height="373">
-        </picture>
-    {{/if}}
     <div class="card-content">
         <div class="meta">
             <span class="tag">{{#primary_tag}}<a href="{{url}}">{{name}}</a>{{/primary_tag}}</span>
-            <span><time datetime="{{date format="YYYY-MM-DD"}}">{{date published_at format="MMMM D, Y, h:mm A"}}</time></span>
+            <span class="pub-date"><time datetime="{{date format="YYYY-MM-DD"}}">{{date published_at timeago="true"}}</time></span>
         </div>
+        {{#if feature_image}}
+            <picture>
+                <source
+                    srcset="
+                        {{img_url feature_image size="s" format="avif"}} 560w,
+                        {{img_url feature_image size="l" format="avif"}} 1120w"
+                    sizes="(min-width: 1200px) 560px, 100vw"
+                    type="image/avif">
+                <source
+                    srcset="
+                        {{img_url feature_image size="s" format="webp"}} 560w,
+                        {{img_url feature_image size="l" format="webp"}} 1120w"
+                    sizes="(min-width: 1200px) 560px, 100vw"
+                    type="image/webp">
+                <img
+                    srcset="
+                        {{img_url feature_image size="s"}} 560w,
+                        {{img_url feature_image size="l"}} 1120w"
+                    sizes="(min-width: 1200px) 560px, 100vw"
+                    src="{{img_url feature_image size="s"}}"
+                    class="card-image"
+                    alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+                    loading="lazy"
+                    width="560"
+                    height="373">
+            </picture>
+        {{/if}}
         <h2><a href="{{url}}">{{title}}</a></h2>
     {{#if custom_excerpt}}
         <!-- If there's a custom excerpt -->
-        <p>{{custom_excerpt}}</p>
-        <p class="readmore"><a href="{{url}}">Read more{{> "icons/arrow-right"}}</a></p>
+        <p class="excerpt">{{custom_excerpt}}</p>
+        <p class="readmore"><a href="{{url}}">read this article {{> "icons/arrow-right"}}</a></p>
     {{else}}
             <div class="post-content">
                 {{content}}

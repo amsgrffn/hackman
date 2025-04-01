@@ -1,4 +1,4 @@
-<div class="topbar">
+<!--<div class="topbar">
     <div class="container">
         <div class="topbar-inner">
             <nav class="topbar-nav">
@@ -12,12 +12,12 @@
             </nav>
         </div>
     </div>
-</div>
+</div> -->
 <header class="site-header">
     <div class="container">
         <div class="header-inner">
              <a href="{{@site.url}}" class="logo">{{{@site.title}}}</a>
-           <nav class="site-nav">
+           <!--<nav class="site-nav">
                <a class="memberships" href="/memberships">Memberships</a>
                {{#if @member}}
                    <a data-portal="account" class="login" href="#">
@@ -29,24 +29,9 @@
                {{else}}
                    <a data-portal="signin" class="login" href="#">Member Login</a>
                {{/if}}
-           </nav>
+           </nav> -->
             <div class="header-right">
-                <div class="appearance-toggle-wrapper">
-                    <div class="appearance-toggle">
-                        <input type="radio" id="appearance-auto" name="appearance" value="auto" checked>
-                        <label for="appearance-auto" class="appearance-option" title="System preference">
-                            {{> "icons/desktop"}}
-                        </label>
-                        <input type="radio" id="appearance-light" name="appearance" value="light">
-                        <label for="appearance-light" class="appearance-option" title="Light mode">
-                           {{> "icons/sun"}}
-                        </label>
-                        <input type="radio" id="appearance-dark" name="appearance" value="dark">
-                        <label for="appearance-dark" class="appearance-option" title="Dark mode">
-                            {{> "icons/moon"}}
-                        </label>
-                    </div>
-                </div>
+
                 <button class="menu-toggle" aria-label="Toggle menu">
                     <span></span>
                     <span></span>

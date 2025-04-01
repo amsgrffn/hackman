@@ -4,7 +4,7 @@
         <div>
             <div class="meta">
                 <span class="tag">{{#primary_tag}}<a href="{{url}}">{{name}}</a>{{/primary_tag}}</span>
-                <span><time datetime="{{date format="YYYY-MM-DD"}}">{{date published_at format="MMMM D, Y, h:mm A"}}</time></span>
+                <span class="pub-date"><time datetime="{{date format="YYYY-MM-DD"}}">{{date published_at timeago="true"}}</time></span>
             </div>
             <h2><a href="{{url}}">{{title}}</a></h2>
         </div>

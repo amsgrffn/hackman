@@ -258,17 +258,18 @@ function showCopyAlert(target, success = true) {
         padding: '12px 24px',
         borderRadius: '0.5rem',
         zIndex: '1000',
-        fontSize: '18px',
-        fontFamily: 'var(--display)',
-        fontWeight: '800',
+        fontSize: '16px',
+        fontWeight: '700',
         opacity: '0',
-        textTransform: 'uppercase',
         transition: 'opacity 0.3s ease-in-out',
         whiteSpace: 'nowrap',
         transform: 'translateX(-50%)'
     });
 
-    alertBox.textContent = success ? 'URL copied to clipboard' : 'Failed to copy URL';
+    // Update the alert message to include an SVG thumbs up icon with a class for styling
+    alertBox.innerHTML = success ?
+      '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="alert-icon success-icon"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg> URL copied to clipboard' :
+      '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="alert-icon error-icon"><path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3zm7-13h2.67A2.31 2.31 0 0 1 22 4v7a2.31 2.31 0 0 1-2.33 2H17"></path></svg> Failed to copy URL';
     document.body.appendChild(alertBox);
 
     requestAnimationFrame(() => {
@@ -502,6 +503,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initStickyHeaderEffect();
     initYouTubeLightbox();
     initPriceToggle();
+    initCommentsPanel();
+    initWikipediaIconsForCitations();
 
     // Log to confirm script is running
     console.log('Theme JS initialized including social sharing');
@@ -717,7 +720,7 @@ function initBookmarkDomainExtractor() {
        // Assemble the source element
        sourceEl.appendChild(faviconEl);
        // Add "via" text before the domain name
-       sourceEl.innerHTML += `<span class="bookmark-source-text"><span class="bookmark-via">via</span> ${displayDomain}</span>`;
+       sourceEl.innerHTML += `<span class="bookmark-source-text">${displayDomain}</span>`;
 
        // Add the source element after the bookmark header
        const bookmarkHeader = bookmark.querySelector('.bookmark-header');
@@ -821,18 +824,7 @@ function initBookmarkDomainExtractor() {
                   src="${sanitizedAvatar}"
                   alt="${sanitizedAuthor}'s avatar"
                   onerror="this.style.display='none'">
-                  <a href="${sanitizedLink}">${sanitizedAuthor} <svg xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="1.25"
-                        stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M5 12h14"/>
-                        <path d="m12 5 7 7-7 7"/>
-                   </svg></a>
+                  <a href="${sanitizedLink}">${sanitizedAuthor} <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right-icon lucide-arrow-up-right"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></a>
              </cite>
          </div>`;
      }
@@ -1279,6 +1271,92 @@ function initBookmarkDomainExtractor() {
              if (e.key === KEYS.ENTER || e.key === KEYS.SPACE) {
                  e.preventDefault();
                  button.click();
+             }
+         });
+     });
+ }
+
+ /**
+  * Comments Panel Functionality
+  * Handles the sliding panel for comments
+  */
+ function initCommentsPanel() {
+     const commentsTrigger = document.querySelector('.related-trigger');
+     const commentsPanel = document.getElementById('comments-panel');
+     const overlay = document.querySelector('.panel-overlay');
+     const closeButton = document.querySelector('.close-panel');
+
+     if (!commentsTrigger || !commentsPanel || !overlay || !closeButton) return;
+
+     function toggleCommentsPanel() {
+         const isExpanded = commentsPanel.classList.contains('active');
+
+         // Toggle classes
+         commentsPanel.classList.toggle('active');
+         overlay.classList.toggle('active');
+
+         // Update ARIA attributes
+         commentsTrigger.setAttribute('aria-expanded', !isExpanded);
+         commentsPanel.setAttribute('aria-hidden', isExpanded);
+
+         // Control body scrolling
+         document.body.style.overflow = isExpanded ? '' : 'hidden';
+
+         // Focus management
+         if (!isExpanded) {
+             closeButton.focus();
+         }
+     }
+
+     function closeCommentsPanel() {
+         commentsPanel.classList.remove('active');
+         overlay.classList.remove('active');
+         commentsTrigger.setAttribute('aria-expanded', 'false');
+         commentsPanel.setAttribute('aria-hidden', 'true');
+         document.body.style.overflow = '';
+         commentsTrigger.focus();
+     }
+
+     // Event listeners
+     commentsTrigger.addEventListener('click', toggleCommentsPanel);
+     closeButton.addEventListener('click', closeCommentsPanel);
+     overlay.addEventListener('click', closeCommentsPanel);
+
+     // Close panel on escape key
+     document.addEventListener('keydown', function(event) {
+         if (event.key === 'Escape' && commentsPanel.classList.contains('active')) {
+             closeCommentsPanel();
+         }
+     });
+
+     // Fix aria-controls attribute to match panel ID
+     commentsTrigger.setAttribute('aria-controls', 'comments-panel');
+ }
+
+function initWikipediaIconsForCitations() {
+     // Find all quotes with citations
+     const quotes = document.querySelectorAll('.quote blockquote');
+
+     quotes.forEach(quote => {
+         const cite = quote.querySelector('cite');
+         if (!cite) return;
+
+         const links = cite.querySelectorAll('a');
+
+         links.forEach(link => {
+             // Check if the link is to Wikipedia
+             if (link.href && link.href.includes('wikipedia.org')) {
+                 // Create a Wikipedia icon
+                 const wikiIcon = document.createElement('span');
+                 wikiIcon.className = 'wiki-icon';
+                 wikiIcon.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-wikipedia" viewBox="0 0 16 16"><path d="M8.835 3.003c.828-.006 2.688 0 2.688 0l.033.03v.288q0 .12-.133.12c-.433.02-.522.063-.68.29-.087.126-.258.393-.435.694l-1.52 2.843-.043.089 1.858 3.801.113.031 2.926-6.946q.152-.42-.044-.595c-.132-.114-.224-.18-.563-.195l-.275-.014a.16.16 0 0 1-.096-.035.1.1 0 0 1-.046-.084v-.289l.042-.03h3.306l.034.03v.29q0 .117-.133.117-.65.03-.962.281a1.64 1.64 0 0 0-.488.704s-2.691 6.16-3.612 8.208c-.353.672-.7.61-1.004-.019A224 224 0 0 1 8.044 8.81c-.623 1.285-1.475 3.026-1.898 3.81-.411.715-.75.622-1.02.019-.45-1.065-1.131-2.519-1.817-3.982-.735-1.569-1.475-3.149-1.943-4.272-.167-.4-.293-.657-.412-.759q-.18-.15-.746-.18Q0 3.421 0 3.341v-.303l.034-.03c.615-.003 3.594 0 3.594 0l.034.03v.288q0 .119-.15.118l-.375.016q-.483.02-.483.288-.002.125.109.4c.72 1.753 3.207 6.998 3.207 6.998l.091.023 1.603-3.197-.32-.71L6.24 5.095s-.213-.433-.286-.577l-.098-.196c-.387-.77-.411-.82-.865-.88-.137-.017-.208-.035-.208-.102v-.304l.041-.03h2.853l.075.024v.303q0 .104-.15.104l-.206.03c-.523.04-.438.254-.09.946l1.057 2.163 1.17-2.332c.195-.427.155-.534.074-.633-.046-.055-.202-.144-.54-.158l-.133-.015a.16.16 0 0 1-.096-.034.1.1 0 0 1-.045-.085v-.288l.041-.03Z"/></svg>';
+
+                 // Add some spacing between the link and the icon
+                 const spacer = document.createTextNode(' ');
+
+                 // Insert after the link
+                 link.parentNode.insertBefore(spacer, link.nextSibling);
+                 link.parentNode.insertBefore(wikiIcon, link.nextSibling.nextSibling);
              }
          });
      });

@@ -1,24 +1,9 @@
 {{!< default}}
-{{> "layout/site-header"}}
 {{#post}}
 
 <!-- Main content -->
 <main class="article-main">
     <article class="article">
-        <header class="article-header">
-            <div class="container">
-                <div class="article-meta">
-                    {{#primary_tag}}
-                    <a href="{{url}}" class="article-tag">{{name}}</a>
-                    {{/primary_tag}}
-                    <span class="article-date">{{date published_at format="MMMM D, YYYY"}}</span>
-                </div>
-                <h1 class="article-title">{{title}}</h1>
-                {{#if custom_excerpt}}
-                <p class="article-excerpt">{{custom_excerpt}}</p>
-                {{/if}}
-            </div>
-        </header>
 
         {{#if feature_image}}
         <figure class="article-feature-image">
@@ -33,6 +18,15 @@
             <div class="container">
                 <div class="layout">
                     <div class="content">
+                        <header class="article-header">
+                                <div class="article-meta">
+                                    <span class="article-date">{{date published_at format="MMMM D, YYYY"}}</span>
+                                </div>
+                                <h1 class="article-title">{{title}}</h1>
+                                {{#if custom_excerpt}}
+                                <p class="article-excerpt">{{custom_excerpt}}</p>
+                                {{/if}}
+                        </header>
                         <div class="article-content">
                             {{content}}
                         </div>
@@ -47,12 +41,12 @@
                             </div>
 
                             <button class="related-trigger" aria-expanded="false" aria-controls="related-panel">
-                                The Conversation {{comment_count empty="" singular="comment" plural="comments" autowrap="span" class=""}}
+                                Conversation {{comment_count empty="" singular="comment" plural="comments" autowrap="span" class=""}}
                             </button>
 
                             <div class="article-share">
                                 <div class="dropdown">
-                                    <button class="dropbtn share-btn" aria-label="Share this article">Share This Article</button>
+                                    <button class="dropbtn share-btn" aria-label="Share this article">Share</button>
                                     <div class="dropdown-content">
                                         <p class="title">Share and Support</p>
                                         <p class="thanks">Thanks for reading. Use the links below to share this article and/or support this site.</p>
@@ -73,9 +67,8 @@
 
                         {{#if primary_author}}
                         <section class="author-card">
-                            <img src="{{primary_author.profile_image}}" alt="{{primary_author.name}}" class="author-card-image">
                             <div class="author-card-content">
-                                <h3 class="author-card-name">by {{primary_author.name}}</h3>
+                                <h3 class="author-card-name">Published by {{primary_author.name}}</h3>
                                 {{#if primary_author.bio}}
                                 <p class="author-card-bio">{{primary_author.bio}}</p>
                                 {{/if}}
@@ -89,12 +82,13 @@
                                     <a href="{{primary_author.url}}">More posts</a>
                                 </div>
                             </div>
+                            <img src="{{primary_author.profile_image}}" alt="{{primary_author.name}}" class="author-card-image">
                         </section>
                         {{/if}}
 
                        <section class="related-articles">
                            <div class="related-header">
-                               <h2 class="related-title">Related articles</h2>
+                               <h2 class="related-title">Keep Reading</h2>
                                <p class="related-subtitle">You might also enjoy these posts</p>
                            </div>
 
@@ -121,9 +115,7 @@
                                            </div>
                                            {{/if}}
 
-                                           {{#primary_tag}}
-                                           <span class="related-card-tag">{{name}}</span>
-                                           {{/primary_tag}}
+
                                        </div>
 
                                        <div class="related-card-content">
@@ -155,220 +147,12 @@
                     </div>
 
                     <!-- Sidebar -->
-                    <aside class="sidebar">
-                        <!-- Search -->
-                        <div class="search-container">
-                            <form class="search-form" action="/search/" method="get" role="search">
-                                <div class="sidebar-search">
-                                    <div class="sidebar-search-left">
-                                        {{> "icons/search"}}
-                                        <input data-ghost-search type="search" class="sidebar-search-input" name="q" placeholder="Search Everything" aria-label="Search" required>
-                                    </div>
-                                    <div class="sidebar-search-shortcut">⌘K</div>
-                                </div>
-                            </form>
-                        </div>
-                        <!-- About -->
-                        <div class="about-site">
-                            <div class="about-site-header">
-                                <h3 class="about-site-title">About This Site</h3>
-                                <div class="about-site-icon">
-                                    <img src="{{asset "media/img/avatar.jpg"}}" alt="Your image description">
-                                </div>
-                            </div>
-                            <p class="about-site-description">We use this electronic scrapbook to stay more or less sane and charitable. Planet is a marvelous nuthouse if you haven't noticed and equanimity created is closer than equanimity found. Topics vary.</p>
-                            <div class="about-site-stats">
-                                <div class="site-stat">
-                                    <span class="stat-value">500</span>
-                                    <span class="stat-label">Articles</span>
-                                </div>
-                                <div class="site-stat">
-                                    <span class="stat-value">100</span>
-                                    <span class="stat-label">Members</span>
-                                </div>
-                                <div class="site-stat">
-                                    <span class="stat-value">5.0%</span>
-                                    <span class="stat-label">To Charities</span>
-                                </div>
-                            </div>
-                            <a href="{{@site.url}}/about/" class="about-site-link">Learn more</a>
-                        </div>
-                        <!-- Newsletter -->
-                        <div class="newsletter-container">
-                            <div class="newsletter-header">
-                                <h3 class="newsletter-title">Subscribe to Newsletter</h3>
-                                <p class="newsletter-description">Get the latest posts delivered right to your inbox.</p>
-                            </div>
-                            <form class="newsletter-form">
-                                <input type="email" class="newsletter-input" placeholder="jules@badmotherfucker.com" required>
-
-                            </form>
-                            <p class="newsletter-footnote">We'd sooner drink Drāno than share your personal info. You can cancel us whenever you'd like.</p>
-                        </div>
-
-
-                        <!-- Sidebar Section for Pages -->
-                        <!-- Sidebar Section for Pages -->
-                        <div class="sidebar-section">
-
-                        <!-- Collapsible section (will be closed by default) -->
-                          <div class="collapsible-section">
-                            <div class="collapsible-header">
-                              <span class="collapsible-title">Policies</span>
-                              <svg class="collapsible-icon collapsed" width="12" height="12" viewBox="0 0 12 12">
-                                <path fill="currentColor" d="M6 8.825l-4.9-4.9c-.3-.3-.3-.75 0-1.05.3-.3.75-.3 1.05 0L6 6.725l3.85-3.85c.3-.3.75-.3 1.05 0 .3.3.3.75 0 1.05l-4.9 4.9z"/>
-                              </svg>
-                            </div>
-                            <div class="collapsible-content">
-                              <ul class="page-list">
-                                <li class="page-item">
-                                    <a href="#" class="page-link">
-                                      {{> "icons/at-sign"}}
-                                      <span>Contact Us</span>
-                                    </a>
-                                </li>
-                                <li class="page-item">
-                                   <a href="#" class="page-link">
-                                     {{> "icons/lamp"}}
-                                     <span>Office Hours</span>
-                                   </a>
-                                 </li>
-                                 <li class="page-item">
-                                     <a href="#" class="page-link">
-                                       {{> "icons/circuit"}}
-                                       <span>Nerd Alert</span>
-                                     </a>
-                                   </li>
-                              </ul>
-                            </div>
-                          </div>
-
-                          <!-- Collapsible section (First section - open by default) -->
-                          <div class="collapsible-section">
-                            <div class="collapsible-header">
-                              <span class="collapsible-title">Testimonials</span>
-                              <svg class="collapsible-icon" width="12" height="12" viewBox="0 0 12 12">
-                                <path fill="currentColor" d="M6 8.825l-4.9-4.9c-.3-.3-.3-.75 0-1.05.3-.3.75-.3 1.05 0L6 6.725l3.85-3.85c.3-.3.75-.3 1.05 0 .3.3.3.75 0 1.05l-4.9 4.9z"/>
-                              </svg>
-                            </div>
-                            <div class="collapsible-content">
-                                <div class="content-box quotes">
-                                     <div class="testimonials">
-                                         <blockquote id="testimonal">
-                                             <div class="testimonial-content"></div>
-                                         </blockquote>
-                                     </div>
-                                 </div>
-                            </div>
-                          </div>
-
-                          <!-- Add more sections as needed -->
-                          <div class="collapsible-section">
-                            <div class="collapsible-header">
-                              <span class="collapsible-title">Policies</span>
-                              <svg class="collapsible-icon collapsed" width="12" height="12" viewBox="0 0 12 12">
-                                <path fill="currentColor" d="M6 8.825l-4.9-4.9c-.3-.3-.3-.75 0-1.05.3-.3.75-.3 1.05 0L6 6.725l3.85-3.85c.3-.3.75-.3 1.05 0 .3.3.3.75 0 1.05l-4.9 4.9z"/>
-                              </svg>
-                            </div>
-                            <div class="collapsible-content hidden">
-                              <ul class="page-list">
-                                  <li class="page-item">
-                                    <a href="#" class="page-link">
-                                      {{> "icons/crown"}}
-                                      <span>House Rules</span>
-                                    </a>
-                                  </li>
-                                  <li class="page-item">
-                                    <a href="#" class="page-link">
-                                      <svg class="page-icon" width="18" height="18" viewBox="0 0 18 18">
-                                        <path fill="currentColor" d="M9 1.5c4.125 0 7.5 3.375 7.5 7.5s-3.375 7.5-7.5 7.5-7.5-3.375-7.5-7.5 3.375-7.5 7.5-7.5zm0 13.5c3.3 0 6-2.7 6-6s-2.7-6-6-6-6 2.7-6 6 2.7 6 6 6zm-1.5-6.75h3v1.5h-3v-1.5zm0-3h3v1.5h-3v-1.5z"/>
-                                      </svg>
-                                      <span>Privacy Policy</span>
-                                    </a>
-                                  </li>
-                                  <li class="page-item">
-                                    <a href="#" class="page-link">
-                                      <svg class="page-icon" width="18" height="18" viewBox="0 0 18 18">
-                                        <path fill="currentColor" d="M3.75 16.5c-.825 0-1.5-.675-1.5-1.5V3c0-.825.675-1.5 1.5-1.5h10.5c.825 0 1.5.675 1.5 1.5v12c0 .825-.675 1.5-1.5 1.5h-10.5zm0-1.5h10.5V3h-10.5v12zm2.25-9h6v-1.5H6v1.5zm0 3h6v-1.5H6v1.5zm0 3h6v-1.5H6v1.5z"/>
-                                      </svg>
-                                      <span>Terms of Service</span>
-                                    </a>
-                                  </li>
-                                </ul>
-                            </div>
-                          </div>
-
-                          <div class="collapsible-section">
-                            <div class="collapsible-header">
-                              <span class="collapsible-title">Elsewhere</span>
-                              <svg class="collapsible-icon collapsed" width="12" height="12" viewBox="0 0 12 12">
-                                <path fill="currentColor" d="M6 8.825l-4.9-4.9c-.3-.3-.3-.75 0-1.05.3-.3.75-.3 1.05 0L6 6.725l3.85-3.85c.3-.3.75-.3 1.05 0 .3.3.3.75 0 1.05l-4.9 4.9z"/>
-                              </svg>
-                            </div>
-                           <div class="collapsible-content hidden">
-                             <ul class="page-list">
-                                 <li class="page-item">
-                                   <a href="#" class="page-link">
-                                     {{> "icons/at-sign"}}
-                                     <span>Contact Us</span>
-                                   </a>
-                                 </li>
-                                 <li class="page-item">
-                                   <a href="#" class="page-link">
-                                     {{> "icons/lamp"}}
-                                     <span>Office Hours</span>
-                                   </a>
-                                 </li>
-                                 <li class="page-item">
-                                   <a href="#" class="page-link">
-                                     {{> "icons/circuit"}}
-                                     <span>Nerd Alert</span>
-                                   </a>
-                                 </li>
-                                 <li class="page-item">
-                                   <a href="#" class="page-link">
-                                     <svg class="page-icon" width="18" height="18" viewBox="0 0 18 18">
-                                       <path fill="currentColor" d="M14.25 12.75H3.75c-.825 0-1.5-.675-1.5-1.5V4.5c0-.825.675-1.5 1.5-1.5h10.5c.825 0 1.5.675 1.5 1.5v6.75c0 .825-.675 1.5-1.5 1.5zM3.75 4.5v6.75h10.5V4.5H3.75zm8.25 10.5h-6v-1.5h6v1.5z"/>
-                                     </svg>
-                                     <span>Designing for tvOS</span>
-                                   </a>
-                                 </li>
-                               </ul>
-                           </div>
-                          </div>
-
-                          <div class="collapsible-section">
-                            <div class="collapsible-header">
-                              <span class="collapsible-title">Memberships</span>
-                              <svg class="collapsible-icon collapsed" width="12" height="12" viewBox="0 0 12 12">
-                                <path fill="currentColor" d="M6 8.825l-4.9-4.9c-.3-.3-.3-.75 0-1.05.3-.3.75-.3 1.05 0L6 6.725l3.85-3.85c.3-.3.75-.3 1.05 0 .3.3.3.75 0 1.05l-4.9 4.9z"/>
-                              </svg>
-                            </div>
-                            <div class="collapsible-content hidden">
-                              <!-- Content hidden initially -->
-                            </div>
-                          </div>
-
-                          <div class="collapsible-section">
-                            <div class="collapsible-header">
-                              <span class="collapsible-title">Technologies</span>
-                              <svg class="collapsible-icon collapsed" width="12" height="12" viewBox="0 0 12 12">
-                                <path fill="currentColor" d="M6 8.825l-4.9-4.9c-.3-.3-.3-.75 0-1.05.3-.3.75-.3 1.05 0L6 6.725l3.85-3.85c.3-.3.75-.3 1.05 0 .3.3.3.75 0 1.05l-4.9 4.9z"/>
-                              </svg>
-                            </div>
-                            <div class="collapsible-content hidden">
-                              <!-- Content hidden initially -->
-                            </div>
-                          </div>
-                        </div>
-                    </aside>
+                    {{> "layout/sidebar"}}
                 </div>
             </div>
         </div>
     </article>
 </main>
-{{/post}}
-{{> "layout/site-footer"}}
 <div class="panel-overlay" aria-hidden="true"></div>
  <!-- Comments Panel -->
  <aside id="comments-panel" class="related-panel" aria-hidden="true">
@@ -379,12 +163,13 @@
          </div>
          <button class="close-panel" aria-label="Close related articles">×</button>
      </div>
-
      <div class="panel-content">
              {{#if comments}}
                  <div class="gh-post-comments mt-20">
-                     {{comments title="" mode="light"}}
+                     {{comments}}
                  </div>
              {{/if}}
      </div>
  </aside>
+{{/post}}
+{{> "layout/site-footer"}}

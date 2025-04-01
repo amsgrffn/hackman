@@ -1,6 +1,7 @@
         <aside class="sidebar">
+            <a href="{{@site.url}}"><img class="scribble" src="{{asset 'media/img/bunny.png'}}" alt="UFO in deep space"></a>
     <!-- Search -->
-    <div class="search-container">
+   <!-- <div class="search-container">
         <form class="search-form" action="/search/" method="get" role="search">
             <div class="sidebar-search">
                 <div class="sidebar-search-left">
@@ -10,15 +11,15 @@
                 <div class="sidebar-search-shortcut">⌘K</div>
             </div>
         </form>
-    </div>
-    <!-- About -->
+    </div> -->
+    <!-- About
     {{^has slug="about"}}
     <div class="about-site">
         <div class="about-site-header">
             <h3 class="about-site-title">About This Site</h3>
             <!--<div class="about-site-icon">
                 <img src="{{asset "media/img/avatar.jpg"}}" alt="Your image description">
-            </div> -->
+            </div>
         </div>
         <p class="about-site-description">We're all trapped on this marvelous nuthouse. It'll drive you mad. Seeing how equanimity created is closer than equanimity found we use this place as an electronic scrapbook to stay more or less sane and charitable. Topics vary.</p>
         <div class="about-site-stats">
@@ -38,7 +39,6 @@
         <a href="{{@site.url}}/about/" class="about-site-link">Learn more</a>
     </div>
     {{/has}}
-    <!-- Newsletter -->
     <div class="newsletter-container">
         <div class="newsletter-header">
             <h3 class="newsletter-title">Grab the Newsletter</h3>
@@ -49,7 +49,7 @@
 
         </form>
         <p class="newsletter-footnote">We'd sooner drink Drāno than share your personal info. You can cancel us whenever you'd like.</p>
-    </div>
+    </div> -->
 
 
     <!-- Sidebar Section for Pages -->
@@ -57,23 +57,34 @@
     <div class="sidebar-section">
 
         <!-- Collapsible section (First section - open by default) -->
-          <div class="collapsible-section">
+        <div class="collapsible-section">
             <div class="collapsible-header">
-              <span class="collapsible-title">Testimonials</span>
+              <span class="collapsible-title">About Us</span>
               <svg class="collapsible-icon" width="12" height="12" viewBox="0 0 12 12">
                 <path fill="currentColor" d="M6 8.825l-4.9-4.9c-.3-.3-.3-.75 0-1.05.3-.3.75-.3 1.05 0L6 6.725l3.85-3.85c.3-.3.75-.3 1.05 0 .3.3.3.75 0 1.05l-4.9 4.9z"/>
               </svg>
             </div>
             <div class="collapsible-content hidden">
-                <div class="content-box quotes">
-                     <div class="testimonials">
-                         <blockquote id="testimonal">
-                             <div class="testimonial-content"></div>
-                         </blockquote>
-                     </div>
-                 </div>
+                <div class="about-site">
+                    <div class="about-site-stats">
+                        <div class="site-stat">
+                            <span class="stat-value">500</span>
+                            <span class="stat-label">Articles</span>
+                        </div>
+                        <div class="site-stat">
+                            <span class="stat-value">100</span>
+                            <span class="stat-label">Members</span>
+                        </div>
+                        <div class="site-stat">
+                            <span class="stat-value">5%</span>
+                            <span class="stat-label">To Charities</span>
+                        </div>
+                    </div>
+                    <p class="about-site-description">We're all trapped on this marvelous nuthouse. It'll drive you mad. Seeing how equanimity created is closer than equanimity found we use this place as an electronic scrapbook to stay more or less sane and charitable. Topics vary.</p>
+                    <a href="{{@site.url}}/about/" class="about-site-link">Learn more{{> "icons/arrow-up"}}</a>
+                </div>
             </div>
-          </div>
+        </div>
 
     <!-- Collapsible section (will be closed by default) -->
       <div class="collapsible-section">
@@ -186,6 +197,23 @@
              </li>
            </ul>
        </div>
+    </div>
+    <div class="collapsible-section">
+        <div class="collapsible-header">
+          <span class="collapsible-title">Testimonials</span>
+          <svg class="collapsible-icon" width="12" height="12" viewBox="0 0 12 12">
+            <path fill="currentColor" d="M6 8.825l-4.9-4.9c-.3-.3-.3-.75 0-1.05.3-.3.75-.3 1.05 0L6 6.725l3.85-3.85c.3-.3.75-.3 1.05 0 .3.3.3.75 0 1.05l-4.9 4.9z"/>
+          </svg>
+        </div>
+        <div class="collapsible-content hidden">
+            <div class="content-box quotes">
+                 <div class="testimonials">
+                     <blockquote id="testimonal">
+                         <div class="testimonial-content"></div>
+                     </blockquote>
+                 </div>
+             </div>
+        </div>
       </div>
     <!--<div class="sidebar-section">
         <h3 class="sidebar-title">Pages</h3>
@@ -199,4 +227,24 @@
             <li class="page-item"><a href="#" class="page-link">Contact</a></li>
         </ul>
     </div> -->
+    <div class="membership-buttons">
+    <button class="membership-signup"><a href="/memberships">Memberships</a></button>
+    <button class="membership-login"><a data-portal="signin" href="#">Member Login</a></button>
+    </div>
+    <div class="appearance-toggle-wrapper">
+        <div class="appearance-toggle">
+            <input type="radio" id="appearance-auto" name="appearance" value="auto" checked>
+            <label for="appearance-auto" class="appearance-option" title="System preference">
+                {{> "icons/desktop"}}
+            </label>
+            <input type="radio" id="appearance-light" name="appearance" value="light">
+            <label for="appearance-light" class="appearance-option" title="Light mode">
+               {{> "icons/sun"}}
+            </label>
+            <input type="radio" id="appearance-dark" name="appearance" value="dark">
+            <label for="appearance-dark" class="appearance-option" title="Dark mode">
+                {{> "icons/moon"}}
+            </label>
+        </div>
+    </div>
 </aside>

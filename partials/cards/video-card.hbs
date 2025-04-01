@@ -1,11 +1,11 @@
 <!-- Video -->
 <article class="video-container {{post_class}}">
     <div class="video-comment">
-        <h2><a href="{{url}}">{{title}}</a></h2>
         <div class="meta">
             <span class="tag">{{#primary_tag}}<a href="{{url}}">{{name}}</a>{{/primary_tag}}</span>
-            <span><time datetime="{{date format="YYYY-MM-DD"}}"><a href="{{url}}">{{date published_at format="MMMM D, h:mmA"}}</a></time></span>
+            <span class="pub-date"><a href="{{@site.url}}/{{url}}"><time datetime="{{date format="YYYY-MM-DD"}}">{{date published_at timeago="true"}}{{> "icons/arrow-up"}}</time></a></span>
         </div>
+        <h2><a href="{{url}}">{{title}}</a></h2>
         <div class="post-content">
             {{content}}
         </div>
