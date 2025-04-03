@@ -2,7 +2,13 @@
 <article class="note {{post_class}}">
     <header>
         <div class="meta">
-            <span class="tag">{{#primary_tag}}<a href="{{url}}">{{name}}</a>{{/primary_tag}}</span>
+            <span class="tag"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 13.5701 21.4161">
+                 <g>
+                  <rect height="21.4161" opacity="0" width="13.5701" x="0" y="0"/>
+                  <path d="M0 11.8693C0 12.1472 0.205176 12.3668 0.536622 12.3668L6.10264 12.3668L3.14707 20.3648C2.8419 21.1709 3.6628 21.5808 4.18389 20.93L12.9912 9.89986C13.13 9.72808 13.2088 9.5691 13.2088 9.38081C13.2088 9.11265 13.0036 8.88325 12.6722 8.88325L7.10918 8.88325L10.0617 0.888333C10.3699 0.0792493 9.54903-0.330713 9.02793 0.326808L0.217578 11.3502C0.0788087 11.5318 0 11.6908 0 11.8693Z" stroke="#fff" fill="#fff"/>
+                 </g>
+                </svg> {{#primary_tag}}<a href="{{url}}">{{name}}</a>{{/primary_tag}}
+</span>
             <span class="pub-date"><a href="{{@site.url}}/{{url}}"><time datetime="{{date format="YYYY-MM-DD"}}">{{date published_at timeago="true"}}{{> "icons/arrow-up"}}</time></a></span>
         </div>
         <h2><a href="{{url}}">{{title}}</a></h2>
@@ -11,13 +17,15 @@
         {{content}}
     </div>
     <footer>
-        <ul class="post-tags">
-            {{#if tags}}
-            {{#foreach tags}}
-                <li><a href="{{url}}" title="{{name}}">{{> "icons/hash"}}{{name}}</a></li>
-            {{/foreach}}
-            {{/if}}
-        </ul>
+      {{#if tags}}
+          <ul class="post-topics">
+          {{#foreach tags}}
+            <li>
+              <a href="{{url}}" title="{{name}}" class="tag tag-{{id}} {{slug}}">#{{name}}</a>
+            </li>
+          {{/foreach}}
+          </ul>
+        {{/if}}
         {{> "utilities/post-dropdown"}}
     </footer>
 </article>

@@ -48,11 +48,8 @@
 }
 
 .dropdown-content a {
-
-
     color: var(--gray-dark);
     display: block;
-
     font-size: 13px;
     font-weight: 600;
     justify-content: space-between;
@@ -113,7 +110,7 @@ border-bottom: none
     align-items: center;
     background: none;
     border: none;
-    color: var(--gray-dark);
+    color: var(--gray-medium);
     cursor: pointer;
     display: flex;
     font-size: 14px;
