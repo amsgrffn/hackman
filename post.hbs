@@ -1,6 +1,6 @@
 {{!< default}}
 {{#post}}
-
+{{> "layout/site-header"}}
 <!-- Main content -->
 <main class="article-main">
     <article class="article">
@@ -32,21 +32,21 @@
                         </div>
 
                         <div class="article-footer">
-                            <div class="article-tags">
                                 {{#if tags}}
                                 {{#foreach tags}}
-                                <a href="{{url}}" class="article-tag-item">{{> "icons/hash"}}{{name}}</a>
+                                <ul class="article-tags">
+                                <li>{{> "icons/hash"}}<a href="{{url}}" class="article-tag-item">{{name}}</a></li>
+                                </ul>
                                 {{/foreach}}
                                 {{/if}}
-                            </div>
 
                             <button class="related-trigger" aria-expanded="false" aria-controls="related-panel">
-                                Conversation {{comment_count empty="" singular="comment" plural="comments" autowrap="span" class=""}}
+                               Conversation {{comment_count empty="" singular="comment" plural="comments" autowrap="span" class=""}}  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-audio-lines-icon lucide-audio-lines"><path d="M2 10v3"/><path d="M6 6v11"/><path d="M10 3v18"/><path d="M14 8v7"/><path d="M18 5v13"/><path d="M22 10v3"/></svg>
                             </button>
 
                             <div class="article-share">
                                 <div class="dropdown">
-                                    <button class="dropbtn share-btn" aria-label="Share this article">Share</button>
+                                    <button class="dropbtn share-btn" aria-label="Share this article">Share {{> "icons/arrow-up"}} </button>
                                     <div class="dropdown-content">
                                         <p class="title">Share and Support</p>
                                         <p class="thanks">Thanks for reading. Use the links below to share this article and/or support this site.</p>

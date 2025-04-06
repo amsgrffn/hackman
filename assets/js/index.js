@@ -505,6 +505,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initPriceToggle();
     initCommentsPanel();
     initWikipediaIconsForCitations();
+    initNewsletterModal();
+    initBreadcrumbDropdown();
 
     // Log to confirm script is running
     console.log('Theme JS initialized including social sharing');
@@ -660,77 +662,58 @@ function initTouchFeedback() {
  * for display purposes.
  */
 function initBookmarkDomainExtractor() {
-   // Find all bookmark articles
-   const bookmarks = document.querySelectorAll('.bookmark');
+    const bookmarks = document.querySelectorAll('.bookmark');
 
-   bookmarks.forEach(bookmark => {
-     // Find the first link within the bookmark comment section
-     const bookmarkComment = bookmark.querySelector('.bookmark-comment');
-     if (!bookmarkComment) return;
+    bookmarks.forEach(bookmark => {
+      const bookmarkComment = bookmark.querySelector('.bookmark-comment');
+      if (!bookmarkComment) return;
 
-     const firstLink = bookmarkComment.querySelector('a');
-     if (!firstLink) return;
+      const firstLink = bookmarkComment.querySelector('a');
+      if (!firstLink) return;
 
-     // Get the URL from the first link
-     const url = firstLink.href;
+      try {
+        // Parse the URL to extract the hostname
+        const urlObj = new URL(firstLink.href);
+        let displayDomain = urlObj.hostname;
+        if (displayDomain.startsWith('www.')) {
+          displayDomain = displayDomain.substring(4);
+        }
 
-     try {
-       // Parse the URL to extract the hostname
-       const urlObj = new URL(url);
-       let domain = urlObj.hostname;
-       const origin = urlObj.origin;
+        // Find the tag element instead of pub-date
+        const tagEl = bookmark.querySelector('.meta .tag');
+        if (!tagEl) return;
 
-       // Remove 'www.' prefix if present for display
-       let displayDomain = domain;
-       if (displayDomain.startsWith('www.')) {
-         displayDomain = displayDomain.substring(4);
-       }
+        // Create a simple span with domain info
+        const domainSpan = document.createElement('span');
+        domainSpan.className = 'domain-pill';
 
-       // Create a source element to display the domain and favicon
-       const sourceEl = document.createElement('div');
-       sourceEl.className = 'bookmark-source';
+        // Create favicon element
+        const favicon = document.createElement('img');
+        favicon.src = `https://www.google.com/s2/favicons?domain=${urlObj.hostname}&sz=32`;
+        favicon.className = 'domain-favicon';
+        favicon.width = 16;
+        favicon.height = 16;
+        favicon.alt = '';
 
-       // Create favicon element with fallback
-       const faviconEl = document.createElement('div');
-       faviconEl.className = 'bookmark-favicon';
+        // Handle favicon load error with Lucide globe icon
+        favicon.onerror = function() {
+          const faviconContainer = document.createElement('span');
+          faviconContainer.className = 'domain-favicon svg-icon';
+          faviconContainer.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-globe-icon lucide-globe"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>`;
+          this.parentNode.replaceChild(faviconContainer, this);
+        };
 
-       // Try multiple favicon approaches
-       // First try Google's favicon service
-       const googleFaviconUrl = `https://www.google.com/s2/favicons?domain=${domain}&sz=32`;
+        // Add favicon and text to the span
+        domainSpan.appendChild(favicon);
+        domainSpan.appendChild(document.createTextNode(' ' + displayDomain));
 
-       // Create the favicon image
-       const faviconImg = document.createElement('img');
-       faviconImg.src = googleFaviconUrl;
-       faviconImg.alt = '';
-       faviconImg.className = 'bookmark-favicon-img';
+        // Insert after the tag element
+        tagEl.parentNode.insertBefore(domainSpan, tagEl.nextSibling);
 
-       // Add fallback if favicon fails to load
-       faviconImg.onerror = function() {
-         faviconEl.innerHTML = `
-           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-             <circle cx="12" cy="12" r="10"></circle>
-             <line x1="2" y1="12" x2="22" y2="12"></line>
-             <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-           </svg>
-         `;
-       };
-
-       faviconEl.appendChild(faviconImg);
-
-       // Assemble the source element
-       sourceEl.appendChild(faviconEl);
-       // Add "via" text before the domain name
-       sourceEl.innerHTML += `<span class="bookmark-source-text">${displayDomain}</span>`;
-
-       // Add the source element after the bookmark header
-       const bookmarkHeader = bookmark.querySelector('.bookmark-header');
-       if (bookmarkHeader) {
-         bookmarkHeader.insertAdjacentElement('afterend', sourceEl);
-       }
-     } catch (e) {
-       console.error('Error parsing URL:', e);
-     }
-   });
+      } catch (e) {
+        console.error('Error parsing URL:', e);
+      }
+    });
  }
 
  /**
@@ -1360,6 +1343,129 @@ function initWikipediaIconsForCitations() {
              }
          });
      });
+ }
+
+ // Then add the new function below all your other initialization functions
+ function initNewsletterModal() {
+     // Newsletter modal functionality
+     const modal = document.getElementById('newsletter-modal');
+     const btn = document.getElementById('open-newsletter-modal');
+     const closeBtn = document.querySelector('.close-newsletter');
+
+     if (!modal || !btn || !closeBtn) return;
+
+     btn.addEventListener('click', function() {
+         modal.style.display = 'flex';
+     });
+
+     closeBtn.addEventListener('click', function() {
+         modal.style.display = 'none';
+     });
+
+     window.addEventListener('click', function(event) {
+         if (event.target === modal) {
+             modal.style.display = 'none';
+         }
+     });
+
+     // Add escape key to close modal
+     document.addEventListener('keydown', function(event) {
+         if (event.key === 'Escape' && modal.style.display === 'flex') {
+             modal.style.display = 'none';
+         }
+     });
+ }
+
+/**
+  * Initialize breadcrumb dropdown functionality
+  * Adds accessibility enhancements for the hover-based dropdown
+  */
+ function initBreadcrumbDropdown() {
+     const pagesDropdown = document.querySelector('.pages-dropdown');
+     if (!pagesDropdown) return;
+
+     const dropdownTrigger = pagesDropdown.querySelector('.dropdown-trigger');
+     if (!dropdownTrigger) return;
+
+     // Add keyboard support
+     dropdownTrigger.addEventListener('keydown', (e) => {
+         if (e.key === 'Enter' || e.key === ' ') {
+             e.preventDefault();
+
+             // Simulate hover state by adding a temporary class
+             pagesDropdown.classList.add('keyboard-hover');
+
+             // Focus the first item in the dropdown
+             const firstLink = pagesDropdown.querySelector('.breadcrumb-dropdown ul li a');
+             if (firstLink) {
+                 firstLink.focus();
+             }
+         }
+     });
+
+     // Add keyboard navigation within the dropdown
+     const dropdownLinks = pagesDropdown.querySelectorAll('.breadcrumb-dropdown ul li a');
+     dropdownLinks.forEach((link, index) => {
+         link.addEventListener('keydown', (e) => {
+             // Close dropdown on Escape
+             if (e.key === 'Escape') {
+                 e.preventDefault();
+                 pagesDropdown.classList.remove('keyboard-hover');
+                 dropdownTrigger.focus();
+             }
+
+             // Navigate with arrow keys
+             if (e.key === 'ArrowDown' && index < dropdownLinks.length - 1) {
+                 e.preventDefault();
+                 dropdownLinks[index + 1].focus();
+             }
+
+             if (e.key === 'ArrowUp') {
+                 e.preventDefault();
+                 if (index > 0) {
+                     dropdownLinks[index - 1].focus();
+                 } else {
+                     dropdownTrigger.focus();
+                     pagesDropdown.classList.remove('keyboard-hover');
+                 }
+             }
+         });
+
+         // Remove keyboard-hover class when a link is clicked
+         link.addEventListener('click', () => {
+             pagesDropdown.classList.remove('keyboard-hover');
+         });
+     });
+
+     // Close the dropdown when tabbing out of it
+     const lastLink = dropdownLinks[dropdownLinks.length - 1];
+     if (lastLink) {
+         lastLink.addEventListener('keydown', (e) => {
+             if (e.key === 'Tab' && !e.shiftKey) {
+                 pagesDropdown.classList.remove('keyboard-hover');
+             }
+         });
+     }
+
+     // Make the dropdown accessible
+     dropdownTrigger.setAttribute('role', 'button');
+     dropdownTrigger.setAttribute('aria-haspopup', 'true');
+     dropdownTrigger.setAttribute('aria-expanded', 'false');
+
+     // Add CSS for keyboard hover simulation
+     const style = document.createElement('style');
+     style.textContent = `
+         .pages-dropdown.keyboard-hover .breadcrumb-dropdown {
+             visibility: visible;
+             opacity: 1;
+             transform: translateY(0);
+             pointer-events: auto;
+         }
+         .pages-dropdown.keyboard-hover .dropdown-trigger:after {
+             transform: rotate(180deg);
+         }
+     `;
+     document.head.appendChild(style);
  }
 
 

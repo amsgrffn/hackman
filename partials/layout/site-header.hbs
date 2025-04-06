@@ -12,11 +12,103 @@
             </nav>
         </div>
     </div>
-</div> -->
+</div>-->
 <header class="site-header">
     <div class="container">
         <div class="header-inner">
-             <a href="{{@site.url}}" class="logo">{{{@site.title}}}</a>
+            <nav class="breadcrumbs" aria-label="Breadcrumb">
+                <ul class="breadcrumb-list">
+                    <li class="breadcrumb-item home">
+                        {{> "icons/arrow-down-right"}}<a href="{{@site.url}}">{{@site.title}}</a>
+                        <span class="breadcrumb-separator"> {{> "icons/chevron"}}</span>
+                    </li>
+                    {{!-- For Post pages --}}
+                    {{#is "post"}}
+                        {{#if primary_tag}}
+                            <li class="breadcrumb-item">
+                                <a href="{{primary_tag.url}}">{{primary_tag.name}}</a>
+                                <span class="breadcrumb-separator">{{> "icons/chevron"}}</span>
+                            </li>
+                        {{/if}}
+                        <li class="breadcrumb-item current" aria-current="page">{{title}}</li>
+                    {{/is}}
+
+                    {{!-- For Tag pages --}}
+                    {{#is "tag"}}
+                        <li class="breadcrumb-item pages-dropdown">
+                            <a href="javascript:void(0)" class="dropdown-trigger">Site Topics</a>
+                            <span class="breadcrumb-separator">{{> "icons/chevron"}}</span>
+                            <div class="breadcrumb-dropdown">
+                                <div class="dropdown-inner">
+                                    {{!-- Get all pages --}}
+                                    {{#get "tags" limit="17" include="count.posts" order="count.posts desc"}}
+
+                                            <ul>
+                                                {{#foreach tags}}
+                                                    <li><a href="{{url}}">{{> "icons/file"}} {{name}} <span>({{count.posts}})</span></a></li>
+                                                {{/foreach}}
+                                                <li><a href="/topics"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-forward-icon lucide-forward"><polyline points="15 17 20 12 15 7"/><path d="M4 18v-2a4 4 0 0 1 4-4h12"/></svg> View All Topics</a></li>
+                                            </ul>
+                                        {{else}}
+                                            <p>No other pages found</p>
+
+                                    {{/get}}
+                                </div>
+                            </div>
+                        </li>
+                        {{#tag}}
+                        <li class="breadcrumb-item current" aria-current="page">{{name}}</li>
+                        {{/tag}}
+
+                    {{/is}}
+
+                    {{!-- For Author pages --}}
+                    {{#is "author"}}
+                        <li class="breadcrumb-item current" aria-current="page">{{author.name}}</li>
+                    {{/is}}
+
+                    {{!-- For Page pages - with dropdown --}}
+                    {{#is "page"}}
+                        <li class="breadcrumb-item pages-dropdown">
+                            <a href="javascript:void(0)" class="dropdown-trigger">Site Pages</a>
+                            <span class="breadcrumb-separator">{{> "icons/chevron"}}</span>
+                            <div class="breadcrumb-dropdown">
+                                <div class="dropdown-inner">
+                                    {{!-- Get all pages --}}
+                                    {{#get "pages" limit="all" order="title asc" filter="id:-{{page.id}}"}}
+
+                                            <ul>
+                                                {{#foreach pages}}
+                                                    <li><a href="{{url}}">{{> "icons/file"}} {{title}}</a></li>
+                                                {{/foreach}}
+                                            </ul>
+                                        {{else}}
+                                            <p>No other pages found</p>
+
+                                    {{/get}}
+                                </div>
+                            </div>
+                        </li>
+                        {{#page}}
+                        <li class="breadcrumb-item current" aria-current="page">{{title}}</li>
+                        {{/page}}
+                    {{/is}}
+
+                    {{!-- For Home page --}}
+                    {{#is "home"}}
+                        <li class="breadcrumb-item current" aria-current="page">{{date format="dddd, MMMM Do, YYYY"}} <span class="breadcrumb-separator">{{> "icons/chevron"}}</span></li>
+                        <li class="breadcrumb-item current" aria-current="page">Home</li>
+                    {{/is}}
+                </ul>
+            </nav>
+
+
+
+
+
+
+
+
            <!--<nav class="site-nav">
                <a class="memberships" href="/memberships">Memberships</a>
                {{#if @member}}

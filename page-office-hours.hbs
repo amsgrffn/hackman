@@ -4,15 +4,10 @@
 <main class="page-fullwidth">
     <article class="page {{post_class}}">
         <header class="office-hours-header">
-            <div class="container-wide">
-                <div class="page-meta">
-                    {{#if featured}}
-                    <span class="featured-badge">Featured</span>
-                    {{/if}}
-                </div>
-                <h1 class="office-hours-title">{{title}}</h1>
+            <div class="container">
+                <h1 class="page-title">{{title}}</h1>
                 {{#if custom_excerpt}}
-                <p class="office-hours-subtitle">{{custom_excerpt}}</p>
+                <p class="page-excerpt">{{custom_excerpt}}</p>
                 {{/if}}
             </div>
         </header>
@@ -30,7 +25,15 @@
             <div class="container-wide">
                 <!-- Office Hours Section -->
                 <section class="office-hours-container">
-
+                <div class="current-time-container">
+                    <div class="current-time">
+                        <span class="time-icon">{{> "icons/clock"}}</span>
+                        <span class="time-text" id="current-time-display">Current time: loading...</span>
+                    </div>
+                    <div class="office-status-indicator" id="office-status">
+                        <!-- Will be filled by JavaScript -->
+                    </div>
+                </div>
 
                     <div class="office-hours-grid">
                         <div class="office-hours-card" data-day="Monday">
@@ -87,16 +90,6 @@
                                 <div class="office-hours-time">GONE FISHIN'</div>
                                 <div class="office-hours-status closed">CLOSED</div>
                             </div>
-                        </div>
-                    </div>
-
-                    <div class="current-time-container">
-                        <div class="current-time">
-                            <span class="time-icon">{{> "icons/clock"}}</span>
-                            <span class="time-text" id="current-time-display">Current time: loading...</span>
-                        </div>
-                        <div class="office-status-indicator" id="office-status">
-                            <!-- Will be filled by JavaScript -->
                         </div>
                     </div>
                 </section>

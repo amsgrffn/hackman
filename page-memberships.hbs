@@ -3,12 +3,12 @@
 <main class="membership-page">
 {{#post}}
     <div class="membership-header">
-        <div class="container">
-            <h1 class="membership-title">{{title}}</h1>
-
-            <p class="membership-excerpt">{{excerpt}}</p>
-
-        </div>
+            <div class="container">
+                <h1 class="page-title">{{title}}</h1>
+                {{#if custom_excerpt}}
+                <p class="page-excerpt">{{custom_excerpt}}</p>
+                {{/if}}
+            </div>
     </div>
     <div class="membership-content">
         <div class="membership-container">
@@ -28,8 +28,10 @@
                     <div class="membership-card">
                         <div class="membership-card-header">
                             <h2 class="membership-card-title"><span>{{name}}</span></h2>
+                            <div class="membership-card-tag">&hellip;As in beer</div>
                         </div>
-                        <div class="membership-card-price">as in beer</div>
+                        <div class="membership-card-price" data-monthly>{{#if monthly_price}}${{price monthly_price}}<span>/{{t "month"}}</span>{{else}}0<span>/{{t "month"}}</span>{{/if}}</div>
+                        <div class="membership-card-price" data-yearly style="display: none;">{{#if yearly_price}}${{price yearly_price}}<span>/{{t "year"}}</span>{{else}}0<span>/{{t "year"}}</span>{{/if}}</div>
                         {{#if description}}<p class="membership-card-description">{{description}}</p>{{/if}}
                         {{#if benefits}}
                         <ul class="membership-features-list">

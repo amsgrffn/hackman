@@ -1,39 +1,22 @@
 {{!< default}}
 {{> "layout/site-header"}}
 
-{{#post}}
-<main class="page-main page-fullwidth">
-    <article class="page {{post_class}}">
-        <header class="page-header">
-            <div class="container-wide">
-                <h1 class="page-title">{{title}}</h1>
-                {{#if custom_excerpt}}
-                <p class="page-excerpt">{{custom_excerpt}}</p>
-                {{/if}}
-            </div>
-        </header>
-
-        {{#if feature_image}}
-        <figure class="page-feature-image">
-           <img src="{{img_url feature_image size="xl"}}" alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" class="feature-image-content">
-            {{#if feature_image_caption}}
-            <figcaption>{{feature_image_caption}}</figcaption>
-            {{/if}}
-        </figure>
-        {{/if}}
+{{#page}}
+<main class="page-main">
+<article class="page {{post_class}}">
+    <header class="page-header">
+        <div class="container">
+            <h1 class="page-title">{{title}}</h1>
+            <p class="page-excerpt">Direct your emails to the appropriate address below. Simply click the eye icon ({{> "icons/eye"}}) to reveal the respective email address. Clicking the uncovered link will direct you to your default email client. You can take it from there. We look forward to chatting with you.</p>
+        </div>
+    </header>
 
                        <div class="page-content-wrapper">
                        <div class="container-wide">
                            <div class="content-fullwidth">
                                <div class="page-content">
-                                   <p>Direct your emails to the appropriate address below. Simply click the eye icon (
-                                       <svg class="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
-                                           <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                           <path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                       </svg>
-                                   ) to reveal the respective email address. Clicking the uncovered link will open your default email client. You can take it from there. We look forward to chatting with you.</p>
 
-                                   <p>You can see our <a href="/office-hours">office hours on this page</a>.</p>
+
 
                                    {{!-- Honeypot fields --}}
                                    <div class="contact-field">
@@ -112,6 +95,8 @@
                                            </div>
                                        </div>
                                    </div>
+                                   <p>You can see our <a href="/office-hours">office hours on this page</a>.</p>
+
                                </div>
 
                     <div class="page-footer">
@@ -139,7 +124,7 @@
         </div>
     </article>
 </main>
-{{/post}}
+{{/page}}
 {{> "layout/site-footer"}}
 {{#contentFor "scripts"}}
 <script>
