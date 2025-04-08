@@ -1,35 +1,26 @@
 <footer class="footer">
     <div class="container">
         <div class="footer-inner">
-
             <div class="footer-bottom">
-                <div class="footer-legal">
-                    <a href="#">Accessibility</a>
-                    <a href="#">Cookie Policy</a>
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
-                    <a href="https://www.youtube.com/watch?v=x3E-53l2g0E">Been in Poughkeepsie?</a>
-                </div>
-                <div class="footer-social">
-                    <a href="#" class="social-icon" aria-label="Twitter">
-                        {{> "icons/twitter"}}
-                    </a>
-                    <a href="#" class="social-icon" aria-label="Instagram">
-                        {{> "icons/reddit"}}
-                    </a>
-                    <a href="#" class="social-icon" aria-label="GitHub">
-                        {{> "icons/letterboxd"}}
-                    </a>
-                    <a href="#" class="social-icon" aria-label="LinkedIn">
-                        {{> "icons/raindrop"}}
-                    </a>
-                    <a href="#" class="social-icon" aria-label="LinkedIn">
-                        {{> "icons/feed"}}
-                    </a>
-                </div>
+                <ul class="footer-legal">
+                    <li><a href="#">Accessibility</a></li>
+                    <li><a href="#">Cookie Policy</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">RSS Feeds</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=x3E-53l2g0E">Been in Poughkeepsie?</a></li>
+                    <li>&copy; {{date format="YYYY"}} {{@site.title}}</li>
+                </ul>
+
             </div>
 
-            <p class="copyright">© 2023 {{@site.title}}. All rights reserved.</p>
+            <ul class="copyright">
+                <li><span>Made in Maine {{> "icons/heart"}}</span></li>
+                <li class="the-weather"> Currently: <a href="https://en.wikipedia.org/wiki/Maine"><span id="current-temp"></span>,<span id="current-condition"></span></a></li>
+                <li><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plug-icon lucide-plug"><path d="M12 22v-5"/><path d="M9 8V2"/><path d="M15 8V2"/><path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z"/></svg> Powered with Ghost + Hackman</li>
+                <li class="draught">{{> "icons/basketball"}} Last Knicks Title: <a href="https://www.nytimes.com/1973/05/11/archives/knicks-win-title-top-lakers-10293-new-york-triumphs-in-five-games.html?unlocked_article_code=1.p04.Ennw.Aq7vqriHBZPh&smid=url-share"><span id="knicks-counter"></span></a></li>
+                <li><a href="https://www.onthisday.com/">Second Left: 18,889 days</a></li>
+            </ul>
         </div>
     </div>
 </footer>

@@ -1,0 +1,64 @@
+{{!< default}}
+{{> "layout/site-header"}}
+
+<main class="page-main">
+    <article class="page {{post_class}}">
+        <header class="page-header">
+            <div class="container">
+                <h1 class="page-title">Today's Posts</h1>
+                <p class="page-excerpt">Posts published on {{date format="MMMM D, YYYY"}}</p>
+            </div>
+        </header>
+
+        <div class="page-content-wrapper">
+            <div class="container">
+                <div class="layout">
+                    <div class="content">
+                        <!-- Filter posts by publication date (today) -->
+                        {{#get "posts" filter="published_at:>='{{date format="YYYY-MM-DD"}}T00:00:00.000Z'+published_at:<='{{date format="YYYY-MM-DD"}}T23:59:59.999Z'" limit="all" as |today_posts|}}
+                            {{#if today_posts}}
+                                <div class="posts-container">
+                                    {{#foreach today_posts}}
+                                        {{!-- Determine post type based on tags --}}
+                                        {{#has tag="#featured"}}
+                                            {{> "cards/featured-card"}}
+                                        {{else}}
+                                            {{#has tag="#bookmark"}}
+                                                {{> "cards/bookmark-card"}}
+                                            {{else}}
+                                                {{#has tag="#note"}}
+                                                    {{> "cards/note-card"}}
+                                                {{else}}
+                                                    {{#has tag="#quote"}}
+                                                        {{> "cards/quote-card"}}
+                                                    {{else}}
+                                                        {{#has tag="#video"}}
+                                                            {{> "cards/video-card"}}
+                                                        {{else}}
+                                                            {{!-- Default post type if no special tag --}}
+                                                            {{> "cards/article-card"}}
+                                                        {{/has}}
+                                                    {{/has}}
+                                                {{/has}}
+                                            {{/has}}
+                                        {{/has}}
+                                    {{/foreach}}
+                                </div>
+                            {{else}}
+                                <div class="no-posts">
+                                    <h2>No posts published today</h2>
+                                    <p>Check back later for new content or explore our <a href="{{@site.url}}">latest posts</a>.</p>
+                                </div>
+                            {{/if}}
+                        {{/get}}
+                    </div>
+
+                    <!-- Sidebar -->
+                    {{> "layout/sidebar"}}
+                </div>
+            </div>
+        </div>
+    </article>
+</main>
+
+{{> "layout/site-footer"}}

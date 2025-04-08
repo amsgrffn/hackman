@@ -1,0 +1,39 @@
+{{!< default}}
+<h1>Debug Date Posts</h1>
+
+<h2>Date: {{@params.year}}-{{@params.month}}-{{@params.day}}</h2>
+
+<pre>
+Raw params: {{@params.year}} {{@params.month}} {{@params.day}}
+Filter: published_at:~'{{@params.year}}-{{@params.month}}-{{@params.day}}'
+</pre>
+
+<h3>All Posts:</h3>
+{{#get "posts" limit="all" include="title,url,published_at" as |all_posts|}}
+  <ul>
+  {{#foreach all_posts}}
+    <li>
+      <strong>{{title}}</strong> -
+      Published: {{date published_at format="YYYY-MM-DD HH:mm:ss"}} -
+      <a href="{{url}}">Link</a>
+    </li>
+  {{else}}
+    <li>No posts found!</li>
+  {{/foreach}}
+  </ul>
+{{/get}}
+
+<h3>Posts for 2025-04-06:</h3>
+{{#get "posts" limit="all" include="title,url,published_at" filter="published_at:~'2025-04-06'" as |date_posts|}}
+  <ul>
+  {{#foreach date_posts}}
+    <li>
+      <strong>{{title}}</strong> -
+      Published: {{date published_at format="YYYY-MM-DD HH:mm:ss"}} -
+      <a href="{{url}}">Link</a>
+    </li>
+  {{else}}
+    <li>No posts found for this specific date!</li>
+  {{/foreach}}
+  </ul>
+{{/get}}

@@ -2,7 +2,7 @@
 <article class="card {{post_class}}">
     <div class="card-content">
         <div class="meta">
-            <span class="tag"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-target-icon lucide-target"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>{{#primary_tag}}<a href="{{url}}">{{name}}</a>{{/primary_tag}}</span>
+            <span class="tag">{{> "icons/target"}}{{#primary_tag}}<a href="{{url}}">{{name}}</a>{{/primary_tag}}</span>
             <span class="pub-date"><time datetime="{{date format="YYYY-MM-DD"}}">{{date published_at timeago="true"}}</time></span>
         </div>
         {{#if feature_image}}

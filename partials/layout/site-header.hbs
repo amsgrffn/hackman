@@ -24,34 +24,53 @@
                     </li>
                     {{!-- For Post pages --}}
                     {{#is "post"}}
+                    <li class="breadcrumb-item pages-dropdown">
+                        <a href="javascript:void(0)" class="dropdown-trigger">Channels</a>
+                        <span class="breadcrumb-separator">{{> "icons/chevron"}}</span>
+                        <div class="breadcrumb-dropdown">
+                            <div class="dropdown-inner">
+                                {{!-- Get all pages --}}
+                                {{#get "tags" limit="17" include="count.posts" order="count.posts desc"}}
+                                        <ul>
+                                            {{#foreach tags}}
+                                                <li><a href="{{url}}">{{> "icons/folder"}} {{name}} <span>({{count.posts}})</span></a></li>
+                                            {{/foreach}}
+                                            <li><a href="/topics"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-forward-icon lucide-forward"><polyline points="15 17 20 12 15 7"/><path d="M4 18v-2a4 4 0 0 1 4-4h12"/></svg> View All Topics</a></li>
+                                        </ul>
+                                    {{else}}
+                                        <p>No other pages found</p>
+                                {{/get}}
+                            </div>
+                        </div>
+                    </li>
                         {{#if primary_tag}}
                             <li class="breadcrumb-item">
                                 <a href="{{primary_tag.url}}">{{primary_tag.name}}</a>
                                 <span class="breadcrumb-separator">{{> "icons/chevron"}}</span>
                             </li>
                         {{/if}}
+                        <li class="breadcrumb-item current">{{date published_at format="MM/DD/YYYY"}}</li>
+                        <span class="breadcrumb-separator">{{> "icons/chevron"}}</span>
                         <li class="breadcrumb-item current" aria-current="page">{{title}}</li>
                     {{/is}}
 
                     {{!-- For Tag pages --}}
                     {{#is "tag"}}
                         <li class="breadcrumb-item pages-dropdown">
-                            <a href="javascript:void(0)" class="dropdown-trigger">Site Topics</a>
+                            <a href="javascript:void(0)" class="dropdown-trigger">Channels</a>
                             <span class="breadcrumb-separator">{{> "icons/chevron"}}</span>
                             <div class="breadcrumb-dropdown">
                                 <div class="dropdown-inner">
                                     {{!-- Get all pages --}}
-                                    {{#get "tags" limit="17" include="count.posts" order="count.posts desc"}}
-
+                                    {{#get "tags" limit="20" include="count.posts" order="count.posts desc"}}
                                             <ul>
                                                 {{#foreach tags}}
-                                                    <li><a href="{{url}}">{{> "icons/file"}} {{name}} <span>({{count.posts}})</span></a></li>
+                                                    <li><a href="{{url}}">{{> "icons/folder"}} {{name}} <span>({{count.posts}})</span></a></li>
                                                 {{/foreach}}
                                                 <li><a href="/topics"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-forward-icon lucide-forward"><polyline points="15 17 20 12 15 7"/><path d="M4 18v-2a4 4 0 0 1 4-4h12"/></svg> View All Topics</a></li>
                                             </ul>
                                         {{else}}
                                             <p>No other pages found</p>
-
                                     {{/get}}
                                 </div>
                             </div>
@@ -70,7 +89,7 @@
                     {{!-- For Page pages - with dropdown --}}
                     {{#is "page"}}
                         <li class="breadcrumb-item pages-dropdown">
-                            <a href="javascript:void(0)" class="dropdown-trigger">Site Pages</a>
+                            <a href="javascript:void(0)" class="dropdown-trigger">Pages</a>
                             <span class="breadcrumb-separator">{{> "icons/chevron"}}</span>
                             <div class="breadcrumb-dropdown">
                                 <div class="dropdown-inner">
@@ -96,8 +115,13 @@
 
                     {{!-- For Home page --}}
                     {{#is "home"}}
-                        <li class="breadcrumb-item current" aria-current="page">{{date format="dddd, MMMM Do, YYYY"}} <span class="breadcrumb-separator">{{> "icons/chevron"}}</span></li>
-                        <li class="breadcrumb-item current" aria-current="page">Home</li>
+                        <li class="breadcrumb-item current" aria-current="page">
+                            <a href="{{@site.url}}/{{date format="YYYY"}}/{{date format="MM"}}/{{date format="DD"}}/">
+                                {{date format="dddd, MMMM Do, YYYY"}}
+                            </a>
+                            <span class="breadcrumb-separator">{{> "icons/chevron"}}</span>
+                        </li>
+                        <li class="breadcrumb-item current" aria-current="page">Home Page</li>
                     {{/is}}
                 </ul>
             </nav>

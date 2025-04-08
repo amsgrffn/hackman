@@ -1,83 +1,44 @@
 {{!< default}}
-
-<div class="topbar">
+<header class="site-header">
     <div class="container">
-        <div class="topbar-inner">
-            <nav class="topbar-nav">
-                <ul>
-                    <li><a href="https://www.onthisday.com/">{{date format="dddd, MMMM Do, YYYY"}}</a></li>
-                    <li class="the-weather">Currently: <a href="https://en.wikipedia.org/wiki/Maine"><span id="current-temp"></span>,<span id="current-condition"></span></a></li>
-                    <li class="draught">Last Knicks Title: <a href="https://www.nytimes.com/1973/05/11/archives/knicks-win-title-top-lakers-10293-new-york-triumphs-in-five-games.html"><span id="knicks-counter"></span></a></li>
-                    <li><a href="https://www.onthisday.com/">Second Left: 18,889 days</a></li>
-                    <li><span>Made in Maine {{> "icons/heart"}}</span></li>
+        <div class="header-inner">
+            <nav class="breadcrumbs" aria-label="Breadcrumb">
+                <ul class="breadcrumb-list">
+                    <li class="breadcrumb-item home">
+                        {{> "icons/arrow-down-right"}}<a href="{{@site.url}}">{{@site.title}}</a>
+                        <span class="breadcrumb-separator"> {{> "icons/chevron"}}</span>
+                    </li>
+                    <li class="breadcrumb-item current" aria-current="page">
+                        Error Page ¯\_(ツ)_/¯
+                    </li>
                 </ul>
             </nav>
         </div>
     </div>
-</div>
-
-<header class="site-header">
-    <div class="container">
-        <div class="header-inner">
-             <a href="{{@site.url}}" class="logo">{{{@site.title}}}</a>
-           <nav class="site-nav">
-               <a class="memberships" href="#">Memberships</a>
-               {{#if @member}}
-                   <a data-portal="account" class="login" href="#">
-                       <div class="member-avatar-icon">
-                           {{> "icons/user"}}
-                       </div>
-                       My Account
-                   </a>
-               {{else}}
-                   <a data-portal="signin" class="login" href="#">Member Login</a>
-               {{/if}}
-           </nav>
-            <div class="header-right">
-                <div class="appearance-toggle-wrapper">
-                    <div class="appearance-toggle">
-                        <input type="radio" id="appearance-auto" name="appearance" value="auto" checked>
-                        <label for="appearance-auto" class="appearance-option" title="System preference">
-                            {{> "icons/desktop"}}
-                        </label>
-                        <input type="radio" id="appearance-light" name="appearance" value="light">
-                        <label for="appearance-light" class="appearance-option" title="Light mode">
-                           {{> "icons/sun"}}
-                        </label>
-                        <input type="radio" id="appearance-dark" name="appearance" value="dark">
-                        <label for="appearance-dark" class="appearance-option" title="Dark mode">
-                            {{> "icons/moon"}}
-                        </label>
-                    </div>
-                </div>
-                <button class="menu-toggle" aria-label="Toggle menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </div>
-        </div>
-    </div>
 </header>
-
 <main class="gh-main error-page-main">
     <section class="gh-error">
         <div class="container">
             <div class="error-content-wrapper">
                 <div class="error-content">
-                    <div class="error-header">
-                        <h1 class="error-code">{{statusCode}}</h1>
-                        <p class="error-description">¯\_(ツ)_/¯</p>
-                    </div>
+                    <header class="page-header">
+                        <div class="container">
+                           <h1 class="error-code">{{statusCode}}</h1>
+  <div class="error-featured-img">
+                                <img src="{{asset 'media/gif/404.gif'}}" height="800" width="537" alt="Charles Bronson Gif">
+                            </div>
+                            <p class="page-excerpt">Bummer, you've been blindsided by an error. Seems the URL you requested does not currently exist on this site.
+<span class="error-url"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#f05230" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm-8,56a8,8,0,0,1,16,0v56a8,8,0,0,1-16,0Zm8,104a12,12,0,1,1,12-12A12,12,0,0,1,128,184Z"></path></svg> {{url}}</span>
+                            </p>
 
-                    <div class="error-featured-img">
-                        <img src="{{asset 'media/gif/404.gif'}}" height="800" width="537" alt="Charles Bronson Gif">
-                    </div>
+                        </div>
+                    </header>
+
+
 
                     <div class="error-message">
-                        <p>Bummer, you've been blindsided by an error. Seems the URL you requested does not currently exist on this site.</p>
-                        <p class="error-url"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#f05230" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm-8,56a8,8,0,0,1,16,0v56a8,8,0,0,1-16,0Zm8,104a12,12,0,1,1,12-12A12,12,0,0,1,128,184Z"></path></svg> <span>{{url}}</span> <-- not a thing</p>
-                        <p>Why did this happen? Honestly, it's hard tellin' not knowin'. My inclination is to blame you for poor spelling but the truth probably rests with me somehow. I treat this site's internals like an Irish Poet treats their liver. I can say this cause I write poetry and I'm Irish enough.</p>
+
+                        <p>So, <strong>Why did this happen?</strong> Honestly, it's hard tellin' not knowin'. My inclination is to blame you for poor spelling but the truth probably rests with me somehow. I treat this site's internals like an Irish Poet treats their liver. I can say this cause I write poetry and I'm Irish enough.</p>
 
                         <p>Anway, you're on the Internet so not like you're losing anything except your soul. But here's a video of a pup and some kittens so watch this and you'll get it back. </p>
 
@@ -89,8 +50,8 @@
                     </div>
 
                     <div class="error-actions">
-                        <a class="error-button" href="{{@site.url}}">Go back home</a>
-                        <button class="error-button" data-ghost-search>Search</button>
+                        <a class="error-button" href="{{@site.url}}">Home Page</a>
+                        <button class="error-button" data-ghost-search>Search the Site</button>
                     </div>
                 </div>
             </div>

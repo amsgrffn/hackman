@@ -1,7 +1,7 @@
 <!-- Quote -->
 <article class="quote {{post_class}}">
     <div class="meta">
-        <span class="tag"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-audio-lines-icon lucide-audio-lines"><path d="M2 10v3"/><path d="M6 6v11"/><path d="M10 3v18"/><path d="M14 8v7"/><path d="M18 5v13"/><path d="M22 10v3"/></svg>{{#primary_tag}}<a href="{{url}}">{{name}}</a>{{/primary_tag}}</span>
+        <span class="tag">{{> "icons/audio"}}{{#primary_tag}}<a href="{{url}}">{{name}}</a>{{/primary_tag}}</span>
         <span class="pub-date"><a href="{{@site.url}}/{{url}}"><time datetime="{{date format="YYYY-MM-DD"}}">{{date published_at timeago="true"}}{{> "icons/arrow-up"}}</time></a></span>
     </div>
     <h2><a href="{{url}}">{{title}}</a></h2>

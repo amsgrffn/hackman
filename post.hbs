@@ -1,175 +1,257 @@
 {{!< default}}
 {{#post}}
-{{> "layout/site-header"}}
-<!-- Main content -->
-<main class="article-main">
-    <article class="article">
-
-        {{#if feature_image}}
-        <figure class="article-feature-image">
-           <img src="{{img_url feature_image size="xl"}}" alt="{{title}}" class="feature-image-content">
-            {{#if feature_image_caption}}
-            <figcaption>{{feature_image_caption}}</figcaption>
+    {{> "layout/site-header"}}
+    <!-- Main content -->
+    <main class="article-main">
+        <article class="article">
+            {{#if feature_image}}
+                <figure class="article-feature-image">
+                    <img src="{{img_url feature_image size="xl"}}" alt="{{title}}" class="feature-image-content">
+                    {{#if feature_image_caption}}
+                        <figcaption>{{feature_image_caption}}</figcaption>
+                    {{/if}}
+                </figure>
             {{/if}}
-        </figure>
-        {{/if}}
-
-        <div class="article-content-wrapper">
-            <div class="container">
-                <div class="layout">
-                    <div class="content">
-                        <header class="article-header">
+            <div class="article-content-wrapper">
+                <div class="container">
+                    <div class="layout">
+                        <div class="content">
+                            <header class="article-header">
                                 <div class="article-meta">
-                                    <span class="article-date">{{date published_at format="MMMM D, YYYY"}}</span>
+                                    <span class="article-date">{{date published_at format="dddd, MMMM D, YYYY"}}</span>
                                 </div>
                                 <h1 class="article-title">{{title}}</h1>
                                 {{#if custom_excerpt}}
-                                <p class="article-excerpt">{{custom_excerpt}}</p>
+                                    <p class="article-excerpt">{{custom_excerpt}}</p>
                                 {{/if}}
-                        </header>
-                        <div class="article-content">
-                            {{content}}
-                        </div>
+                            </header>
+                            <div class="article-content">
+                                {{content}}
+                            </div>
 
-                        <div class="article-footer">
+                            <div class="article-footer">
                                 {{#if tags}}
-                                {{#foreach tags}}
-                                <ul class="article-tags">
-                                <li>{{> "icons/hash"}}<a href="{{url}}" class="article-tag-item">{{name}}</a></li>
-                                </ul>
-                                {{/foreach}}
+                                    {{#foreach tags}}
+                                        <ul class="article-tags">
+                                            <li>{{> "icons/hash"}}<a href="{{url}}" class="article-tag-item">{{name}}</a></li>
+                                        </ul>
+                                    {{/foreach}}
                                 {{/if}}
 
-                            <button class="related-trigger" aria-expanded="false" aria-controls="related-panel">
-                               Conversation {{comment_count empty="" singular="comment" plural="comments" autowrap="span" class=""}}  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-audio-lines-icon lucide-audio-lines"><path d="M2 10v3"/><path d="M6 6v11"/><path d="M10 3v18"/><path d="M14 8v7"/><path d="M18 5v13"/><path d="M22 10v3"/></svg>
-                            </button>
+                                <button class="related-trigger" aria-expanded="false" aria-controls="related-panel">
+                                    Conversation {{comment_count empty="" singular="comment" plural="comments" autowrap="span" class=""}} <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-audio-lines-icon lucide-audio-lines">
+                                        <path d="M2 10v3" />
+                                        <path d="M6 6v11" />
+                                        <path d="M10 3v18" />
+                                        <path d="M14 8v7" />
+                                        <path d="M18 5v13" />
+                                        <path d="M22 10v3" />
+                                    </svg>
+                                </button>
 
-                            <div class="article-share">
-                                <div class="dropdown">
-                                    <button class="dropbtn share-btn" aria-label="Share this article">Share {{> "icons/arrow-up"}} </button>
-                                    <div class="dropdown-content">
-                                        <p class="title">Share and Support</p>
-                                        <p class="thanks">Thanks for reading. Use the links below to share this article and/or support this site.</p>
-                                        <a href="#" class="native-share" style="display: none;">{{> "icons/share"}} Share via Device</a>
-                                        <a href="#" class="copy-url">{{> "icons/link"}} Copy Article URL</a>
-                                        <a href="#" class="email-share">{{> "icons/at-sign"}} Email Article</a>
-                                        <a href="#" class="mastodon-share">{{> "icons/mastodon"}} Share on Mastodon</a>
-                                        <a href="https://bsky.app/intent/compose?text={{encode title}}{{encode (url absolute="true")}}" target="_blank" rel="noopener noreferrer">{{> "icons/bluesky"}} Share on Bluesky</a>
-                                        <a href="https://www.reddit.com/submit?url={{encode (url absolute="true")}}&title={{encode title}}" target="_blank" rel="noopener noreferrer">{{> "icons/reddit"}} Share on Reddit</a>
-                                        <a href="whatsapp://send?text={{encode (concat title ' ' (url absolute="true"))}}" class="whatsapp-share" target="_blank" rel="noopener noreferrer">{{> "icons/whatsapp"}} Share on WhatsApp</a>
-                                        <a href="/memberships">{{> "icons/thumb-up"}} Subscribe</a>
-                                        <a href="#/portal/support">{{> "icons/beer"}} Buy Us a Pint</a>
-                                        <a href="/contact">{{> "icons/mail"}} Contact Us</a>
+                                <div class="article-share">
+                                    <div class="dropdown">
+                                        <button class="dropbtn share-btn" aria-label="Share this article">Share {{> "icons/arrow-up"}} </button>
+                                        <div class="dropdown-content">
+                                            <p class="title">Share and Support</p>
+                                            <p class="thanks">Thanks for reading. Use the links below to share this article and/or support this site.</p>
+                                            <a href="#" class="native-share" style="display: none;">{{> "icons/share"}} Share via Device</a>
+                                            <a href="#" class="copy-url">{{> "icons/link"}} Copy Article URL</a>
+                                            <a href="#" class="email-share">{{> "icons/at-sign"}} Email Article</a>
+                                            <a href="#" class="mastodon-share">{{> "icons/mastodon"}} Share on Mastodon</a>
+                                            <a href="https://bsky.app/intent/compose?text={{encode title}}{{encode (url absolute="true")}}" target="_blank" rel="noopener noreferrer">{{> "icons/bluesky"}} Share on Bluesky</a>
+                                            <a href="https://www.reddit.com/submit?url={{encode (url absolute="true")}}&title={{encode title}}" target="_blank" rel="noopener noreferrer">{{> "icons/reddit"}} Share on Reddit</a>
+                                            <a href="whatsapp://send?text={{encode (concat title ' ' (url absolute="true"))}}" class="whatsapp-share" target="_blank" rel="noopener noreferrer">{{> "icons/whatsapp"}} Share on WhatsApp</a>
+                                            <a href="/memberships">{{> "icons/thumb-up"}} Subscribe</a>
+                                            <a href="#/portal/support">{{> "icons/beer"}} Buy Us a Pint</a>
+                                            <a href="/contact">{{> "icons/mail"}} Contact Us</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+
+                            {{#if primary_author}}
+                                <section class="author-card">
+                                    <div class="author-card-content">
+                                        {{#if primary_author.bio}}
+                                            <p class="author-card-bio"><span>Published by {{primary_author.name}}</span> &mdash; {{primary_author.bio}}</p>
+                                        {{/if}}
+                                        <div class="author-card-links">
+                                            {{#if primary_author.website}}
+                                                <a href="{{primary_author.website}}" target="_blank" rel="noopener noreferrer">Website</a>
+                                            {{/if}}
+                                            {{#if primary_author.twitter}}
+                                                <a href="{{primary_author.twitter}}" target="_blank" rel="noopener noreferrer">Twitter</a>
+                                            {{/if}}
+                                            <a href="{{primary_author.url}}">More posts</a>
+                                        </div>
+                                    </div>
+                                    <img src="{{primary_author.profile_image}}" alt="{{primary_author.name}}" class="author-card-image">
+                                </section>
+                            {{/if}}
+
+                            <section class="related-articles">
+                                {{#get "posts" filter="tags:[{{primary_tag.slug}}]+id:-{{id}}" limit="8" include="tags,authors" as |related|}}
+                                    {{#if related.length}}
+                                        <div class="related-header">
+                                            <h2 class="related-title">Keep Reading</h2>
+                                            <p class="related-subtitle">You might also enjoy these posts</p>
+                                        </div>
+
+                                        <div class="related-list">
+                                            {{#foreach related}}
+                                                <article class="related-card">
+                                                    <div class="related-article-item">
+                                                        <div class="related-article-icon">
+                                                            {{#has tag="#bookmark"}}
+                                                                {{> "icons/paperclip"}}
+                                    {{else has tag="#note"}}
+                                        {{> "icons/sticky-note"}}
+                                    {{else has tag="#video"}}
+                                        {{> "icons/clapperboard"}}
+                                    {{else has tag="#quote"}}
+                                        {{> "icons/quote"}}
+                                    {{else}}
+                                        {{> "icons/article"}}
+                                                            {{/has}}
+                                                        </div>
+                                                        <div class="related-article-text">
+                                                            <h3><a href="{{url}}" aria-label="{{title}}">{{title}}</a></h3>
+                                                            <div class="related-card-meta">
+                                                                <span>{{#primary_tag}}<a href="{{url}}">{{name}}</a>{{/primary_tag}}</span>
+                                                                <span class="related-author-name">{{primary_author.name}}</span>
+                                                                <span class="related-date">{{date published_at format="MMM D, YYYY"}}</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </article>
+                                            {{/foreach}}
+                                        </div>
+                                    {{else}}
+                                        {{!-- If no related posts, display recent posts instead --}}
+                                        <div class="related-header">
+                                            <h2 class="related-title">Latest Posts</h2>
+                                            <p class="related-subtitle">Check out our most recent articles</p>
+                                        </div>
+
+                                        <div class="related-list">
+                                            {{#get "posts" limit="8" include="tags,authors"}}
+                                                {{#foreach posts}}
+                                                    <article class="related-card">
+                                                        <div class="related-article-item">
+                                                            <div class="related-article-icon">
+                                                                {{#has tag="#bookmark"}}
+                                                                    {{> "icons/paperclip"}}
+                                    {{else has tag="#note"}}
+                                        {{> "icons/sticky-note"}}
+                                    {{else has tag="#video"}}
+                                        {{> "icons/clapperboard"}}
+                                    {{else has tag="#quote"}}
+                                        {{> "icons/quote"}}
+                                    {{else}}
+                                        {{> "icons/article"}}
+                                                                {{/has}}
+                                                            </div>
+                                                            <div class="related-article-text">
+                                                                <h3><a href="{{url}}" aria-label="{{title}}">{{title}}</a></h3>
+                                                                <div class="related-card-meta">
+                                                                    <span>{{#primary_tag}}<a href="{{url}}">{{name}}</a>{{/primary_tag}}</span>
+                                                                    <span class="related-author-name">{{primary_author.name}}</span>
+                                                                    <span class="related-date">{{date published_at format="MMM D, YYYY"}}</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </article>
+                                                {{/foreach}}
+                                            {{/get}}
+                                        </div>
+                                    {{/if}}
+                                    {{else}}
+                                        {{!-- Fallback if get helper fails completely --}}
+                                        <div class="related-header">
+                                            <h2 class="related-title">Latest Posts</h2>
+                                            <p class="related-subtitle">Check out our most recent articles</p>
+                                        </div>
+
+                                        <div class="related-list">
+                                            {{#get "posts" filter="id:-{{id}}" limit="8" include="tags,authors"}}
+                                                {{#foreach posts}}
+                                                    <article class="related-card">
+                                                        <div class="related-article-item">
+                                                            <div class="related-article-icon">
+                                                                {{#has tag="#bookmark"}}
+                                                                    {{> "icons/paperclip"}}
+                                                                    {{else has tag="#note"}}
+                                                                        {{> "icons/sticky-note"}}
+                                                                        {{else has tag="#video"}}
+                                                                            {{> "icons/clapperboard"}}
+                                                                            {{else has tag="#quote"}}
+                                                                                {{> "icons/quote"}}
+                                                                                {{else}}
+                                                                                    {{> "icons/article"}}
+                                                                {{/has}}
+                                                            </div>
+                                                            <div class="related-article-text">
+                                                                <h3><a href="{{url}}" aria-label="{{title}}">{{title}}</a></h3>
+                                                                <div class="related-card-meta">
+                                                                    <span>{{#primary_tag}}<a href="{{url}}">{{name}}</a>{{/primary_tag}}</span>
+                                                                    <span class="related-author-name">{{primary_author.name}}</span>
+                                                                    <span class="related-date">{{date published_at format="MMM D, YYYY"}}</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </article>
+                                                {{/foreach}}
+                                            {{/get}}
+                                        </div>
+                                {{/get}}
+
+                                <div class="related-cta">
+                                    {{#if primary_tag}}
+                                        <a href="{{primary_tag.url}}" class="related-cta-button">
+                                            See more in {{primary_tag.name}}
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M5 12h14"></path>
+                                                <path d="m12 5 7 7-7 7"></path>
+                                            </svg>
+                                        </a>
+                                    {{else}}
+                                        <a href="{{@site.url}}" class="related-cta-button">
+                                            View all posts
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M5 12h14"></path>
+                                                <path d="m12 5 7 7-7 7"></path>
+                                            </svg>
+                                        </a>
+                                    {{/if}}
+                                </div>
+                            </section>
                         </div>
 
-                        {{#if primary_author}}
-                        <section class="author-card">
-                            <div class="author-card-content">
-                                <h3 class="author-card-name">Published by {{primary_author.name}}</h3>
-                                {{#if primary_author.bio}}
-                                <p class="author-card-bio">{{primary_author.bio}}</p>
-                                {{/if}}
-                                <div class="author-card-links">
-                                    {{#if primary_author.website}}
-                                    <a href="{{primary_author.website}}" target="_blank" rel="noopener noreferrer">Website</a>
-                                    {{/if}}
-                                    {{#if primary_author.twitter}}
-                                    <a href="{{primary_author.twitter}}" target="_blank" rel="noopener noreferrer">Twitter</a>
-                                    {{/if}}
-                                    <a href="{{primary_author.url}}">More posts</a>
-                                </div>
-                            </div>
-                            <img src="{{primary_author.profile_image}}" alt="{{primary_author.name}}" class="author-card-image">
-                        </section>
-                        {{/if}}
-
-                       <section class="related-articles">
-                           <div class="related-header">
-                               <h2 class="related-title">Keep Reading</h2>
-                               <p class="related-subtitle">You might also enjoy these posts</p>
-                           </div>
-
-                           <div class="related-list">
-                               {{#get "posts" filter="tags:[{{primary_tag.slug}}]+id:-{{id}}" limit="5" include="tags,authors" as |related|}}
-                               {{#foreach related}}
-                               <article class="related-card">
-                                   <a href="{{url}}" class="related-card-link" aria-label="{{title}}">
-                                       <div class="related-card-image-container">
-                                           {{#if feature_image}}
-                                           <picture>
-                                               <source
-                                                   srcset="{{img_url feature_image size="s" format="webp"}}"
-                                                   type="image/webp">
-                                               <img
-                                                   src="{{img_url feature_image size="s"}}"
-                                                   class="related-card-image"
-                                                   alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
-                                                   loading="lazy">
-                                           </picture>
-                                           {{else}}
-                                           <div class="related-card-image-placeholder">
-                                               <span>{{primary_tag.name}}</span>
-                                           </div>
-                                           {{/if}}
-
-
-                                       </div>
-
-                                       <div class="related-card-content">
-                                           <h3 class="related-card-title">{{title}}</h3>
-
-                                           <div class="related-card-meta">
-                                               {{#if primary_author.profile_image}}
-                                               <img class="related-author-image"
-                                                    src="{{img_url primary_author.profile_image size="xs"}}"
-                                                    alt="{{primary_author.name}}">
-                                               {{/if}}
-                                               <span class="related-author-name">{{primary_author.name}}</span>
-                                               <span class="related-date">{{date published_at format="MMM D, YYYY"}}</span>
-                                           </div>
-                                       </div>
-                                   </a>
-                               </article>
-                               {{/foreach}}
-                               {{/get}}
-                           </div>
-
-                           <div class="related-cta">
-                               <a href="/tag/{{primary_tag.slug}}" class="related-cta-button">
-                                   See more in {{primary_tag.name}}
-                                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-                               </a>
-                           </div>
-                       </section>
+                        <!-- Sidebar -->
+                        {{> "layout/sidebar"}}
                     </div>
-
-                    <!-- Sidebar -->
-                    {{> "layout/sidebar"}}
                 </div>
             </div>
+        </article>
+    </main>
+    <div class="panel-overlay" aria-hidden="true"></div>
+    <!-- Comments Panel -->
+    <aside id="comments-panel" class="related-panel" aria-hidden="true">
+        <div class="panel-header">
+            <div class="header-content">
+                <h2>Comments</h2>
+                <p class="header-description">The Times needs your voice. We welcome your on-topic commentary, criticism and expertise. Comments are moderated for civility..</p>
+            </div>
+            <button class="close-panel" aria-label="Close related articles">×</button>
         </div>
-    </article>
-</main>
-<div class="panel-overlay" aria-hidden="true"></div>
- <!-- Comments Panel -->
- <aside id="comments-panel" class="related-panel" aria-hidden="true">
-     <div class="panel-header">
-         <div class="header-content">
-             <h2>Comments</h2>
-             <p class="header-description">The Times needs your voice. We welcome your on-topic commentary, criticism and expertise. Comments are moderated for civility..</p>
-         </div>
-         <button class="close-panel" aria-label="Close related articles">×</button>
-     </div>
-     <div class="panel-content">
-             {{#if comments}}
-                 <div class="gh-post-comments mt-20">
-                     {{comments}}
-                 </div>
-             {{/if}}
-     </div>
- </aside>
+        <div class="panel-content">
+            {{#if comments}}
+                <div class="gh-post-comments mt-20">
+                    {{comments}}
+                </div>
+            {{/if}}
+        </div>
+    </aside>
 {{/post}}
 {{> "layout/site-footer"}}
