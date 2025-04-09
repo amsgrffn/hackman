@@ -1,0 +1,206 @@
+/*
+ * Shared Article Cards CSS
+ * Basic styling shared among the various article cards
+ */
+
+article,
+.card,
+.card-content,
+footer {
+    overflow: visible !important;
+}
+
+.posts-container article {
+    background: var(--secondary-color);
+    border-bottom: 3px solid #000;
+    margin-bottom: 3rem;
+    padding-bottom: 3rem;
+    position: relative;
+    z-index: auto;
+}
+
+.post-content blockquote,
+.post-content code,
+.post-content ol,
+.post-content p,
+.post-content ul {
+    font-size: 18px;
+    line-height: 25px;
+    margin-bottom: var(--space-md);
+}
+
+.post-content ol,
+.post-content ul {
+    margin-bottom: var(--space-md);
+    padding: 0 0 0 0.9rem
+}
+
+.post-content ol li,
+.post-content ul li {
+    margin-bottom: 0.2rem;
+}
+
+.post-content a {
+    color: var(--gray-dark);
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+    transition: color 0.3s ease, text-decoration-color 0.3s ease;
+}
+
+.post-content a:hover {
+    color: var(--red);
+    text-decoration-color: transparent;
+}
+
+.post-content figure {
+    margin-bottom: var(--space-xl);
+}
+
+.meta {
+    align-items: center;
+    color: var(--gray-medium);
+    display: flex;
+    font-family: var(--sans);
+    font-size: 12px;
+    gap: 12px;
+    margin-bottom: var(--space-2xl);
+}
+
+.meta>* {
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+}
+
+.meta .pub-date {
+    display: inline-flex;
+    align-items: center;
+    height: auto;
+}
+
+.meta span {
+    display: block;
+    border-radius: 0.5rem;
+    color: #525252;
+
+    font-weight: 500;
+    letter-spacing: 0.02rem;
+    padding: 10px 16px;
+    display: inline-block;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    line-height: normal;
+
+}
+
+.meta .tag {
+    background: var(--gray-dark);
+    color: var(--gray-light);
+    position: relative;
+    z-index: 2;
+    padding: 0 16px;
+    color: #fff;
+    font-weight: 500;
+}
+
+.meta .tag a {
+
+    color: var(--gray-light);
+
+}
+
+.meta .domain-pill {}
+
+.meta .domain-pill {
+    margin-left: -34px;
+    /* Create overlap with tag */
+    padding: 0 16px 0 34px;
+    /* Extra left padding for overlap area */
+    z-index: 1;
+    background: #f6f5f4;
+    color: var(--gray-medium);
+    z-index: 1;
+    border-radius: 0.5rem;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.meta .domain-pill img {
+    image-rendering: -webkit-optimize-contrast;
+    filter: drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.1));
+}
+
+.meta .tag,
+.meta .domain-pill {
+    display: inline-flex;
+    /* Switch to inline-flex for better alignment */
+    align-items: center;
+    /* Center content vertically */
+    height: 32px;
+    /* Set a consistent fixed height */
+    box-sizing: border-box;
+    line-height: 1;
+    /* Consistent line height */
+    vertical-align: middle;
+}
+
+
+.meta .pub-date {
+    background: #f6f5f4;
+    font-weight: 500;
+}
+
+/* Make sure it works well in the meta section */
+.meta .bookmark-source {
+    height: auto;
+    border-radius: 9999px;
+    background: transparent;
+    padding: 0;
+    background: #f6f5f4;
+    font-weight: 500;
+}
+
+.meta .tag:hover {
+    background-color: var(--red);
+    color: #fff;
+    transform: scale(1.1);
+}
+
+.meta svg {
+    display: inline;
+    height: 14px;
+    vertical-align: middle;
+    margin-right: 6px;
+    width: 14px;
+}
+
+.bookmark footer,
+.card footer,
+.note footer,
+.quote footer,
+.video-container footer {
+    align-items: center;
+    display: flex;
+    gap: 12px;
+    margin: var(--space-3xl) 8px 0 8px;
+}
+
+.post-topics {
+    align-content: center;
+    display: flex;
+    font-size: 14px;
+    gap: 12px;
+    letter-spacing: 0.15px;
+}
+
+.post-topics li {
+    list-style-type: none;
+}
+
+.post-topics a {
+    color: var(--gray-medium);
+}
+
+.post-topics a:hover {
+    color: var(--red);
+}

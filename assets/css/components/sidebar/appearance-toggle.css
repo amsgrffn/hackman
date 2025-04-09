@@ -1,69 +1,8 @@
 /*
- * Mobile Menu Styles
- * Mobile menu toggle and overlay
+ * Appearance Toggle Styles
+ * Dark mode toggle switch
  */
 
- .menu-toggle {
-     background: transparent;
-     border: none;
-     cursor: pointer;
-     display: flex;
-     flex-direction: column;
-     height: 18px;
-     justify-content: space-between;
-     margin-left: var(--space-md);
-     padding: 0;
-     width: 24px;
- }
-
- .menu-toggle span {
-     background-color: var(--primary-color);
-     display: block;
-     height: var(--size-2);
-     transition: var(--transition);
-     width: 100%;
- }
-
- .mobile-menu {
-     background-color: var(--secondary-color);
-     border-radius: 16px;
-     box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
-     height: 85vh;
-     max-width: 360px;
-     overflow-y: auto;
-     padding: var(--space-3xl) var(--space-xl) var(--space-xl);
-     position: fixed;
-     right: -100%;
-     top: 50%;
-     transform: translateY(-50%);
-     transition: var(--transition);
-     width: 80%;
-     z-index: 150;
- }
-
- .mobile-menu.active {
-     right: 16px;
- }
-
- .overlay {
-     background-color: rgba(0, 0, 0, 0.5);
-     height: 100%;
-     left: 0;
-     opacity: 0;
-     position: fixed;
-     top: 0;
-     transition: var(--transition);
-     visibility: hidden;
-     width: 100%;
-     z-index: 140;
- }
-
- .overlay.active {
-     opacity: 1;
-     visibility: visible;
- }
-
- /* 6.4 Appearance Toggle */
  .appearance-toggle-wrapper {
      align-items: center;
      display: flex;

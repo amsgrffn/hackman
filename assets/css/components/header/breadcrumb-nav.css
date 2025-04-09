@@ -1,0 +1,275 @@
+/*
+ * Site-wide Breadcrumb Navigation
+ * Basic styling for site header breadcrumbs
+ */
+
+.breadcrumb-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    font-family: var(--sans);
+    font-size: 14px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.breadcrumb-item {
+    display: flex;
+    align-items: center;
+    color: var(--gray-dark);
+}
+
+.breadcrumb-item a {
+    color: var(--gray-dark);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.breadcrumb-list svg {
+    display: inline;
+    height: 20px;
+    margin-top: -1px;
+    vertical-align: middle;
+    width: 20px;
+}
+
+.breadcrumb-list svg.arrow-here {
+    margin-right: 3px;
+    stroke: var(--gray-dark);
+}
+
+.breadcrumb-item a {
+    color: var(--gray-dark);
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    font-weight: 500;
+    text-underline-offset: 3px;
+    transition: var(--transition);
+}
+
+.breadcrumb-item a:hover {
+    color: var(--red);
+    text-decoration: underline;
+}
+
+
+
+.post-template .breadcrumb-item.current {
+    max-width: 340px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    vertical-align: middle;
+    color: var(--gray-medium);
+}
+
+.breadcrumb-separator {
+    display: flex;
+    align-items: center;
+    margin: 2px 0 0 0;
+    color: var(--gray-dark);
+}
+
+.breadcrumb-separator svg {
+    width: 20px;
+    height: 20px;
+    stroke: var(--gray-dark);
+}
+
+/* Breadcrumbs Dropdown - Without caret */
+.pages-dropdown {
+    position: relative;
+}
+
+.pages-dropdown .dropdown-trigger {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* Remove the caret after the dropdown trigger */
+.pages-dropdown .dropdown-trigger:after {
+    display: none;
+}
+
+.breadcrumb-dropdown {
+    position: absolute;
+    top: 100%;
+    /* Center the dropdown */
+    left: 50%;
+    transform: translateX(-50%) translateY(-10px);
+    z-index: 100;
+    min-width: 220px;
+    margin-top: var(--size-12);
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+/* Show dropdown on hover */
+.pages-dropdown:hover .breadcrumb-dropdown {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+}
+
+/* Add a small delay before hiding the dropdown when mouse leaves */
+.breadcrumb-dropdown {
+    transition-delay: 0s;
+}
+
+.pages-dropdown:hover .breadcrumb-dropdown {
+    transition-delay: 0.1s;
+}
+
+.dropdown-inner {
+    background-color: #fefefe;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: var(--space-xs);
+    overflow: hidden;
+}
+
+.breadcrumb-dropdown ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    height: auto;
+    overflow-y: auto;
+}
+
+.breadcrumb-dropdown ul li {
+    padding: 0;
+    margin: 0;
+}
+
+.breadcrumb-dropdown ul li a {
+    display: block;
+    padding: var(--space-xs) var(--space-sm);
+    color: var(--gray-dark);
+    text-decoration: none;
+    border-radius: var(--radius);
+    transition: background-color 0.2s ease;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.breadcrumb-dropdown ul svg {
+    display: inline;
+    height: 16px;
+    margin: -3px 1px 0 0;
+    vertical-align: middle;
+    width: 16px;
+}
+
+
+.breadcrumb-dropdown ul li a:hover {
+    background-color: var(--gray-light);
+    color: var(--red);
+    text-decoration: none;
+}
+
+/* Add arrow at the top of the dropdown pointing to "Pages" */
+.dropdown-inner:before,
+.dropdown-inner:after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    transform: translateX(-50%);
+}
+
+/* Shadow arrow */
+.dropdown-inner:before {
+    top: -11px;
+    border-bottom: 10px solid rgba(0, 0, 0, 0.1);
+    filter: blur(1px);
+}
+
+/* Main arrow */
+.dropdown-inner:after {
+    top: -10px;
+    border-bottom: 10px solid #fefefe;
+}
+
+/* Style for current page in dropdown */
+.breadcrumb-dropdown ul li a.current-page {
+    background-color: var(--gray-light);
+    color: var(--accent-color);
+    font-weight: var(--font-weight-bold);
+    cursor: default;
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+/* Dark mode adjustments */
+body.dark-mode .dropdown-inner {
+    background: var(--secondary-color);
+    border: 1px solid var(--gray-dark);
+}
+
+body.dark-mode .breadcrumb-dropdown ul li a {
+    color: var(--gray-light);
+}
+
+body.dark-mode .breadcrumb-dropdown ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--accent-color);
+}
+
+body.dark-mode .dropdown-inner:after {
+    border-bottom-color: var(--secondary-color);
+}
+
+body.dark-mode .breadcrumb-dropdown ul li a.current-page {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Add a small invisible area to prevent dropdown from closing when moving cursor from trigger to dropdown */
+.pages-dropdown:before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 16px;
+    /* This matches our margin-top value */
+    z-index: 99;
+}
+
+/* Dark mode adjustments */
+body.dark-mode .breadcrumb-item {
+    color: var(--gray-medium);
+}
+
+body.dark-mode .breadcrumb-item a {
+    color: var(--gray-dark);
+}
+
+body.dark-mode .breadcrumb-item.current {
+    color: var(--primary-color);
+}
+
+body.dark-mode .breadcrumb-separator {
+    color: var(--gray-light);
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+    .breadcrumbs {
+        font-size: var(--text-xs);
+    }
+
+    /* Hide site title on very small screens */
+    @media (max-width: 480px) {
+        .breadcrumb-item.home {
+            display: none;
+        }
+    }
+}
