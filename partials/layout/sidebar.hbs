@@ -78,7 +78,7 @@
             </div>
         </div>
 
-        <div class="collapsible-section">
+        <!-- <div class="collapsible-section">
             <div class="collapsible-header">
               <span class="collapsible-title">Newsletter Signup</span>
               <svg class="collapsible-icon" width="12" height="12" viewBox="0 0 12 12">
@@ -93,7 +93,79 @@
                     </button>
                 </div>
             </div>
-        </div>
+        </div> -->
+
+        <!-- Collapsible section (will be closed by default) -->
+          <div class="collapsible-section">
+            <div class="collapsible-header">
+              <span class="collapsible-title">Channels</span>
+              <svg class="collapsible-icon collapsed" width="12" height="12" viewBox="0 0 12 12">
+                <path fill="currentColor" d="M6 8.825l-4.9-4.9c-.3-.3-.3-.75 0-1.05.3-.3.75-.3 1.05 0L6 6.725l3.85-3.85c.3-.3.75-.3 1.05 0 .3.3.3.75 0 1.05l-4.9 4.9z"/>
+              </svg>
+            </div>
+            <div class="collapsible-content">
+              <ul class="page-list">
+                <li class="page-item">
+                    <a href="/contact" class="page-link">
+                      {{> "icons/popcorn"}}
+                      <span>Pop Culture</span>
+                    </a>
+                </li>
+                <li class="page-item">
+                   <a href="/office-hours" class="page-link">
+                     {{> "icons/landmark"}}
+                     <span>Politics & Society</span>
+                   </a>
+                 </li>
+                 <li class="page-item">
+                     <a href="/nerd-alert" class="page-link">
+                       {{> "icons/circuit"}}
+                       <span>Commentary</span>
+                     </a>
+                </li>
+                <li class="page-item">
+                     <a href="/nerd-alert" class="page-link">
+                       {{> "icons/trophy"}}
+                       <span>Sports & Leisure</span>
+                     </a>
+                </li>
+                <li class="page-item">
+                     <a href="/feeds" class="page-link">
+                       {{> "icons/sprout"}}
+                       <span>Creative Works</span>
+                     </a>
+                </li>
+                <li class="page-item">
+                    <a href="#" class="page-link">
+                      {{> "icons/crown"}}
+                      <span>Wellness & Lifestyle</span>
+                    </a>
+                  </li>
+                  <li class="page-item">
+                    <a href="#" class="page-link">
+                      <svg class="page-icon" width="18" height="18" viewBox="0 0 18 18">
+                        <path fill="currentColor" d="M9 1.5c4.125 0 7.5 3.375 7.5 7.5s-3.375 7.5-7.5 7.5-7.5-3.375-7.5-7.5 3.375-7.5 7.5-7.5zm0 13.5c3.3 0 6-2.7 6-6s-2.7-6-6-6-6 2.7-6 6 2.7 6 6 6zm-1.5-6.75h3v1.5h-3v-1.5zm0-3h3v1.5h-3v-1.5z"/>
+                      </svg>
+                      <span>Wellness</span>
+                    </a>
+                  </li>
+                  <li class="page-item">
+                    <a href="#" class="page-link">
+                      {{> "icons/circuit"}}
+                      <span>Tech</span>
+                    </a>
+                  </li>
+                  <li class="page-item">
+                      <a href="#" class="page-link">
+                        <svg class="page-icon" width="18" height="18" viewBox="0 0 18 18">
+                          <path fill="currentColor" d="M3.75 16.5c-.825 0-1.5-.675-1.5-1.5V3c0-.825.675-1.5 1.5-1.5h10.5c.825 0 1.5.675 1.5 1.5v12c0 .825-.675 1.5-1.5 1.5h-10.5zm0-1.5h10.5V3h-10.5v12zm2.25-9h6v-1.5H6v1.5zm0 3h6v-1.5H6v1.5zm0 3h6v-1.5H6v1.5z"/>
+                        </svg>
+                        <span>Features</span>
+                      </a>
+                    </li>
+              </ul>
+            </div>
+          </div>
 
 
     <!-- Collapsible section (will be closed by default) -->
@@ -223,11 +295,16 @@
             <li class="page-item"><a href="#" class="page-link">Contact</a></li>
         </ul>
     </div> -->
-    <div class="sidebar-buttons">
-        <ul class="sidebar-buttons">
-            <li><a href="/memberships" class="btn search">Search</a></li>
+    <div class="sidebar-nuggs">
+        <div class="newsletter-trigger">
+            <button id="open-newsletter-modal" class="newsletter-button">
+                Newsletter
+            </button>
+        </div>
+        <ul class="sidebar-btns">
             <li><a href="/memberships" class="btn membership-signup">Memberships</a></li>
             <li><a href="#" class="btn membership-login" data-portal="signin">Member Login</a></li>
+            <li><a href="/memberships" class="btn search">Search</a></li>
         </ul>
     </div>
     <div class="appearance-toggle-wrapper">

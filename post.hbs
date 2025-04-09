@@ -73,10 +73,13 @@
                             {{#if primary_author}}
                                 <section class="author-card">
                                     <div class="author-card-content">
+                                        <img src="{{primary_author.profile_image}}" alt="{{primary_author.name}}" class="author-card-image">
+                                        <p class="author-card-name">Published by {{primary_author.name}}</p>
                                         {{#if primary_author.bio}}
-                                            <p class="author-card-bio"><span>Published by {{primary_author.name}}</span> &mdash; {{primary_author.bio}}</p>
+                                            <p class="author-card-bio">{{primary_author.bio}}</p>
                                         {{/if}}
                                         <div class="author-card-links">
+
                                             {{#if primary_author.website}}
                                                 <a href="{{primary_author.website}}" target="_blank" rel="noopener noreferrer">Website</a>
                                             {{/if}}
@@ -86,7 +89,6 @@
                                             <a href="{{primary_author.url}}">More posts</a>
                                         </div>
                                     </div>
-                                    <img src="{{primary_author.profile_image}}" alt="{{primary_author.name}}" class="author-card-image">
                                 </section>
                             {{/if}}
 
@@ -94,7 +96,7 @@
                                 {{#get "posts" filter="tags:[{{primary_tag.slug}}]+id:-{{id}}" limit="8" include="tags,authors" as |related|}}
                                     {{#if related.length}}
                                         <div class="related-header">
-                                            <h2 class="related-title">Keep Reading</h2>
+                                            <h2 class="related-title">Keep Exploring</h2>
                                             <p class="related-subtitle">You might also enjoy these posts</p>
                                         </div>
 
@@ -118,9 +120,9 @@
                                                         <div class="related-article-text">
                                                             <h3><a href="{{url}}" aria-label="{{title}}">{{title}}</a></h3>
                                                             <div class="related-card-meta">
-                                                                <span>{{#primary_tag}}<a href="{{url}}">{{name}}</a>{{/primary_tag}}</span>
-                                                                <span class="related-author-name">{{primary_author.name}}</span>
-                                                                <span class="related-date">{{date published_at format="MMM D, YYYY"}}</span>
+                                                                <span>{{#primary_tag}}<a href="{{url}}">{{> "icons/folder"}} {{name}}</a>{{/primary_tag}}</span>
+                                                                <span class="related-author-name">{{> "icons/user"}} {{primary_author.name}}</span>
+                                                                <span class="related-date">{{> "icons/calendar"}} published {{date published_at timeago="true"}}</span>
                                                             </div>
                                                         </div>
                                                     </div>
