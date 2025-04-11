@@ -1,0 +1,80 @@
+/*
+ * Progress Bar Styles
+ * Reading progress indicator
+ */
+
+/* 9.5 Author Card */
+ .author-card {
+
+     background: #f6f5f4;
+     border-radius: 0.5rem;
+     display: flex;
+     gap: 24px;
+     margin: 80px 0;
+     align-items: center;
+     padding: 24px 32px;
+ }
+
+ .author-card-image {
+     border-radius: 50%;
+     height: 50px;
+     object-fit: cover;
+     width: 50px;
+     margin-bottom: 20px;
+ }
+
+ .author-card-content {
+     flex: 1;
+ }
+
+ .author-card-name {
+
+     font-family: var(--display);
+     font-size: 18px;
+     font-weight: 600;
+     letter-spacing: 0.02rem;
+     margin-bottom: 2px;
+ }
+
+ .author-card-bio {
+     color: var(--gray-dark);
+     font-size: 16px;
+     line-height: 1.4;
+     margin-bottom: 16px;
+     margin-bottom: 16px;
+
+     text-wrap: balance;
+ }
+
+ .author-card-bio span {
+     color: var(--gray-dark);
+     font-style: italic;
+     font-weight: 600;
+
+
+ }
+
+ .author-card-links {
+     align-items: center;
+
+     font-size: 14px;
+     font-family: var(--sans);
+     display: flex;
+     gap: 16px;
+ }
+
+ .author-card-links a {
+     color: var(--gray-dark);
+     text-decoration: underline;
+     text-decoration-thickness: 2px;
+     text-underline-offset: 3px;
+     transition: color 0.3s ease, text-decoration-color 0.3s ease;
+     font-weight: 500;
+ }
+
+ .author-card-links a:hover {
+     background: var(--red);
+     color: var(--highlight-yellow);
+     transform: scale(1.1);
+ }
+

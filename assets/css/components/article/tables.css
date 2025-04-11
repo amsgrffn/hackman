@@ -3,44 +3,31 @@
  * Styling for tables in article content
  */
 
-.article-content table {
-    border-collapse: collapse;
-    font-size: 16px;
-    margin: 32px 0;
-    width: 100%;
-}
+/* 9.8 Table Styles */
+ .article-content table {
+     border-collapse: collapse;
+     font-size: 16px;
+     margin: 32px 0;
+     width: 100%;
+ }
 
-.article-content th {
-    background-color: var(--gray-light);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    font-weight: 600;
-    padding: 12px 16px;
-    text-align: left;
-}
+ .article-content th {
+     background-color: var(--gray-light);
+     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+     font-weight: 600;
+     padding: 12px 16px;
+     text-align: left;
+ }
 
-.article-content td {
-    border-bottom: 1px solid var(--gray-light);
-    padding: 12px 16px;
-}
+ .article-content td {
+     border-bottom: 1px solid var(--gray-light);
+     padding: 12px 16px;
+ }
 
-.article-content tr:last-child td {
-    border-bottom: none;
-}
+ .article-content tr:last-child td {
+     border-bottom: none;
+ }
 
-.article-content tr:nth-child(even) {
-    background-color: rgba(0, 0, 0, 0.02);
-}
-
-/* Dark mode styles */
-body.dark-mode .article-content th {
-    background-color: var(--gray-dark);
-    border-bottom-color: rgba(255, 255, 255, 0.1);
-}
-
-body.dark-mode .article-content td {
-    border-bottom-color: rgba(255, 255, 255, 0.05);
-}
-
-body.dark-mode .article-content tr:nth-child(even) {
-    background-color: rgba(255, 255, 255, 0.02);
-}
+ .article-content tr:nth-child(even) {
+     background-color: rgba(0, 0, 0, 0.02);
+ }

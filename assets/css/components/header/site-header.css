@@ -3,16 +3,6 @@
  * Main site header with logo and navigation
  */
 
-.site-header {
-    backdrop-filter: saturate(180%) blur(20px);
-    -webkit-backdrop-filter: saturate(180%) blur(20px);
-    background-color: var(--secondary-color);
-    border-bottom: 1px solid var(--seperator);
-    padding: var(--space-md) 0;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
 
 .header-inner {
     align-items: center;

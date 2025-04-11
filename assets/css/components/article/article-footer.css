@@ -1,0 +1,88 @@
+/* 9.4 Article Footer */
+.article-footer {
+    align-items: center;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    color: var(--gray-medium);
+    font-size: 14px;
+    margin: 40px auto 60px;
+    max-width: 700px;
+    padding-top: 12px;
+    position: relative;
+}
+
+.article-footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(to right, rgba(110, 110, 115, 0.1), rgba(110, 110, 115, 0.4), rgba(110, 110, 115, 0.1));
+}
+
+ul.post-topics,
+.article-footer ul li {
+    font-family: var(--sans);
+    margin: 0;
+    padding: 0;
+}
+
+.article-tags a {
+    color: var(--gray-medium);
+}
+
+
+ul.article-tags li {
+    display: inline;
+    list-style-type: none;
+}
+
+.article-tag-item {
+    color: var(--gray-medium);
+    margin: 0;
+    padding: 0;
+}
+
+.article-tag-item:hover {
+    color: var(--red);
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+ul.article-tags li svg,
+.related-trigger svg {
+    display: inline;
+    height: 14px;
+    margin: -2px 0 0 0;
+    padding: 0;
+    vertical-align: middle;
+    width: 14px;
+}
+
+/* Specific styling for the article share dropdown */
+.article-share .dropdown {
+    display: inline-block;
+}
+
+.article-share .dropbtn {
+    color: var(--gray-medium);
+    font-size: 14px;
+}
+
+.article-share .dropbtn:hover {
+    color: var(--red);
+}
+
+.share-button svg {
+    height: 18px;
+    width: 18px;
+}
+
+.share-button:hover {
+    background-color: var(--accent-color);
+    color: white;
+    transform: translateY(-2px);
+}

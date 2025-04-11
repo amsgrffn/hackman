@@ -1,0 +1,120 @@
+/***********************************************
+    QUOTE CARDS
+***********************************************/
+
+.quote {
+    position: relative;
+}
+
+.quote h2 {
+    display: none;
+}
+
+.quote .post-content blockquote {
+    border-left: none;
+    font-family: var(--display);
+    font-size: var(--heading-md);
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: 0.02rem;
+    line-height: 1.4;
+    margin: var(--space-xl) 0 4.2rem 0;
+    padding: 0;
+    text-transform: none;
+    text-wrap: pretty;
+}
+
+.quote .post-content blockquote cite {
+    display: block;
+    font-size: var(--text-xl);
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.5;
+    margin-top: var(--space-xl);
+    padding: 0;
+}
+
+.quote .post-content blockquote.lg-quote cite a {
+    border: none;
+    color: var(--gray-dark);
+    display: inline-flex;
+    align-items: center;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.quote .post-content blockquote.lg-quote cite a:hover {
+    background-color: inherit;
+    color: var(--red);
+    text-decoration: underline;
+}
+
+.quote .post-content blockquote.lg-quote:after {
+    content: '';
+    display: block;
+    border-top: var(--size-2) dashed var(--gray-dark);
+    height: 0;
+    left: 0;
+    position: relative;
+    top: 2rem;
+    width: 186px;
+}
+
+/* Add this to your CSS (assets/css/index.css) */
+
+.wiki-icon {
+    border: 1px solid var(--gray-medium);
+    border-radius: 9999px;
+    display: inline-flex;
+    align-items: center;
+    padding: 2px;
+    margin-left: 2px;
+    margin-top: -2px;
+    opacity: 0.6;
+    transition: var(--transition);
+    vertical-align: middle;
+}
+
+.wiki-icon:hover {
+    opacity: 1;
+}
+
+.wiki-icon svg {
+    height: 12px;
+    width: 12px;
+}
+
+/* Dark mode adjustments */
+body.dark-mode .wiki-icon svg {
+    stroke: #fff;
+}
+
+/* Adding a subtle tooltip */
+.wiki-icon {
+    position: relative;
+}
+
+.wiki-icon:hover::after {
+    content: 'Wikipedia Article';
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    letter-spacing: 0.02rem;
+    transform: translateX(-50%);
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-weight: 400;
+    font-size: 11px;
+    white-space: nowrap;
+    box-shadow: var(--shadow);
+    opacity: 0;
+    animation: fadeIn 0.3s ease forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}

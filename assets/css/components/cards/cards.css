@@ -3,109 +3,87 @@
  * Styling for content cards
  */
 
-.posts-container article {
-    margin-bottom: var(--space-2xl);
-}
+ .card-content {
+     width: 100%;
+ }
 
-.filter-nav {
-    margin-bottom: var(--space-2xl);
-}
+ .card-content figure+p,
+ .card-content figure+h1,
+ .card-content figure+h2,
+ .card-content figure+h3,
+ .card-content figure+h4,
+ .card-content figure+h5,
+ .card-content figure+h6,
+ .card-content figure+blockquote,
+ .card-content figure+ul,
+ .card-content figure+ol {
+     margin-top: var(--space-lg);
+ }
 
-.card {
-    background-color: var(--secondary-color);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    overflow: hidden;
-    transition: all 0.3s ease-in-out;
-}
+ .card .kg-image-card img {}
 
-.card:hover {
-    box-shadow: 0 7px 10px rgba(0, 0, 0, 0.15);
-    transform: translate(0, -5px) scale(1.01);
-    z-index: 10;
-}
+ .card-image {
 
-.card h2 {
-    font-family: "new-spirit-condensed", serif;
-    font-size: 2rem;
-    font-weight: var(--font-weight-semibold);
-}
+     height: 300px;
+     margin-bottom: 1.5rem;
+     object-fit: cover;
+     width: 100%;
+ }
 
-.card-image {
-    border-radius: var(--radius) var(--radius) 0 0;
-    height: 200px;
-    object-fit: cover;
-    width: 100%;
-}
+ .card-content img {
+     border: 3px solid #000;
+ }
 
-.card-content {
-    padding: var(--space-xl);
-}
+ .card-content figcaption {
+     color: var(--gray-medium);
+     font-family: var(--sans);
+     font-size: 14px;
 
-.card-content p {
-    font-size: var(--text-base);
-}
+     margin: 16px 0 32px;
+ }
 
-.card-content figure {
-    background: var(--gray-light);
-    border-radius: var(--radius);
-    margin: 0;
-    padding: .5rem;
-}
+ .card-content figcaption a {
+     color: var(--gray-dark);
+     font-weight: 500;
+     text-decoration: underline;
+ }
 
-.card-content figure + p,
-.card-content figure + h1,
-.card-content figure + h2,
-.card-content figure + h3,
-.card-content figure + h4,
-.card-content figure + h5,
-.card-content figure + h6,
-.card-content figure + blockquote,
-.card-content figure + ul,
-.card-content figure + ol {
-    margin-top: var(--space-lg);
-}
+ .card-content p.excerpt {
+     font-size: 18px;
+ }
 
-.card-content img {
-    border-radius: var(--radius);
-}
+ .card-content p.readmore {
+     color: var(--gray-medium);
+     font-family: var(--sans);
+     font-weight: 400;
+     font-size: 14px;
+     margin: var(--space-xl) 0 0;
+ }
 
-.card-content figcaption {
-    color: var(--gray-medium);
-    font-size: .7rem;
-    margin-top: var(--space-xs);
-    text-align: right;
-}
+ .card-content p.readmore a {
+     color: var(--gray-dark);
+     font-weight: 500;
+     text-decoration: underline;
+     text-decoration-thickness: 2px;
+     text-underline-offset: 3px;
+     transition: color 0.3s ease, text-decoration-color 0.3s ease;
+ }
 
-.card-content a.readmore {
-    color: var(--accent-color);
-}
+ .card-content p.readmore a:hover {
+     color: var(--red);
+     opacity: 1;
+ }
 
-.card-content a.readmore svg {
-    display: inline;
-    height: 16px;
-    vertical-align: middle;
-    width: 16px;
-}
+ .card-content p.readmore svg {
+     display: inline;
+     height: var(--text-base);
+     transition: transform 0.3s ease;
+     vertical-align: middle;
+     width: var(--text-base);
 
-.card footer {
-    align-content: center;
-    display: flex;
-    justify-content: space-between;
-    padding: var(--space-xl) 0 0;
-}
+ }
 
-.card footer p {
-    color: var(--gray-medium);
-    font-size: var(--text-sm);
-    margin: 0;
-}
-
-.card footer p a {
-    color: var(--grey-medium);
-}
-
-/* Dark mode styles */
-body.dark-mode .card {
-    background-color: var(--secondary-color);
-}
+ .card-content p.readmore:hover svg {
+     opacity: 1;
+     transform: translateY(-3px);
+ }

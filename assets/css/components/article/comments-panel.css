@@ -1,0 +1,155 @@
+
+
+/* Comments Panel Styles */
+.panel-overlay {
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    position: fixed;
+    top: 0;
+    transition: var(--transition);
+    visibility: hidden;
+    width: 100%;
+    z-index: 140;
+}
+
+.panel-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.related-panel {
+    background-color: var(--secondary-color);
+    border-radius: 16px;
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+    height: 90vh;
+    max-width: 460px;
+    overflow-y: auto;
+    position: fixed;
+    right: -100%;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: var(--transition);
+    width: 80%;
+    z-index: 150;
+    display: flex;
+    flex-direction: column;
+}
+
+.related-panel.active {
+    right: 16px;
+}
+
+.panel-header {
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    padding: var(--space-xl) var(--space-xl) var(--space-md);
+    background-color: var(--secondary-color);
+    border-bottom: 1px solid var(--border-light);
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.panel-content {
+    padding: 0 var(--space-xl) var(--space-xl);
+}
+
+.panel-header h2 {
+    font-family: var(--display);
+    font-size: var(--heading-md);
+    font-weight: var(--font-weight-black);
+    margin-bottom: var(--space-xs);
+}
+
+.header-description {
+    color: var(--gray-medium);
+    font-size: var(--text-sm);
+    line-height: 1.4;
+}
+
+.close-panel {
+    background: none;
+    border: none;
+    color: var(--gray-dark);
+    cursor: pointer;
+    font-size: 28px;
+    height: 36px;
+    line-height: 1;
+    padding: 0;
+    width: 36px;
+    margin-left: var(--space-md);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.close-panel:hover {
+    background-color: var(--gray-light);
+    color: var(--red);
+    transform: scale(1.1);
+}
+
+.panel-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: var(--space-xl);
+}
+
+/* Comment button styling */
+.related-trigger {
+    color: var(--gray-medium);
+    font-family: var(--sans);
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.related-trigger:hover {
+    color: var(--red);
+}
+
+/* Dark mode adjustments */
+body.dark-mode .related-panel {
+    background-color: var(--secondary-color);
+}
+
+body.dark-mode .panel-header {
+    border-bottom-color: var(--border-light);
+}
+
+body.dark-mode .close-panel:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Ghost comment built-in styles adjustments */
+.gh-post-comments {
+    margin-top: var(--space-xl);
+}
+
+.gh-post-comments iframe {
+    width: 100%;
+    border: none;
+    min-height: 300px;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-height: 600px) {
+    .related-panel {
+        height: 75vh;
+        top: 12vh;
+        transform: none;
+    }
+}
+
+@media (max-width: 380px) {
+    .related-panel.active {
+        right: 8px;
+    }
+}

@@ -1,85 +1,42 @@
         <aside class="sidebar">
             <a href="{{@site.url}}"><img class="scribble" src="{{asset 'media/img/bunny.png'}}" alt="UFO in deep space"></a>
-    <!-- Search -->
-   <!-- <div class="search-container">
-        <form class="search-form" action="/search/" method="get" role="search">
-            <div class="sidebar-search">
-                <div class="sidebar-search-left">
-                    {{> "icons/search"}}
-                    <input data-ghost-search type="search" class="sidebar-search-input" name="q" placeholder="Search Everything" aria-label="Search" required>
+
+            <div class="sidebar-section">
+
+                <div class="collapsible-section">
+                    <div class="collapsible-header">
+                        <span class="collapsible-title">About This Site</span>
+                        <svg class="collapsible-icon" width="12" height="12" viewBox="0 0 12 12">
+                            <path fill="currentColor" d="M6 8.825l-4.9-4.9c-.3-.3-.3-.75 0-1.05.3-.3.75-.3 1.05 0L6 6.725l3.85-3.85c.3-.3.75-.3 1.05 0 .3.3.3.75 0 1.05l-4.9 4.9z" />
+                        </svg>
+                    </div>
+                    <div class="collapsible-content hidden">
+                        <div class="about-site">
+
+                            <p class="about-site-description">We're all trapped on this marvelous nuthouse. It'll drive you mad. Seeing how equanimity created is closer than equanimity found we use this place as an electronic scrapbook to stay more or less sane and charitable. Topics vary.</p>
+                            <ul>
+                                <li><span>500</span> Articles <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-newspaper-icon lucide-newspaper">
+                                        <path d="M15 18h-5" />
+                                        <path d="M18 14h-8" />
+                                        <path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-4 0v-9a2 2 0 0 1 2-2h2" />
+                                        <rect width="8" height="4" x="10" y="6" rx="1" />
+                                    </svg></li>
+                                <li><span>100</span> Lovely Members <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart-icon lucide-heart">
+                                        <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+                                    </svg></li>
+                                <li><span>10%</span> Revenue Donated <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-gift-icon lucide-gift">
+                                        <rect x="3" y="8" width="18" height="4" rx="1" />
+                                        <path d="M12 8v13" />
+                                        <path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7" />
+                                        <path d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5" />
+                                    </svg></li>
+                            </ul>
+                            <a href="{{@site.url}}/about/" class="about-site-link">Learn More About Us{{> "icons/arrow-up"}}</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="sidebar-search-shortcut">⌘K</div>
-            </div>
-        </form>
-    </div> -->
-    <!-- About
-    {{^has slug="about"}}
-    <div class="about-site">
-        <div class="about-site-header">
-            <h3 class="about-site-title">About This Site</h3>
-            <!--<div class="about-site-icon">
-                <img src="{{asset "media/img/avatar.jpg"}}" alt="Your image description">
-            </div>
-        </div>
-        <p class="about-site-description">We're all trapped on this marvelous nuthouse. It'll drive you mad. Seeing how equanimity created is closer than equanimity found we use this place as an electronic scrapbook to stay more or less sane and charitable. Topics vary.</p>
-        <div class="about-site-stats">
-            <div class="site-stat">
-                <span class="stat-value">500</span>
-                <span class="stat-label">Articles</span>
-            </div>
-            <div class="site-stat">
-                <span class="stat-value">100</span>
-                <span class="stat-label">Members</span>
-            </div>
-            <div class="site-stat">
-                <span class="stat-value">5%</span>
-                <span class="stat-label">To Charities</span>
-            </div>
-        </div>
-        <a href="{{@site.url}}/about/" class="about-site-link">Learn more</a>
-    </div>
-    {{/has}}
-    <div class="newsletter-container">
-        <div class="newsletter-header">
-            <h3 class="newsletter-title">Grab the Newsletter</h3>
-            <p class="newsletter-description">Get the latest posts delivered right to your inbox.</p>
-        </div>
-        <form class="newsletter-form">
-            <input type="email" class="newsletter-input" placeholder="jules@badmotherfucker.com" required>
 
-        </form>
-        <p class="newsletter-footnote">We'd sooner drink Drāno than share your personal info. You can cancel us whenever you'd like.</p>
-    </div> -->
-
-
-    <!-- Sidebar Section for Pages -->
-    <!-- Sidebar Section for Pages -->
-    <div class="sidebar-section">
-
-        <!-- Collapsible section (First section - open by default) -->
-        <div class="collapsible-section">
-            <div class="collapsible-header">
-              <span class="collapsible-title">About This Site</span>
-              <svg class="collapsible-icon" width="12" height="12" viewBox="0 0 12 12">
-                <path fill="currentColor" d="M6 8.825l-4.9-4.9c-.3-.3-.3-.75 0-1.05.3-.3.75-.3 1.05 0L6 6.725l3.85-3.85c.3-.3.75-.3 1.05 0 .3.3.3.75 0 1.05l-4.9 4.9z"/>
-              </svg>
-            </div>
-            <div class="collapsible-content hidden">
-                <div class="about-site">
-
-                    <p class="about-site-description">We're all trapped on this marvelous nuthouse. It'll drive you mad. Seeing how equanimity created is closer than equanimity found we use this place as an electronic scrapbook to stay more or less sane and charitable. Topics vary.</p>
-                    <ul>
-                        <li><span>500</span> Articles <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-newspaper-icon lucide-newspaper"><path d="M15 18h-5"/><path d="M18 14h-8"/><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-4 0v-9a2 2 0 0 1 2-2h2"/><rect width="8" height="4" x="10" y="6" rx="1"/></svg></li>
-                        <li><span>100</span> Lovely Members <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart-icon lucide-heart"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></li>
-                        <li><span>10%</span> Revenue Donated <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-gift-icon lucide-gift"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13"/><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5"/></svg></li>
-                    </ul>
-                    <a href="{{@site.url}}/about/" class="about-site-link">Learn More About Us{{> "icons/arrow-up"}}</a>
-                </div>
-            </div>
-        </div>
-
-        <!-- <div class="collapsible-section">
-            <div class="collapsible-header">
+                <!-- <div class="collapsible-header">
               <span class="collapsible-title">Newsletter Signup</span>
               <svg class="collapsible-icon" width="12" height="12" viewBox="0 0 12 12">
                 <path fill="currentColor" d="M6 8.825l-4.9-4.9c-.3-.3-.3-.75 0-1.05.3-.3.75-.3 1.05 0L6 6.725l3.85-3.85c.3-.3.75-.3 1.05 0 .3.3.3.75 0 1.05l-4.9 4.9z"/>
@@ -95,232 +52,216 @@
             </div>
         </div> -->
 
-        <!-- Collapsible section (will be closed by default) -->
-          <div class="collapsible-section">
-            <div class="collapsible-header">
-              <span class="collapsible-title">Channels</span>
-              <svg class="collapsible-icon collapsed" width="12" height="12" viewBox="0 0 12 12">
-                <path fill="currentColor" d="M6 8.825l-4.9-4.9c-.3-.3-.3-.75 0-1.05.3-.3.75-.3 1.05 0L6 6.725l3.85-3.85c.3-.3.75-.3 1.05 0 .3.3.3.75 0 1.05l-4.9 4.9z"/>
-              </svg>
-            </div>
-            <div class="collapsible-content">
-              <ul class="page-list">
-                <li class="page-item">
-                    <a href="/contact" class="page-link">
-                      {{> "icons/popcorn"}}
-                      <span>Pop Culture</span>
-                    </a>
-                </li>
-                <li class="page-item">
-                   <a href="/office-hours" class="page-link">
-                     {{> "icons/landmark"}}
-                     <span>Politics & Society</span>
-                   </a>
-                 </li>
-                 <li class="page-item">
-                     <a href="/nerd-alert" class="page-link">
-                       {{> "icons/circuit"}}
-                       <span>Commentary</span>
-                     </a>
-                </li>
-                <li class="page-item">
-                     <a href="/nerd-alert" class="page-link">
-                       {{> "icons/trophy"}}
-                       <span>Sports & Leisure</span>
-                     </a>
-                </li>
-                <li class="page-item">
-                     <a href="/feeds" class="page-link">
-                       {{> "icons/sprout"}}
-                       <span>Creative Works</span>
-                     </a>
-                </li>
-                <li class="page-item">
-                    <a href="#" class="page-link">
-                      {{> "icons/crown"}}
-                      <span>Wellness & Lifestyle</span>
-                    </a>
-                  </li>
-                  <li class="page-item">
-                    <a href="#" class="page-link">
-                      <svg class="page-icon" width="18" height="18" viewBox="0 0 18 18">
-                        <path fill="currentColor" d="M9 1.5c4.125 0 7.5 3.375 7.5 7.5s-3.375 7.5-7.5 7.5-7.5-3.375-7.5-7.5 3.375-7.5 7.5-7.5zm0 13.5c3.3 0 6-2.7 6-6s-2.7-6-6-6-6 2.7-6 6 2.7 6 6 6zm-1.5-6.75h3v1.5h-3v-1.5zm0-3h3v1.5h-3v-1.5z"/>
-                      </svg>
-                      <span>Wellness</span>
-                    </a>
-                  </li>
-                  <li class="page-item">
-                    <a href="#" class="page-link">
-                      {{> "icons/circuit"}}
-                      <span>Tech</span>
-                    </a>
-                  </li>
-                  <li class="page-item">
-                      <a href="#" class="page-link">
-                        <svg class="page-icon" width="18" height="18" viewBox="0 0 18 18">
-                          <path fill="currentColor" d="M3.75 16.5c-.825 0-1.5-.675-1.5-1.5V3c0-.825.675-1.5 1.5-1.5h10.5c.825 0 1.5.675 1.5 1.5v12c0 .825-.675 1.5-1.5 1.5h-10.5zm0-1.5h10.5V3h-10.5v12zm2.25-9h6v-1.5H6v1.5zm0 3h6v-1.5H6v1.5zm0 3h6v-1.5H6v1.5z"/>
+                <div class="collapsible-section">
+                    <div class="collapsible-header">
+                        <span class="collapsible-title">Channels</span>
+                        <svg class="collapsible-icon collapsed" width="12" height="12" viewBox="0 0 12 12">
+                            <path fill="currentColor" d="M6 8.825l-4.9-4.9c-.3-.3-.3-.75 0-1.05.3-.3.75-.3 1.05 0L6 6.725l3.85-3.85c.3-.3.75-.3 1.05 0 .3.3.3.75 0 1.05l-4.9 4.9z" />
                         </svg>
-                        <span>Features</span>
-                      </a>
-                    </li>
-              </ul>
+                    </div>
+                    <div class="collapsible-content">
+                        <ul class="page-list">
+                            <li class="page-item">
+                                <a href="/contact" class="page-link">
+                                    {{> "icons/popcorn"}}
+                                    <span>Pop Culture</span>
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a href="/office-hours" class="page-link">
+                                    {{> "icons/landmark"}}
+                                    <span>Politics & Society</span>
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a href="/nerd-alert" class="page-link">
+                                    {{> "icons/circuit"}}
+                                    <span>Commentary</span>
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a href="/nerd-alert" class="page-link">
+                                    {{> "icons/trophy"}}
+                                    <span>Sports & Leisure</span>
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a href="/feeds" class="page-link">
+                                    {{> "icons/sprout"}}
+                                    <span>Creative Works</span>
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a href="#" class="page-link">
+                                    {{> "icons/crown"}}
+                                    <span>Wellness & Lifestyle</span>
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a href="#" class="page-link">
+                                    <svg class="page-icon" width="18" height="18" viewBox="0 0 18 18">
+                                        <path fill="currentColor" d="M9 1.5c4.125 0 7.5 3.375 7.5 7.5s-3.375 7.5-7.5 7.5-7.5-3.375-7.5-7.5 3.375-7.5 7.5-7.5zm0 13.5c3.3 0 6-2.7 6-6s-2.7-6-6-6-6 2.7-6 6 2.7 6 6 6zm-1.5-6.75h3v1.5h-3v-1.5zm0-3h3v1.5h-3v-1.5z" />
+                                    </svg>
+                                    <span>Wellness</span>
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a href="#" class="page-link">
+                                    {{> "icons/circuit"}}
+                                    <span>Tech</span>
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a href="#" class="page-link">
+                                    <svg class="page-icon" width="18" height="18" viewBox="0 0 18 18">
+                                        <path fill="currentColor" d="M3.75 16.5c-.825 0-1.5-.675-1.5-1.5V3c0-.825.675-1.5 1.5-1.5h10.5c.825 0 1.5.675 1.5 1.5v12c0 .825-.675 1.5-1.5 1.5h-10.5zm0-1.5h10.5V3h-10.5v12zm2.25-9h6v-1.5H6v1.5zm0 3h6v-1.5H6v1.5zm0 3h6v-1.5H6v1.5z" />
+                                    </svg>
+                                    <span>Features</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="collapsible-section">
+                    <div class="collapsible-header">
+                        <span class="collapsible-title">Site Info</span>
+                        <svg class="collapsible-icon collapsed" width="12" height="12" viewBox="0 0 12 12">
+                            <path fill="currentColor" d="M6 8.825l-4.9-4.9c-.3-.3-.3-.75 0-1.05.3-.3.75-.3 1.05 0L6 6.725l3.85-3.85c.3-.3.75-.3 1.05 0 .3.3.3.75 0 1.05l-4.9 4.9z" />
+                        </svg>
+                    </div>
+                    <div class="collapsible-content">
+                        <ul class="page-list">
+                            <li class="page-item">
+                                <a href="/contact" class="page-link">
+                                    {{> "icons/at-sign"}}
+                                    <span>Contact Us</span>
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a href="/office-hours" class="page-link">
+                                    {{> "icons/lamp"}}
+                                    <span>Office Hours</span>
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a href="/nerd-alert" class="page-link">
+                                    {{> "icons/circuit"}}
+                                    <span>Nerd Alert</span>
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a href="/feeds" class="page-link">
+                                    {{> "icons/rss"}}
+                                    <span>Site Feeds</span>
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a href="#" class="page-link">
+                                    {{> "icons/crown"}}
+                                    <span>House Rules</span>
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a href="#" class="page-link">
+                                    <svg class="page-icon" width="18" height="18" viewBox="0 0 18 18">
+                                        <path fill="currentColor" d="M9 1.5c4.125 0 7.5 3.375 7.5 7.5s-3.375 7.5-7.5 7.5-7.5-3.375-7.5-7.5 3.375-7.5 7.5-7.5zm0 13.5c3.3 0 6-2.7 6-6s-2.7-6-6-6-6 2.7-6 6 2.7 6 6 6zm-1.5-6.75h3v1.5h-3v-1.5zm0-3h3v1.5h-3v-1.5z" />
+                                    </svg>
+                                    <span>Privacy Policy</span>
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a href="#" class="page-link">
+                                    <svg class="page-icon" width="18" height="18" viewBox="0 0 18 18">
+                                        <path fill="currentColor" d="M3.75 16.5c-.825 0-1.5-.675-1.5-1.5V3c0-.825.675-1.5 1.5-1.5h10.5c.825 0 1.5.675 1.5 1.5v12c0 .825-.675 1.5-1.5 1.5h-10.5zm0-1.5h10.5V3h-10.5v12zm2.25-9h6v-1.5H6v1.5zm0 3h6v-1.5H6v1.5zm0 3h6v-1.5H6v1.5z" />
+                                    </svg>
+                                    <span>Terms of Service</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="collapsible-section">
+                    <div class="collapsible-header">
+                        <span class="collapsible-title">Elsewhere</span>
+                        <svg class="collapsible-icon collapsed" width="12" height="12" viewBox="0 0 12 12">
+                            <path fill="currentColor" d="M6 8.825l-4.9-4.9c-.3-.3-.3-.75 0-1.05.3-.3.75-.3 1.05 0L6 6.725l3.85-3.85c.3-.3.75-.3 1.05 0 .3.3.3.75 0 1.05l-4.9 4.9z" />
+                        </svg>
+                    </div>
+                    <div class="collapsible-content hidden">
+                        <ul class="page-list">
+                            <li class="page-item">
+                                <a href="#" class="page-link">
+                                    {{> "icons/at-sign"}}
+                                    <span>Contact Us</span>
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a href="#" class="page-link">
+                                    {{> "icons/lamp"}}
+                                    <span>Office Hours</span>
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a href="#" class="page-link">
+                                    {{> "icons/circuit"}}
+                                    <span>Nerd Alert</span>
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a href="#" class="page-link">
+                                    <svg class="page-icon" width="18" height="18" viewBox="0 0 18 18">
+                                        <path fill="currentColor" d="M14.25 12.75H3.75c-.825 0-1.5-.675-1.5-1.5V4.5c0-.825.675-1.5 1.5-1.5h10.5c.825 0 1.5.675 1.5 1.5v6.75c0 .825-.675 1.5-1.5 1.5zM3.75 4.5v6.75h10.5V4.5H3.75zm8.25 10.5h-6v-1.5h6v1.5z" />
+                                    </svg>
+                                    <span>Designing for tvOS</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="collapsible-section">
+                    <div class="collapsible-header">
+                        <span class="collapsible-title">Testimonials</span>
+                        <svg class="collapsible-icon" width="12" height="12" viewBox="0 0 12 12">
+                            <path fill="currentColor" d="M6 8.825l-4.9-4.9c-.3-.3-.3-.75 0-1.05.3-.3.75-.3 1.05 0L6 6.725l3.85-3.85c.3-.3.75-.3 1.05 0 .3.3.3.75 0 1.05l-4.9 4.9z" />
+                        </svg>
+                    </div>
+                    <div class="collapsible-content hidden">
+                        <div class="content-box quotes">
+                            <div class="testimonials">
+                                <blockquote id="testimonal">
+                                    <div class="testimonial-content"></div>
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sidebar-nuggs">
+                    <div class="newsletter-trigger">
+                        <button id="open-newsletter-modal" class="newsletter-button">
+                            Newsletter
+                        </button>
+                    </div>
+                    <ul class="sidebar-btns">
+                        <li><a href="/memberships" class="btn membership-signup">Memberships</a></li>
+                        <li><a href="#" class="btn membership-login" data-portal="signin">Member Login</a></li>
+                        <li><a href="/memberships" class="btn search">Search</a></li>
+                    </ul>
+                </div>
+                <div class="appearance-toggle-wrapper">
+                    <div class="appearance-toggle">
+                        <input type="radio" id="appearance-auto" name="appearance" value="auto" checked>
+                        <label for="appearance-auto" class="appearance-option" title="System preference">
+                            {{> "icons/desktop"}}
+                        </label>
+                        <input type="radio" id="appearance-light" name="appearance" value="light">
+                        <label for="appearance-light" class="appearance-option" title="Light mode">
+                            {{> "icons/sun"}}
+                        </label>
+                        <input type="radio" id="appearance-dark" name="appearance" value="dark">
+                        <label for="appearance-dark" class="appearance-option" title="Dark mode">
+                            {{> "icons/moon"}}
+                        </label>
+                    </div>
+                </div>
             </div>
-          </div>
-
-
-    <!-- Collapsible section (will be closed by default) -->
-      <div class="collapsible-section">
-        <div class="collapsible-header">
-          <span class="collapsible-title">Site Info</span>
-          <svg class="collapsible-icon collapsed" width="12" height="12" viewBox="0 0 12 12">
-            <path fill="currentColor" d="M6 8.825l-4.9-4.9c-.3-.3-.3-.75 0-1.05.3-.3.75-.3 1.05 0L6 6.725l3.85-3.85c.3-.3.75-.3 1.05 0 .3.3.3.75 0 1.05l-4.9 4.9z"/>
-          </svg>
-        </div>
-        <div class="collapsible-content">
-          <ul class="page-list">
-            <li class="page-item">
-                <a href="/contact" class="page-link">
-                  {{> "icons/at-sign"}}
-                  <span>Contact Us</span>
-                </a>
-            </li>
-            <li class="page-item">
-               <a href="/office-hours" class="page-link">
-                 {{> "icons/lamp"}}
-                 <span>Office Hours</span>
-               </a>
-             </li>
-             <li class="page-item">
-                 <a href="/nerd-alert" class="page-link">
-                   {{> "icons/circuit"}}
-                   <span>Nerd Alert</span>
-                 </a>
-            </li>
-            <li class="page-item">
-                 <a href="/feeds" class="page-link">
-                   {{> "icons/rss"}}
-                   <span>Site Feeds</span>
-                 </a>
-            </li>
-            <li class="page-item">
-                <a href="#" class="page-link">
-                  {{> "icons/crown"}}
-                  <span>House Rules</span>
-                </a>
-              </li>
-              <li class="page-item">
-                <a href="#" class="page-link">
-                  <svg class="page-icon" width="18" height="18" viewBox="0 0 18 18">
-                    <path fill="currentColor" d="M9 1.5c4.125 0 7.5 3.375 7.5 7.5s-3.375 7.5-7.5 7.5-7.5-3.375-7.5-7.5 3.375-7.5 7.5-7.5zm0 13.5c3.3 0 6-2.7 6-6s-2.7-6-6-6-6 2.7-6 6 2.7 6 6 6zm-1.5-6.75h3v1.5h-3v-1.5zm0-3h3v1.5h-3v-1.5z"/>
-                  </svg>
-                  <span>Privacy Policy</span>
-                </a>
-              </li>
-              <li class="page-item">
-                <a href="#" class="page-link">
-                  <svg class="page-icon" width="18" height="18" viewBox="0 0 18 18">
-                    <path fill="currentColor" d="M3.75 16.5c-.825 0-1.5-.675-1.5-1.5V3c0-.825.675-1.5 1.5-1.5h10.5c.825 0 1.5.675 1.5 1.5v12c0 .825-.675 1.5-1.5 1.5h-10.5zm0-1.5h10.5V3h-10.5v12zm2.25-9h6v-1.5H6v1.5zm0 3h6v-1.5H6v1.5zm0 3h6v-1.5H6v1.5z"/>
-                  </svg>
-                  <span>Terms of Service</span>
-                </a>
-              </li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="collapsible-section">
-        <div class="collapsible-header">
-          <span class="collapsible-title">Elsewhere</span>
-          <svg class="collapsible-icon collapsed" width="12" height="12" viewBox="0 0 12 12">
-            <path fill="currentColor" d="M6 8.825l-4.9-4.9c-.3-.3-.3-.75 0-1.05.3-.3.75-.3 1.05 0L6 6.725l3.85-3.85c.3-.3.75-.3 1.05 0 .3.3.3.75 0 1.05l-4.9 4.9z"/>
-          </svg>
-        </div>
-       <div class="collapsible-content hidden">
-         <ul class="page-list">
-             <li class="page-item">
-               <a href="#" class="page-link">
-                 {{> "icons/at-sign"}}
-                 <span>Contact Us</span>
-               </a>
-             </li>
-             <li class="page-item">
-               <a href="#" class="page-link">
-                 {{> "icons/lamp"}}
-                 <span>Office Hours</span>
-               </a>
-             </li>
-             <li class="page-item">
-               <a href="#" class="page-link">
-                 {{> "icons/circuit"}}
-                 <span>Nerd Alert</span>
-               </a>
-             </li>
-             <li class="page-item">
-               <a href="#" class="page-link">
-                 <svg class="page-icon" width="18" height="18" viewBox="0 0 18 18">
-                   <path fill="currentColor" d="M14.25 12.75H3.75c-.825 0-1.5-.675-1.5-1.5V4.5c0-.825.675-1.5 1.5-1.5h10.5c.825 0 1.5.675 1.5 1.5v6.75c0 .825-.675 1.5-1.5 1.5zM3.75 4.5v6.75h10.5V4.5H3.75zm8.25 10.5h-6v-1.5h6v1.5z"/>
-                 </svg>
-                 <span>Designing for tvOS</span>
-               </a>
-             </li>
-           </ul>
-       </div>
-    </div>
-    <div class="collapsible-section">
-        <div class="collapsible-header">
-          <span class="collapsible-title">Testimonials</span>
-          <svg class="collapsible-icon" width="12" height="12" viewBox="0 0 12 12">
-            <path fill="currentColor" d="M6 8.825l-4.9-4.9c-.3-.3-.3-.75 0-1.05.3-.3.75-.3 1.05 0L6 6.725l3.85-3.85c.3-.3.75-.3 1.05 0 .3.3.3.75 0 1.05l-4.9 4.9z"/>
-          </svg>
-        </div>
-        <div class="collapsible-content hidden">
-            <div class="content-box quotes">
-                 <div class="testimonials">
-                     <blockquote id="testimonal">
-                         <div class="testimonial-content"></div>
-                     </blockquote>
-                 </div>
-             </div>
-        </div>
-      </div>
-    <!--<div class="sidebar-section">
-        <h3 class="sidebar-title">Pages</h3>
-        <ul class="page-list">
-            <li class="page-item"><a href="#" class="page-link active">Home</a></li>
-            <li class="page-item"><a href="#" class="page-link">About</a></li>
-            <li class="page-item"><a href="#" class="page-link">Nerd Alert</a></li>
-            <li class="page-item"><a href="#" class="page-link">Office Hours</a></li>
-            <li class="page-item"><a href="#" class="page-link">Notes</a></li>
-            <li class="page-item"><a href="#" class="page-link">Bookmarks</a></li>
-            <li class="page-item"><a href="#" class="page-link">Contact</a></li>
-        </ul>
-    </div> -->
-    <div class="sidebar-nuggs">
-        <div class="newsletter-trigger">
-            <button id="open-newsletter-modal" class="newsletter-button">
-                Newsletter
-            </button>
-        </div>
-        <ul class="sidebar-btns">
-            <li><a href="/memberships" class="btn membership-signup">Memberships</a></li>
-            <li><a href="#" class="btn membership-login" data-portal="signin">Member Login</a></li>
-            <li><a href="/memberships" class="btn search">Search</a></li>
-        </ul>
-    </div>
-    <div class="appearance-toggle-wrapper">
-        <div class="appearance-toggle">
-            <input type="radio" id="appearance-auto" name="appearance" value="auto" checked>
-            <label for="appearance-auto" class="appearance-option" title="System preference">
-                {{> "icons/desktop"}}
-            </label>
-            <input type="radio" id="appearance-light" name="appearance" value="light">
-            <label for="appearance-light" class="appearance-option" title="Light mode">
-               {{> "icons/sun"}}
-            </label>
-            <input type="radio" id="appearance-dark" name="appearance" value="dark">
-            <label for="appearance-dark" class="appearance-option" title="Dark mode">
-                {{> "icons/moon"}}
-            </label>
-        </div>
-    </div>
-</aside>
+        </aside>

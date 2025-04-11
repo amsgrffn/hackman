@@ -3,13 +3,175 @@
  * Global dark mode overrides
  */
 
-body.dark-mode {
-    --body-background: #000;
-    --gray-dark: #2a2a30;
-    --gray-light: #3A3A3C;
-    --gray-medium: #8e8e93;
-    --primary-color: #fff;
-    --secondary-color: #1C1C1E;
-    --shadow: 0 0 6px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.06);
-    --text-base-color: #f5f5f7;
-}
+/* 11. Dark Mode Overrides
+ /* ---------------------------------------------------------- */
+
+ body.dark-mode {
+     --accent-color: oklch(0.69 0.1699 252.99);
+     /*#409cff*/
+     --gray-dark: #f6f5f4;
+     --gray-light: #3A3A3C;
+     --gray-medium: #AEAEB2;
+     --primary-color: #fff;
+     --secondary-color: #151515;
+     --shadow: 0 0 6px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.06);
+
+     --black: #fff;
+     --blue: oklch(0.69 0.1699 252.99);
+     /*#409cff*/
+     --red: oklch(0.71 0.1847 25.94);
+     /*#ff6961*/
+     --yellow: oklch(0.88 0.1735 93.24);
+     /*#ffd426*/
+
+     --text-on-yellow: #403e38;
+     --heading-brown: #f6f5f4;
+     --page-text: #f6f5f4;
+     --highlight-yellow: #ffe680;
+     --excerpt-color: #c9b97f;
+     --meta-text: #a8a8a4;
+     --background-cream: #222215;
+     --background-yellow-light: #2c2a1e;
+     --background-off-white: #1e1e1e;
+     --border-light: #2a2a2a;
+     --tag-description: #454540;
+     --status-success-bg: #1c291a;
+     --status-error-bg: #291a1a;
+     --gold-accent-10: rgba(193, 154, 107, 0.2);
+     --gold-accent-30: rgba(193, 154, 107, 0.4);
+ }
+
+ body.dark-mode .appearance-toggle {
+     background-color: var(--toggle-bg-dark);
+ }
+
+ body.dark-mode .appearance-option svg {
+     fill: var(--toggle-icon-dark);
+ }
+
+ body.dark-mode input:checked+.appearance-option {
+     background-color: var(--toggle-active-dark);
+     box-shadow: var(--toggle-shadow-dark);
+ }
+
+ body.dark-mode input:checked+.appearance-option svg {
+     fill: var(--toggle-icon-active-dark);
+ }
+
+ body.dark-mode .appearance-option:hover svg {
+     fill: var(--toggle-icon-active-dark);
+ }
+
+ body.dark-mode .card {
+     background-color: var(--secondary-color);
+ }
+
+ body.dark-mode .newsletter-input {
+     background-color: rgba(255, 255, 255, 0.05);
+     border-color: rgba(255, 255, 255, 0.1);
+     color: var(--primary-color);
+ }
+
+ body.dark-mode .search-input-wrapper {
+     background-color: rgba(255, 255, 255, 0.05);
+ }
+
+ body.dark-mode .search-input-wrapper:hover {
+     background-color: rgba(255, 255, 255, 0.08);
+ }
+
+ body.dark-mode .search-input-wrapper:focus-within {
+     background-color: rgba(255, 255, 255, 0.1);
+     border-color: rgba(255, 255, 255, 0.15);
+ }
+
+ body.dark-mode .search-input::placeholder {
+     color: rgba(255, 255, 255, 0.5);
+ }
+
+ body.dark-mode .topbar {
+     background-color: rgba(28, 28, 30, 0.7);
+     border-bottom-color: rgba(255, 255, 255, 0.1);
+ }
+
+ body.dark-mode .topbar-nav a {
+     color: var(--gray-light);
+ }
+
+ body.dark-mode .topbar-search {
+     background-color: rgba(255, 255, 255, 0.1);
+ }
+
+ body.dark-mode .topbar-search:hover {
+     background-color: rgba(255, 255, 255, 0.15);
+ }
+
+ body.dark-mode .topbar-search-shortcut {
+     background-color: rgba(255, 255, 255, 0.15);
+     color: var(--gray-light);
+ }
+
+ body.dark-mode .footer {
+     background-color: var(--gray-dark);
+ }
+
+ body.dark-mode .footer-bottom {
+     border-top-color: rgba(255, 255, 255, 0.1);
+ }
+
+ body.dark-mode .social-icon {
+     background-color: rgba(255, 255, 255, 0.1);
+     color: var(--secondary-color);
+ }
+
+ body.dark-mode .bookmark-source {
+     background-color: rgba(255, 255, 255, 0.02);
+     border-top-color: rgba(255, 255, 255, 0.05);
+ }
+
+ body.dark-mode .collapsible-title {
+     color: var(--heading-brown);
+ }
+
+ body.dark-mode .sidebar-title {
+     border-bottom-color: rgba(255, 255, 255, 0.1);
+     color: var(--gray-light);
+ }
+
+ body.dark-mode .page-link {
+     color: var(--gray-light);
+ }
+
+ body.dark-mode .page-link:hover {
+     background-color: rgba(10, 132, 255, 0.15);
+ }
+
+ body.dark-mode .about-site {
+     background-color: var(--secondary-color);
+ }
+
+ body.dark-mode .about-site-stats {
+     border-color: rgba(255, 255, 255, 0.05);
+ }
+
+ body.dark-mode .article-content th {
+     background-color: var(--gray-dark);
+     border-bottom-color: rgba(255, 255, 255, 0.1);
+ }
+
+ body.dark-mode .article-content td {
+     border-bottom-color: rgba(255, 255, 255, 0.05);
+ }
+
+ body.dark-mode .article-content tr:nth-child(even) {
+     background-color: rgba(255, 255, 255, 0.02);
+ }
+
+ body.dark-mode .article-content code,
+ body.dark-mode .article-content pre {
+     background-color: #1c1c1e;
+ }
+
+ body.dark-mode .author-card {
+     background-color: var(--gray-dark);
+ }

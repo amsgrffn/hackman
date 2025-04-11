@@ -6,6 +6,7 @@
             <span class="pub-date"><time datetime="{{date format="YYYY-MM-DD"}}">{{date published_at timeago="true"}}</time></span>
         </div>
         {{#if feature_image}}
+        <figure>
             <picture>
                 <source
                     srcset="
@@ -31,9 +32,10 @@
                     width="560"
                     height="373">
                     {{#if feature_image_caption}}
-                    <figcaption>{{feature_image_caption}}</figcaption>
+
                     {{/if}}
             </picture>
+        </figure>
         {{/if}}
         <h2><a href="{{url}}">{{title}}</a></h2>
     {{#if custom_excerpt}}
