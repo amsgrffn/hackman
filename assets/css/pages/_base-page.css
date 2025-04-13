@@ -97,9 +97,7 @@
     line-height: 1.5;
 }
 
-.page-content>* {
-    margin-bottom: 28px;
-}
+
 
 .page-content a {
     color: var(--gray-dark);
@@ -112,26 +110,6 @@
 .page-content a:hover {
     color: var(--red, #ff6961);
     text-decoration-color: transparent;
-}
-
-.page-content h2 {
-    font-size: 44px;
-    font-weight: 800;
-    letter-spacing: 0.02rem;
-    line-height: 1.3;
-    margin-bottom: 14px;
-
-}
-
-.page-content h3,
-.page-content h4 {
-    font-family: var(--display);
-    font-size: var(--heading-md);
-    font-weight: 700;
-    letter-spacing: 0.02em;
-    line-height: 1.4;
-    margin-bottom: 20px;
-    margin-top: 36px;
 }
 
 .page-content p {
@@ -153,6 +131,48 @@
     margin-left: 0;
     padding-left: 20px;
 }
+
+.page-content h2,
+.page-content h3,
+.page-content h4,
+.page-content h5,
+.page-content h6 {
+  margin-bottom: 8px;
+  margin-top: 44px; /* Adjust this value as needed */
+}
+
+.page-content h3 {
+    font-size: 28px;
+      font-weight: 600;
+      letter-spacing: 0.03rem;
+      line-height: 1.4;
+
+}
+
+.page-content h4 {
+    font-size: 26px;
+      font-weight: 600;
+      letter-spacing: 0.03rem;
+      line-height: 1.4;
+
+}
+
+.page-content h5 {
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 0.03rem;
+    line-height: 1.4;
+
+}
+
+  .page-content h6 {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.03rem;
+    line-height: 1.4;
+
+}
+
 
 .page-footer {
     align-items: center;
@@ -178,9 +198,13 @@
 }
 
 .page-footer p {
+    font-family: var(--sans);
     font-size: var(--text-sm);
     margin: 0;
+}
 
+.page-content .page-footer a {
+    text-decoration: none;
 }
 
 .page-footer .dropbtn.share-btn {

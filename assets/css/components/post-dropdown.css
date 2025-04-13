@@ -20,6 +20,8 @@
     z-index: 1000;
 }
 
+.dropdown-content.show { display: block; animation: dropdownBounce 0.4s ease forwards; }
+
 .dropdown-active {
   z-index: 101 !important;
   position: relative;

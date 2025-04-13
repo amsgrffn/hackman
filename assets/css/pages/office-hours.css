@@ -90,7 +90,7 @@
 }
 
 .office-hours-time {
-    font-family: var(--mono);
+
     font-size: 16px;
     margin-bottom: 1rem;
     flex-grow: 1;
@@ -105,10 +105,10 @@
     color: white;
     padding: 8px 16px;
     border-radius: 50px;
-
+font-family: var(--display);
     font-size: var(--text-xs);
-    letter-spacing: 0.08rem;
-    font-weight: 500;
+    letter-spacing: 0.05rem;
+    font-weight: 600;
     display: inline-block;
     margin: 0 auto;
     text-transform: uppercase;
@@ -141,10 +141,10 @@
     color: var(--gray-dark);
     padding: 6px 12px;
     text-align: center;
-    font-family: var(--mono);
+    font-family: var(--display);
 
 
-
+letter-spacing: 0.03rem;
 
     display: flex;
     align-items: center;
@@ -158,6 +158,7 @@
     color: var(--gray-dark);
     width: 24px;
     height: 24px;
+    margin-top: -1px;
 }
 
 .office-status-indicator {
@@ -165,8 +166,8 @@
     font-weight: 700;
     font-size: 16px;
     padding: 6px 12px;
+    letter-spacing: 0.03rem;
     border-radius: var(--radius);
-    font-family: var(--mono);
 }
 
 .office-status-indicator.open {
@@ -377,7 +378,7 @@ body.dark-mode .office-status-indicator.closed {
 .holiday-date {
     font-size: var(--text-sm);
     color: var(--gray-medium);
-    font-family: var(--mono);
+    font-family: var(--serif);
 }
 
 /* Extended holiday styling */

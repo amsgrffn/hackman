@@ -21,7 +21,7 @@
 }
 
 .related-panel {
-    background-color: var(--secondary-color);
+    background-color: #fefefe;
     border-radius: 16px;
     box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
     height: 90vh;
@@ -45,9 +45,9 @@
 .panel-header {
     border-top-left-radius: 16px;
     border-top-right-radius: 16px;
-    padding: var(--space-xl) var(--space-xl) var(--space-md);
+    padding: var(--space-xl) var(--space-xl) var(--space-xl);
     background-color: var(--secondary-color);
-    border-bottom: 1px solid var(--border-light);
+    border-bottom: 2px solid var(--gray-dark);
     position: sticky;
     top: 0;
     z-index: 2;
@@ -62,14 +62,15 @@
 
 .panel-header h2 {
     font-family: var(--display);
-    font-size: var(--heading-md);
-    font-weight: var(--font-weight-black);
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 0.04rem;
     margin-bottom: var(--space-xs);
 }
 
 .header-description {
-    color: var(--gray-medium);
-    font-size: var(--text-sm);
+
+    font-size: 16px;
     line-height: 1.4;
 }
 
@@ -83,10 +84,10 @@
     line-height: 1;
     padding: 0;
     width: 36px;
-    margin-left: var(--space-md);
+    margin: -5px 10px 0 0;
     border-radius: 50%;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     transition: var(--transition);
 }

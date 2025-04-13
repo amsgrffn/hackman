@@ -101,3 +101,32 @@ svg.heart {
          opacity: 0;
      }
  }
+
+/* Option 3: Fade with Bounce (Fixed) */
+ @keyframes dropdownBounce {
+   0% {
+     opacity: 0;
+     transform: translateX(-50%) translateY(-20px);
+   }
+   70% {
+     transform: translateX(-50%) translateY(5px);
+   }
+   100% {
+     opacity: 1;
+     transform: translateX(-50%) translateY(0);
+   }
+ }
+
+ @-webkit-keyframes dropdownBounce {
+   0% {
+     opacity: 0;
+     -webkit-transform: translateX(-50%) translateY(-20px);
+   }
+   70% {
+     -webkit-transform: translateX(-50%) translateY(5px);
+   }
+   100% {
+     opacity: 1;
+     -webkit-transform: translateX(-50%) translateY(0);
+   }
+ }

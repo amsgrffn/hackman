@@ -322,42 +322,63 @@ function handleEmailShare(e) {
 
 // Initialize dropdown toggling with JavaScript instead of CSS hover
 function initDropdowns() {
-    const dropdowns = document.querySelectorAll('.dropdown');
+  const dropdowns = document.querySelectorAll('.dropdown');
 
-    dropdowns.forEach(dropdown => {
-        const dropbtn = dropdown.querySelector('.dropbtn');
-        const dropdownContent = dropdown.querySelector('.dropdown-content');
+  dropdowns.forEach(dropdown => {
+    const dropbtn = dropdown.querySelector('.dropbtn');
+    const dropdownContent = dropdown.querySelector('.dropdown-content');
 
-        if (!dropbtn || !dropdownContent) return;
+    if (!dropbtn || !dropdownContent) return;
 
-        // Add click event to toggle dropdown
-        dropbtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            e.stopPropagation();
+    // Add click event to toggle dropdown
+    dropbtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
 
-            // Close all other dropdowns first
-            document.querySelectorAll('.dropdown-content').forEach(content => {
-                if (content !== dropdownContent) {
-                    content.style.display = 'none';
-                }
-            });
+      // Close all other dropdowns first
+      document.querySelectorAll('.dropdown-content').forEach(content => {
+        if (content !== dropdownContent) {
+          content.classList.remove('show');
+        }
+      });
 
-            // Toggle this dropdown
-            const isVisible = dropdownContent.style.display === 'block';
-            dropdownContent.style.display = isVisible ? 'none' : 'block';
-
-            // Set styles
-            if (!isVisible) {
-                dropdownContent.style.opacity = '1';
-                dropdownContent.style.visibility = 'visible';
-            }
-        });
-
-        // Close dropdown when clicking outside
-        document.addEventListener('click', () => {
-            dropdownContent.style.display = 'none';
-        });
+      // Toggle this dropdown
+      dropdownContent.classList.toggle('show');
     });
+
+    // Prevent clicks inside dropdown from closing it
+    dropdownContent.addEventListener('click', (e) => {
+      // Only stop propagation if it's not a link or button
+      // This allows links to work but prevents immediate closing
+      if (!e.target.closest('a') && !e.target.closest('button')) {
+        e.stopPropagation();
+      }
+    });
+
+    // Add special handling for the copy URL functionality
+    const copyUrlButton = dropdown.querySelector('.copy-url');
+    if (copyUrlButton) {
+      copyUrlButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        // Your existing clipboard copy functionality
+        handleClipboardClick(e);
+
+        // Don't close the dropdown immediately
+        setTimeout(() => {
+          dropdownContent.classList.remove('show');
+        }, 1500); // Wait 1.5 seconds to close, giving user time to see confirmation
+      });
+    }
+  });
+
+  // Close dropdown when clicking outside
+  document.addEventListener('click', () => {
+    document.querySelectorAll('.dropdown-content.show').forEach(content => {
+      content.classList.remove('show');
+    });
+  });
 }
 
 // Initialize social sharing functionality

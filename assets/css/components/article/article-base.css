@@ -37,8 +37,8 @@
      font-family: var(--display);
      font-size: 42px;
      font-weight: 700;
-     letter-spacing: 0.01rem;
-     line-height: 1.15;
+     letter-spacing: 0.02rem;
+     line-height: 1.2;
      margin-bottom: 44px;
      text-wrap: balance;
  }
@@ -115,7 +115,8 @@
 
      border-radius: 0 0 var(--radius) var(--radius);
      color: var(--gray-medium);
-     font-size: 12px;
+     font-family: var(--sans);
+     font-size: 13px;
      padding: 16px;
      width: 940px;
      margin: 0 auto;
@@ -158,22 +159,62 @@
  }
 
  .article-content h2 {
-     font-size: 28px;
-     font-weight: 800;
-     letter-spacing: -0.01em;
-     line-height: 1.3;
-     margin-bottom: 14px;
-     margin-top: 48px;
+     font-size: 30px;
+     font-weight: 600;
+     letter-spacing: 0.03rem;
+     line-height: 1.4;
+     margin: 0 0 8px;
  }
 
- .article-content h3 {
-     font-size: 22px;
-     font-weight: 800;
-     letter-spacing: -0.01em;
-     line-height: 1.4;
-     margin-bottom: 20px;
-     margin-top: 36px;
- }
+  .article-content h3 {
+      font-size: 28px;
+      font-weight: 600;
+      letter-spacing: 0.03rem;
+      line-height: 1.4;
+      margin: 0 0 8px;
+  }
+
+ .article-content h4 {
+      font-size: 26px;
+      font-weight: 600;
+      letter-spacing: 0.03rem;
+      line-height: 1.4;
+      margin: 0 0 8px;
+  }
+
+  .article-content h5 {
+        font-size: 24px;
+        font-weight: 600;
+        letter-spacing: 0.03rem;
+        line-height: 1.4;
+        margin: 0 0 8px;
+    }
+
+  .article-content h6 {
+        font-size: 22px;
+        font-weight: 700;
+        letter-spacing: 0.03rem;
+        line-height: 1.4;
+        margin-bottom: 8px;
+    }
+
+
+
+  .article-content p + h2,
+  .article-content p + h3,
+  .article-content p + h4,
+  .article-content p + h5,
+  .article-content p + h6 {
+      margin-top: 0; /* Adjust this value to your preference */
+    }
+
+  .article-content h2 +p,
+  .article-contentt h3 +p,
+  .article-content h4 +p,
+  .article-content h5:first-child,
+  .article-content h6:first-child {
+      margin-top: 0;
+    }
 
  .article-content blockquote,
  .article-content code,
@@ -191,13 +232,70 @@
 
  .article-content ul,
  .article-content ol {
-     color: var(--page-text);
      margin-bottom: 24px;
-     margin-left: 24px;
+
  }
 
- .article-content li {
-     margin-bottom: 8px;
+ .article-content ul {
+     list-style: none;
+  }
+
+  .article-content ul ul {
+      margin: 3px 0 0;     /* Removes the top margin from nested lists */
+      padding-left: 20px; /* Controls the indentation amount */
+  }
+
+ .article-content ul li {
+    position: relative;
+    padding-left: 0;
+    margin-bottom: 3px;
+ }
+
+ .article-content ul li:before {
+     content: "";
+     position: absolute;
+     left: -20px;
+     top: 8.5px;
+     width: 12px;
+     height: 12px;
+     border-radius: 50%;
+     background: linear-gradient(135deg, #000000 0%, #444444 100%);
+ }
+
+ .article-content ol {
+      counter-reset: circle-counter;
+      list-style: none;
+
+   }
+
+  .article-content ol ol {
+        margin: 3px 0 0;     /* Removes the top margin from nested lists */
+        padding-left: 20px; /* Controls the indentation amount */
+    }
+
+ .article-content ol li {
+     counter-increment: circle-counter;
+     font-family: var(--sans);
+     position: relative;
+     padding-left: 32px;
+     margin-bottom: 3px;
+ }
+
+ .article-content ol li::before {
+     content: counter(circle-counter);
+     background-color: var(--gray-dark);
+     color: white;
+     font-weight: 500;
+     position: absolute;
+     left: 0;
+     top: 2.5px;
+     width: 22px;
+     height: 22px;
+     border-radius: 0.3rem;
+     display: flex;
+     align-items: center;
+     font-size: 13px;
+     justify-content: center;
  }
 
  .article-content blockquote {
@@ -207,6 +305,7 @@
  }
 
  .article-content .lg-quote {
+     background: #f6f5f4;
      border-left: none;
      font-family: var(--display);
      font-size: var(--heading-lg);
@@ -215,7 +314,7 @@
      letter-spacing: 0.02rem;
      line-height: 1.3;
      margin: 0 0 4.4rem 0;
-     padding: 0;
+     padding: 24px;
      text-transform: none;
      text-wrap: pretty;
  }
@@ -306,8 +405,10 @@
      margin: 0 0 var(--space-xl);
  }
 
- .article-content figcaption {
+ .article-content figcaption,
+.article-content .kg-gallery-card figcaption p {
      color: var(--gray-medium);
+     font-family: var(--sans);
      font-size: 13px;
      font-weight: 400;
      margin: 16px 0 38px;

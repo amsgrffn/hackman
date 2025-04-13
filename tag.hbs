@@ -7,7 +7,8 @@
         <!-- Tag Header Section -->
         <section class="tag-header">
             <header class="tag-header-content">
-                <h1 class="tag-title">#{{name}}</h1>
+                <p class="topic-icon">{{> "icons/channel"}}</p>
+                <h1 class="tag-title">{{name}}</h1>
                 {{#if description}}
                 <p class="tag-description">{{description}}</p>
                 {{else}}

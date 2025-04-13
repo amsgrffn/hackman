@@ -22,7 +22,7 @@
      font-size: 26px;
      font-weight: 700;
      letter-spacing: 0.03rem;
-     line-height: 1.1;
+line-height: 1.2;
      margin-bottom: 0;
      color: var(--gray-dark);
  }
@@ -35,23 +35,17 @@
 
  .related-list {
      display: flex;
-     flex-direction: column;
-     gap: 2rem;
+       flex-wrap: wrap;
+       gap: 1.5rem;
+       margin-bottom: 2rem;
  }
 
  .related-card {
-     border-bottom: 2px solid #000;
+     flex: 0 0 calc(50% - 0.75rem);
+       max-width: calc(50% - 0.75rem);
 
-
-     overflow: hidden;
 
  }
-
-
-
-
-
-
 
 
  .related-card-content {
@@ -64,17 +58,28 @@
  }
 
  .related-article-item {
-     display: flex;
-     align-items: flex-start;
-     /* Align items to the top instead of center */
-     gap: 8px;
-     /* Space between icon and text */
-     margin-bottom: 20px;
+    height: 100%;
+      display: flex;
+      flex-direction: column;
+      border: 3px solid var(--gray-dark);
+      border-radius: 0.5rem;
+      padding: 1.25rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
  }
 
+ .related-article-item:hover {
+   transform: translateY(-3px);
+   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+   cursor: pointer;
+ }
+
+ .related-article-item:hover h3 {
+    color: var(--red, #ff3B30);
+  }
+
  .related-article-text {
-     flex: 1;
-     /* Allow the text to take up remaining space */
+
+     /*    flex: 1; Allow the text to take up remaining space */
  }
 
 
@@ -82,40 +87,58 @@
      margin-top: 4px;
      flex: 0 0 auto;
      /* Prevent the icon from shrinking */
-     width: 20px;
+     width: 24px;
      /* Set a fixed width for the icon */
-     height: 20px;
+     height: 24px;
      /* Set a fixed height for the icon */
+     margin-bottom: 16px;
  }
 
  .related-article-text h3 {
      font-family: var(--display);
-     font-size: 20px;
+     font-size: 22px;
      font-weight: 600;
      letter-spacing: .02rem;
-     line-height: 1.4;
+     line-height: 1.2;
      margin-bottom: 8px;
+     text-wrap: balance;
  }
 
- .related-card-meta {
-     display: flex;
-     align-items: center;
-     flex-wrap: wrap;
-     gap: 2rem;
-     font-family: var(--sans);
-     font-size: 14px;
-     color: var(--gray-medium);
-     margin-left: 1px;
+.related-article-text ul.related-card-meta {
+ list-style: none;
+   padding: 0;
+   margin: 0.5rem 0 0;
+   gap: 0.75rem;
+   font-size: 14px;
+   padding-left: .25rem;
+   color: var(--gray-medium, #666);
  }
 
- .related-card-meta svg {
-     width: 16px;
-     height: 16px;
-     vertical-align: middle;
-
-     display: inline-block;
-     stroke-width: 1.5px;
+ .related-card-meta li {
+   display: block;
+   list-style: none;
+   position: relative;
+   margin-bottom: 2px;
+   padding-bottom: 2px;
+   line-height: 1.5;
+   padding-left: 1.75rem; /* Single padding value for icon space */
+   border-bottom: 1px solid var(--gray-medium);
  }
+
+ .related-card-meta li:last-child {
+   margin-bottom: 0;
+   border: none;
+ }
+
+ .related-card-meta li svg {
+   position: absolute; /* Position icon absolutely */
+   left: 0.35rem; /* Position from the left border */
+   top: 0.2rem; /* Align vertically with text */
+   width: 14px;
+   height: 14px;
+   stroke-width: 2px;
+ }
+
 
  .related-card-readmore {
      display: inline-flex;
@@ -282,4 +305,26 @@
 
  body.dark-mode .related-card-excerpt {
      color: var(--gray-light);
+ }
+
+ /* Dark mode adjustments */
+ body.dark-mode .related-article-item {
+   border-color: var(--color-dark-border, #2c2c2c);
+ }
+
+ body.dark-mode .related-article-item:hover {
+   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+ }
+
+ /* Make it responsive for smaller screens */
+ @media (max-width: 768px) {
+   .related-card {
+     flex: 0 0 100%;
+     max-width: 100%;
+   }
+ }
+
+ /* Dark mode adjustments */
+ body.dark-mode .related-card-meta {
+   color: var(--gray-light, #aaa);
  }

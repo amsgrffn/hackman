@@ -50,6 +50,7 @@
 @import "pages/error-page.css";
 @import "pages/office-hours.css";
 @import "pages/memberships-page.css";
+@import "pages/tag-page.css";
 
 /* Utilities */
 @import "utilities/dark-mode.css";
