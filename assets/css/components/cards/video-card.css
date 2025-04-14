@@ -1,4 +1,8 @@
-/* 7.6 Video Container */
+/*
+ * Card Component Styles
+ * Styling for content cards
+ */
+
 .video-container {
     overflow: hidden;
     padding-top: var(--space-lg);
@@ -12,23 +16,21 @@
     padding-bottom: var(--space-sm) !important;
 }
 
-/* Video Card Height Fix for lite-youtube - Revised with reduced margin */
 .video-container .ltube,
 .video-comment .ltube {
+    margin-bottom: var(--space-2xl);
     position: relative;
     width: 100%;
-    margin-bottom: var(--space-2xl);
 }
 
 .ltube lite-youtube {
-    width: 100%;
-    min-height: 300px;
-    border-radius: 0.3rem;
     aspect-ratio: 16/9;
     border: 4px solid #000;
+    border-radius: 0.3rem;
+    min-height: 300px;
+    width: 100%;
 }
 
-/* Fallback for browsers that don't support aspect-ratio */
 @supports not (aspect-ratio: 16/9) {
     .ltube lite-youtube {
         height: 0;
@@ -37,27 +39,25 @@
 }
 
 .lite-youtube-fallback {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
     align-items: center;
-    justify-content: center;
     background-color: rgba(0, 0, 0, 0.7);
+    border-radius: var(--radius);
     color: white;
-    text-decoration: none;
+    display: flex;
     font-family: var(--display);
     font-weight: 600;
-    border-radius: var(--radius);
+    height: 100%;
+    justify-content: center;
+    left: 0;
+    position: absolute;
+    text-decoration: none;
+    top: 0;
+    width: 100%;
 }
 
 .video-comment {
     padding: 0;
 }
-
-.video-comment>*:not(h2):not(.ltube) {}
 
 .video-comment>p:first-of-type {
     padding-top: var(--space-xl);

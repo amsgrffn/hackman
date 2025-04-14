@@ -3,90 +3,78 @@
  * Styling for bookmark posts
  */
 
- .bookmark {
+.bookmark {
+    position: relative;
+}
 
-     position: relative;
- }
+.bookmark-header {
+    align-items: flex-start;
+    display: flex;
+    gap: var(--space-sm);
+}
 
- .bookmark-header {
-     align-items: flex-start;
-     display: flex;
-     gap: var(--space-sm);
+.bookmark-header h2 {
+    font-family: var(--display);
+    font-size: var(--heading-md);
+    font-weight: 700;
+    letter-spacing: 0.02rem;
+    line-height: 1.2;
+    text-wrap: pretty;
+}
 
- }
+.bookmark-header h2 a {
+    transition: color 0.3s ease;
+}
 
- .bookmark-header h2 {
-     font-family: var(--display);
-     font-size: var(--heading-md);
-     font-weight: 700;
-     letter-spacing: 0.02rem;
-     line-height: 1.2;
-     text-wrap: pretty;
- }
+.bookmark-header h2 a:hover {
+    color: var(--red);
+}
 
- .bookmark-header h2 a {
-     transition: color 0.3s ease;
- }
+.bookmark-source {
+    align-items: center;
+    background: #f6f5f4;
+    border-radius: 9999px;
+    color: #505050;
+    display: inline-flex;
+    font-family: var(--display);
+    font-size: 12px;
+    font-weight: 500;
+    padding: 8px 16px;
+    white-space: nowrap;
+}
 
- .bookmark-header h2 a:hover {
-     color: var(--red);
- }
+.bookmark-favicon {
+    display: block;
+    height: 16px;
+    vertical-align: text-bottom;
+    width: 16px;
+}
 
+.domain-favicon {
+    border-radius: .1rem;
+    display: inline-block;
+    height: 16px;
+    margin-right: 6px;
+    position: relative;
+    top: 1px;
+    vertical-align: middle;
+    width: 16px;
+}
 
+@media (max-width: 767px) {
+    .bookmark-icon {
+        height: 28px;
+        width: 28px;
+    }
 
- .bookmark-comment {}
+    .bookmark-icon svg {
+        height: 20px;
+        min-height: 20px;
+        min-width: 20px;
+        width: 20px;
+    }
 
- .bookmark-source {
-     display: inline-flex;
-     align-items: center;
-     background: #f6f5f4;
-     border-radius: 9999px;
-     color: #505050;
-     font-family: var(--display);
-     font-size: 12px;
-     font-weight: 500;
-     padding: 8px 16px;
-     white-space: nowrap;
- }
-
- .bookmark-favicon {
-     display: block;
-     width: 16px;
-     height: 16px;
-
-     vertical-align: text-bottom;
- }
-
-
- .domain-favicon {
-     display: inline-block;
-     width: 16px;
-     border-radius: .1rem;
-     height: 16px;
-     margin-right: 6px;
-     vertical-align: middle;
-     position: relative;
-     top: 1px;
- }
-
-
- @media (max-width: 767px) {
-     .bookmark-icon {
-         width: 28px;
-         /* Slightly smaller on mobile */
-         height: 28px;
-     }
-
-     .bookmark-icon svg {
-         width: 20px;
-         height: 20px;
-         min-width: 20px;
-         min-height: 20px;
-     }
-
-     .bookmark-source {
-         padding-left: 2.9rem;
-         /* Adjust for smaller icon on mobile */
-     }
- }
-
+    .bookmark-source {
+        padding-left: 2.9rem;
+    }
+}

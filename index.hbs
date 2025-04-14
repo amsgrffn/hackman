@@ -3,20 +3,6 @@
 <div class="container">
     <div class="layout">
         <main class="content">
-            {{!-- Filter navigation --}}
-
-              <!--<div class="filter-nav">
-                <nav class="filter-tabs">
-                  <a href="#" class="filter-tab active">All</a>
-                  <a href="#" class="filter-tab">Featured</a>
-                  <a href="#" class="filter-tab">Bookmarks</a>
-                  <a href="#" class="filter-tab">Notes</a>
-                  <a href="#" class="filter-tab">Quotes</a>
-                  <a href="#" class="filter-tab">Videos</a>
-                </nav>
-              </div> -->
-
-            {{!-- Posts container --}}
             <div class="posts-container">
               {{#foreach posts}}
                 {{!-- Determine post type based on tags --}}
@@ -44,7 +30,6 @@
                 {{/has}}
               {{/foreach}}
             </div>
-
             {{!-- Load more button --}}
             {{#if pagination.pages}}
               <button class="load-more-button">Load More</button>

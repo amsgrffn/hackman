@@ -5,11 +5,9 @@
 }
 
 .office-hours-header {
-
     margin: 0 auto 3rem;
-    text-align: center;
-
     max-width: 940px;
+    text-align: center;
 }
 
 .office-hours-title {
@@ -27,7 +25,6 @@
     border-bottom: 3px solid #000;
     color: var(--gray-dark);
     font-size: var(--text-2xl);
-
     font-weight: 300;
     line-height: 1.4;
     margin: 0;
@@ -36,51 +33,50 @@
 }
 
 .office-hours-grid {
+    column-gap: 1rem;
     display: flex;
     flex-wrap: wrap;
-    column-gap: 1rem;
-    row-gap: 1.5rem;
-    margin-bottom: 3rem;
     justify-content: center;
+    margin-bottom: 3rem;
+    row-gap: 1.5rem;
 }
 
 .office-hours-card {
     background-color: var(--secondary-color);
-    border-radius: var(--radius);
     border: 3px solid #000;
+    border-radius: var(--radius);
     box-shadow: var(--shadow);
+    height: 100%;
+    min-width: 203px;
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    height: 100%;
     width: calc(25% - 1rem);
-    min-width: 203px;
 }
 
 .office-hours-card:hover {
-    transform: translateY(-5px);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1), 0 0 0 1px rgb(193 154 107 / 0.2);
+    transform: translateY(-5px);
 }
 
 .office-hours-card.today {
     background-color: var(--highlight-yellow);
     transform: scale(1.05);
     z-index: 10;
-
 }
 
 .office-hours-card-inner {
-    padding: 1.5rem 1rem;
-    text-align: center;
     display: flex;
     flex-direction: column;
     height: 100%;
+    padding: 1.5rem 1rem;
+    text-align: center;
 }
 
 .office-hours-day {
+    color: var(--gray-dark);
     font-family: var(--display);
     font-size: 22px;
     font-weight: 700;
-    color: var(--gray-dark);
     letter-spacing: 0.04rem;
     margin-bottom: 0.75rem;
 }
@@ -90,29 +86,27 @@
 }
 
 .office-hours-time {
-
-    font-size: 16px;
-    margin-bottom: 1rem;
-    flex-grow: 1;
-    font-weight: 400;
-    display: flex;
     align-items: center;
+    display: flex;
+    flex-grow: 1;
+    font-size: 16px;
+    font-weight: 400;
     justify-content: center;
+    margin-bottom: 1rem;
 }
 
 .office-hours-status {
     background-color: #34C759;
-    color: white;
-    padding: 8px 16px;
     border-radius: 50px;
-font-family: var(--display);
-    font-size: var(--text-xs);
-    letter-spacing: 0.05rem;
-    font-weight: 600;
+    color: white;
     display: inline-block;
+    font-family: var(--display);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    letter-spacing: 0.05rem;
     margin: 0 auto;
+    padding: 8px 16px;
     text-transform: uppercase;
-
 }
 
 .office-hours-status.closed {
@@ -121,53 +115,48 @@ font-family: var(--display);
 }
 
 .current-time-container {
-    background-color: var(--secondary-color);
-    border-radius: 0.3rem;
-    border: 3px solid #000;
-    box-shadow: var(--shadow);
-    padding: 1.5rem;
-    margin: 2rem auto 3rem;
-    max-width: 700px;
-    display: flex;
     align-items: center;
-    justify-content: space-between;
+    background-color: var(--secondary-color);
+    border: 3px solid #000;
+    border-radius: 0.3rem;
+    box-shadow: var(--shadow);
+    display: flex;
     flex-wrap: wrap;
     gap: 1rem;
+    justify-content: space-between;
+    margin: 2rem auto 3rem;
+    max-width: 700px;
+    padding: 1.5rem;
 }
 
 .current-time {
-
+    align-items: center;
     border-radius: var(--radius);
     color: var(--gray-dark);
-    padding: 6px 12px;
-    text-align: center;
-    font-family: var(--display);
-
-
-letter-spacing: 0.03rem;
-
     display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: var(--gray-dark);
+    font-family: var(--display);
     font-size: 18px;
     font-weight: 700;
+    gap: 0.5rem;
+    letter-spacing: 0.03rem;
+    padding: 6px 12px;
+    text-align: center;
 }
 
 .time-icon svg {
     color: var(--gray-dark);
-    width: 24px;
     height: 24px;
     margin-top: -1px;
+    width: 24px;
 }
 
 .office-status-indicator {
-    font-family: var(--display);
-    font-weight: 700;
-    font-size: 16px;
-    padding: 6px 12px;
-    letter-spacing: 0.03rem;
     border-radius: var(--radius);
+    font-family: var(--display);
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.03rem;
+    padding: 6px 12px;
 }
 
 .office-status-indicator.open {
@@ -234,8 +223,8 @@ body.dark-mode .office-status-indicator.closed {
     }
 
     .current-time-container {
-        flex-direction: column;
         align-items: flex-start;
+        flex-direction: column;
         text-align: center;
     }
 
@@ -257,23 +246,21 @@ body.dark-mode .office-status-indicator.closed {
 }
 
 .holiday-header {
-
     margin-bottom: 3rem;
 }
 
 .holiday-title {
+    color: var(--dark-gray);
     font-family: var(--display);
     font-size: 3rem;
     font-weight: 800;
-    color: var(--dark-gray);
-    margin-bottom: 1.5rem;
     letter-spacing: 0.03rem;
+    margin-bottom: 1.5rem;
 }
 
 .holiday-subtitle {
-    font-size: var(--text-2xl);
     color: var(--gray-dark);
-
+    font-size: var(--text-2xl);
     line-height: 1.4;
     margin: 0;
     text-wrap: balance;
@@ -293,13 +280,13 @@ body.dark-mode .office-status-indicator.closed {
 }
 
 .holiday-card:hover {
-    transform: translateY(-5px);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12), 0 0 0 1px rgb(193 154 107 / 0.2);
+    transform: translateY(-5px);
 }
 
 .holiday-card-inner {
-    padding: 2rem;
     height: 100%;
+    padding: 2rem;
 }
 
 .holiday-type {
@@ -308,16 +295,16 @@ body.dark-mode .office-status-indicator.closed {
 }
 
 .holiday-badge {
-    display: inline-block;
     background: var(--highlight-yellow);
+    border-radius: 100px;
     color: #403e38;
+    display: inline-block;
     font-family: var(--display);
     font-size: var(--text-base);
     font-weight: 700;
-    padding: 0.5rem 1.5rem;
-    border-radius: 100px;
-    text-transform: uppercase;
     letter-spacing: 0.04rem;
+    padding: 0.5rem 1.5rem;
+    text-transform: uppercase;
 }
 
 .special-badge {
@@ -327,16 +314,16 @@ body.dark-mode .office-status-indicator.closed {
 
 .holiday-list {
     list-style: none;
-    padding: 0;
     margin: var(--space-2xl);
+    padding: 0;
 }
 
 .holiday-item {
+    align-items: center;
+    border-bottom: 1px dashed rgba(193, 154, 107, 0.2);
     display: flex;
     justify-content: space-between;
     padding: 0.75rem 0;
-    border-bottom: 1px dashed rgba(193, 154, 107, 0.2);
-    align-items: center;
 }
 
 .holiday-item:last-child {
@@ -344,10 +331,10 @@ body.dark-mode .office-status-indicator.closed {
 }
 
 .holiday-name {
+    color: var(--gray-dark);
     font-family: var(--display);
     font-size: 24px;
     font-weight: 600;
-    color: var(--gray-dark);
 }
 
 .holiday-name svg {
@@ -363,8 +350,8 @@ body.dark-mode .office-status-indicator.closed {
     border-radius: 9999px;
     display: inline;
     height: 44px;
-    margin-top: -3px;
     margin-right: 3px;
+    margin-top: -3px;
     transition: transform 0.3s ease;
     vertical-align: middle;
     width: 44px;
@@ -376,14 +363,14 @@ body.dark-mode .office-status-indicator.closed {
 }
 
 .holiday-date {
-    font-size: var(--text-sm);
     color: var(--gray-medium);
     font-family: var(--serif);
+    font-size: var(--text-sm);
 }
 
 /* Extended holiday styling */
 .holiday-item.extended {
-    flex-direction: column;
     align-items: flex-start;
+    flex-direction: column;
     padding: 1.5rem 0;
 }

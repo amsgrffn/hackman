@@ -2,12 +2,10 @@
 
 /* Page structure */
 .membership-page {
-    width: 100%;
-    max-width: 100%;
     margin: 0 auto;
+    max-width: 100%;
+    width: 100%;
 }
-
-
 
 .membership-title {
     font-size: 32px;
@@ -29,19 +27,19 @@
 }
 
 .membership-container {
-    max-width: 1600px;
-    width: 100%;
     margin: 0 auto;
+    max-width: 1600px;
     padding: 0 var(--space-lg);
+    width: 100%;
 }
 
 /* Override any potential layout constraints */
 .membership-page .layout,
 .membership-page .content {
-    width: 100%;
+    margin: 0;
     max-width: 100%;
     padding: 0;
-    margin: 0;
+    width: 100%;
 }
 
 .membership-container .page-content {
@@ -54,16 +52,12 @@
     border: 3px solid #000;
     border-radius: var(--radius);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    width: 100%;
     margin-bottom: 5rem;
     padding: 60px 40px;
+    width: 100%;
 }
 
-
-
 /* Membership cards */
-
-
 
 .membership-footnote p {
     color: var(--gray-medium);
@@ -78,8 +72,6 @@
     padding: 10px 12px;
 }
 
-
-
 /* Membership Page Styles */
 .membership-page {
     margin: 0 auto;
@@ -88,10 +80,8 @@
 }
 
 .membership-header {
-
     margin: 0;
     text-align: center;
-
 }
 
 .membership-title {
@@ -102,7 +92,6 @@
     margin-bottom: 1rem;
 }
 
-
 /* Price Toggle */
 .toggle-wrapper {
     display: flex;
@@ -111,12 +100,12 @@
 }
 
 .membership-toggle {
-    display: flex;
     background-color: var(--gray-light);
     border-radius: 9999px;
+    box-shadow: var(--shadow);
+    display: flex;
     padding: 0.25rem;
     position: relative;
-    box-shadow: var(--shadow);
 }
 
 .membership-toggle button {
@@ -125,11 +114,10 @@
     border-radius: 9999px;
     color: var(--gray-medium);
     cursor: pointer;
-
     font-size: var(--text-sm);
     font-weight: 700;
-    padding: 0.75rem 1.5rem;
     letter-spacing: 0.04rem;
+    padding: 0.75rem 1.5rem;
     position: relative;
     transition: all 0.3s ease;
     z-index: 1;
@@ -158,17 +146,17 @@
 }
 
 .slider-header {
-    text-align: center;
     margin-bottom: 2rem;
+    text-align: center;
 }
 
 .slider-header h2 {
+    color: var(--gray-dark);
     font-family: var(--display);
     font-size: var(--heading-md);
     font-weight: 700;
-    margin-bottom: 0.5rem;
-    color: var(--gray-dark);
     letter-spacing: .04rem;
+    margin-bottom: 0.5rem;
 }
 
 .slider-header p {
@@ -177,73 +165,72 @@
 }
 
 .slider-content {
-    max-width: 600px;
     margin: 0 auto;
+    max-width: 600px;
 }
 
 .income-display {
-    text-align: center;
+    color: var(--red, #ff6961);
     font-size: var(--text-xl);
     font-weight: var(--font-weight-bold);
-    color: var(--red, #ff6961);
     margin-bottom: 1.5rem;
+    text-align: center;
 }
 
 .income-slider {
-    width: 100%;
-    height: 8px;
     -webkit-appearance: none;
     appearance: none;
     background: #e5e5e7;
     border-radius: 4px;
+    height: 8px;
     outline: none;
+    width: 100%;
 }
 
 .income-slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
     background: #ffe680;
-    cursor: pointer;
     border: 2px solid #000;
+    border-radius: 50%;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    height: 24px;
+    width: 24px;
 }
 
 .income-slider::-moz-range-thumb {
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
     background: #ffe680;
-    cursor: pointer;
     border: 2px solid var(--accent-color, #409cff);
+    border-radius: 50%;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    height: 24px;
+    width: 24px;
 }
 
 .recommended-badge {
-    position: absolute;
-    top: -1.2rem;
-    left: 50%;
-    transform: translateX(-50%);
     background: var(--red, #ff6961);
-    color: white;
-    padding: 0.5rem 1.5rem;
     border-radius: 2rem;
-    text-transform: uppercase;
+    color: white;
     font-size: 12px;
-    letter-spacing: .08rem;
     font-weight: 500;
+    left: 50%;
+    letter-spacing: .08rem;
+    padding: 0.5rem 1.5rem;
+    position: absolute;
+    text-transform: uppercase;
+    top: -1.2rem;
+    transform: translateX(-50%);
     z-index: 1;
 }
 
 /* Membership Cards */
 
-
 .membership-cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
     gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
     margin-bottom: 4rem;
     width: 100%;
 }
@@ -252,17 +239,17 @@
     border: 3px solid #000;
     border-radius: var(--radius);
     box-shadow: var(--shadow);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
     height: 100%;
-    position: relative;
     padding-bottom: 1.5rem;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .membership-card:hover {
-    transform: translateY(-5px);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
 }
 
 .highlight-tier {
@@ -272,32 +259,31 @@
 
 .membership-card-header {
     padding: 2rem 1.5rem 1.5rem;
-    text-align: center;
     position: relative;
+    text-align: center;
 }
 
 .membership-card-tag {
     background: #000;
+    border-radius: 9999px;
     color: #fff;
-    font-size: 11px;
-
     font-family: var(--mono);
+    font-size: 11px;
     letter-spacing: var(--letter-spacing-wide);
     margin: 0 auto;
     padding: 0.5rem 1.25rem;
-    border-radius: 9999px;
     text-transform: uppercase;
     width: 75%;
     z-index: 1;
 }
 
 .membership-card-title {
+    color: var(--gray-dark);
     font-family: var(--display);
     font-size: 20px;
     font-weight: var(--font-weight-black);
-    margin-bottom: 1rem;
     letter-spacing: 0.04rem;
-    color: var(--gray-dark);
+    margin-bottom: 1rem;
 }
 
 .membership-card-title span {
@@ -305,44 +291,43 @@
 }
 
 .membership-card-price {
+    color: #000;
     font-family: var(--display);
     font-size: 3rem;
     font-weight: 800;
-    color: #000;
-    text-align: center;
     margin: 0;
+    text-align: center;
     transition: all 0.3s ease;
 }
 
 .membership-card-price span {
-    font-size: 1.25rem;
-
-    font-weight: var(--font-weight-medium);
     color: var(--gray-medium);
+    font-size: 1.25rem;
+    font-weight: var(--font-weight-medium);
 }
 
 .membership-card-description {
     color: var(--gray-dark);
     font-size: var(--text-sm);
-    text-align: center;
-    margin: 0 1.5rem 1.5rem;
     line-height: 1.5;
+    margin: 0 1.5rem 1.5rem;
+    text-align: center;
     text-wrap: balance;
 }
 
 .membership-features-list {
+    flex-grow: 1;
     list-style-type: none;
     margin: 0 1.5rem 2rem;
     padding: 0;
-    flex-grow: 1;
 }
 
 .membership-features-list li {
-    padding: 0.75rem 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    position: relative;
-    padding-left: 1.75rem;
     font-size: var(--text-base);
+    padding: 0.75rem 0;
+    padding-left: 1.75rem;
+    position: relative;
 }
 
 .membership-features-list li:last-child {
@@ -350,11 +335,11 @@
 }
 
 .membership-features-list li::before {
-    content: "✓";
     color: var(--accent-color, #409cff);
-    position: absolute;
-    left: 0;
+    content: "✓";
     font-weight: bold;
+    left: 0;
+    position: absolute;
 }
 
 .membership-card-button {
@@ -362,14 +347,12 @@
     border-radius: 9999px;
     color: #fff;
     display: block;
-
     font-size: 16px;
     font-weight: 500;
     margin: 0 1.5rem;
     padding: 0.75rem 1rem;
     text-align: center;
     text-decoration: none;
-
     transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
 
@@ -381,16 +364,16 @@
 
 /* Center the page content */
 .membership-page .page-content {
-    max-width: 800px;
     margin: 4rem auto 0;
+    max-width: 800px;
 }
 
 /* Make the toggle container full width */
 .toggle-wrapper.price-toggle {
-    width: 100%;
     display: flex;
     justify-content: center;
     margin-bottom: 5rem;
+    width: 100%;
 }
 
 /* Dark Mode Adjustments */

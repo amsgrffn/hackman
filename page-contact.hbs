@@ -2,213 +2,433 @@
 {{> "layout/site-header"}}
 
 {{#page}}
-<main class="page-main">
-<article class="page {{post_class}}">
-    <header class="page-header">
-        <div class="container">
-            <h1 class="page-title">{{title}}</h1>
-            <p class="page-excerpt">Direct your emails to the appropriate address below. Simply click the eye icon ({{> "icons/eye"}}) to reveal the respective email address. Clicking the uncovered link will direct you to your default email client. You can take it from there. We look forward to chatting with you.</p>
-        </div>
-    </header>
+    <main class="page-main">
+        <article class="page {{post_class}}">
+            <header class="page-header">
+                <div class="container">
+                    <h1 class="page-title">{{title}}</h1>
+                    <p class="page-excerpt">Direct your emails to the appropriate address below. Simply click the eye icon ({{> "icons/eye"}}) to reveal the respective email address. Clicking the uncovered link will direct you to your default email client. You can take it from there. We look forward to chatting with you.</p>
+                </div>
+            </header>
 
-                       <div class="page-content-wrapper">
-                       <div class="container-wide">
-                           <div class="content-fullwidth">
-                               <div class="page-content">
+            <div class="page-content-wrapper">
+                <div class="container-wide">
+                    <div class="content-fullwidth">
+                        <div class="page-content">
 
+                            {{!-- Honeypot fields --}}
+                            <div class="contact-field">
+                                <input type="email" name="contact_email" tabindex="-1" aria-hidden="true" autocomplete="off">
+                                <input type="text" name="contact_name" tabindex="-1" aria-hidden="true" autocomplete="off">
+                                <input type="url" name="website" tabindex="-1" aria-hidden="true" autocomplete="off">
+                            </div>
 
+                            {{!-- Mouse movement indicator (now above contact cards) --}}
+                            <div id="mouse-movement-indicator" class="mouse-movement-indicator">
+                                <div class="indicator-text">Move your mouse around this area to enable email reveals</div>
+                                <div class="indicator-bar">
+                                    <div class="indicator-progress"></div>
+                                </div>
+                            </div>
 
-                                   {{!-- Honeypot fields --}}
-                                   <div class="contact-field">
-                                       <input type="email" name="contact_email" tabindex="-1" aria-hidden="true" autocomplete="off">
-                                       <input type="text" name="contact_name" tabindex="-1" aria-hidden="true" autocomplete="off">
-                                       <input type="url" name="website" tabindex="-1" aria-hidden="true" autocomplete="off">
-                                   </div>
+                            <div class="contact-cards-wrap">
+                                <div class="contact-card" id="general-card">
+                                    <h3 class="contact-title">General Feedback</h3>
+                                    <p class="contact-description">Say hello, provide feedback, notify us we screwed up.</p>
+                                    <div class="contact-email-container">
+                                        <span class="contact-email hidden" id="email-general">Click to reveal email</span>
+                                        <button class="reveal-button" onclick="toggleEmail('general')" aria-label="Toggle email visibility" disabled>
+                                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                                                <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                                <path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
 
-                                   <div class="contact-cards-wrap">
-                                       <div class="contact-card" id="general-card">
-                                           <h3 class="contact-title">General Feedback</h3>
-                                           <p class="contact-description">Say hello, provide feedback, notify us we screwed up.</p>
-                                           <div class="contact-email-container">
-                                               <span class="contact-email hidden" id="email-general">Click to reveal email</span>
-                                               <button class="reveal-button" onclick="toggleEmail('general')" aria-label="Toggle email visibility">
-                                                   <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
-                                                       <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                                       <path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                                   </svg>
-                                               </button>
-                                           </div>
-                                       </div>
+                                <div class="contact-card" id="support-card">
+                                    <h3 class="contact-title">Help Center</h3>
+                                    <p class="contact-description">For questions about any of our products or services, like memberships and subscriptions</p>
+                                    <div class="contact-email-container">
+                                        <span class="contact-email hidden" id="email-support">Click to reveal email</span>
+                                        <button class="reveal-button" onclick="toggleEmail('support')" aria-label="Toggle email visibility" disabled>
+                                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                                                <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                                <path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
 
-                                       <div class="contact-card" id="support-card">
-                                           <h3 class="contact-title">Help Center</h3>
-                                           <p class="contact-description">For questions about any of our products or services, like memberships and subscriptions</p>
-                                           <div class="contact-email-container">
-                                               <span class="contact-email hidden" id="email-support">Click to reveal email</span>
-                                               <button class="reveal-button" onclick="toggleEmail('support')" aria-label="Toggle email visibility">
-                                                   <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
-                                                       <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                                       <path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                                   </svg>
-                                               </button>
-                                           </div>
-                                       </div>
+                                <div class="contact-card" id="authors-card">
+                                    <h3 class="contact-title">Contact Authors</h3>
+                                    <p class="contact-description">Contact a particular author of <em>You Can't Be Serious</em></p>
+                                    <div class="contact-email-container">
+                                        <div class="contact-email-list">
+                                            <div class="contact-email hidden" id="email-authors-amos">
+                                                <span class="contact-email-label"><strong>Amos</strong>:</span>
+                                                <span class="email-text">Click to reveal email</span>
+                                            </div>
+                                            <div class="contact-email hidden" id="email-authors-dolly">
+                                                <span class="contact-email-label"><strong>Dolly</strong>:</span>
+                                                <span class="email-text">Click to reveal email</span>
+                                            </div>
+                                            <div class="contact-email hidden" id="email-authors-eileen">
+                                                <span class="contact-email-label"><strong>Eileen</strong>:</span>
+                                                <span class="email-text">Click to reveal email</span>
+                                            </div>
+                                        </div>
+                                        <button class="reveal-button" onclick="toggleEmail('authors')" aria-label="Toggle email visibility" disabled>
+                                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                                                <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                                <path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
 
-                                       <div class="contact-card" id="authors-card">
-                                           <h3 class="contact-title">Contact Authors</h3>
-                                           <p class="contact-description">Contact a particular author of <em>You Can't Be Serious</em></p>
-                                           <div class="contact-email-container">
-                                               <div class="contact-email-list">
-                                                   <div class="contact-email hidden" id="email-authors-amos">
-                                                       <span class="contact-email-label"><strong>Amos</strong>:</span>
-                                                       <span class="email-text">Click to reveal email</span>
-                                                   </div>
-                                                   <div class="contact-email hidden" id="email-authors-dolly">
-                                                       <span class="contact-email-label"><strong>Dolly</strong>:</span>
-                                                       <span class="email-text">Click to reveal email</span>
-                                                   </div>
-                                                   <div class="contact-email hidden" id="email-authors-eileen">
-                                                       <span class="contact-email-label"><strong>Eileen</strong>:</span>
-                                                       <span class="email-text">Click to reveal email</span>
-                                                   </div>
-                                               </div>
-                                               <button class="reveal-button" onclick="toggleEmail('authors')" aria-label="Toggle email visibility">
-                                                   <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
-                                                       <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                                       <path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                                   </svg>
-                                               </button>
-                                           </div>
-                                       </div>
+                                <div class="contact-card" id="business-card">
+                                    <h3 class="contact-title">Business Inquiries</h3>
+                                    <p class="contact-description">Questions about partnerships and business opportunities</p>
+                                    <div class="contact-email-container">
+                                        <span class="contact-email hidden" id="email-business">Click to reveal email</span>
+                                        <button class="reveal-button" onclick="toggleEmail('business')" aria-label="Toggle email visibility" disabled>
+                                            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                                                <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                                <path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <p>You can see our <a href="/office-hours">office hours on this page</a>.</p>
 
-                                       <div class="contact-card" id="business-card">
-                                           <h3 class="contact-title">Business Inquiries</h3>
-                                           <p class="contact-description">Questions about partnerships and business opportunities</p>
-                                           <div class="contact-email-container">
-                                               <span class="contact-email hidden" id="email-business">Click to reveal email</span>
-                                               <button class="reveal-button" onclick="toggleEmail('business')" aria-label="Toggle email visibility">
-                                                   <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
-                                                       <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                                       <path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                                   </svg>
-                                               </button>
-                                           </div>
-                                       </div>
-                                   </div>
-                                   <p>You can see our <a href="/office-hours">office hours on this page</a>.</p>
+                        </div>
 
-                               </div>
+                        <div class="page-footer">
+                            <p>{{title}} was created on {{date format="M/D/YYYY"}}. {{#match updated at}}Updated on <time class="updated" datetime="{{updated_at}}">{{date updated_at format="M/D/YYYY"}}</time>.{{/match}}</p>
 
-                    <div class="page-footer">
-                        <p>{{title}} was created on {{date format="M/D/YYYY"}}. {{#match updated at}}Updated on <time class="updated" datetime="{{updated_at}}">{{date updated_at format="M/D/YYYY"}}</time>.{{/match}}</p>
-
-                        <div class="page-share">
-                            <div class="dropdown">
-                                <button class="dropbtn share-btn" aria-label="Share this page">Share This Page</button>
-                                <div class="dropdown-content">
-                                    <p class="title">Share and Support</p>
-                                    <p class="thanks">Thanks for visiting. Use the links below to share this page.</p>
-                                    <a href="#" class="native-share" style="display: none;">{{> "icons/share"}} Share via Device</a>
-                                    <a href="#" class="copy-url">{{> "icons/link"}} Copy Page URL</a>
-                                    <a href="#" class="email-share">{{> "icons/at-sign"}} Email Page</a>
-                                    <a href="#" class="mastodon-share">{{> "icons/mastodon"}} Share on Mastodon</a>
-                                    <a href="https://bsky.app/intent/compose?text={{encode title}}{{encode (url absolute="true")}}" target="_blank" rel="noopener noreferrer">{{> "icons/bluesky"}} Share on Bluesky</a>
-                                    <a href="https://www.reddit.com/submit?url={{encode (url absolute="true")}}&title={{encode title}}" target="_blank" rel="noopener noreferrer">{{> "icons/reddit"}} Share on Reddit</a>
-                                    <a href="whatsapp://send?text={{encode (concat title ' ' (url absolute="true"))}}" class="whatsapp-share" target="_blank" rel="noopener noreferrer">{{> "icons/whatsapp"}} Share on WhatsApp</a>
+                            <div class="page-share">
+                                <div class="dropdown">
+                                    <button class="dropbtn share-btn" aria-label="Share this page">Share This Page</button>
+                                    <div class="dropdown-content">
+                                        <p class="title">Share and Support</p>
+                                        <p class="thanks">Thanks for visiting. Use the links below to share this page.</p>
+                                        <a href="#" class="native-share" style="display: none;">{{> "icons/share"}} Share via Device</a>
+                                        <a href="#" class="copy-url">{{> "icons/link"}} Copy Page URL</a>
+                                        <a href="#" class="email-share">{{> "icons/at-sign"}} Email Page</a>
+                                        <a href="#" class="mastodon-share">{{> "icons/mastodon"}} Share on Mastodon</a>
+                                        <a href="https://bsky.app/intent/compose?text={{encode title}}{{encode (url absolute="true")}}" target="_blank" rel="noopener noreferrer">{{> "icons/bluesky"}} Share on Bluesky</a>
+                                        <a href="https://www.reddit.com/submit?url={{encode (url absolute="true")}}&title={{encode title}}" target="_blank" rel="noopener noreferrer">{{> "icons/reddit"}} Share on Reddit</a>
+                                        <a href="whatsapp://send?text={{encode (concat title ' ' (url absolute="true"))}}" class="whatsapp-share" target="_blank" rel="noopener noreferrer">{{> "icons/whatsapp"}} Share on WhatsApp</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </article>
-</main>
+        </article>
+    </main>
 {{/page}}
 {{> "layout/site-footer"}}
 {{#contentFor "scripts"}}
-<script>
-    // Track if honeypot was triggered
-    let botDetected = false;
-
-    // Add honeypot detection
-    document.querySelectorAll('.contact-field input').forEach(input => {
-        input.addEventListener('change', (e) => {
-            console.log('Bot detected via honeypot');
-            botDetected = true;
-            e.preventDefault();
-            return false;
-        });
-    });
-
-    // Store encoded emails
-    const emailData = {
-        'general': 'hello@domain.com',
-        'support': 'support@domain.com',
-        'business': 'business@domain.com',
-        'authors': {
-            'amos': 'fiction@domain.com',
-            'dolly': 'nonfiction@domain.com',
-            'eileen': 'poetry@domain.com'
+    <style>
+        /* Style for mouse movement indicator */
+        .mouse-movement-indicator {
+            background: rgba(245, 245, 247, 0.8);
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            margin: 0 0 30px;
+            padding: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
         }
-    };
 
-    // Base64 encode for basic email protection
-    Object.keys(emailData).forEach(key => {
-        if (typeof emailData[key] === 'string') {
-            emailData[key] = btoa(emailData[key]);
-        } else if (typeof emailData[key] === 'object') {
-            Object.keys(emailData[key]).forEach(subKey => {
-                emailData[key][subKey] = btoa(emailData[key][subKey]);
+        .mouse-movement-indicator.active {
+            background: rgba(220, 245, 220, 0.8);
+        }
+
+        .indicator-text {
+            color: var(--gray-dark);
+            font-family: var(--sans);
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .indicator-bar {
+            background: #e0e0e0;
+            border-radius: 4px;
+            height: 6px;
+            margin: 0 auto;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .indicator-progress {
+            background: linear-gradient(90deg, #5cb85c, #449d44);
+            height: 100%;
+            transition: width 0.4s ease-out;
+            width: 0;
+        }
+
+        /* Dark mode adjustments */
+        body.dark-mode .mouse-movement-indicator {
+            background: rgba(40, 40, 42, 0.8);
+        }
+
+        body.dark-mode .mouse-movement-indicator.active {
+            background: rgba(20, 65, 20, 0.8);
+        }
+
+        body.dark-mode .indicator-text {
+            color: var(--gray-light);
+        }
+
+        body.dark-mode .indicator-bar {
+            background: #444;
+        }
+
+        /* Disabled button styling */
+        .reveal-button:disabled {
+            cursor: not-allowed;
+            opacity: 0.5;
+        }
+
+        /* Limit message styling */
+        .limit-message {
+            background: #f8d7da;
+            border-radius: 4px;
+            color: #721c24;
+            margin: 10px 0;
+            padding: 10px;
+            text-align: center;
+        }
+
+        body.dark-mode .limit-message {
+            background: #441c1f;
+            color: #f8d7da;
+        }
+    </style>
+    <script>
+        // Track if honeypot was triggered
+        let botDetected = false;
+
+        // Add honeypot detection
+        document.querySelectorAll('.contact-field input').forEach(input => {
+            input.addEventListener('change', (e) => {
+                console.log('Bot detected via honeypot');
+                botDetected = true;
+                e.preventDefault();
+                return false;
             });
-        }
-    });
+        });
 
-    const pageLoadTime = Date.now();
+        // Store encoded emails
+        const emailData = {
+            'general': 'hello@domain.com',
+            'support': 'support@domain.com',
+            'business': 'business@domain.com',
+            'authors': {
+                'amos': 'fiction@domain.com',
+                'dolly': 'nonfiction@domain.com',
+                'eileen': 'poetry@domain.com'
+            }
+        };
 
-    function toggleEmail(id) {
-        // Check if bot was detected
-        if (botDetected) {
-            console.log('Email reveal blocked - bot detected');
-            return;
-        }
+        // Base64 encode for basic email protection
+        Object.keys(emailData).forEach(key => {
+            if (typeof emailData[key] === 'string') {
+                emailData[key] = btoa(emailData[key]);
+            } else if (typeof emailData[key] === 'object') {
+                Object.keys(emailData[key]).forEach(subKey => {
+                    emailData[key][subKey] = btoa(emailData[key][subKey]);
+                });
+            }
+        });
 
-        // Check time on page
-        const timeOnPage = (Date.now() - pageLoadTime) / 1000;
-        if (timeOnPage < 1) {
-            console.log('Too fast - likely a bot');
-            return;
-        }
+        // Mouse movement tracking
+        let mouseMovementScore = 0;
+        const requiredScore = 20;
+        let movementVerified = false;
+        const progressBar = document.querySelector('.indicator-progress');
+        const indicator = document.getElementById('mouse-movement-indicator');
+        const revealButtons = document.querySelectorAll('.reveal-button');
 
-        if (id === 'authors') {
-            // Handle multiple emails
-            ['amos', 'dolly', 'eileen'].forEach(author => {
-                const emailElement = document.getElementById(`email-authors-${author}`);
-                const emailTextElement = emailElement.querySelector('.email-text');
+        // Advanced rate limiting configuration
+        const RATE_LIMITS = {
+            SESSION_REVEALS: 10, // Max reveals per session
+            DAILY_REVEALS: 20, // Max reveals per day
+            TIME_WINDOW_MS: 24 * 60 * 60 * 1000 // 24 hours in milliseconds
+        };
+
+        // Track page load time for bot detection
+        const pageLoadTime = Date.now();
+
+        // Rate Limiting Manager
+        const RateLimiter = {
+            // Initialize rate limiting storage
+            initStorage() {
+                if (!sessionStorage.getItem('revealCounts')) {
+                    sessionStorage.setItem('revealCounts', JSON.stringify({
+                        session: 0,
+                        daily: {
+                            count: 0,
+                            timestamp: Date.now()
+                        }
+                    }));
+                }
+
+                // Reset daily count if it's been more than the time window
+                const counts = JSON.parse(sessionStorage.getItem('revealCounts'));
+                if (Date.now() - counts.daily.timestamp > RATE_LIMITS.TIME_WINDOW_MS) {
+                    counts.daily = {
+                        count: 0,
+                        timestamp: Date.now()
+                    };
+                    sessionStorage.setItem('revealCounts', JSON.stringify(counts));
+                }
+            },
+
+            // Check if rate limit is exceeded
+            isLimitExceeded() {
+                this.initStorage();
+                const counts = JSON.parse(sessionStorage.getItem('revealCounts'));
+
+                return (counts.session >= RATE_LIMITS.SESSION_REVEALS ||
+                    counts.daily.count >= RATE_LIMITS.DAILY_REVEALS);
+            },
+
+            // Increment reveal counters
+            incrementCounts() {
+                this.initStorage();
+                const counts = JSON.parse(sessionStorage.getItem('revealCounts'));
+
+                counts.session++;
+                counts.daily.count++;
+
+                sessionStorage.setItem('revealCounts', JSON.stringify(counts));
+                return counts;
+            },
+
+            // Get current counts for debugging
+            getCounts() {
+                this.initStorage();
+                return JSON.parse(sessionStorage.getItem('revealCounts'));
+            }
+        };
+
+        // Initialize mouse movement tracking
+        document.addEventListener('mousemove', function(e) {
+            // Only increment if not already verified
+            if (!movementVerified) {
+                mouseMovementScore = Math.min(mouseMovementScore + 1, requiredScore);
+                const percentage = (mouseMovementScore / requiredScore) * 100;
+                progressBar.style.width = `${percentage}%`;
+
+                // When we reach the required score
+                if (mouseMovementScore >= requiredScore) {
+                    movementVerified = true;
+                    indicator.classList.add('active');
+                    indicator.querySelector('.indicator-text').textContent = 'Email reveal enabled ✓';
+
+                    // Enable all reveal buttons
+                    revealButtons.forEach(button => {
+                        button.disabled = false;
+                    });
+                }
+            }
+        });
+
+        // Toggle email visibility function
+        function toggleEmail(id) {
+            // Check if bot was detected
+            if (botDetected) {
+                console.log('Email reveal blocked - bot detected');
+                return false;
+            }
+
+            // Check if mouse movement verification passed
+            if (!movementVerified) {
+                console.log('Email reveal blocked - mouse movement not verified');
+                return false;
+            }
+
+            // Check time on page
+            const timeOnPage = (Date.now() - pageLoadTime) / 1000;
+            if (timeOnPage < 2) {
+                console.log('Too fast - likely a bot');
+                return false;
+            }
+
+            // Check rate limits
+            if (RateLimiter.isLimitExceeded()) {
+                const limitMessage = document.createElement('div');
+                limitMessage.className = 'limit-message';
+                limitMessage.textContent = 'Reveal limit reached. Please try again later.';
+
+                // Find appropriate place to display message
+                const emailContainer = document.querySelector(`#${id}-card .contact-email-container`);
+                if (emailContainer) {
+                    const existingMessage = emailContainer.querySelector('.limit-message');
+                    if (existingMessage) {
+                        existingMessage.remove();
+                    }
+                    emailContainer.appendChild(limitMessage);
+                }
+
+                console.log('Email reveal blocked - rate limit exceeded', RateLimiter.getCounts());
+                return false;
+            }
+
+            // Increment rate limits
+            RateLimiter.incrementCounts();
+
+            if (id === 'authors') {
+                // Handle multiple emails
+                ['amos', 'dolly', 'eileen'].forEach(author => {
+                    const emailElement = document.getElementById(`email-authors-${author}`);
+                    const emailTextElement = emailElement.querySelector('.email-text');
+
+                    if (emailElement.classList.contains('hidden')) {
+                        const email = atob(emailData.authors[author]);
+                        emailTextElement.innerHTML = `<a href="mailto:${email}">${email}</a>`;
+                        emailElement.classList.remove('hidden');
+                    } else {
+                        emailTextElement.textContent = 'Click to reveal email';
+                        emailElement.classList.add('hidden');
+                    }
+                });
+            } else {
+                // Handle single email
+                const emailElement = document.getElementById(`email-${id}`);
+                const encodedEmail = emailData[id];
 
                 if (emailElement.classList.contains('hidden')) {
-                    const email = atob(emailData.authors[author]);
-                    emailTextElement.innerHTML = `<a href="mailto:${email}">${email}</a>`;
+                    const email = atob(encodedEmail);
+                    emailElement.innerHTML = `<a href="mailto:${email}">${email}</a>`;
                     emailElement.classList.remove('hidden');
                 } else {
-                    emailTextElement.textContent = 'Click to reveal email';
+                    emailElement.textContent = 'Click to reveal email';
                     emailElement.classList.add('hidden');
                 }
-            });
-        } else {
-            // Handle single email
-            const emailElement = document.getElementById(`email-${id}`);
-            const encodedEmail = emailData[id];
-
-            if (emailElement.classList.contains('hidden')) {
-                const email = atob(encodedEmail);
-                emailElement.innerHTML = `<a href="mailto:${email}">${email}</a>`;
-                emailElement.classList.remove('hidden');
-            } else {
-                emailElement.textContent = 'Click to reveal email';
-                emailElement.classList.add('hidden');
             }
+
+            return true;
         }
-    }
-</script>
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set all reveal buttons to disabled initially
+            revealButtons.forEach(button => {
+                button.disabled = true;
+            });
+
+            // Initialize rate limiter
+            RateLimiter.initStorage();
+
+            // Log current counts for debugging
+            console.log('Current reveal counts:', RateLimiter.getCounts());
+        });
+    </script>
 {{/contentFor}}

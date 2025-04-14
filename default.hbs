@@ -1,34 +1,38 @@
 <!DOCTYPE html>
 <html lang="{{@site.locale}}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="preconnect" href="https://use.typekit.net">
-        <link rel="preload" href="https://use.typekit.net/unt3hxg.css" as="style">
-        <link rel="stylesheet" href="https://use.typekit.net/unt3hxg.css">
-        <link rel="stylesheet" href="{{asset "built/index.css"}}">
-        <script src="{{asset "built/index.js"}}" defer></script>
-        <title>{{meta_title}}</title>
-        {{ghost_head}}
-    </head>
-    <body class="{{body_class}}">
-        {{{body}}}
-        <script type="module" src="https://cdn.jsdelivr.net/npm/@justinribeiro/lite-youtube@1.5.0/lite-youtube.js"></script>
-        {{{block "scripts"}}}
-        {{ghost_foot}}
-        {{!-- Outputs important scripts - should always be included before closing body tag --}}
-        <!-- Newsletter Modal -->
-        <div id="newsletter-modal" class="newsletter-modal">
-            <div class="newsletter-modal-content">
-                <span class="close-newsletter">&times;</span>
-                <h3 class="newsletter-modal-title">Join Our Newsletter</h3>
-                <p class="newsletter-modal-description">Get the latest posts delivered right to your inbox.</p>
-                <form class="newsletter-modal-form">
-                    <input data-members-email type="email" class="newsletter-modal-input" placeholder="jules@badmotherfucker.com" required>
-                    <button type="submit" class="newsletter-modal-button">Subscribe</button>
-                </form>
-                <p class="newsletter-modal-footnote">We'd sooner drink Drāno than share your personal info. You can cancel us whenever you'd like. By signing up you agree to our <a href="/privacy-policy">Privacy Policy</a> and <a href="/terms">Terms of Use</a>.</p>
-            </div>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://use.typekit.net">
+    <link rel="preload" href="https://use.typekit.net/unt3hxg.css" as="style">
+    <link rel="stylesheet" href="https://use.typekit.net/unt3hxg.css">
+    <link rel="stylesheet" href="{{asset "built/index.css"}}">
+    <script src="{{asset "built/index.js"}}" defer></script>
+    <title>{{meta_title}}</title>
+    {{#is "home, tag, author"}}
+       {{ghost_head exclude="card_assets"}}
+    {{else}}
+       {{ghost_head}}
+    {{/is}}
+</head>
+<body class="{{body_class}}">
+    {{{body}}}
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@justinribeiro/lite-youtube@1.5.0/lite-youtube.js"></script>
+    {{{block "scripts"}}}
+    {{ghost_foot}}
+    {{!-- Outputs important scripts - should always be included before closing body tag --}}
+    <!-- Newsletter Modal -->
+    <div id="newsletter-modal" class="newsletter-modal">
+        <div class="newsletter-modal-content">
+            <span class="close-newsletter">&times;</span>
+            <h3 class="newsletter-modal-title">Join Our Newsletter</h3>
+            <p class="newsletter-modal-description">Get the latest posts delivered right to your inbox.</p>
+            <form class="newsletter-modal-form">
+                <input data-members-email type="email" class="newsletter-modal-input" placeholder="jules@badmotherfucker.com" required>
+                <button type="submit" class="newsletter-modal-button">Subscribe</button>
+            </form>
+            <p class="newsletter-modal-footnote">We'd sooner drink Drāno than share your personal info. You can cancel us whenever you'd like. By signing up you agree to our <a href="/privacy-policy">Privacy Policy</a> and <a href="/terms">Terms of Use</a>.</p>
         </div>
-    </body>
+    </div>
+</body>
 </html>

@@ -8,9 +8,7 @@
                         {{> "icons/arrow-down-right"}}<a href="{{@site.url}}">{{@site.title}}</a>
                         <span class="breadcrumb-separator"> {{> "icons/chevron"}}</span>
                     </li>
-                    <li class="breadcrumb-item current" aria-current="page">
-                        Error Page ¯\_(ツ)_/¯
-                    </li>
+                    <li class="breadcrumb-item current" aria-current="page">Error Page ¯\_(ツ)_/¯</li>
                 </ul>
             </nav>
         </div>
@@ -23,32 +21,23 @@
                 <div class="error-content">
                     <header class="page-header">
                         <div class="container">
-                           <h1 class="error-code">{{statusCode}}</h1>
-  <div class="error-featured-img">
+                            <h1 class="error-code">{{statusCode}}</h1>
+                            <div class="error-featured-img">
                                 <img src="{{asset 'media/gif/404.gif'}}" height="800" width="537" alt="Charles Bronson Gif">
                             </div>
                             <p class="page-excerpt">Bummer, you've been blindsided by an error. Seems the URL you requested does not currently exist on this site.
-<span class="error-url"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#f05230" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm-8,56a8,8,0,0,1,16,0v56a8,8,0,0,1-16,0Zm8,104a12,12,0,1,1,12-12A12,12,0,0,1,128,184Z"></path></svg> {{url}}</span>
+                                <span class="error-url">{{> "icons/warning"}} {{url}}</span>
                             </p>
-
                         </div>
                     </header>
-
-
-
                     <div class="error-message">
-
-                        <p>So, <strong>Why did this happen?</strong> Honestly, it's hard tellin' not knowin'. My inclination is to blame you for poor spelling but the truth probably rests with me somehow. I treat this site's internals like an Irish Poet treats their liver. I can say this cause I write poetry and I'm Irish enough.</p>
-
+                        <p>So, <strong>why did this happen?</strong> Honestly, it's hard tellin' not knowin'. My inclination is to blame you for poor spelling but the truth probably rests with me somehow. I treat this site's internals like an Irish Poet treats their liver. I can say this cause I write poetry and I'm Irish enough.</p>
                         <p>Anway, you're on the Internet so not like you're losing anything except your soul. But here's a video of a pup and some kittens so watch this and you'll get it back. </p>
-
                         <div class="error-video">
                             <lite-youtube videoid="7ogG_NWGvj8"></lite-youtube>
                         </div>
-
                         <p>We appreciate your attention. However brief it may be. Carpe diem friend.</p>
                     </div>
-
                     <div class="error-actions">
                         <a class="error-button" href="{{@site.url}}">Home Page</a>
                         <button class="error-button" data-ghost-search>Search the Site</button>
@@ -58,5 +47,4 @@
         </div>
     </section>
 </main>
-
 {{> "layout/site-footer"}}

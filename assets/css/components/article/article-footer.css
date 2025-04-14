@@ -1,20 +1,20 @@
-/* 9.4 Article Footer */
+/*
+ * Article Footer Styles
+ * Basic styling for the links at the bottom of articles (topics, comments, share, etc.)
+ */
 .article-footer {
     align-items: center;
-
+    border-top: 2px dashed var(--gray-medium);
+    color: var(--gray-medium);
     display: flex;
     flex-wrap: wrap;
-    gap: 16px;
-    color: var(--gray-medium);
     font-size: 14px;
+    gap: 16px;
     margin: 40px auto 60px;
     max-width: 700px;
     padding-top: 12px;
     position: relative;
-    border-top: 2px dashed var(--gray-medium);
 }
-
-
 
 ul.post-topics,
 .article-footer ul li {
@@ -26,7 +26,6 @@ ul.post-topics,
 .article-tags a {
     color: var(--gray-medium);
 }
-
 
 ul.article-tags li {
     display: inline;

@@ -3,87 +3,82 @@
  * Styling for content cards
  */
 
- .card-content {
-     width: 100%;
- }
+.card-content {
+    width: 100%;
+}
 
- .card-content figure+p,
- .card-content figure+h1,
- .card-content figure+h2,
- .card-content figure+h3,
- .card-content figure+h4,
- .card-content figure+h5,
- .card-content figure+h6,
- .card-content figure+blockquote,
- .card-content figure+ul,
- .card-content figure+ol {
-     margin-top: var(--space-lg);
- }
+.card-content figure+p,
+.card-content figure+h1,
+.card-content figure+h2,
+.card-content figure+h3,
+.card-content figure+h4,
+.card-content figure+h5,
+.card-content figure+h6,
+.card-content figure+blockquote,
+.card-content figure+ul,
+.card-content figure+ol {
+    margin-top: var(--space-lg);
+}
 
- .card .kg-image-card img {}
+.card-image {
+    height: 300px;
+    margin-bottom: 1.5rem;
+    object-fit: cover;
+    width: 100%;
+}
 
- .card-image {
+.card-content img {
+    border: 3px solid #000;
+}
 
-     height: 300px;
-     margin-bottom: 1.5rem;
-     object-fit: cover;
-     width: 100%;
- }
+.card-content figcaption {
+    color: var(--gray-medium);
+    font-family: var(--sans);
+    font-size: 14px;
+    margin: 16px 0 32px;
+}
 
- .card-content img {
-     border: 3px solid #000;
- }
+.card-content figcaption a {
+    color: var(--gray-dark);
+    font-weight: 500;
+    text-decoration: underline;
+}
 
- .card-content figcaption {
-     color: var(--gray-medium);
-     font-family: var(--sans);
-     font-size: 14px;
+.card-content p.excerpt {
+    font-size: 18px;
+}
 
-     margin: 16px 0 32px;
- }
+.card-content p.readmore {
+    color: var(--gray-medium);
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 400;
+    margin: var(--space-xl) 0 0;
+}
 
- .card-content figcaption a {
-     color: var(--gray-dark);
-     font-weight: 500;
-     text-decoration: underline;
- }
+.card-content p.readmore a {
+    color: var(--gray-dark);
+    font-weight: 500;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+    transition: color 0.3s ease, text-decoration-color 0.3s ease;
+}
 
- .card-content p.excerpt {
-     font-size: 18px;
- }
+.card-content p.readmore a:hover {
+    color: var(--red);
+    opacity: 1;
+}
 
- .card-content p.readmore {
-     color: var(--gray-medium);
-     font-family: var(--sans);
-     font-weight: 400;
-     font-size: 14px;
-     margin: var(--space-xl) 0 0;
- }
+.card-content p.readmore svg {
+    display: inline;
+    height: var(--text-base);
+    transition: transform 0.3s ease;
+    vertical-align: middle;
+    width: var(--text-base);
+}
 
- .card-content p.readmore a {
-     color: var(--gray-dark);
-     font-weight: 500;
-     text-decoration: underline;
-     text-decoration-thickness: 2px;
-     text-underline-offset: 3px;
-     transition: color 0.3s ease, text-decoration-color 0.3s ease;
- }
-
- .card-content p.readmore a:hover {
-     color: var(--red);
-     opacity: 1;
- }
-
- .card-content p.readmore svg {
-     display: inline;
-     height: var(--text-base);
-     transition: transform 0.3s ease;
-     vertical-align: middle;
-     width: var(--text-base);
-
- }
-
- .card-content p.readmore:hover svg {
-     opacity: 1;
-     transform: translateY(-3px);
- }
+.card-content p.readmore:hover svg {
+    opacity: 1;
+    transform: translateY(-3px);
+}

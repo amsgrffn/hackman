@@ -1,280 +1,264 @@
 /*
- * Site-wide Breadcrumb Navigation
- * Basic styling for site header breadcrumbs
- */
+* Site-wide Breadcrumb Navigation
+* Basic styling for site header breadcrumbs
+*/
 
- .site-header {
-     z-index: 100;
-     margin: 30px 0 6rem;
- }
+.site-header {
+   margin: 30px 0 6rem;
+   z-index: 100;
+}
 
 .breadcrumb-list {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    font-family: var(--sans);
-    font-size: 14px;
-    list-style: none;
-    padding: 0;
-    margin: 0;
+   align-items: center;
+   display: flex;
+   flex-wrap: wrap;
+   font-family: var(--sans);
+   font-size: 14px;
+   list-style: none;
+   margin: 0;
+   padding: 0;
 }
 
 .breadcrumb-item {
-    display: flex;
-    align-items: center;
-    color: var(--gray-dark);
+   align-items: center;
+   color: var(--gray-dark);
+   display: flex;
 }
 
 .breadcrumb-item a {
-    color: var(--gray-dark);
-    text-decoration: none;
-    transition: var(--transition);
+   color: var(--gray-dark);
+   text-decoration: none;
+   transition: var(--transition);
 }
 
 .breadcrumb-list svg {
-    display: inline;
-    height: 20px;
-    margin-top: -1px;
-    vertical-align: middle;
-    width: 20px;
+   display: inline;
+   height: 20px;
+   margin-top: -1px;
+   vertical-align: middle;
+   width: 20px;
 }
 
 .breadcrumb-list svg.arrow-here {
-    margin-right: 3px;
-    stroke: var(--gray-dark);
+   margin-right: 3px;
+   stroke: var(--gray-dark);
 }
 
 .breadcrumb-item a {
-    color: var(--gray-dark);
-    text-decoration: underline;
-    text-decoration-thickness: 2px;
-    font-weight: 500;
-    text-underline-offset: 3px;
-    transition: var(--transition);
+   color: var(--gray-dark);
+   font-weight: 500;
+   text-decoration: underline;
+   text-decoration-thickness: 2px;
+   text-underline-offset: 3px;
+   transition: var(--transition);
 }
 
 .breadcrumb-item a:hover {
-    color: var(--red);
-    text-decoration: underline;
+   color: var(--red);
+   text-decoration: underline;
 }
 
-
-
 .post-template .breadcrumb-item.current {
-    max-width: 340px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: inline-block;
-    vertical-align: middle;
-    color: var(--gray-medium);
+   color: var(--gray-medium);
+   display: inline-block;
+   max-width: 340px;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   vertical-align: middle;
+   white-space: nowrap;
 }
 
 .breadcrumb-separator {
-    display: flex;
-    align-items: center;
-    margin: 2px 0 0 0;
-    color: var(--gray-dark);
+   align-items: center;
+   color: var(--gray-dark);
+   display: flex;
+   margin: 2px 0 0 0;
 }
 
 .breadcrumb-separator svg {
-    width: 20px;
-    height: 20px;
-    stroke: var(--gray-dark);
+   height: 20px;
+   stroke: var(--gray-dark);
+   width: 20px;
 }
 
-/* Breadcrumbs Dropdown - Without caret */
 .pages-dropdown {
-    position: relative;
+   position: relative;
 }
 
 .pages-dropdown .dropdown-trigger {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
+   align-items: center;
+   cursor: pointer;
+   display: flex;
 }
 
-/* Remove the caret after the dropdown trigger */
 .pages-dropdown .dropdown-trigger:after {
-    display: none;
+   display: none;
 }
 
 .breadcrumb-dropdown {
-    position: absolute;
-    top: 100%;
-    /* Center the dropdown */
-    left: 50%;
-    transform: translateX(-50%) translateY(-10px);
-    z-index: 100;
-    min-width: 220px;
-    margin-top: var(--size-12);
-    visibility: hidden;
-    opacity: 0;
-    transition: all 0.3s ease;
-    pointer-events: none;
+   left: 50%;
+   margin-top: var(--size-12);
+   min-width: 220px;
+   opacity: 0;
+   pointer-events: none;
+   position: absolute;
+   top: 100%;
+   transform: translateX(-50%) translateY(-10px);
+   transition: all 0.3s ease;
+   visibility: hidden;
+   z-index: 100;
 }
 
-/* Show dropdown on hover */
 .pages-dropdown:hover .breadcrumb-dropdown {
-    visibility: visible;
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
-    pointer-events: auto;
+   opacity: 1;
+   pointer-events: auto;
+   transform: translateX(-50%) translateY(0);
+   visibility: visible;
 }
 
-/* Add a small delay before hiding the dropdown when mouse leaves */
 .breadcrumb-dropdown {
-    transition-delay: 0s;
+   transition-delay: 0s;
 }
 
 .pages-dropdown:hover .breadcrumb-dropdown {
-    transition-delay: 0.1s;
+   transition-delay: 0.1s;
 }
 
 .dropdown-inner {
-    background-color: #fefefe;
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    padding: var(--space-xs);
-    overflow: hidden;
+   background-color: #fefefe;
+   border-radius: var(--radius);
+   box-shadow: var(--shadow);
+   overflow: hidden;
+   padding: var(--space-xs);
 }
 
 .breadcrumb-dropdown ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    height: auto;
-    overflow-y: auto;
+   height: auto;
+   list-style: none;
+   margin: 0;
+   overflow-y: auto;
+   padding: 0;
 }
 
 .breadcrumb-dropdown ul li {
-    padding: 0;
-    margin: 0;
+   margin: 0;
+   padding: 0;
 }
 
 .breadcrumb-dropdown ul li a {
-    display: block;
-    padding: var(--space-xs) var(--space-sm);
-    color: var(--gray-dark);
-    text-decoration: none;
-    border-radius: var(--radius);
-    transition: background-color 0.2s ease;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+   border-radius: var(--radius);
+   color: var(--gray-dark);
+   display: block;
+   overflow: hidden;
+   padding: var(--space-xs) var(--space-sm);
+   text-decoration: none;
+   text-overflow: ellipsis;
+   transition: background-color 0.2s ease;
+   white-space: nowrap;
 }
 
 .breadcrumb-dropdown ul svg {
-    display: inline;
-    height: 16px;
-    margin: -3px 1px 0 0;
-    vertical-align: middle;
-    width: 16px;
+   display: inline;
+   height: 16px;
+   margin: -3px 1px 0 0;
+   vertical-align: middle;
+   width: 16px;
 }
-
 
 .breadcrumb-dropdown ul li a:hover {
-    background-color: var(--gray-light);
-    color: var(--red);
-    text-decoration: none;
+   background-color: var(--gray-light);
+   color: var(--red);
+   text-decoration: none;
 }
 
-/* Add arrow at the top of the dropdown pointing to "Pages" */
 .dropdown-inner:before,
 .dropdown-inner:after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    transform: translateX(-50%);
+   border-left: 10px solid transparent;
+   border-right: 10px solid transparent;
+   content: "";
+   left: 50%;
+   position: absolute;
+   transform: translateX(-50%);
 }
 
-/* Shadow arrow */
 .dropdown-inner:before {
-    top: -11px;
-    border-bottom: 10px solid rgba(0, 0, 0, 0.1);
-    filter: blur(1px);
+   border-bottom: 10px solid rgba(0, 0, 0, 0.1);
+   filter: blur(1px);
+   top: -11px;
 }
 
-/* Main arrow */
 .dropdown-inner:after {
-    top: -10px;
-    border-bottom: 10px solid #fefefe;
+   border-bottom: 10px solid #fefefe;
+   top: -10px;
 }
 
-/* Style for current page in dropdown */
 .breadcrumb-dropdown ul li a.current-page {
-    background-color: var(--gray-light);
-    color: var(--accent-color);
-    font-weight: var(--font-weight-bold);
-    cursor: default;
-    opacity: 0.7;
-    pointer-events: none;
+   background-color: var(--gray-light);
+   color: var(--accent-color);
+   cursor: default;
+   font-weight: var(--font-weight-bold);
+   opacity: 0.7;
+   pointer-events: none;
 }
 
-/* Dark mode adjustments */
 body.dark-mode .dropdown-inner {
-    background: var(--secondary-color);
-    border: 1px solid var(--gray-dark);
+   background: var(--secondary-color);
+   border: 1px solid var(--gray-dark);
 }
 
 body.dark-mode .breadcrumb-dropdown ul li a {
-    color: var(--gray-light);
+   color: var(--gray-light);
 }
 
 body.dark-mode .breadcrumb-dropdown ul li a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: var(--accent-color);
+   background-color: rgba(255, 255, 255, 0.1);
+   color: var(--accent-color);
 }
 
 body.dark-mode .dropdown-inner:after {
-    border-bottom-color: var(--secondary-color);
+   border-bottom-color: var(--secondary-color);
 }
 
 body.dark-mode .breadcrumb-dropdown ul li a.current-page {
-    background-color: rgba(255, 255, 255, 0.05);
+   background-color: rgba(255, 255, 255, 0.05);
 }
 
-/* Add a small invisible area to prevent dropdown from closing when moving cursor from trigger to dropdown */
 .pages-dropdown:before {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    height: 16px;
-    /* This matches our margin-top value */
-    z-index: 99;
+   content: "";
+   height: 16px;
+   left: 0;
+   position: absolute;
+   top: 100%;
+   width: 100%;
+   z-index: 99;
 }
 
-/* Dark mode adjustments */
 body.dark-mode .breadcrumb-item {
-    color: var(--gray-medium);
+   color: var(--gray-medium);
 }
 
 body.dark-mode .breadcrumb-item a {
-    color: var(--gray-dark);
+   color: var(--gray-dark);
 }
 
 body.dark-mode .breadcrumb-item.current {
-    color: var(--primary-color);
+   color: var(--primary-color);
 }
 
 body.dark-mode .breadcrumb-separator {
-    color: var(--gray-light);
+   color: var(--gray-light);
 }
 
 /* Responsive adjustments */
 @media (max-width: 767px) {
-    .breadcrumbs {
-        font-size: var(--text-xs);
-    }
+   .breadcrumbs {
+       font-size: var(--text-xs);
+   }
 
-    /* Hide site title on very small screens */
-    @media (max-width: 480px) {
-        .breadcrumb-item.home {
-            display: none;
-        }
-    }
+   /* Hide site title on very small screens */
+   @media (max-width: 480px) {
+       .breadcrumb-item.home {
+           display: none;
+       }
+   }
 }

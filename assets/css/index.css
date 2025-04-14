@@ -1,39 +1,37 @@
 /*
-
 * This is a development CSS file that is compiled to a minified
   production stylesheet in assets/built/screen.css using: npm run dev.
-* This began as a gutted Ghost Starter theme
-* Files are synced to Github:
+* This project began as a Ghost Starter theme (https://github.com/TryGhost/Starter). It has been gutted.
+* Files are synced to this Github repository: https://github.com/amsgrffn/hackman
 * Please note this was created by someone with a healthy sense of adventure but little to no knowledge.
   No planning went into this. A complete make it up as we go project. It shows.
-
 */
 
 /* 1. Imports
 /* ---------------------------------------------------------- */
 
 /* Base styles*/
-@import "base/reset.css";
-@import "base/variables.css";
 @import "base/global.css";
-@import "base/typography.css";
 @import "base/layout.css";
+@import "base/reset.css";
+@import "base/typography.css";
+@import "base/variables.css";
 
 /* Core layout components */
+@import "components/footer.css";
 @import "components/header/breadcrumb-nav.css";
 @import "components/header/mobile-menu.css";
-@import "components/sidebar.css";
 @import "components/sidebar/appearance-toggle.css";
-@import "components/footer.css";
+@import "components/sidebar/sidebar.css";
 
 /* Content components */
-@import "components/cards/shared.css";
-@import "components/cards/cards.css";
-@import "components/cards/featured-post.css";
-@import "components/cards/bookmark-card.css";
-@import "components/cards/quote-card.css";
-@import "components/cards/video-card.css";
 @import "components/post-dropdown.css";
+@import "components/cards/cards.css";
+@import "components/cards/bookmark-card.css";
+@import "components/cards/featured-post.css";
+@import "components/cards/quote-card.css";
+@import "components/cards/shared.css";
+@import "components/cards/video-card.css";
 
 /* Article components */
 @import "components/article/article-base.css";
@@ -57,7 +55,6 @@
 @import "utilities/animations.css";
 @import "utilities/lite-tube.css";
 @import "utilities/responsive.css";
-
 @import "pagination.css";
 
 

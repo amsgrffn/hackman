@@ -3,25 +3,25 @@
  * Basic styling for common elements
  */
 
- body {
-     background: var(--secondary-color);
-     color: var(--gray-dark);
-     font-family: var(--serif);
-     font-size: var(--text-base);
-     line-height: var(--line-height-normal);
- }
+body {
+    background: var(--secondary-color);
+    color: var(--gray-dark);
+    font-family: var(--serif);
+    font-size: var(--text-base);
+    line-height: var(--line-height-normal);
+}
 
- a {
-     color: var(--accent-color);
-     text-decoration: none;
-     transition: var(--transition);
- }
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
 
- a:hover {
-     opacity: 0.8;
- }
+a:hover {
+    opacity: 0.8;
+}
 
- img {
-     height: auto;
-     max-width: 100%;
- }
+img {
+    height: auto;
+    max-width: 100%;
+}

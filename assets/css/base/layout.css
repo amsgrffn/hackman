@@ -3,23 +3,20 @@
  * Container and layout structure
  */
 
-/* 5. Layout
- /* ---------------------------------------------------------- */
+.container {
+    margin: 0 auto;
+    max-width: 940px;
+    padding: 0 var(--space-lg);
+    width: 100%;
+}
 
- .container {
-     margin: 0 auto;
-     max-width: 940px;
-     padding: 0 var(--space-lg);
-     width: 100%;
- }
+.layout {
+    display: flex;
+    flex-direction: column;
+    padding: 0rem 0;
+}
 
- .layout {
-     display: flex;
-     flex-direction: column;
-     padding: 0rem 0;
- }
-
- .content {
-     margin-bottom: var(--space-2xl);
-     width: 100%;
- }
+.content {
+    margin-bottom: var(--space-2xl);
+    width: 100%;
+}

@@ -38,7 +38,7 @@
                                     {{/foreach}}
                                 {{/if}}
 
-                                <button class="related-trigger" aria-expanded="false" aria-controls="related-panel">
+                                <button class="related-trigger" aria-expanded="false" aria-controls="comments-panel">
                                     Conversation {{comment_count empty="" singular="comment" plural="comments" autowrap="span" class=""}} <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-audio-lines-icon lucide-audio-lines">
                                         <path d="M2 10v3" />
                                         <path d="M6 6v11" />
@@ -71,7 +71,7 @@
                             </div>
 
                             {{#if primary_author}}
-                                <section class="author-card">
+                                <div class="author-card">
                                     <div class="author-card-content">
                                         <img src="{{primary_author.profile_image}}" alt="{{primary_author.name}}" class="author-card-image">
                                         <p class="author-card-name">Published by {{primary_author.name}}</p>
@@ -89,7 +89,7 @@
                                             <a href="{{primary_author.url}}">More posts</a>
                                         </div>
                                     </div>
-                                </section>
+                                </div>
                             {{/if}}
 
                             <section class="related-articles">

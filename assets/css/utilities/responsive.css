@@ -6,106 +6,103 @@
  * respective component files. This file contains only global responsive overrides.
  */
 
-/* 12. Responsive Styles
- /* ---------------------------------------------------------- */
 
- @media (max-width: 767px) {
-     .topbar-nav {
-         gap: var(--space-md);
-     }
+@media (max-width: 767px) {
+    .article-content {
+        font-size: 16px;
+    }
 
-     .topbar-search span {
-         display: none;
-     }
+    .article-header {
+        text-align: left;
+    }
 
-     .topbar-search {
-         max-width: 100%;
-     }
+    .author-card {
+        flex-direction: column;
+        padding: 24px;
+    }
 
-     .page-link {
-         padding: 10px 12px;
-     }
+    .author-card-image {
+        margin-bottom: 16px;
+    }
 
-     .article-content {
-         font-size: 16px;
-     }
+    .page-link {
+        padding: 10px 12px;
+    }
 
-     .article-header {
-         text-align: left;
-     }
+    .topbar-nav {
+        gap: var(--space-md);
+    }
 
-     .author-card {
-         flex-direction: column;
-         padding: 24px;
-     }
+    .topbar-search {
+        max-width: 100%;
+    }
 
-     .author-card-image {
-         margin-bottom: 16px;
-     }
- }
+    .topbar-search span {
+        display: none;
+    }
+}
 
- @media (min-width: 768px) {
-     .site-nav {
-         display: flex;
-     }
+@media (min-width: 768px) {
+    .content {
+        flex: 1;
+        flex-shrink: 0;
+        margin-bottom: 0;
+        width: 580px;
+    }
 
-     .menu-toggle {
-         display: none;
-     }
+    .copyright {
+        margin-top: 0;
+    }
 
-     .mobile-menu {
-         display: none;
-     }
+    .footer-bottom {
+        align-items: center;
+        flex-direction: row;
+        justify-content: space-between;
+    }
 
-     .layout {
-         align-items: flex-start;
-         flex-direction: row;
-         gap: 0;
-     }
+    .layout {
+        align-items: flex-start;
+        flex-direction: row;
+        gap: 0;
+    }
 
-     .content {
-         flex: 1;
-         margin-bottom: 0;
-         width: 580px;
-         flex-shrink: 0;
-     }
+    .menu-toggle {
+        display: none;
+    }
 
-     .sidebar {
-         flex-shrink: 0;
-         position: sticky;
+    .mobile-menu {
+        display: none;
+    }
 
-         top: 5rem;
-         width: 200px;
-         order: -1;
-         /* This will move the sidebar before content */
-         margin-right: 140px;
-         /* Add right margin instead of getting it from the gap */
-         margin-left: 0;
-     }
+    .newsletter-form {
+        flex-direction: row;
+    }
 
-     .sidebar::-webkit-scrollbar {
-         width: 5px;
-     }
+    .newsletter-input {
+        flex: 1;
+    }
 
-     .newsletter-form {
-         flex-direction: row;
-     }
+    .related-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
 
-     .newsletter-input {
-         flex: 1;
-     }
+    .sidebar {
+        flex-shrink: 0;
+        margin-left: 0;
+        margin-right: 140px;
+        /* Add right margin instead of getting it from the gap */
+        order: -1;
+        /* This will move the sidebar before content */
+        position: sticky;
+        top: 5rem;
+        width: 200px;
+    }
 
-     .footer-bottom {
-         align-items: center;
-         flex-direction: row;
-         justify-content: space-between;
-     }
+    .sidebar::-webkit-scrollbar {
+        width: 5px;
+    }
 
-     .copyright {
-         margin-top: 0;
-     }
-
-     .related-grid {
-         grid-template-columns: repeat(3, 1fr);
-     }
- }
+    .site-nav {
+        display: flex;
+    }
+}

@@ -2,7 +2,6 @@
  * Shared Article Cards CSS
  * Basic styling shared among the various article cards
  */
-
 article,
 .card,
 .card-content,
@@ -55,7 +54,7 @@ footer {
 .post-content ol,
 .post-content ul {
     margin-bottom: var(--space-md);
-    padding: 0 0 0 0.9rem
+    padding: 0 0 0 0.9rem;
 }
 
 .post-content ol li,
@@ -91,96 +90,81 @@ footer {
 }
 
 .meta>* {
+    line-height: 1;
     margin: 0;
     padding: 0;
-    line-height: 1;
 }
 
 .meta .pub-date {
-    display: inline-flex;
     align-items: center;
+    display: inline-flex;
     height: auto;
 }
 
 .meta span {
-    display: block;
     border-radius: 0.5rem;
     color: #525252;
-
+    display: block;
+    display: inline-block;
     font-weight: 500;
     letter-spacing: 0.02rem;
-    padding: 10px 16px;
-    display: inline-block;
-    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
     line-height: normal;
-
+    padding: 10px 16px;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
 
 .meta .tag {
     background: var(--gray-dark);
+    color: #fff;
     color: var(--gray-light);
+    font-weight: 500;
+    padding: 0 16px;
     position: relative;
     z-index: 2;
-    padding: 0 16px;
-    color: #fff;
-    font-weight: 500;
 }
 
 .meta .tag a {
-
     color: var(--gray-light);
-
 }
 
-.meta .domain-pill {}
-
 .meta .domain-pill {
-    margin-left: -34px;
-    /* Create overlap with tag */
-    padding: 0 16px 0 34px;
-    /* Extra left padding for overlap area */
-    z-index: 1;
     background: #f6f5f4;
-    color: var(--gray-medium);
-    z-index: 1;
+    border-bottom-left-radius: 0;
     border-radius: 0.5rem;
     border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
+    color: var(--gray-medium);
+    margin-left: -34px;
+    padding: 0 16px 0 34px;
+    z-index: 1;
 }
 
 .meta .domain-pill img {
-    image-rendering: -webkit-optimize-contrast;
     filter: drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.1));
+    image-rendering: -webkit-optimize-contrast;
 }
 
 .meta .tag,
 .meta .domain-pill {
-    display: inline-flex;
-    /* Switch to inline-flex for better alignment */
     align-items: center;
-    /* Center content vertically */
-    height: 32px;
-    /* Set a consistent fixed height */
     box-sizing: border-box;
+    display: inline-flex;
+    height: 32px;
     line-height: 1;
-    /* Consistent line height */
     vertical-align: middle;
 }
-
 
 .meta .pub-date {
     background: #f6f5f4;
     font-weight: 500;
 }
 
-/* Make sure it works well in the meta section */
 .meta .bookmark-source {
-    height: auto;
-    border-radius: 9999px;
-    background: transparent;
-    padding: 0;
     background: #f6f5f4;
+    background: transparent;
+    border-radius: 9999px;
     font-weight: 500;
+    height: auto;
+    padding: 0;
 }
 
 .meta .tag:hover {
@@ -192,8 +176,8 @@ footer {
 .meta svg {
     display: inline;
     height: 14px;
-    vertical-align: middle;
     margin-right: 6px;
+    vertical-align: middle;
     width: 14px;
 }
 

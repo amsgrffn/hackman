@@ -5,13 +5,12 @@
                 <ul class="breadcrumb-list">
                     <li class="breadcrumb-item home">
                         {{> "icons/arrow-down-right"}}<a href="{{@site.url}}">{{@site.title}}</a>
-                        <span class="breadcrumb-separator"> {{> "icons/chevron"}}</span>
                     </li>
+                    <li class="breadcrumb-separator">{{> "icons/chevron"}}</li>
                     {{!-- For Post pages --}}
                     {{#is "post"}}
                     <li class="breadcrumb-item pages-dropdown">
                         <a href="javascript:void(0)" class="dropdown-trigger">Channels</a>
-                        <span class="breadcrumb-separator">{{> "icons/chevron"}}</span>
                         <div class="breadcrumb-dropdown">
                             <div class="dropdown-inner">
                                 {{!-- Get all pages --}}
@@ -28,14 +27,15 @@
                             </div>
                         </div>
                     </li>
+                    <li class="breadcrumb-separator">{{> "icons/chevron"}}</li>
                         {{#if primary_tag}}
                             <li class="breadcrumb-item">
                                 <a href="{{primary_tag.url}}">{{primary_tag.name}}</a>
-                                <span class="breadcrumb-separator">{{> "icons/chevron"}}</span>
                             </li>
+                            <li class="breadcrumb-separator">{{> "icons/chevron"}}</li>
                         {{/if}}
                         <li class="breadcrumb-item current">{{date published_at format="MM/DD/YYYY"}}</li>
-                        <span class="breadcrumb-separator">{{> "icons/chevron"}}</span>
+                        <li class="breadcrumb-separator">{{> "icons/chevron"}}</li>
                         <li class="breadcrumb-item current" aria-current="page">{{title}}</li>
                     {{/is}}
 
@@ -43,7 +43,6 @@
                     {{#is "tag"}}
                         <li class="breadcrumb-item pages-dropdown">
                             <a href="javascript:void(0)" class="dropdown-trigger">Channels</a>
-                            <span class="breadcrumb-separator">{{> "icons/chevron"}}</span>
                             <div class="breadcrumb-dropdown">
                                 <div class="dropdown-inner">
                                     {{!-- Get all pages --}}
@@ -60,10 +59,10 @@
                                 </div>
                             </div>
                         </li>
+                        <li class="breadcrumb-separator">{{> "icons/chevron"}}</li>
                         {{#tag}}
                         <li class="breadcrumb-item current" aria-current="page">{{name}}</li>
                         {{/tag}}
-
                     {{/is}}
 
                     {{!-- For Author pages --}}
@@ -75,29 +74,25 @@
                     {{#is "page"}}
                         <li class="breadcrumb-item pages-dropdown">
                             <a href="javascript:void(0)" class="dropdown-trigger">Pages</a>
-                            <span class="breadcrumb-separator">{{> "icons/chevron"}}</span>
                             <div class="breadcrumb-dropdown">
                                 <div class="dropdown-inner">
                                     {{!-- Get all pages --}}
                                     {{#get "pages" limit="all" order="title asc" filter="id:-{{page.id}}"}}
-
                                             <ul>
                                                 {{#foreach pages}}
                                                     <li><a href="{{url}}">
-
                                                             {{> "icons/file"}}
-
                                                         {{title}}
                                                     </a></li>
                                                 {{/foreach}}
                                             </ul>
                                         {{else}}
                                             <p>No other pages found</p>
-
                                     {{/get}}
                                 </div>
                             </div>
                         </li>
+                        <li class="breadcrumb-separator">{{> "icons/chevron"}}</li>
                         {{#page}}
                         <li class="breadcrumb-item current" aria-current="page">{{title}}</li>
                         {{/page}}
@@ -109,19 +104,12 @@
                             <a href="{{@site.url}}/{{date format="YYYY"}}/{{date format="MM"}}/{{date format="DD"}}/">
                                 {{date format="dddd, MMMM Do, YYYY"}}
                             </a>
-                            <span class="breadcrumb-separator">{{> "icons/chevron"}}</span>
                         </li>
+                        <li class="breadcrumb-separator">{{> "icons/chevron"}}</li>
                         <li class="breadcrumb-item current" aria-current="page">Home Page</li>
                     {{/is}}
                 </ul>
             </nav>
-
-
-
-
-
-
-
 
            <!--<nav class="site-nav">
                <a class="memberships" href="/memberships">Memberships</a>
@@ -137,7 +125,6 @@
                {{/if}}
            </nav> -->
             <div class="header-right">
-
                 <button class="menu-toggle" aria-label="Toggle menu">
                     <span></span>
                     <span></span>
@@ -147,49 +134,5 @@
         </div>
     </div>
 </header>
-<div class="mobile-menu">
-    <div class="sidebar-section">
-        <div class="search-box">
-            <input type="text" class="search-input" placeholder="Search...">
-            <button class="search-button">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                </svg>
-            </button>
-        </div>
-    </div>
 
-    <!-- Newsletter (Mobile) -->
-    <div class="sidebar-section">
-        <h3 class="sidebar-title">Newsletter</h3>
-        <form class="newsletter-form">
-            <input type="email" class="newsletter-input" placeholder="your@email.com" required>
-            <button type="submit" class="newsletter-button">Subscribe</button>
-        </form>
-    </div>
-
-    <div class="sidebar-section">
-        <h3 class="sidebar-title">Pages</h3>
-        <ul class="page-list">
-            <li class="page-item"><a href="#" class="page-link active">Home</a></li>
-            <li class="page-item"><a href="#" class="page-link">About</a></li>
-            <li class="page-item"><a href="#" class="page-link">Projects</a></li>
-            <li class="page-item"><a href="#" class="page-link">Articles</a></li>
-            <li class="page-item"><a href="#" class="page-link">Notes</a></li>
-            <li class="page-item"><a href="#" class="page-link">Bookmarks</a></li>
-            <li class="page-item"><a href="#" class="page-link">Contact</a></li>
-        </ul>
-    </div>
-
-    <!-- Membership (Mobile) -->
-    <div class="sidebar-section">
-        <h3 class="sidebar-title">Membership</h3>
-        <p style="margin-bottom: 16px; color: var(--gray-medium); font-size: 14px;">
-            Support this blog and get exclusive content.
-        </p>
-        <a href="#" class="page-link" style="background-color: var(--accent-color); color: white;">
-            View Membership Options
-        </a>
-    </div>
-</div>
-<div class="overlay"></div>
+{{> "utilities/mobile-menu"}}

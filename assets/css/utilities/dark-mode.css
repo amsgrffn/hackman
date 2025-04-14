@@ -3,12 +3,9 @@
  * Global dark mode overrides
  */
 
-/* 11. Dark Mode Overrides
- /* ---------------------------------------------------------- */
 
  body.dark-mode {
-     --accent-color: oklch(0.69 0.1699 252.99);
-     /*#409cff*/
+     --accent-color: oklch(0.69 0.1699 252.99); /*#409cff*/
      --gray-dark: #f6f5f4;
      --gray-light: #3A3A3C;
      --gray-medium: #AEAEB2;
@@ -17,13 +14,9 @@
      --shadow: 0 0 6px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.06);
 
      --black: #fff;
-     --blue: oklch(0.69 0.1699 252.99);
-     /*#409cff*/
-     --red: oklch(0.71 0.1847 25.94);
-     /*#ff6961*/
-     --yellow: oklch(0.88 0.1735 93.24);
-     /*#ffd426*/
-
+     --blue: oklch(0.69 0.1699 252.99); /*#409cff*/
+     --red: oklch(0.71 0.1847 25.94); /*#ff6961*/
+     --yellow: oklch(0.88 0.1735 93.24); /*#ffd426*/
      --text-on-yellow: #403e38;
      --heading-brown: #f6f5f4;
      --page-text: #f6f5f4;

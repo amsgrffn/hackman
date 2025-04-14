@@ -1,11 +1,16 @@
+/*
+* Footer Styles
+* Site footer with columns, links and social icons
+*/
+
 .dropdown {
     align-items: center;
     display: inline-block;
     position: relative;
-
 }
 
 .dropdown-content {
+    animation: dropdownBounce 0.4s ease forwards;
     background-color: #fefefe;
     border-radius: .3rem;
     box-shadow: var(--shadow);
@@ -20,11 +25,14 @@
     z-index: 1000;
 }
 
-.dropdown-content.show { display: block; animation: dropdownBounce 0.4s ease forwards; }
+.dropdown-content.show {
+    animation: dropdownBounce 0.4s ease forwards;
+    display: block;
+}
 
 .dropdown-active {
-  z-index: 101 !important;
-  position: relative;
+    position: relative;
+    z-index: 101 !important;
 }
 
 .dropdown-content::before,
@@ -49,6 +57,7 @@
 }
 
 .dropdown-content a {
+    border-bottom: 1px solid #f5f5f7;
     color: var(--gray-dark);
     display: block;
     font-family: var(--sans);
@@ -57,13 +66,12 @@
     justify-content: space-between;
     margin: 0 1rem .5rem;
     padding: .25rem 0;
-    border-bottom: 1px solid #f5f5f7;
     text-decoration: none;
     transition: transform 0.3s ease;
 }
 
 .dropdown-content a:last-child {
-border-bottom: none
+    border-bottom: none;
 }
 
 .dropdown-content p.title {
@@ -71,9 +79,9 @@ border-bottom: none
     font-family: var(--sans);
     font-size: 16px;
     font-weight: 700;
-    text-align: left;
     margin-bottom: 4px;
     padding: 0 1rem 0;
+    text-align: left;
 }
 
 .dropdown-content p.thanks {
@@ -88,8 +96,8 @@ border-bottom: none
 
 .dropdown-content a:hover {
     color: var(--red) !important;
-    transform: translateX(3px);
     text-decoration: none;
+    transform: translateX(3px);
 }
 
 .dropdown-content a:hover:last-child {
@@ -118,8 +126,8 @@ border-bottom: none
     font-family: var(--sans);
     font-size: 14px;
     letter-spacing: 0.15px;
-    padding: 0;
     margin: 0;
+    padding: 0;
 }
 
 .dropbtn:hover {
@@ -139,35 +147,32 @@ border-bottom: none
     width: 14px;
 }
 
-/* Alert icon styling */
 .alert-icon {
     display: inline-block;
     margin-right: 6px;
     position: relative;
-    top: -3px; /* Fine-tune vertical alignment */
+    top: -3px;
 }
 
 .success-icon {
-    stroke: #403e38; /* Match your theme's text color */
+    stroke: #403e38;
 }
 
 .error-icon {
-    stroke: #ff3b30; /* Use your theme's error color */
+    stroke: #ff3b30;
 }
 
 /* When in dark mode */
 body.dark-mode .success-icon {
-    stroke: #f5f5f7; /* Light color for dark mode */
+    stroke: #f5f5f7;
 }
 
 body.dark-mode .error-icon {
-    stroke: #ff453a; /* Brighter error color for dark mode */
+    stroke: #ff453a;
 }
 
 /* Make the alert box display as flex for better alignment */
 .copy-alert {
-    display: flex;
     align-items: center;
+    display: flex;
 }
-
-

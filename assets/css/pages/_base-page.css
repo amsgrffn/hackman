@@ -1,7 +1,10 @@
-/* Full-width page styles */
+/*
+* Footer Styles
+* Site footer with columns, links and social icons
+*/
+
 .page-fullwidth {
     padding-bottom: 60px;
-
 }
 
 .container-wide {
@@ -12,21 +15,18 @@
 }
 
 .content-fullwidth {
-    width: 100%;
     max-width: 100%;
+    width: 100%;
 }
 
-/* Page Specific Styles */
 .page-main {
     padding-bottom: 60px;
-
 }
 
 .page-header {
     margin: 0 auto 3rem;
     text-align: center;
 }
-
 
 .featured-badge {
     background: #ffe680;
@@ -54,7 +54,6 @@
     border-bottom: 3px solid #000;
     color: var(--gray-dark);
     font-size: var(--text-2xl);
-
     font-weight: 300;
     line-height: 1.4;
     margin: 0;
@@ -63,19 +62,19 @@
 }
 
 .page-feature-image {
-    overflow: hidden;
-    width: 100%;
     background-color: var(--gray-light);
     margin-bottom: 2rem;
+    overflow: hidden;
+    width: 100%;
 }
 
 .page-feature-image img {
-    width: 100%;
+    display: block;
     height: auto;
     max-height: 600px;
     object-fit: cover;
     object-position: center;
-    display: block;
+    width: 100%;
 }
 
 .page-feature-image figcaption {
@@ -96,8 +95,6 @@
     font-size: 18px;
     line-height: 1.5;
 }
-
-
 
 .page-content a {
     color: var(--gray-dark);
@@ -120,8 +117,8 @@
 
 .page-content img {
     border-radius: var(--radius);
-    max-width: 100%;
     height: auto;
+    max-width: 100%;
 }
 
 .page-content blockquote {
@@ -137,24 +134,22 @@
 .page-content h4,
 .page-content h5,
 .page-content h6 {
-  margin-bottom: 8px;
-  margin-top: 44px; /* Adjust this value as needed */
+    margin-bottom: 8px;
+    margin-top: 44px;
 }
 
 .page-content h3 {
     font-size: 28px;
-      font-weight: 600;
-      letter-spacing: 0.03rem;
-      line-height: 1.4;
-
+    font-weight: 600;
+    letter-spacing: 0.03rem;
+    line-height: 1.4;
 }
 
 .page-content h4 {
     font-size: 26px;
-      font-weight: 600;
-      letter-spacing: 0.03rem;
-      line-height: 1.4;
-
+    font-weight: 600;
+    letter-spacing: 0.03rem;
+    line-height: 1.4;
 }
 
 .page-content h5 {
@@ -162,17 +157,14 @@
     font-weight: 600;
     letter-spacing: 0.03rem;
     line-height: 1.4;
-
 }
 
-  .page-content h6 {
+.page-content h6 {
     font-size: 22px;
     font-weight: 700;
     letter-spacing: 0.03rem;
     line-height: 1.4;
-
 }
-
 
 .page-footer {
     align-items: center;
@@ -182,19 +174,18 @@
     flex-wrap: wrap;
     justify-content: space-between;
     margin: 40px auto 60px;
-
     padding-top: 24px;
     position: relative;
 }
 
 .page-footer::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 1px;
     background: linear-gradient(to right, rgba(193, 154, 107, 0.1), rgba(193, 154, 107, 0.3), rgba(193, 154, 107, 0.1));
+    content: "";
+    height: 1px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
 }
 
 .page-footer p {
@@ -210,7 +201,6 @@
 .page-footer .dropbtn.share-btn {
     color: var(--dark-gray);
     font-size: var(--text-sm);
-
 }
 
 .page-footer .dropbtn.share-btn:hover {
@@ -224,15 +214,13 @@
 .page-template ul.with-icon li {
     color: var(--gray-medium);
     font-weight: 400;
-
     margin-bottom: 8px;
-
 }
 
 .page-template ul.with-icon li a {
-    font-family: var(--sans);
     border: none;
     color: var(--gray-dark);
+    font-family: var(--sans);
     font-size: 18px;
     font-weight: 500;
 }
@@ -252,8 +240,8 @@
     display: block;
     height: 100%;
     margin: 0 auto 3rem;
-    min-height: 290px;
     max-width: 100%;
+    min-height: 290px;
     opacity: 1;
     visibility: visible;
     width: 100%;
@@ -292,15 +280,11 @@
     fill: white;
 }
 
-
 .page-template .kg-toggle-card {
     background-color: #f6f5f4;
 }
 
-
-
 .page-template .kg-toggle-card h4.kg-toggle-heading-text {
-
     font-size: 22px;
     font-weight: 700;
     text-wrap: pretty;
@@ -318,8 +302,6 @@
 body.dark-mode .page-title {
     color: var(--primary-color);
 }
-
-
 
 body.dark-mode .page-feature-image figcaption {
     background-color: var(--gray-dark);
