@@ -1,5 +1,48 @@
 {{!< default}}
 {{> "layout/site-header"}}
+
+{{> "carousel/featured-carousel"}}
+
+<div class="container">
+    <div class="layout">
+        <main class="content">
+            <div class="posts-container">
+              {{#foreach posts}}
+                {{!-- Determine post type based on tags --}}
+                {{#has tag="#featured"}}
+                  {{> "cards/featured-card"}}
+                {{else}}
+                  {{#has tag="#bookmark"}}
+                    {{> "cards/bookmark-card"}}
+                  {{else}}
+                    {{#has tag="#note"}}
+                      {{> "cards/note-card"}}
+                    {{else}}
+                      {{#has tag="#quote"}}
+                        {{> "cards/quote-card"}}
+                      {{else}}
+                        {{#has tag="#video"}}
+                          {{> "cards/video-card"}}
+                        {{else}}
+                          {{!-- Default post type if no special tag --}}
+                          {{> "cards/article-card"}}
+                        {{/has}}
+                      {{/has}}
+                    {{/has}}
+                  {{/has}}
+                {{/has}}
+              {{/foreach}}
+            </div>
+            {{!-- Load more button --}}
+            {{#if pagination.pages}}
+              <button class="load-more-button">Load More</button>
+              <div class="loading-indicator">Loading posts...</div>
+            {{/if}}
+        </main>
+        {{> "layout/sidebar"}}
+    </div>
+</div>
+ {{> "layout/site-footer"}}
 <div class="container">
     <div class="layout">
         <main class="content">

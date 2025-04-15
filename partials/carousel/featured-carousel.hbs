@@ -1,0 +1,55 @@
+<div class="featured-carousel-wrapper">
+    <div class="container">
+        <div class="featured-carousel">
+            <div class="carousel-header">
+                <h2 class="carousel-title">Featured Posts</h2>
+                <div class="carousel-controls">
+                    <button class="carousel-button prev" aria-label="Previous slide">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M15 18l-6-6 6-6"/>
+                        </svg>
+                    </button>
+                    <button class="carousel-button next" aria-label="Next slide">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 18l6-6-6-6"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="carousel-container">
+                <div class="carousel-track">
+                    {{#get "posts" filter="featured:true" include="authors,tags" limit="12"}}
+                        {{#foreach posts}}
+                            <div class="carousel-slide">
+                                <article class="carousel-post">
+                                    {{#if feature_image}}
+                                        <div class="carousel-image-container">
+                                            <img
+                                                src="{{img_url feature_image size="l"}}"
+                                                alt="{{title}}"
+                                                class="carousel-image"
+                                            >
+                                        </div>
+                                    {{/if}}
+                                    <div class="carousel-content">
+                                        <h3 class="carousel-post-title"><a href="{{url}}">{{title}}</a></h3>
+
+                                        <div class="carousel-meta">
+                                            <ul>
+                                                   <li>{{#primary_tag}}<a href="{{url}}">{{> "icons/folder"}} {{name}}</a>{{/primary_tag}}</li>
+                                                   <li class="related-author-name">{{> "icons/user"}} {{primary_author.name}}</li>
+                                                   <li class="related-date">{{> "icons/calendar"}} {{date published_at timeago="true"}}</li>
+                                               </ul>
+
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+                        {{/foreach}}
+                    {{/get}}
+                </div>
+            </div>
+            <div class="carousel-pagination"></div>
+        </div>
+    </div>
+</div>

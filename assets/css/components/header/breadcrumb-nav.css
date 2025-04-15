@@ -150,7 +150,7 @@
    color: var(--gray-dark);
    display: block;
    overflow: hidden;
-   padding: var(--space-xs) var(--space-sm);
+   padding: 6px var(--space-sm);
    text-decoration: none;
    text-overflow: ellipsis;
    transition: background-color 0.2s ease;

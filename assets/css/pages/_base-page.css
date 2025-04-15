@@ -281,17 +281,20 @@
 }
 
 .page-template .kg-toggle-card {
-    background-color: #f6f5f4;
+
+
 }
 
 .page-template .kg-toggle-card h4.kg-toggle-heading-text {
-    font-size: 22px;
-    font-weight: 700;
+    font-family: var(--sans);
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0;
     text-wrap: pretty;
 }
 
 .page-template .kg-toggle-card .kg-toggle-content p {
-    font-size: var(--text-xl);
+    font-size: 18px;
 }
 
 .page-template .kg-toggle-heading svg {

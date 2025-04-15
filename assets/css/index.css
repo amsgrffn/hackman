@@ -32,6 +32,7 @@
 @import "components/cards/quote-card.css";
 @import "components/cards/shared.css";
 @import "components/cards/video-card.css";
+@import "components/carousel/featured-carousel.css";
 
 /* Article components */
 @import "components/article/article-base.css";
