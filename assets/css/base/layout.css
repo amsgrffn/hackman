@@ -13,7 +13,7 @@
 .layout {
     display: flex;
     flex-direction: column;
-    padding: 0rem 0;
+    padding: 0;
 }
 
 .content {

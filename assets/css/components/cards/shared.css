@@ -34,7 +34,7 @@ footer {
 
 .posts-container article {
     background: var(--secondary-color);
-    border-bottom: 3px solid #000;
+    border-bottom: 3px double #9f9f9f;
     margin-bottom: 3rem;
     padding-bottom: 3rem;
     position: relative;
@@ -47,24 +47,87 @@ footer {
 .post-content p,
 .post-content ul {
     font-size: 18px;
-    line-height: 25px;
+    line-height: 26px;
     margin-bottom: var(--space-md);
 }
 
-.post-content ol,
+.post-content blockquote {
+    border-left: 2px solid var(--gray-dark);
+    margin-left: 0;
+    padding-left: 14px;
+}
+
+.post-content ul,
+.post-content ol {
+    margin-bottom: 24px;
+}
+
 .post-content ul {
-    margin-bottom: var(--space-md);
-    padding: 0 0 0 0.9rem;
+    list-style: none;
 }
 
-.post-content ol li,
+.post-content ul ul {
+    margin: 3px 0 0;
+    padding-left: 20px;
+}
+
 .post-content ul li {
-    margin-bottom: 0.2rem;
+    margin-bottom: 3px;
+    padding-left: 0;
+    position: relative;
+}
+
+.post-content ul li:before {
+    background: linear-gradient(135deg, #000000 0%, #444444 100%);
+    border-radius: 50%;
+    content: "";
+    height: 10px;
+    left: -20px;
+    position: absolute;
+    top: 9.5px;
+    width: 10px;
+}
+
+.post-content ol {
+    counter-reset: circle-counter;
+    list-style: none;
+}
+
+.post-content ol ol {
+    margin: 3px 0 0;
+    padding-left: 20px;
+}
+
+.post-content ol li {
+    counter-increment: circle-counter;
+    font-family: var(--sans);
+    margin-bottom: 3px;
+    padding-left: 32px;
+    position: relative;
+}
+
+.post-content ol li::before {
+    align-items: center;
+    background-color: var(--gray-dark);
+    border-radius: 50%;
+    color: white;
+    content: counter(circle-counter);
+    display: flex;
+    font-size: 13px;
+    font-weight: 500;
+    height: 22px;
+    justify-content: center;
+    left: 0;
+    position: absolute;
+    top: 2.5px;
+    width: 22px;
 }
 
 .post-content a {
     color: var(--gray-dark);
+    font-weight: 500;
     text-decoration: underline;
+    text-decoration-color: var(--orange);
     text-decoration-thickness: 2px;
     text-underline-offset: 3px;
     transition: color 0.3s ease, text-decoration-color 0.3s ease;
@@ -102,7 +165,7 @@ footer {
 }
 
 .meta span {
-    border-radius: 0.5rem;
+    border-radius: 9999px;
     color: #525252;
     display: block;
     display: inline-block;
@@ -128,7 +191,7 @@ footer {
 }
 
 .meta .domain-pill {
-    background: #f6f5f4;
+    background: var(--gray-light);
     border-bottom-left-radius: 0;
     border-radius: 0.5rem;
     border-top-left-radius: 0;
@@ -189,7 +252,7 @@ footer {
     align-items: center;
     display: flex;
     gap: 12px;
-    margin: var(--space-3xl) 8px 0 8px;
+    margin: var(--space-2xl) 8px 0 8px;
 }
 
 .post-topics {

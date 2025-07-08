@@ -28,7 +28,8 @@
 }
 
 .card-content img {
-    border: 3px solid #000;
+    border-radius: 0.3rem;
+    box-shadow: var(--shadow);
 }
 
 .card-content figcaption {

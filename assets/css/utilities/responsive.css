@@ -89,7 +89,7 @@
     .sidebar {
         flex-shrink: 0;
         margin-left: 0;
-        margin-right: 140px;
+        margin-right: 160px;
         /* Add right margin instead of getting it from the gap */
         order: -1;
         /* This will move the sidebar before content */

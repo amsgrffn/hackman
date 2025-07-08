@@ -109,7 +109,7 @@
     text-decoration-color: transparent;
 }
 
-.page-content p {
+.page-content blockquote, .page-content p {
     color: var(--page-text);
     font-size: var(--text-xl);
     margin-bottom: 24px;
@@ -123,10 +123,9 @@
 
 .page-content blockquote {
     border-left: 2px solid var(--gray-dark);
-    font-size: var(--text-xl);
-    font-weight: 300;
+    font-weight: 600;
     margin-left: 0;
-    padding-left: 20px;
+    padding-left: 14px;
 }
 
 .page-content h2,
@@ -280,10 +279,7 @@
     fill: white;
 }
 
-.page-template .kg-toggle-card {
-
-
-}
+.page-template .kg-toggle-card {}
 
 .page-template .kg-toggle-card h4.kg-toggle-heading-text {
     font-family: var(--sans);

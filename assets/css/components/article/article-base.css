@@ -5,7 +5,6 @@
 
 .article-main {
     padding-bottom: 60px;
-
 }
 
 .post-template .article {
@@ -213,6 +212,7 @@
 .article-content ul {
     color: var(--gray-dark);
     font-size: 18px;
+    line-height: 29px;
     margin-bottom: 24px;
 }
 
@@ -258,38 +258,39 @@
 
 .article-content ol ol {
     margin: 3px 0 0;
-    padding-left: 20px;
+    padding-left: 26px;
 }
 
 .article-content ol li {
     counter-increment: circle-counter;
-    font-family: var(--sans);
     margin-bottom: 3px;
-    padding-left: 32px;
+    padding-left: 0;
     position: relative;
 }
 
 .article-content ol li::before {
     align-items: center;
     background-color: var(--gray-dark);
-    border-radius: 0.3rem;
+    border-radius: 50%;
     color: white;
     content: counter(circle-counter);
     display: flex;
+    font-family: var(--sans);
     font-size: 13px;
     font-weight: 500;
     height: 22px;
     justify-content: center;
-    left: 0;
+    left: -30px;
     position: absolute;
-    top: 2.5px;
+    top: 3px;
     width: 22px;
 }
 
 .article-content blockquote {
     border-left: 2px solid var(--gray-dark);
+    font-weight: 600;
     margin-left: 0;
-    padding-left: 16px;
+    padding-left: 14px;
 }
 
 .article-content .lg-quote {

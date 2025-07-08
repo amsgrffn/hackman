@@ -2,22 +2,25 @@
     <div class="container">
         <div class="featured-carousel">
             <div class="carousel-header">
-                <h2 class="carousel-title">Featured Posts</h2>
+                <h2 class="carousel-title">We {{> "icons/heart"}} this stuff. You might too.</h2>
                 <div class="carousel-controls">
-                    <button class="carousel-button prev" aria-label="Previous slide">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M15 18l-6-6 6-6"/>
-                        </svg>
+                    <button class="carousel-button slow-down" aria-label="Slow down">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-turtle-icon lucide-turtle"><path d="m12 10 2 4v3a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-3a8 8 0 1 0-16 0v3a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-3l2-4h4Z"/><path d="M4.82 7.9 8 10"/><path d="M15.18 7.9 12 10"/><path d="M16.93 10H20a2 2 0 0 1 0 4H2"/></svg>
                     </button>
-                    <button class="carousel-button next" aria-label="Next slide">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M9 18l6-6-6-6"/>
-                        </svg>
+                    <button class="carousel-button speed-up" aria-label="Speed up">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-rabbit-icon lucide-rabbit"><path d="M13 16a3 3 0 0 1 2.24 5"/><path d="M18 12h.01"/><path d="M18 21h-8a4 4 0 0 1-4-4 7 7 0 0 1 7-7h.2L9.6 6.4a1 1 0 1 1 2.8-2.8L15.8 7h.2c3.3 0 6 2.7 6 6v1a2 2 0 0 1-2 2h-1a3 3 0 0 0-3 3"/><path d="M20 8.54V4a2 2 0 1 0-4 0v3"/><path d="M7.612 12.524a3 3 0 1 0-1.6 4.3"/></svg>
+                    </button>
+                    <button class="carousel-button pause-toggle" aria-label="Pause" data-state="playing">
+                        <!-- Pause icon (shown when playing) -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="pause-icon"><circle cx="12" cy="12" r="10"/><line x1="10" x2="10" y1="15" y2="9"/><line x1="14" x2="14" y1="15" y2="9"/></svg>
+                        <!-- Play icon (shown when paused) -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="play-icon"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
                     </button>
                 </div>
             </div>
             <div class="carousel-container">
-                <div class="carousel-track">
+                <!-- Main carousel track that will scroll continuously -->
+                <div class="carousel-track continuous">
                     {{#get "posts" filter="featured:true" include="authors,tags" limit="12"}}
                         {{#foreach posts}}
                             <div class="carousel-slide">
@@ -33,14 +36,12 @@
                                     {{/if}}
                                     <div class="carousel-content">
                                         <h3 class="carousel-post-title"><a href="{{url}}">{{title}}</a></h3>
-
                                         <div class="carousel-meta">
                                             <ul>
-                                                   <li>{{#primary_tag}}<a href="{{url}}">{{> "icons/folder"}} {{name}}</a>{{/primary_tag}}</li>
-                                                   <li class="related-author-name">{{> "icons/user"}} {{primary_author.name}}</li>
-                                                   <li class="related-date">{{> "icons/calendar"}} {{date published_at timeago="true"}}</li>
-                                               </ul>
-
+                                                <li>{{#primary_tag}}<a href="{{url}}">{{> "icons/folder"}} {{name}}</a>{{/primary_tag}}</li>
+                                                <li class="related-author-name">{{> "icons/user"}} {{primary_author.name}}</li>
+                                                <li class="related-date">{{> "icons/calendar"}} {{date published_at timeago="true"}}</li>
+                                            </ul>
                                         </div>
                                     </div>
                                 </article>
@@ -49,7 +50,6 @@
                     {{/get}}
                 </div>
             </div>
-            <div class="carousel-pagination"></div>
         </div>
     </div>
 </div>

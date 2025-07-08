@@ -1,5 +1,5 @@
-// Import the carousel module
-import { initFeaturedCarousel } from './carousel.js';
+// Import the continuous carousel module
+import { initContinuousCarousel } from './carousel-continuous.js';
 
 // JavaScript files are compiled and minified during the build process to the assets/built folder. See available scripts in the package.json file.
 // Import CSS
@@ -531,7 +531,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initWikipediaIconsForCitations();
     initNewsletterModal();
     initBreadcrumbDropdown();
-    initFeaturedCarousel();
+    initContinuousCarousel();
 
     // Log to confirm script is running
     console.log('Theme JS initialized including social sharing');

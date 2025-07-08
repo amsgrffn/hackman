@@ -6,17 +6,20 @@
 .appearance-toggle-wrapper {
     align-items: center;
     display: flex;
-    justify-content: center;
+    justify-content: left;
 }
 
 .appearance-toggle {
+    align-items: center;
     background-color: var(--highlight-yellow);
     border-radius: 0.5rem;
     display: inline-flex;
     height: 36px;
+    justify-content: center;
     padding: 4px;
     position: relative;
     transition: background-color 0.2s ease;
+    min-width: 150px;
 }
 
 .appearance-toggle input {

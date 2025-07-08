@@ -147,11 +147,15 @@
     width: 14px;
 }
 
+.copy-alert {
+    font-family: var(--sans);
+}
+
 .alert-icon {
     display: inline-block;
     margin-right: 6px;
     position: relative;
-    top: -3px;
+    top: -1px;
 }
 
 .success-icon {

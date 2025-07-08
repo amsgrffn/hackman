@@ -17,7 +17,7 @@
 
 /* Remove default list styling */
 .sidebar-nuggs {
-    align-items: center;
+    align-items: flex-start;
     /* Center the list items horizontally */
     display: flex;
     flex-direction: column;
@@ -38,7 +38,7 @@
     display: block;
     /* Changed to block to take full width of parent li */
     font-family: var(--sans);
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 500;
     letter-spacing: 0.02rem;
     line-height: 1;
@@ -92,7 +92,7 @@
 }
 
 .sidebar-title {
-    border-bottom: var(--size-1) solid var(--gray-light);
+    border-bottom: var(--size-3) solid var(--gray-light);
     font-size: var(--text-base);
     margin-bottom: var(--space-sm);
     padding-bottom: var(--space-xs);
@@ -100,7 +100,11 @@
 
 /* 8.2 About Site */
 .about-site {
+    background: #f6f5f4;
+    border: 1px solid #cfcfcf;
+    border-radius: var(--radius);
     margin: 12px 0;
+    padding: 12px 10px;
     transition: var(--transition);
 }
 
@@ -121,14 +125,16 @@
     border-top-right-radius: .5rem;
     color: var(--gray-medium);
     display: flex;
-    font-size: 13px;
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 600;
     gap: 6px;
 }
 
 .about-site ul li span {
     align-items: center;
-    background-color: var(--blue);
-    border-radius: 50%;
+    background-color: var(--gray-dark);
+    border-radius: var(--radius);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     color: white;
     display: flex;
@@ -209,16 +215,16 @@ body.dark-mode .about-site ul li span {
 
 .about-site-description {
     color: var(--gray-dark);
-    line-height: 1.4;
+    font-size: 14px;
+    line-height: 1.5;
     margin-bottom: var(--space-lg);
     text-wrap: pretty;
 }
 
 .about-site-stats {
     display: grid;
-    gap: 8px;
+    gap: 4px;
     grid-template-columns: repeat(3, 1fr);
-    margin-bottom: 1.5rem;
 }
 
 .site-stat {
@@ -237,7 +243,7 @@ body.dark-mode .about-site ul li span {
 
 .stat-value {
     font-size: 1.2rem;
-    font-weight: 800;
+    font-weight: 700;
 }
 
 .stat-label {
@@ -246,10 +252,16 @@ body.dark-mode .about-site ul li span {
 }
 
 .sidebar .about-site-link {
+    background:#fff;
+    border: 1px solid #9f9f9f;
+    border-radius: var(--radius);
     color: var(--gray-dark);
     display: inline-block;
-    font-size: 14px;
+    font-family: var(--sans);
+    font-size: 13px;
     font-weight: 700;
+    letter-spacing: 0.02rem;
+    padding: 8px 10px;
     text-align: center;
     transition: color 0.2s ease;
 }
@@ -330,7 +342,7 @@ body.dark-mode .about-site ul li span {
     display: block;
     /* Changed to block to take full width of parent li */
     font-family: var(--sans);
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 500;
     letter-spacing: 0.02rem;
     line-height: 1;
@@ -595,9 +607,9 @@ body.dark-mode .close-newsletter {
 
 /* 8.6 Collapsible Sections */
 .collapsible-section {
-    border-bottom: 1px solid #e8e8e8;
-    margin-bottom: 10px;
-    padding-bottom: 10px;
+    border-bottom: 4px double #cfcfcf;
+    margin-bottom: 8px;
+    padding-bottom: 8px;
 }
 
 .collapsible-header {
@@ -613,7 +625,7 @@ body.dark-mode .close-newsletter {
 .collapsible-title {
     color: var(--primary-color);
     font-family: var(--sans);
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 500;
 }
 
@@ -639,7 +651,7 @@ body.dark-mode .close-newsletter {
 
 /* Page list styles */
 .page-list {
-    border-left: 1px dashed #111;
+    border-left: 1px dotted #111;
     list-style: none;
     margin: 12px 4px 12px;
     padding: 0;

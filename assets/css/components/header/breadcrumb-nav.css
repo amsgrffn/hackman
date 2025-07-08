@@ -4,7 +4,8 @@
 */
 
 .site-header {
-   margin: 30px 0 6rem;
+   margin: 4rem 0 4rem;
+   padding-bottom: 24px;
    z-index: 100;
 }
 

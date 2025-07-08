@@ -3,24 +3,17 @@
 
 :root {
     /* Colors */
-    --accent-color: oklch(0.58 0.198875 255.9725);
-    /*#0077ed*/
-    --gray-dark: oklch(0.23 0.0038 286.1);
-    /*#1d1d1f*/
-    --gray-light: oklch(0.98 0.0026 286.35);
-    /*#f9f9fb*/
-    --gray-medium: oklch(0.44 0.0118 252.92);
-    /*#4D5258*/
-    --primary-color: oklch(0 0 0);
-    /*#000000*/
-    --secondary-color: oklch(1 0 0);
-    /*#ffffff*/
+    --accent-color: oklch(0.58 0.198875 255.9725); /*#0077ed*/
+    --gray-dark: oklch(0.23 0.0038 286.1); /*#1d1d1f*/
+    --gray-light: oklch(0.98 0.0026 286.35); /*#f9f9fb*/
+    --gray-medium: oklch(0.44 0.0118 252.92); /*#4D5258*/
+    --primary-color: oklch(0 0 0); /*#000000*/
+    --secondary-color: oklch(1 0 0); /*#ffffff*/
 
     --text-on-yellow: #403e38;
     --heading-brown: #403e38;
     --page-text: #2a2200;
-    --highlight-yellow: oklch(0.93 0.1181 96.14);
-    /*#ffe889*/
+    --highlight-yellow: oklch(0.93 0.1181 96.14); /*#ffe889*/
     --excerpt-color: #554400;
     --meta-text: #8f8f8b;
     --background-cream: #FFFDF3;

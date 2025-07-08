@@ -68,9 +68,16 @@
     position: relative;
 }
 
+.note .post-content {
+    background-color: #e3f0fd;
+    border-radius: 0.5rem;
+    padding: 24px 32px;
+}
+
 .note h2 {
     display: none;
 }
+
 
 
 /* Add these to your assets/css/index.css file */
