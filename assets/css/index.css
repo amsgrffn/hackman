@@ -74,6 +74,10 @@
     padding: 24px 32px;
 }
 
+body.dark-mode .note .post-content {
+    background: #2b2e32;
+}
+
 .note h2 {
     display: none;
 }
@@ -108,10 +112,4 @@
     margin: 0;
     padding-bottom: var(--space-2xl);
     text-wrap: balance;
-}
-
-/* Dark mode adjustments */
-body.dark-mode .date-archive-title,
-body.dark-mode .date-archive-description {
-    color: var(--primary-color);
 }

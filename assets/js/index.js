@@ -91,7 +91,7 @@ import "../css/index.css";
               link: "https://2001.fandom.com/wiki/David_Bowman"
           },
           {
-              quote: "I'd rather have my eyelids stapled shut than read this trash.",
+              quote: "I'd rather staple my eyelids shut than read this trash.",
               author: "Regina George",
               avatar: "assets/media/avatars/regina.webp",
               link: "https://en.wikipedia.org/wiki/Regina_George_(Mean_Girls)"

@@ -9,6 +9,7 @@
     --gray-medium: oklch(0.44 0.0118 252.92); /*#4D5258*/
     --primary-color: oklch(0 0 0); /*#000000*/
     --secondary-color: oklch(1 0 0); /*#ffffff*/
+    --gray-surface:#f6f5f4;
 
     --text-on-yellow: #403e38;
     --heading-brown: #403e38;

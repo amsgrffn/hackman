@@ -4,15 +4,19 @@
  */
 
 body {
-    background: var(--secondary-color);
-    color: var(--gray-dark);
+    background: var(--color-background-primary);
+    color: var(--color-text-primary);
     font-family: var(--serif);
     font-size: var(--text-base);
     line-height: var(--line-height-normal);
 }
 
+body.dark-mode body {
+    background: #282828;
+}
+
 a {
-    color: var(--accent-color);
+    color: var(--color-blue);
     text-decoration: none;
     transition: var(--transition);
 }

@@ -40,22 +40,20 @@
 }
 
 .page-title {
-    color: var(--gray-dark);
+    color: var(--color-text-primary);
     font-family: var(--display);
-    font-size: clamp(32px, 5vw, 48px);
+    font-size: 2.8rem;
     font-weight: 800;
-    letter-spacing: 0.02rem;
+    letter-spacing: 0.05rem;
     line-height: 1.1;
     margin-bottom: var(--space-sm);
     text-wrap: pretty;
 }
 
 .page-excerpt {
-    border-bottom: 3px solid #000;
-    color: var(--gray-dark);
-    font-size: var(--text-2xl);
-    font-weight: 300;
-    line-height: 1.4;
+    color: var(--color-text-secondary);
+    font-size: var(--text-xl);
+    line-height: 1.5;
     margin: 0;
     padding-bottom: var(--space-2xl);
     text-wrap: balance;
@@ -96,6 +94,11 @@
     line-height: 1.5;
 }
 
+.page-header hr, .page-content hr {
+    border: 3px double var(--color-separator-opaque);
+    border-radius: var(--radius);
+}
+
 .page-content a {
     color: var(--gray-dark);
     text-decoration: underline;
@@ -122,8 +125,8 @@
 }
 
 .page-content blockquote {
-    border-left: 2px solid var(--gray-dark);
-    font-weight: 600;
+    border-left: 2px solid var(--color-separator);
+    font-weight: 400;
     margin-left: 0;
     padding-left: 14px;
 }
@@ -297,14 +300,21 @@
     color: #000;
 }
 
-/* Dark mode adjustments */
-body.dark-mode .page-title {
-    color: var(--primary-color);
+.page-template .kg-bookmark-card a.kg-bookmark-container, .page-template .kg-bookmark-card a.kg-bookmark-container:hover {
+    background: var(--color-background-tertiary);
+    margin-bottom: 1rem
 }
 
-body.dark-mode .page-feature-image figcaption {
-    background-color: var(--gray-dark);
-    color: var(--gray-light);
+.page-template .kg-bookmark-title {
+    font-size: 1.3rem;
+}
+
+.page-template .kg-bookmark-title, .page-template .kg-bookmark-description {
+    color: var(--color-text-primary);
+}
+
+.page-template .kg-bookmark-metadata {
+    color: var(--color-text-secondary);
 }
 
 /* Responsive styles */

@@ -15,7 +15,7 @@ footer {
 
 .card h2 {
     font-family: var(--display);
-    font-size: var(--heading-md);
+    font-size: var(--heading-lg);
     font-weight: 700;
     letter-spacing: 0.02rem;
     line-height: 1.2;
@@ -23,18 +23,18 @@ footer {
 }
 
 .card h2 a {
-    color: var(--gray-dark);
+    color: var(--color-text-primary);
     font-weight: 700;
     transition: color 0.3s ease;
 }
 
 .card h2 a:hover {
-    color: var(--red);
+    color: var(--color-orange);
 }
 
 .posts-container article {
-    background: var(--secondary-color);
-    border-bottom: 3px double #9f9f9f;
+
+    border-bottom: 3px double var(--color-separator-opaque);
     margin-bottom: 3rem;
     padding-bottom: 3rem;
     position: relative;
@@ -52,7 +52,7 @@ footer {
 }
 
 .post-content blockquote {
-    border-left: 2px solid var(--gray-dark);
+    border-left: 2px solid var(--color-separator);
     margin-left: 0;
     padding-left: 14px;
 }
@@ -108,7 +108,7 @@ footer {
 
 .post-content ol li::before {
     align-items: center;
-    background-color: var(--gray-dark);
+    background-color: var(--color-fill-primary);
     border-radius: 50%;
     color: white;
     content: counter(circle-counter);
@@ -124,17 +124,17 @@ footer {
 }
 
 .post-content a {
-    color: var(--gray-dark);
+    color: var(--color-text-primary);
     font-weight: 500;
     text-decoration: underline;
-    text-decoration-color: var(--orange);
+    text-decoration-color: var(--color-orange);
     text-decoration-thickness: 2px;
     text-underline-offset: 3px;
     transition: color 0.3s ease, text-decoration-color 0.3s ease;
 }
 
 .post-content a:hover {
-    color: var(--red);
+    color: var(--color-red);
     text-decoration-color: transparent;
 }
 
@@ -144,7 +144,7 @@ footer {
 
 .meta {
     align-items: center;
-    color: var(--gray-medium);
+    color: var(--color-text-secondary);
     display: flex;
     font-family: var(--sans);
     font-size: 12px;
@@ -165,8 +165,9 @@ footer {
 }
 
 .meta span {
-    border-radius: 9999px;
-    color: #525252;
+    border: 1px solid var(--color-separator-opaque);
+    border-radius: var(--radius);
+    color: var(--color-text-secondary);
     display: block;
     display: inline-block;
     font-weight: 500;
@@ -177,52 +178,48 @@ footer {
 }
 
 .meta .tag {
-    background: var(--gray-dark);
+    background: var(--color-background-tertiary);
     color: #fff;
-    color: var(--gray-light);
+    color: var(--color-text-primary);
     font-weight: 500;
-    padding: 0 16px;
     position: relative;
     z-index: 2;
 }
 
 .meta .tag a {
-    color: var(--gray-light);
+    color: var(--color-text-secondary);
+}
+
+.meta .tag a:hover {
+    color: var(--color-content-on-dark);
 }
 
 .meta .domain-pill {
-    background: var(--gray-light);
-    border-bottom-left-radius: 0;
-    border-radius: 0.5rem;
-    border-top-left-radius: 0;
-    color: var(--gray-medium);
-    margin-left: -34px;
-    padding: 0 16px 0 34px;
+    background: var(--color-background-tertiary);
+    border: 1px solid var(--color-separator-opaque);
+    color: var(--color-text-secondary);
     z-index: 1;
 }
 
 .meta .domain-pill img {
     filter: drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.1));
     image-rendering: -webkit-optimize-contrast;
+    margin: -3px 0 0 0;
 }
 
 .meta .tag,
 .meta .domain-pill {
-    align-items: center;
-    box-sizing: border-box;
-    display: inline-flex;
-    height: 32px;
-    line-height: 1;
-    vertical-align: middle;
+
+
 }
 
 .meta .pub-date {
-    background: #f6f5f4;
+    background: var(--color-background-tertiary);
     font-weight: 500;
 }
 
 .meta .bookmark-source {
-    background: #f6f5f4;
+    background: var(--color-background-tertiary);
     background: transparent;
     border-radius: 9999px;
     font-weight: 500;
@@ -231,8 +228,8 @@ footer {
 }
 
 .meta .tag:hover {
-    background-color: var(--red);
-    color: #fff;
+    background-color: var(--color-red);
+    color: var(--color-content-on-dark);
     transform: scale(1.1);
 }
 
@@ -240,6 +237,7 @@ footer {
     display: inline;
     height: 14px;
     margin-right: 6px;
+    stroke: var(--color-text-primary);
     vertical-align: middle;
     width: 14px;
 }
@@ -268,9 +266,9 @@ footer {
 }
 
 .post-topics a {
-    color: var(--gray-medium);
+    color: var(--color-text-secondary);
 }
 
 .post-topics a:hover {
-    color: var(--red);
+    color: var(--color-red);
 }

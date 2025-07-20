@@ -5,8 +5,9 @@
 
 .author-card {
     align-items: center;
-    background: #f6f5f4;
-    border-radius: 0.5rem;
+    background: var(--color-background-tertiary);
+    border: 1px solid var(--color-separator-opaque);
+    border-radius: var(--radius);
     display: flex;
     gap: 24px;
     margin: 80px 0;
@@ -15,10 +16,10 @@
 
 .author-card-image {
     border-radius: 50%;
-    height: 50px;
+    height: 80px;
     margin-bottom: 20px;
     object-fit: cover;
-    width: 50px;
+    width: 80px;
 }
 
 .author-card-content {
@@ -34,7 +35,7 @@
 }
 
 .author-card-bio {
-    color: var(--gray-dark);
+    color: var(--color-text-primary);
     font-size: 16px;
     line-height: 1.4;
     margin-bottom: 16px;
@@ -43,7 +44,7 @@
 }
 
 .author-card-bio span {
-    color: var(--gray-dark);
+    color: var(--color-text-primary);
     font-style: italic;
     font-weight: 600;
 }
@@ -57,7 +58,7 @@
 }
 
 .author-card-links a {
-    color: var(--gray-dark);
+    color: var(--color-text-primary);
     font-weight: 500;
     text-decoration: underline;
     text-decoration-thickness: 2px;
@@ -66,7 +67,6 @@
 }
 
 .author-card-links a:hover {
-    background: var(--red);
-    color: var(--highlight-yellow);
+    color: var(--color-red);
     transform: scale(1.1);
 }

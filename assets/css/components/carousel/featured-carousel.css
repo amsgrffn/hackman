@@ -4,26 +4,26 @@
  */
 
 .featured-carousel-wrapper {
-    background: var(--secondary-color);
-    border-bottom: 3px double #2a2200;
-    border-top: 3px double #2a2200;
+    background: var(--color-background-secondary);
+    border-bottom: 1px solid var(--color-separator-opaque);
+    border-top: 1px solid var(--color-separator-opaque);
+
     margin: 0;
     position: relative;
-    width: 100vw; /* Full viewport width */
-    margin-left: calc(-50vw + 50%); /* Center the element */
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
     left: 0;
     right: 0;
-    overflow: hidden; /* Ensure no horizontal scrollbar appears */
+    overflow: hidden;
 }
 
 .featured-carousel-wrapper .container {
-    max-width: 100%; /* Remove max-width constraint */
+    max-width: 100%;
     width: 100%;
     padding: 1.5rem 0;
 }
 
 .featured-carousel {
-    background-color: var(--background-color);
     margin: 0 auto;
     position: relative;
 }
@@ -38,12 +38,14 @@
 }
 
 .carousel-header svg.heart {
+    fill: var(--color-red);
     height: 18px;
+    stroke: var(--color-red);
     width: 18px;
 }
 
 .carousel-title {
-    color: var(--gray-dark);
+    color: var(--color-text-primary);
     font-family: var(--display);
     font-size: 1rem;
     font-weight:600;
@@ -58,8 +60,8 @@
 
 .carousel-button {
     align-items: center;
-    background-color: transparent;
-    border: 1px solid #efefef;
+    background-color: var(--color-background-primary);
+    border: 1px solid var(--color-separator);
     border-radius: 50%;
     cursor: pointer;
     display: flex;
@@ -80,14 +82,15 @@
 }
 
 .carousel-button svg {
+    stroke: var(--color-text-primary);
     height: 20px;
     width: 20px;
 }
 
 .carousel-button.pause-toggle {
     align-items: center;
-    background-color: transparent;
-    border: 1px solid var(--gray-light);
+    background-color: var(--color-background-primary);
+    border: 1px solid var(--color-separator);
     border-radius: 50%;
     cursor: pointer;
     display: flex;
@@ -122,16 +125,6 @@
 
 .carousel-button.pause-toggle[data-state="paused"] .play-icon {
     display: block;
-}
-
-/* Dark mode adjustments */
-body.dark-mode .carousel-button.pause-toggle {
-    border-color: var(--gray-dark);
-    color: var(--gray-light);
-}
-
-body.dark-mode .carousel-button.pause-toggle:hover {
-    background-color: var(--gray-dark);
 }
 
 .carousel-container {
@@ -195,16 +188,16 @@ body.dark-mode .carousel-button.pause-toggle:hover {
 }
 
 .carousel-slide {
-    flex: 0 0 250px; /* Fixed width for continuous scroll */
+    flex: 0 0 250px;
     width: 250px;
     padding: 0 0.5rem;
     margin-right: 0rem;
 }
 
 .carousel-post {
-    background: var(--secondary-color);
-    border: 3px double var(--gray-dark);
-    border-radius: 0.3rem;
+    background: var(--color-background-primary);
+    border: var(--color-separator);
+    border-radius: var(--radius);
     box-shadow: var(--shadow);
     display: flex;
     flex-direction: column;
@@ -213,13 +206,16 @@ body.dark-mode .carousel-button.pause-toggle:hover {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+body.dark-mode .carousel-post {
+    box-shadow: none;
+}
+
 .carousel-post:hover {
-    box-shadow: var(--shadow-hover);
     transform: translateY(-4px);
 }
 
 .carousel-post:hover h3 {
-    color: var(--red);
+    color: var(--color-red);
 }
 
 .carousel-image-container {
@@ -248,7 +244,7 @@ body.dark-mode .carousel-button.pause-toggle:hover {
 }
 
 .carousel-post-title {
-    color: var(--gray-dark);
+    color: var(--color-text-primary);
     font-family: var(--display);
     font-size: 18px;
     font-weight: 600;
@@ -268,7 +264,7 @@ body.dark-mode .carousel-button.pause-toggle:hover {
 }
 
 .carousel-meta {
-    color: var(--gray-medium);
+    color: var(--color-text-secondary);
     font-family: var(--sans);
     font-size: 11px;
     margin-top: auto;
@@ -281,7 +277,7 @@ body.dark-mode .carousel-button.pause-toggle:hover {
 }
 
 .carousel-meta ul li {
-    border-bottom: 1px solid var(--gray-medium);
+    border-bottom: 1px solid var(--color-separator-opaque);
     padding: 3px 0;
 }
 
@@ -290,7 +286,7 @@ body.dark-mode .carousel-button.pause-toggle:hover {
 }
 
 .carousel-meta ul li a:hover {
-    color: var(--red);
+    color: var(--color-red);
 }
 
 .carousel-meta ul svg {
@@ -365,28 +361,4 @@ body.dark-mode .carousel-button.pause-toggle:hover {
             transform: translateX(calc(-300px * 6));
         }
     }
-}
-
-/* Dark Mode Adjustments */
-body.dark-mode .carousel-post {
-    background-color: var(--dark-bg-color);
-    border-color: var(--gray-light);
-}
-
-body.dark-mode .featured-carousel-wrapper .container {
-    border-color: var(--gray-light);
-}
-
-body.dark-mode .carousel-title,
-body.dark-mode .carousel-post-title {
-    color: var(--gray-light);
-}
-
-body.dark-mode .carousel-button {
-    border-color: var(--gray-dark);
-    color: var(--gray-light);
-}
-
-body.dark-mode .carousel-button:hover {
-    background-color: var(--gray-dark);
 }

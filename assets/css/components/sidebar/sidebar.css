@@ -7,22 +7,25 @@
     width: 100%;
 }
 
+.sidebar hr {
+    border: 3px double var(--color-separator-opaque);
+    border-radius: var(--radius);
+}
+
 /* Container styling */
 .sidebar-navigation {
     margin: 4rem auto 0;
     text-align: center;
     width: 200px;
-    /* Set the exact width of the sidebar container */
 }
 
 /* Remove default list styling */
 .sidebar-nuggs {
     align-items: flex-start;
-    /* Center the list items horizontally */
     display: flex;
     flex-direction: column;
     list-style: none;
-    margin: 2.5rem auto 0;
+    margin: 1rem auto 0;
     padding: 0;
 }
 
@@ -32,59 +35,57 @@
 
 /* Button styling */
 .sidebar-nuggs .btn {
-    border-radius: 0.5rem;
+    border: 1px solid var(--color-separator-opaque);
+    border-radius: var(--radius);
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-    /* Subtle outer shadow */
     display: block;
-    /* Changed to block to take full width of parent li */
-    font-family: var(--sans);
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.02rem;
+    font-family: var(--display);
+    font-size: 16px;
+    font-weight: 700;
     line-height: 1;
     margin-bottom: 12px;
     padding: 10px 16px;
     position: relative;
-    /* Needed for proper shadow effects */
     text-align: center;
     text-decoration: none;
     transition: background-color 0.3s ease, color 0.3s ease, transform 0.1s, box-shadow 0.1s, background-image 0.1s;
-    width: 150px;
+    width: 200px;
+}
+
+body.dark-mode .sidebar-nuggs .btn {
+    border: 1px solid var(--color-separator-opaque);
 }
 
 .sidebar-nuggs .btn:hover {
-    background: var(--red);
-    color: white;
-    /* For better contrast on red */
+    background: var(--color-red);
+    border: 1px solid var(--color-red);
+    color: var(--color-content-on-dark);
+    transform: scale(1.05);
     transition: background-color 0.3s ease, color 0.3s ease;
-    /* Smooth transition */
 }
 
 .sidebar-nuggs .btn:active {
     background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
-    /* Darken the button */
     box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.2);
-    /* Inner shadow for "pressed" look */
     transform: scale(0.97);
-    /* Slightly shrink the button */
     transition: transform 0.1s, box-shadow 0.1s, background-image 0.1s;
-    /* Quick transition */
 }
 
 /* Specific button styles */
 .sidebar-nuggs .membership-signup {
-    background: var(--blue);
-    color: #fff;
+    background: var(--color-background-tertiary);
+    color: var(--color-text-primary);
 }
 
 .sidebar-nuggs .membership-login {
-    background: var(--black);
-    color: #f6f5f4;
+    background: var(--color-background-tertiary);
+    border: 1px solid var(--color-separator-opaque);
+    color: var(--color-text-primary);
 }
 
 .sidebar-nuggs .search {
-    background: var(--black);
-    color: #fff;
+    background: var(--color-background-tertiary);
+    color: var(--color-text-primary);
 }
 
 .sidebar-section {
@@ -100,8 +101,8 @@
 
 /* 8.2 About Site */
 .about-site {
-    background: #f6f5f4;
-    border: 1px solid #cfcfcf;
+    background: var(--color-background-tertiary);
+    border: 1px solid var(--color-separator);
     border-radius: var(--radius);
     margin: 12px 0;
     padding: 12px 10px;
@@ -120,10 +121,10 @@
 
 .about-site ul li {
     align-items: center;
-    background: #f6f5f4;
+    background: var(--color-background-tertiary);
     border-bottom-right-radius: .5rem;
     border-top-right-radius: .5rem;
-    color: var(--gray-medium);
+    color: var(--color-text-secondary);
     display: flex;
     font-family: var(--sans);
     font-size: 12px;
@@ -133,10 +134,10 @@
 
 .about-site ul li span {
     align-items: center;
-    background-color: var(--gray-dark);
+    background: var(--color-fill-dark);
     border-radius: var(--radius);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    color: white;
+    color: var(--color-content-on-dark);
     display: flex;
     flex-shrink: 0;
     font-family: var(--mono);
@@ -159,13 +160,13 @@
 
 /* Add hover effect */
 .about-site ul li:hover span {
-    background: var(--red);
+    background: var(--color-red);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 /* Dark mode adjustments */
 body.dark-mode .about-site ul li {
-    color: var(--gray-light);
+    color: var(--color-text-primary);
 }
 
 body.dark-mode .about-site ul li span {
@@ -192,7 +193,7 @@ body.dark-mode .about-site ul li span {
 }
 
 .about-site-title {
-    color: var(--gray-dark);
+    color: var(--color-text-primary);
     font-family: var(--display);
     font-size: var(--heading-sm);
     font-weight: var(--font-weight-black);
@@ -214,7 +215,7 @@ body.dark-mode .about-site ul li span {
 }
 
 .about-site-description {
-    color: var(--gray-dark);
+    color: var(--color-text-primary);
     font-size: 14px;
     line-height: 1.5;
     margin-bottom: var(--space-lg);
@@ -228,7 +229,7 @@ body.dark-mode .about-site ul li span {
 }
 
 .site-stat {
-    background-color: var(--secondary-color);
+    background-color: var(--color-content-on-dark);
     border: 1px solid rgba(0, 0, 0, 0.06);
     border-radius: 10px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
@@ -247,7 +248,7 @@ body.dark-mode .about-site ul li span {
 }
 
 .stat-label {
-    color: var(--gray-medium);
+    color: var(--color-text-secondary);
     font-size: 10px;
 }
 
@@ -255,7 +256,7 @@ body.dark-mode .about-site ul li span {
     background:#fff;
     border: 1px solid #9f9f9f;
     border-radius: var(--radius);
-    color: var(--gray-dark);
+    color: var(--color-text-primary);
     display: inline-block;
     font-family: var(--sans);
     font-size: 13px;
@@ -274,13 +275,13 @@ body.dark-mode .about-site ul li span {
 }
 
 .about-site-link:hover {
-    color: var(--red);
+    color: var(--color-red);
 }
 
 /* 8.4 Newsletter */
 .newsletter-container {
-    border: 3px dashed #000;
-    border-radius: .3rem;
+    border: 3px dashed var(--color-separator);
+    border-radius: var(--radius);
     box-shadow: var(--shadow);
     margin: 12px 0;
     overflow: visible !important;
@@ -294,7 +295,7 @@ body.dark-mode .about-site ul li span {
 }
 
 .sidebar .newsletter-form {
-    background: #fff !important;
+    background: var(--color-background-tertiary) !important;
     /* Ensure background is white */
     border: 2px dashed #000 !important;
     /* Add a more noticeable border */
@@ -336,15 +337,16 @@ body.dark-mode .about-site ul li span {
 }
 
 .newsletter-button {
-    background: var(--black);
+    background: var(--color-background-tertiary);
+    border: 1px solid var(--color-separator-opaque);
     border-radius: var(--radius);
-    color: #fff;
+    color: var(--color-text-primary);
     display: block;
     /* Changed to block to take full width of parent li */
-    font-family: var(--sans);
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.02rem;
+    font-family: var(--display);
+    font-size: 16px;
+    font-weight: 700;
+
     line-height: 1;
     margin: 0 auto 0;
     padding: 10px 16px;
@@ -354,12 +356,13 @@ body.dark-mode .about-site ul li span {
     text-decoration: none;
     transition: background-color 0.3s ease, color 0.3s ease, transform 0.1s, box-shadow 0.1s, background-image 0.1s;
     transition: all 0.3s ease;
-    width: 150px;
+    width: 200px;
 }
 
 .newsletter-button:hover {
-    background-color: var(--red);
-    color: #fff;
+    background-color: var(--color-red);
+    border: 1px solid var(--color-red);
+    color: var(--color-content-on-dark);
     transform: scale(1.05);
 }
 
@@ -379,7 +382,7 @@ body.dark-mode .about-site ul li span {
 
 .newsletter-modal-content {
     animation: modalFadeIn 0.3s ease-out;
-    background-color: var(--secondary-color);
+    background-color: var(--color-background-tertiary);
     border-radius: var(--radius);
     box-shadow: var(--shadow);
     max-width: 500px;
@@ -401,33 +404,33 @@ body.dark-mode .about-site ul li span {
 }
 
 .close-newsletter {
-    color: var(--gray-dark);
+    color: var(--color-text-primary);
     cursor: pointer;
     font-size: 28px;
-    font-weight: bold;
+    font-weight: 800;
     position: absolute;
     right: 20px;
-    top: 15px;
+    top: 24px;
     transition: color 0.2s ease;
 }
 
 .close-newsletter:hover {
-    color: var(--red);
+    color: var(--color-red);
 }
 
 .newsletter-modal-title {
-    color: var(--gray-dark);
+    color: var(--display);
     font-family: var(--display);
     font-size: var(--heading-md);
     font-weight: 700;
-    letter-spacing: .02rem;
-    margin-bottom: 15px;
+    letter-spacing: .03rem;
+    margin-bottom: 0;
 }
 
 .newsletter-modal-description {
-    color: var(--gray-dark);
+    color: var(--color-text-secondary);
     font-size: var(--text-lg);
-    margin-bottom: 20px;
+    margin-bottom: 24px;
 }
 
 .newsletter-modal-form {
@@ -437,10 +440,10 @@ body.dark-mode .about-site ul li span {
 }
 
 .newsletter-modal-input {
-    background: #ffe680;
-    border: 2px solid #000;
+    background: var(--color-yellow);
+    border: 2px solid var(--color-separator);
     border-radius: var(--radius);
-    color: #403e38;
+    color: var(--color-text-primary);
     font-family: var(--display);
     font-size: var(--text-lg);
     font-weight: 700;
@@ -449,15 +452,15 @@ body.dark-mode .about-site ul li span {
 }
 
 .newsletter-modal-input::placeholder {
-    color: rgba(64, 62, 56, 0.7);
+    color: var(--color-text-secondary);
     font-weight: 500;
 }
 
 .newsletter-modal-button {
-    background-color: var(--gray-dark);
+    background-color: var(--color-fill-dark);
     border: none;
     border-radius: var(--radius);
-    color: var(--secondary-color);
+    color: var(--color-content-on-dark);
     cursor: pointer;
     font-family: var(--display);
     font-size: var(--text-lg);
@@ -474,10 +477,9 @@ body.dark-mode .about-site ul li span {
 }
 
 .newsletter-modal-footnote {
-    color: var(--gray-medium);
+    color: var(--color-text-secondary);
     font-size: var(--text-sm);
     margin-top: 20px;
-    text-align: center;
 }
 
 .newsletter-modal-footnote a {
@@ -486,28 +488,6 @@ body.dark-mode .about-site ul li span {
     text-decoration-thickness: 2px;
     text-underline-offset: 3px;
     transition: color 0.3s ease, text-decoration-color 0.3s ease;
-}
-
-/* Dark mode adjustments */
-body.dark-mode .newsletter-modal-content {
-    background-color: var(--secondary-color);
-}
-
-body.dark-mode .newsletter-modal-title,
-body.dark-mode .newsletter-modal-description {
-    color: var(--gray-light);
-}
-
-body.dark-mode .newsletter-modal-button {
-    background-color: var(--accent-color);
-}
-
-body.dark-mode .newsletter-modal-button:hover {
-    background-color: var(--red);
-}
-
-body.dark-mode .close-newsletter {
-    color: var(--gray-light);
 }
 
 .newsletter-input::placeholder {
@@ -538,6 +518,7 @@ body.dark-mode .close-newsletter {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+    justify-content: center;
     margin: 24px 0 0;
     min-height: 16rem;
     text-align: center;
@@ -548,7 +529,7 @@ body.dark-mode .close-newsletter {
     display: flex;
     flex-direction: column;
     font-family: var(--sans);
-    font-size: 18px;
+    font-size: 19px;
     font-style: normal;
     font-weight: 700;
     line-height: 1.4;
@@ -601,13 +582,13 @@ body.dark-mode .close-newsletter {
 .sidebar img.scribble {
     display: block;
     height: auto;
-    margin: 0 auto 4rem;
+    margin: 0 auto 3rem;
     width: 120px;
 }
 
 /* 8.6 Collapsible Sections */
 .collapsible-section {
-    border-bottom: 4px double #cfcfcf;
+    border-bottom: 2px double var(--color-separator-opaque);
     margin-bottom: 8px;
     padding-bottom: 8px;
 }
@@ -651,7 +632,7 @@ body.dark-mode .close-newsletter {
 
 /* Page list styles */
 .page-list {
-    border-left: 1px dotted #111;
+    border-left: 1px dotted var(--color-separator-opaque);
     list-style: none;
     margin: 12px 4px 12px;
     padding: 0;

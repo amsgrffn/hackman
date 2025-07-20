@@ -15,12 +15,12 @@
  }
 
  h1.title {
-     text-wrap: balance;
      font-size: 72px;
      font-weight: 800;
      letter-spacing: -0.09rem;
      line-height: 1.1;
      margin-bottom: 6rem;
+     text-wrap: balance;
  }
 
  h2 {

@@ -33,14 +33,14 @@
 }
 
 .card-content figcaption {
-    color: var(--gray-medium);
+    color: var(--color-text-secondary);
     font-family: var(--sans);
     font-size: 14px;
     margin: 16px 0 32px;
 }
 
 .card-content figcaption a {
-    color: var(--gray-dark);
+    color: var(--color-text-primary);
     font-weight: 500;
     text-decoration: underline;
 }
@@ -50,7 +50,7 @@
 }
 
 .card-content p.readmore {
-    color: var(--gray-medium);
+    color: var(--color-text-secondary);
     font-family: var(--sans);
     font-size: 14px;
     font-weight: 400;
@@ -58,7 +58,7 @@
 }
 
 .card-content p.readmore a {
-    color: var(--gray-dark);
+    color: var(--color-text-primary);
     font-weight: 500;
     text-decoration: underline;
     text-decoration-thickness: 2px;
@@ -67,7 +67,7 @@
 }
 
 .card-content p.readmore a:hover {
-    color: var(--red);
+    color: var(--color-red);
     opacity: 1;
 }
 

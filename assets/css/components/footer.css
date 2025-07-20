@@ -4,7 +4,7 @@
 */
 
 .footer {
-    border-top: 3px solid var(--gray-dark);
+    border-top: 1px solid var(--color-separator-opaque);
     margin: 10rem auto 0;
     padding: 44px 0;
     text-align: center;
@@ -27,7 +27,7 @@
 
 .footer-legal li {
     border-radius: 0.5rem;
-    color: var(--gray-dark);
+    color: var(--color-text-primary);
     font-family: var(--display);
     font-weight: 600;
     letter-spacing: 0.02rem;
@@ -36,26 +36,26 @@
 
 .footer-bottom a {
     border-radius: 0.5rem;
-    color: var(--gray-dark);
+    color: var(--color-text-primary);
     font-family: var(--display);
     font-weight: 600;
     letter-spacing: 0.02rem;
 }
 
 .footer-bottom a:hover {
-    color: #ff6961;
+    color: var(--color-red);
 }
 
 .footer .copyright {
     align-items: center;
-    color: var(--gray-medium);
+    color: var(--color-text-secondary);
     display: flex;
     font-size: 12px;
     justify-content: space-between;
 }
 
 .copyright li {
-    color: var(--gray-medium);
+    color: var(--color-text-secondary);
     font-family: var(--sans);
     letter-spacing: 0.01rem;
     list-style-type: none;
@@ -74,4 +74,9 @@
     margin-top: -3px;
     vertical-align: middle;
     width: 16px;
+}
+
+.footer svg.heart {
+    fill: var(--color-red);
+    stroke: var(--color-red);
 }

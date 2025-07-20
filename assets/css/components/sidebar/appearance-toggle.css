@@ -11,7 +11,7 @@
 
 .appearance-toggle {
     align-items: center;
-    background-color: var(--highlight-yellow);
+    background-color: var(--color-yellow);
     border-radius: 0.5rem;
     display: inline-flex;
     height: 36px;
@@ -19,7 +19,7 @@
     padding: 4px;
     position: relative;
     transition: background-color 0.2s ease;
-    min-width: 150px;
+    min-width: 200px;
 }
 
 .appearance-toggle input {

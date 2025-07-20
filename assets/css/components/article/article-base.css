@@ -18,7 +18,7 @@
 
 .article-meta {
     align-items: center;
-    color: var(--gray-medium);
+    color: var(--color-text-secondary);
     display: flex;
     flex-wrap: wrap;
     font-family: var(--sans);
@@ -28,23 +28,23 @@
 }
 
 .article-title {
-    color: var(--gray-dark);
+    color: var(--color-text-primary);
     font-family: var(--display);
     font-size: 42px;
     font-weight: 700;
     letter-spacing: 0.02rem;
-    line-height: 1.2;
+    line-height: 1.15;
     margin-bottom: 44px;
     text-wrap: balance;
 }
 
 .article-excerpt {
-    color: var(--gray-medium);
+    color: var(--color-text-secondary);
     font-family: var(--sans);
     font-size: clamp(18px, 3vw, 22px);
     font-weight: 500;
     line-height: 1.4;
-    margin: -22px 0 44px;
+    margin: -22px 0 22px;
     max-width: 700px;
 }
 
@@ -69,7 +69,7 @@
 }
 
 .author-bio {
-    color: var(--gray-medium);
+    color: var(--color-text-secondary);
     font-size: 14px;
 }
 
@@ -106,7 +106,7 @@
 
 .article-feature-image figcaption {
     border-radius: 0 0 var(--radius) var(--radius);
-    color: var(--gray-medium);
+    color: var(--color-text-secondary);
     font-family: var(--sans);
     font-size: 13px;
     margin: 0 auto;
@@ -115,7 +115,7 @@
 }
 
 .article-feature-image figcaption a {
-    color: var(--gray-dark);
+    color: var(--color-text-primary);
     text-decoration: underline;
     text-decoration-thickness: 2px;
     text-underline-offset: 3px;
@@ -137,15 +137,16 @@
 }
 
 .article-content a {
-    color: var(--gray-dark);
+    color: var(--color-text-primary);
     text-decoration: underline;
+    text-decoration-color: var(--color-orange);
     text-decoration-thickness: 2px;
     text-underline-offset: 3px;
     transition: color 0.3s ease, text-decoration-color 0.3s ease;
 }
 
 .article-content a:hover {
-    color: var(--red);
+    color: var(--color-red);
     text-decoration-color: transparent;
 }
 
@@ -153,7 +154,7 @@
     font-size: 30px;
     font-weight: 600;
     letter-spacing: 0.03rem;
-    line-height: 1.4;
+    line-height: 1.3;
     margin: 0 0 8px;
 }
 
@@ -210,9 +211,9 @@
 .article-content ol,
 .article-content p,
 .article-content ul {
-    color: var(--gray-dark);
+    color: var(--color-text-primary);
     font-size: 18px;
-    line-height: 29px;
+    line-height: 1.45;
     margin-bottom: 24px;
 }
 
@@ -223,6 +224,15 @@
 .article-content ul,
 .article-content ol {
     margin-bottom: 24px;
+    padding-left: 20px;
+}
+
+.article-content ol {
+    padding-left: 28px;
+}
+
+.article-content ul {
+    padding-left: 22px;
 }
 
 .article-content ul {
@@ -241,7 +251,7 @@
 }
 
 .article-content ul li:before {
-    background: linear-gradient(135deg, #000000 0%, #444444 100%);
+    background: var(--color-fill-dark);
     border-radius: 50%;
     content: "";
     height: 12px;
@@ -270,9 +280,9 @@
 
 .article-content ol li::before {
     align-items: center;
-    background-color: var(--gray-dark);
+    background: var(--color-fill-dark);
     border-radius: 50%;
-    color: white;
+    color: var(--color-content-on-dark);
     content: counter(circle-counter);
     display: flex;
     font-family: var(--sans);
@@ -287,15 +297,14 @@
 }
 
 .article-content blockquote {
-    border-left: 2px solid var(--gray-dark);
-    font-weight: 600;
+    border-left: 2px solid var(--color-separator-opaque);
     margin-left: 0;
     padding-left: 14px;
 }
 
 .article-content .lg-quote {
-    background: #f6f5f4;
-    border-left: none;
+    background: var(--color-background-tertiary);
+    border: 1px solid var(--color-separator-opaque);
     border-radius: 0.5rem;
     font-family: var(--display);
     font-size: var(--heading-md);
@@ -330,7 +339,7 @@ body.dark-mode .article-content .lg-quote::before {
 }
 
 .article-content .lg-quote cite {
-    color: var(--gray-medium);
+    color: var(--color-text-secondary);
     display: block;
     font-family: var(--sans);
     font-size: 14px;
@@ -346,13 +355,13 @@ body.dark-mode .article-content .lg-quote::before {
     display: inline;
     height: 18px;
     margin-top: -5px;
-    stroke: var(--gray-dark);
+    stroke: var(--color-text-primary);
     vertical-align: middle;
     width: 18px;
 }
 
 .article-content .lg-quote cite a {
-    color: var(--gray-dark);
+    color: var(--color-text-secondary);
     font-weight: 500;
     text-decoration: underline;
     text-decoration-thickness: 2px;
@@ -362,7 +371,7 @@ body.dark-mode .article-content .lg-quote::before {
 
 .article-content .lg-quote cite a:hover {
     background-color: inherit;
-    color: var(--red);
+    color: var(--color-red);
     text-decoration: underline;
 }
 
@@ -371,7 +380,7 @@ body.dark-mode .article-content .lg-quote::before {
 }
 
 .article-content .lg-quote:after {
-    background-color: var(--gray-dark);
+    background-color: var(--color-text-primary);
     content: '';
     display: block;
     height: var(--size-2);
@@ -383,12 +392,12 @@ body.dark-mode .article-content .lg-quote::before {
 
 .article-content blockquote cite a:hover {
     background-color: inherit;
-    color: var(--red);
+    color: var(--color-red);
     text-decoration: underline;
 }
 
 .article-content pre {
-    background-color: var(--gray-light);
+    background-color: var(--color-background-tertiary);
     border-radius: var(--radius);
     font-family: var(--mono);
     font-size: 14px;
@@ -398,7 +407,7 @@ body.dark-mode .article-content .lg-quote::before {
 }
 
 .article-content code {
-    background-color: var(--gray-light);
+    background-color: var(--color-background-tertiary);
     border-radius: 4px;
     font-family: var(--mono);
     font-size: 0.9em;
@@ -417,7 +426,7 @@ body.dark-mode .article-content .lg-quote::before {
 
 .article-content figcaption,
 .article-content .kg-gallery-card figcaption p {
-    color: var(--gray-medium);
+    color: var(--color-text-secondary);
     font-family: var(--sans);
     font-size: 13px;
     font-weight: 400;
@@ -425,12 +434,16 @@ body.dark-mode .article-content .lg-quote::before {
 }
 
 .article-content figcaption a {
-    color: var(--gray-dark);
+    color: var(--color-text-primary);
     text-decoration: underline;
 }
 
 .article-content .kg-embed-card {
     margin: var(--space-xl) 0;
+}
+
+.article-content .kg-bookmark-card a.kg-bookmark-container, .article-content .kg-bookmark-card a.kg-bookmark-container:hover {
+    background: var(--color-background-tertiary);
 }
 
 .article-content .kg-bookmark-card {
@@ -455,12 +468,17 @@ body.dark-mode .article-content .lg-quote::before {
 }
 
 .article-content .kg-bookmark-title {
+    font-size: 1.3rem;
     font-weight: 600;
     margin-bottom: 8px;
 }
 
+.article-content .kg-bookmark-title, .article-content .kg-bookmark-description {
+    color: var(--color-text-primary);
+}
+
 .article-content .kg-bookmark-description {
-    color: var(--gray-medium);
+    color: var(--color-text-secondary);
     font-size: 14px;
     margin-bottom: 12px;
     max-height: 40px;
@@ -469,7 +487,7 @@ body.dark-mode .article-content .lg-quote::before {
 
 .article-content .kg-bookmark-metadata {
     align-items: center;
-    color: var(--gray-medium);
+    color: var(--color-text-secondary);
     display: flex;
     font-size: 13px;
 }
@@ -486,4 +504,35 @@ body.dark-mode .article-content .lg-quote::before {
     flex: 0 0 140px;
     min-width: 140px;
     position: relative;
+}
+
+.article-content .kg-product-card-container, .article-content .kg-audio-card {
+    background: var(--color-background-tertiary);
+    border: 1px solid var(--color-separator-opaque);
+    border-radius: var(--radius);
+}
+
+.article-content .kg-product-card-title-container, .article-content .kg-audio-title {
+    color: var(--color-text-primary);
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.article-content .kg-audio-title {
+    color: var(--color-text-primary);
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+.article-content .kg-audio-player svg {
+    fill: var(--color-text-primary);
+    stroke: var(--color-text-primary);
+}
+
+.article-content .kg-audio-current-time, .article-content .kg-audio-time, .article-content .kg-audio-playback-rate {
+    color: var(--color-text-primary);
+}
+
+.article-content .kg-audio-volume-slider, .article-content .kg-audio-seek-slider {
+    color: var(--color-separator-opaque);
 }

@@ -13,9 +13,9 @@
 }
 
 .related-title {
-    color: var(--gray-dark);
+    color: var(--color-text-primary);
     font-family: var(--display);
-    font-size: 26px;
+    font-size: 24px;
     font-weight: 700;
     letter-spacing: 0.03rem;
     line-height: 1.2;
@@ -23,7 +23,7 @@
 }
 
 .related-subtitle {
-    color: var(--gray-medium);
+    color: var(--color-text-secondary);
     font-size: 16px;
     font-style: italic;
 }
@@ -36,6 +36,9 @@
 }
 
 .related-card {
+
+
+    border-radius: var(--radius);
     flex: 0 0 calc(50% - 0.75rem);
     max-width: calc(50% - 0.75rem);
 }
@@ -49,7 +52,8 @@
 }
 
 .related-article-item {
-    border: 3px solid var(--gray-dark);
+    background: var(--color-background-tertiary);
+    border: 1px solid var(--color-separator-opaque);
     border-radius: 0.5rem;
     display: flex;
     flex-direction: column;
@@ -65,7 +69,7 @@
 }
 
 .related-article-item:hover h3 {
-    color: var(--red, #ff3B30);
+    color: var(--color-red);
 }
 
 .related-article-text {
@@ -84,7 +88,7 @@
 
 .related-article-text h3 {
     font-family: var(--display);
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 600;
     letter-spacing: .02rem;
     line-height: 1.2;
@@ -93,7 +97,8 @@
 }
 
 .related-article-text ul.related-card-meta {
-    color: var(--gray-medium, #666);
+    color: var(--color-text-secondary);
+    font-family: var(--sans);
     font-size: 14px;
     gap: 0.75rem;
     list-style: none;
@@ -103,7 +108,7 @@
 }
 
 .related-card-meta li {
-    border-bottom: 1px solid var(--gray-medium);
+    border-bottom: 1px solid var(--color-separator-opaque);
     display: block;
     line-height: 1.5;
     list-style: none;
@@ -130,7 +135,7 @@
 
 .related-card-readmore {
     align-items: center;
-    color: var(--accent-color);
+    color: var(--color-red);
     display: inline-flex;
     font-family: var(--display);
     font-size: var(--text-base);
@@ -141,8 +146,8 @@
 }
 
 .no-related-posts {
-    background-color: var(--secondary-color);
-    border: 2px solid #000;
+    background-color: var(--color-background-tertiary);
+    border: 2px solid var(--color-separator-dark);
     border-radius: 0.03rem;
     margin-bottom: 2rem;
     padding: 2rem;
@@ -160,7 +165,7 @@
 
 .empty-state-icon {
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: var(--color-fill-dark);
     border-radius: 50%;
     display: flex;
     height: 48px;
@@ -170,40 +175,23 @@
 }
 
 .empty-state-icon svg {
-    color: var(--gray-medium);
+    color: var(--color-text-secondary);
     height: 24px;
     width: 24px;
 }
 
 .empty-state h3 {
-    color: var(--gray-dark);
+    color: var(--color-text-primary);
     font-size: 20px;
     letter-spacing: 0.02rem;
     margin-bottom: 0.5rem;
 }
 
 .empty-state p {
-    color: var(--gray-medium);
+    color: var(--color-text-secondary);
     font-size: var(--text-base);
     margin: 0 auto;
     max-width: 300px;
-}
-
-/* Dark mode adjustments */
-body.dark-mode .no-related-posts {
-    border-color: rgba(255, 255, 255, 0.05);
-}
-
-body.dark-mode .empty-state-icon {
-    background-color: rgba(255, 255, 255, 0.05);
-}
-
-body.dark-mode .empty-state h3 {
-    color: var(--gray-light);
-}
-
-body.dark-mode .empty-state p {
-    color: var(--gray-medium);
 }
 
 .related-card-readmore svg {

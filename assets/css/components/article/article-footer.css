@@ -4,8 +4,8 @@
  */
 .article-footer {
     align-items: center;
-    border-top: 2px dashed var(--gray-medium);
-    color: var(--gray-medium);
+    border-top: 2px dotted var(--color-separator-opaque);
+    color: var(--color-text-secondary);
     display: flex;
     flex-wrap: wrap;
     font-size: 14px;
@@ -24,7 +24,7 @@ ul.post-topics,
 }
 
 .article-tags a {
-    color: var(--gray-medium);
+    color: var(--color-text-secondary);
 }
 
 ul.article-tags li {
@@ -33,13 +33,13 @@ ul.article-tags li {
 }
 
 .article-tag-item {
-    color: var(--gray-medium);
+    color: var(--color-text-secondary);
     margin: 0;
     padding: 0;
 }
 
 .article-tag-item:hover {
-    color: var(--red);
+    color: var(--color-red);
     opacity: 1;
     transform: scale(1.1);
 }
@@ -60,12 +60,12 @@ ul.article-tags li svg,
 }
 
 .article-share .dropbtn {
-    color: var(--gray-medium);
+    color: var(--color-text-secondary);
     font-size: 14px;
 }
 
 .article-share .dropbtn:hover {
-    color: var(--red);
+    color: var(--color-red);
 }
 
 .share-button svg {
@@ -74,7 +74,7 @@ ul.article-tags li svg,
 }
 
 .share-button:hover {
-    background-color: var(--accent-color);
+    background-color: var(--color-red);
     color: white;
     transform: translateY(-2px);
 }

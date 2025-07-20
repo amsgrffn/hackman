@@ -5,37 +5,67 @@
 
 
  body.dark-mode {
-     --accent-color: oklch(0.69 0.1699 252.99); /*#409cff*/
-     --gray-dark: #f6f5f4;
-     --gray-light: #3A3A3C;
-     --gray-medium: #AEAEB2;
-     --primary-color: #fff;
-     --secondary-color: #000000;
-     --shadow: 0 0 6px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.06);
 
-     --black: #fff;
-     --blue: oklch(0.69 0.1699 252.99); /*#409cff*/
-     --red: oklch(0.71 0.1847 25.94); /*#ff6961*/
-     --yellow: oklch(0.88 0.1735 93.24); /*#ffd426*/
-     --text-on-yellow: #403e38;
-     --heading-brown: #f6f5f4;
-     --page-text: #f6f5f4;
-     --highlight-yellow: #ffe680;
-     --excerpt-color: #c9b97f;
-     --meta-text: #a8a8a4;
-     --background-cream: #222215;
-     --background-yellow-light: #2c2a1e;
-     --background-off-white: #1e1e1e;
-     --border-light: #2a2a2a;
-     --tag-description: #454540;
-     --status-success-bg: #1c291a;
-     --status-error-bg: #291a1a;
-     --gold-accent-10: rgba(193, 154, 107, 0.2);
-     --gold-accent-30: rgba(193, 154, 107, 0.4);
+    /* ===================================================================
+     * TEXT & LABEL COLORS
+     * ================================================================ */
+
+    --color-text-primary: oklch(1 0 0); /* label: #ffffff */
+    --color-text-secondary: oklch(0.943 0.013 286 / 0.9); /* secondaryLabel: #ebebf5 at 60% opacity */
+    --color-text-tertiary: oklch(0.943 0.013 286 / 0.3); /* tertiaryLabel: #ebebf5 at 30% opacity */
+    --color-text-quaternary: oklch(0.943 0.013 286 / 0.18); /* quaternaryLabel: #ebebf5 at 18% opacity */
+    --color-text-placeholder: oklch(0.943 0.013 286 / 0.3); /* placeholderText: #ebebf5 at 30% opacity */
+    --color-text-link: oklch(0.624 0.206 255.5); /* link: #0984ff */
+
+    /* ===================================================================
+     * BACKGROUND COLORS
+     * ================================================================ */
+
+    /* System Backgrounds */
+    --color-background-primary: #121212; /* systemBackground: #000000 */
+    --color-background-secondary: #16191d; /* secondarySystemBackground: #1c1c1e */
+    --color-background-tertiary: #232323; /* tertiarySystemBackground: #2c2c2e */
+
+    /* ===================================================================
+     * FILL COLORS (for buttons, controls)
+     * ================================================================ */
+
+    --color-fill-primary: oklch(0.575 0.012 285.9 / 0.36); /* systemFill: #787880 at 36% opacity */
+    --color-fill-secondary: oklch(0.575 0.012 285.9 / 0.32); /* secondarySystemFill: #787880 at 32% opacity */
+    --color-fill-tertiary: oklch(0.569 0.015 285.8 / 0.24); /* tertiarySystemFill: #767680 at 24% opacity */
+    --color-fill-quaternary: oklch(0.569 0.015 285.8 / 0.18); /* quaternarySystemFill: #767680 at 18% opacity */
+
+    /* ===================================================================
+     * SEPARATOR COLORS
+     * ================================================================ */
+
+    --color-separator: rgba(255, 255, 255, 0.12); /* separator: #545458 at 60% opacity */
+    --color-separator-opaque: oklch(0.341 0.003 286); /* opaqueSeparator: #38383a */
+
+    /* ===================================================================
+     * SYSTEM ACCENT COLORS
+     * ================================================================ */
+
+    --color-blue: oklch(0.624 0.206 255.5); /* systemBlue: #0a84ff */
+    --color-green: oklch(0.756 0.208 147); /* systemGreen: #30d158 */
+    --color-indigo: oklch(0.556 0.203 278.2); /* systemIndigo: #5e5ce6 */
+    --color-orange: oklch(0.782 0.171 67.2); /* systemOrange: #ff9f0a */
+    --color-pink: oklch(0.658 0.232 16); /* systemPink: #ff375f */
+    --color-purple: oklch(0.656 0.227 312.4); /* systemPurple: #bf5af2 */
+    --color-red: oklch(0.663 0.224 28.3); /* systemRed: #ff453a */
+    --color-teal: oklch(0.817 0.119 227.8); /* systemTeal: #64d2ff */
+    --color-yellow: oklch(0.885 0.18 94.8); /* systemYellow: #ffd60a */
+
+
+     /* UI Elements */
+      --radius: 0.5rem;
+      --shadow: 0 4px 6px -1px rgb(255 255 255 / 0.05), 0 2px 4px -2px rgb(255 255 255 / 0.03), 0 0 0 1px rgb(255 255 255 / 0.1);
+      --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
  }
 
  body.dark-mode .appearance-toggle {
      background-color: var(--toggle-bg-dark);
+     border: 1px solid var(--color-separator-opaque);
  }
 
  body.dark-mode .appearance-option svg {
@@ -55,116 +85,4 @@
      fill: var(--toggle-icon-active-dark);
  }
 
- body.dark-mode .card {
-     background-color: var(--secondary-color);
- }
 
- body.dark-mode .newsletter-input {
-     background-color: rgba(255, 255, 255, 0.05);
-     border-color: rgba(255, 255, 255, 0.1);
-     color: var(--primary-color);
- }
-
- body.dark-mode .search-input-wrapper {
-     background-color: rgba(255, 255, 255, 0.05);
- }
-
- body.dark-mode .search-input-wrapper:hover {
-     background-color: rgba(255, 255, 255, 0.08);
- }
-
- body.dark-mode .search-input-wrapper:focus-within {
-     background-color: rgba(255, 255, 255, 0.1);
-     border-color: rgba(255, 255, 255, 0.15);
- }
-
- body.dark-mode .search-input::placeholder {
-     color: rgba(255, 255, 255, 0.5);
- }
-
- body.dark-mode .topbar {
-     background-color: rgba(28, 28, 30, 0.7);
-     border-bottom-color: rgba(255, 255, 255, 0.1);
- }
-
- body.dark-mode .topbar-nav a {
-     color: var(--gray-light);
- }
-
- body.dark-mode .topbar-search {
-     background-color: rgba(255, 255, 255, 0.1);
- }
-
- body.dark-mode .topbar-search:hover {
-     background-color: rgba(255, 255, 255, 0.15);
- }
-
- body.dark-mode .topbar-search-shortcut {
-     background-color: rgba(255, 255, 255, 0.15);
-     color: var(--gray-light);
- }
-
- body.dark-mode .footer {
-     background-color: var(--gray-dark);
- }
-
- body.dark-mode .footer-bottom {
-     border-top-color: rgba(255, 255, 255, 0.1);
- }
-
- body.dark-mode .social-icon {
-     background-color: rgba(255, 255, 255, 0.1);
-     color: var(--secondary-color);
- }
-
- body.dark-mode .bookmark-source {
-     background-color: rgba(255, 255, 255, 0.02);
-     border-top-color: rgba(255, 255, 255, 0.05);
- }
-
- body.dark-mode .collapsible-title {
-     color: var(--heading-brown);
- }
-
- body.dark-mode .sidebar-title {
-     border-bottom-color: rgba(255, 255, 255, 0.1);
-     color: var(--gray-light);
- }
-
- body.dark-mode .page-link {
-     color: var(--gray-light);
- }
-
- body.dark-mode .page-link:hover {
-     background-color: rgba(10, 132, 255, 0.15);
- }
-
- body.dark-mode .about-site {
-     background-color: var(--secondary-color);
- }
-
- body.dark-mode .about-site-stats {
-     border-color: rgba(255, 255, 255, 0.05);
- }
-
- body.dark-mode .article-content th {
-     background-color: var(--gray-dark);
-     border-bottom-color: rgba(255, 255, 255, 0.1);
- }
-
- body.dark-mode .article-content td {
-     border-bottom-color: rgba(255, 255, 255, 0.05);
- }
-
- body.dark-mode .article-content tr:nth-child(even) {
-     background-color: rgba(255, 255, 255, 0.02);
- }
-
- body.dark-mode .article-content code,
- body.dark-mode .article-content pre {
-     background-color: #1c1c1e;
- }
-
- body.dark-mode .author-card {
-     background-color: var(--gray-dark);
- }
