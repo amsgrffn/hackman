@@ -144,11 +144,11 @@ body.dark-mode .dropdown-content {
 
 .dropbtn svg {
     display: inline;
-    height: 16px;
-    margin: 0;
+    height: 14px;
+    margin: -1px 0 0 0;
     transition: transform 0.3s ease;
     vertical-align: middle;
-    width: 16px;
+    width: 14px;
 }
 
 .copy-alert {

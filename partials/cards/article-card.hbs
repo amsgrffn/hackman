@@ -2,8 +2,7 @@
 <article class="card {{post_class}}">
     <div class="card-content">
         <div class="meta">
-            <span class="tag">{{> "icons/target"}}{{#primary_tag}}<a href="{{url}}">{{name}}</a>{{/primary_tag}}</span>
-            <span class="pub-date"><time datetime="{{date format="YYYY-MM-DD"}}">{{date published_at timeago="true"}}</time></span>
+            <span class="tag">{{#primary_tag}}<a href="{{url}}">{{name}}</a>{{/primary_tag}}</span>
         </div>
         <h2><a href="{{url}}">{{title}}</a></h2>
         {{#if feature_image}}
@@ -47,15 +46,12 @@
                 {{content}}
             </div>
             <footer>
-              {{#if tags}}
-                  <ul class="post-topics">
-                  {{#foreach tags}}
-                    <li>
-                      <a href="{{url}}" title="{{name}}" class="tag tag-{{id}} {{slug}}">#{{name}}</a>
-                    </li>
-                  {{/foreach}}
-                  </ul>
-                {{/if}}
+                <div class="post-info">
+                {{#primary_author}}
+                   <a class="avatar wiggle" href="{{url}}"><img srcset="{{img_url profile_image size="xxs" format="webp"}} 50w, {{img_url profile_image size="xs" format="webp"}} 100w" sizes="50vw" src="{{img_url profile_image size="xs" format="webp"}}" alt="{{name}}'s Avatar" width="40" height="40" loading="lazy"></a>
+                   {{/primary_author}}
+                <span class="pub-date"><time datetime="{{date format="YYYY-MM-DD"}}">{{date published_at format="dddd, D MMMM, YYYY"}}</time></span>
+                </div>
                 {{> "utilities/post-dropdown"}}
             </footer>
         {{/if}}

@@ -15,10 +15,10 @@
 
 .bookmark-header h2 {
     font-family: var(--display);
-    font-size: 2rem;
+    font-size: var(--heading-lg);
     font-weight: 700;
-    letter-spacing: 0.02rem;
-    line-height: 1.15;
+    line-height: 1.2;
+    margin-bottom: 2rem;
     text-wrap: pretty;
 }
 

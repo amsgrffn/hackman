@@ -4,7 +4,7 @@
 */
 
 .site-header {
-   margin: 4rem 0 4rem;
+   margin: 2rem 0 0;
    padding-bottom: 24px;
    z-index: 100;
 }
@@ -14,28 +14,16 @@
    display: flex;
    flex-wrap: wrap;
    font-family: var(--sans);
-   font-size: 16px;
+   font-size: 14px;
    list-style: none;
    margin: 0;
    padding: 0;
-}
-
-.breadcrumb-list a.title {
-    font-family: var(--display);
-    font-style: italic;
-    font-weight: 600;
 }
 
 .breadcrumb-item {
    align-items: center;
    color: var(--color-text-primary);
    display: flex;
-}
-
-.breadcrumb-item a {
-   color: var(--color-text-primary);
-   text-decoration: none;
-   transition: var(--transition);
 }
 
 .breadcrumb-list svg {
@@ -55,9 +43,19 @@
    color: var(--color-text-primary);
    font-weight: 500;
    text-decoration: underline;
+   text-decoration-color: var(--color-gray);
    text-decoration-thickness: 2px;
    text-underline-offset: 3px;
    transition: var(--transition);
+}
+
+.breadcrumb-item a.title {
+   font-family: 'Shantell Sans', sans-serif;
+   font-size: 16px;
+   font-style: italic;
+   font-weight: 600;
+   letter-spacing: -0.02rem;
+   text-shadow: 0 0 8px rgba(255, 255, 255, 0.8), 0 0 16px rgba(255, 255, 255, 0.6);
 }
 
 .breadcrumb-item a:hover {

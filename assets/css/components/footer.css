@@ -4,6 +4,7 @@
 */
 
 .footer {
+    background: rgba(255, 255, 255, 0.5);
     border-top: 1px solid var(--color-separator-opaque);
     margin: 10rem auto 0;
     padding: 44px 0;
@@ -13,7 +14,7 @@
 .footer-bottom {
     align-items: center;
     display: flex;
-    font-size: 16px;
+    font-size: 18px;
     justify-content: center;
     margin-bottom: 10px;
 }
@@ -29,8 +30,8 @@
     border-radius: 0.5rem;
     color: var(--color-text-primary);
     font-family: var(--display);
+    font-size: 14px;
     font-weight: 600;
-    letter-spacing: 0.02rem;
     list-style-type: none;
 }
 

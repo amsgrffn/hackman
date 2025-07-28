@@ -68,10 +68,8 @@
     position: relative;
 }
 
-.note .post-content {
-    background-color: #e3f0fd;
-    border-radius: 0.5rem;
-    padding: 24px 32px;
+.posts-container article.note {
+background: repeating-linear-gradient(0deg, rgba(80, 160, 210, 0.2) 0px, rgba(80, 160, 210, 0.2) 1px, transparent 1px, transparent 20px),repeating-linear-gradient(90deg, rgba(80, 160, 210, 0.1) 0px, rgba(80, 160, 210, 0.1) 1px, transparent 1px, transparent 20px), white;
 }
 
 body.dark-mode .note .post-content {

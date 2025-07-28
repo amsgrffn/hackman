@@ -5,6 +5,9 @@
 
 .article-main {
     padding-bottom: 60px;
+    background: linear-gradient(135deg,  #ffffff 0%,#fefefe 15%, #fdfdfd 30%,#fcfcfc 45%,#fbfbfb 60%,#fafafa 75%,#f9f9f9 90%,#f8f8f8 100%);
+    box-shadow: var(--shadow);
+    padding-top:48px;
 }
 
 .post-template .article {

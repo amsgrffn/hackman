@@ -35,14 +35,12 @@
                                         </div>
                                     {{/if}}
                                     <div class="carousel-content">
+                                        <p class="carousel-tags">{{#primary_tag}}<a href="{{url}}">{{> "icons/folder"}}{{name}}</a>{{/primary_tag}}</p>
                                         <h3 class="carousel-post-title"><a href="{{url}}">{{title}}</a></h3>
-                                        <div class="carousel-meta">
-                                            <ul>
-                                                <li>{{#primary_tag}}<a href="{{url}}">{{> "icons/folder"}} {{name}}</a>{{/primary_tag}}</li>
-                                                <li class="related-author-name">{{> "icons/user"}} {{primary_author.name}}</li>
-                                                <li class="related-date">{{> "icons/calendar"}} {{date published_at timeago="true"}}</li>
-                                            </ul>
-                                        </div>
+
+
+                                               <p class="carousel-meta">{{> "icons/calendar"}} {{date published_at timeago="true"}}</p>
+
                                     </div>
                                 </article>
                             </div>

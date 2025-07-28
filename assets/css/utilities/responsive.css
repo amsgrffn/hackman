@@ -89,13 +89,13 @@
     .sidebar {
         flex-shrink: 0;
         margin-left: 0;
-        margin-right: 160px;
+        margin-left: 80px;
         /* Add right margin instead of getting it from the gap */
-        order: -1;
+        order: 1;
         /* This will move the sidebar before content */
         position: sticky;
         top: 5rem;
-        width: 200px;
+        width: 300px;
     }
 
     .sidebar::-webkit-scrollbar {

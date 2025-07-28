@@ -9,6 +9,10 @@ footer {
     overflow: visible !important;
 }
 
+article {
+
+}
+
 .card {
     overflow: hidden;
 }
@@ -17,7 +21,6 @@ footer {
     font-family: var(--display);
     font-size: var(--heading-lg);
     font-weight: 700;
-    letter-spacing: 0.02rem;
     line-height: 1.2;
     text-wrap: pretty;
 }
@@ -33,10 +36,12 @@ footer {
 }
 
 .posts-container article {
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1), 0 0 0 1px rgb(17 24 39 / 0.1);
+padding: 2rem 3rem;
 
-    border-bottom: 3px double var(--color-separator-opaque);
-    margin-bottom: 3rem;
-    padding-bottom: 3rem;
+    margin-bottom: 2rem;
     position: relative;
     z-index: auto;
 }
@@ -144,12 +149,12 @@ footer {
 
 .meta {
     align-items: center;
-    color: var(--color-text-secondary);
+    color: #fff;
     display: flex;
     font-family: var(--sans);
-    font-size: 12px;
-    gap: 12px;
-    margin-bottom: var(--space-2xl);
+    font-size: 13px;
+    gap: 16px;
+    margin-bottom: var(--space-xl);
 }
 
 .meta>* {
@@ -165,21 +170,19 @@ footer {
 }
 
 .meta span {
-    border: 1px solid var(--color-separator-opaque);
-    border-radius: var(--radius);
-    color: var(--color-text-secondary);
+    background: #374151;
+    border-radius: 32px;
+    color: #f8f8f8;
     display: block;
     display: inline-block;
     font-weight: 500;
-    letter-spacing: 0.02rem;
+    letter-spacing: 0.03rem;
     line-height: normal;
-    padding: 10px 16px;
+    padding: 8px 16px;
     transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
 
 .meta .tag {
-    background: var(--color-background-tertiary);
-    color: #fff;
     color: var(--color-text-primary);
     font-weight: 500;
     position: relative;
@@ -187,7 +190,7 @@ footer {
 }
 
 .meta .tag a {
-    color: var(--color-text-secondary);
+    color: #fff ;
 }
 
 .meta .tag a:hover {
@@ -195,9 +198,10 @@ footer {
 }
 
 .meta .domain-pill {
-    background: var(--color-background-tertiary);
-    border: 1px solid var(--color-separator-opaque);
-    color: var(--color-text-secondary);
+    background: #F2F3F4;
+    color: #000;
+    font-family: 'shantell sans', sans;
+    font-style: italic;
     z-index: 1;
 }
 
@@ -214,7 +218,6 @@ footer {
 }
 
 .meta .pub-date {
-    background: var(--color-background-tertiary);
     font-weight: 500;
 }
 
@@ -236,8 +239,8 @@ footer {
 .meta svg {
     display: inline;
     height: 14px;
-    margin-right: 6px;
-    stroke: var(--color-text-primary);
+    margin: -2px 2px 0 0;
+    stroke: #fff;
     vertical-align: middle;
     width: 14px;
 }
@@ -250,15 +253,34 @@ footer {
     align-items: center;
     display: flex;
     gap: 12px;
+    justify-content: space-between;
     margin: var(--space-2xl) 8px 0 8px;
+}
+
+article footer .post-info {
+    align-items: center;
+    display: flex;
+   gap: 6px;
 }
 
 .post-topics {
     align-content: center;
     display: flex;
-    font-size: 14px;
+    font-size: 13px;
+    font-weight: 500;
     gap: 12px;
     letter-spacing: 0.15px;
+}
+
+footer .pub-date {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+footer a.avatar img {
+    border-radius: 32px;
+    box-shadow: none;
+    filter: grayscale(70%);
 }
 
 .post-topics li {
@@ -267,6 +289,7 @@ footer {
 
 .post-topics a {
     color: var(--color-text-secondary);
+    font-weight: 500;
 }
 
 .post-topics a:hover {

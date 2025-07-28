@@ -4,9 +4,9 @@
  */
 
 body {
-    background: var(--color-background-primary);
+background: repeating-linear-gradient(0deg, rgba(80, 160, 210, 0.08) 0px, rgba(80, 160, 210, 0.08) 1px, transparent 1px, transparent 15px),repeating-linear-gradient(90deg, rgba(80, 160, 210, 0.06) 0px, rgba(80, 160, 210, 0.06) 1px, transparent 1px, transparent 15px),linear-gradient(to bottom, #fffdf7 0%, #fffaf0 25%, #fff8ee 50%, #fffaf5 75%, #fffbf2 100%);
     color: var(--color-text-primary);
-    font-family: var(--serif);
+    font-family: var(--sans);
     font-size: var(--text-base);
     line-height: var(--line-height-normal);
 }
@@ -28,4 +28,9 @@ a:hover {
 img {
     height: auto;
     max-width: 100%;
+}
+
+.page .kg-toggle-card  {
+    background: #fff;
+    box-shadow: var(--shadow);
 }
