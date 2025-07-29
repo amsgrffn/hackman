@@ -11,7 +11,7 @@
 
 .appearance-toggle {
     align-items: center;
-    background: #F2F3F4;
+    background: rgba(245, 176, 65, .5);
     border-radius: 9999px;
     display: inline-flex;
     height: 36px;

@@ -50,11 +50,9 @@
 }
 
 .breadcrumb-item a.title {
-   font-family: 'Shantell Sans', sans-serif;
-   font-size: 16px;
-   font-style: italic;
-   font-weight: 600;
-   letter-spacing: -0.02rem;
+   font-family: 'ff-market-web', sans-serif;
+   font-size: 20px;
+   font-weight:400;
    text-shadow: 0 0 8px rgba(255, 255, 255, 0.8), 0 0 16px rgba(255, 255, 255, 0.6);
 }
 

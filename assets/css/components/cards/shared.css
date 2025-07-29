@@ -175,22 +175,23 @@ padding: 2rem 3rem;
     color: #f8f8f8;
     display: block;
     display: inline-block;
-    font-weight: 500;
+    font-family: var(sans);
+    font-weight: 400;
     letter-spacing: 0.03rem;
     line-height: normal;
-    padding: 8px 16px;
+    padding: 7px 15px;
     transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
 
 .meta .tag {
     color: var(--color-text-primary);
-    font-weight: 500;
+    font-weight: 400;
     position: relative;
     z-index: 2;
 }
 
 .meta .tag a {
-    color: #fff ;
+    color: #fff;
 }
 
 .meta .tag a:hover {
@@ -198,10 +199,12 @@ padding: 2rem 3rem;
 }
 
 .meta .domain-pill {
-    background: #F2F3F4;
-    color: #000;
-    font-family: 'shantell sans', sans;
-    font-style: italic;
+    background: var(--color-gray-5);
+    color: var(--color-text-primary);
+    font-family: 'ff-market-web', serif;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.05rem;
     z-index: 1;
 }
 
@@ -209,16 +212,6 @@ padding: 2rem 3rem;
     filter: drop-shadow(0px 1px 1px rgba(0, 0, 0, 0.1));
     image-rendering: -webkit-optimize-contrast;
     margin: -3px 0 0 0;
-}
-
-.meta .tag,
-.meta .domain-pill {
-
-
-}
-
-.meta .pub-date {
-    font-weight: 500;
 }
 
 .meta .bookmark-source {

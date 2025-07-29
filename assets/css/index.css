@@ -42,6 +42,7 @@
 @import "components/article/author-bio.css";
 @import "components/article/related-articles.css";
 @import "components/article/comments-panel.css";
+@import "components/masonry.css";
 
 /* Page styles */
 @import "pages/_base-page.css";

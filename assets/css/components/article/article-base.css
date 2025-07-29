@@ -45,7 +45,7 @@
     color: var(--color-text-secondary);
     font-family: var(--sans);
     font-size: clamp(18px, 3vw, 22px);
-    font-weight: 500;
+    font-weight: 600;
     line-height: 1.4;
     margin: -22px 0 22px;
     max-width: 700px;

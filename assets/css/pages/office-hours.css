@@ -89,8 +89,8 @@
     align-items: center;
     display: flex;
     flex-grow: 1;
-    font-family: 'shantell sans', sans-serif;
-    font-size: 16px;
+    font-family: var(sans);
+    font-size: 14px;
     font-weight: 400;
     justify-content: center;
     margin-bottom: 1rem;

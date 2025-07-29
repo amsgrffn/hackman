@@ -4,12 +4,21 @@
  */
 
 .sidebar {
-   background: radial-gradient(circle at center, rgba(80, 160, 210, 0.3) 0.8px, transparent 0.8px),  white;
+   background: radial-gradient(circle at center, rgba(80, 160, 210, 0.4) 0.8px, transparent 0.8px),  white;
    background-size: 16px 16px;
     border-radius: var(--radius);
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1), 0 0 0 1px rgb(17 24 39 / 0.1);
-    padding: 2rem 3rem;
     width: 100%;
+}
+
+.side-head {
+    background: rgba(255, 251, 245, .45);
+    border-top-left-radius: var(--radius);
+    border-top-right-radius: var(--radius);
+    height: 150px;
+    border-bottom: 1px solid #cfcfcf;
+    margin-bottom: 0;
+    padding: 1rem 3rem;
 }
 
 .sidebar hr {
@@ -46,7 +55,8 @@
     display: block;
     font-family: var(--sans);
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 600;
+    letter-spacing: 0.02rem;
     margin:0 auto 8px;
     padding: 8px 16px;
     position: relative;
@@ -62,7 +72,6 @@ body.dark-mode .sidebar-nuggs .btn {
 
 .sidebar-nuggs .btn:hover {
     background: var(--color-red);
-    border: 1px solid var(--color-red);
     color: var(--color-content-on-dark);
     transform: scale(1.05);
     transition: background-color 0.3s ease, color 0.3s ease;
@@ -85,7 +94,7 @@ body.dark-mode .sidebar-nuggs .btn {
 }
 
 .sidebar-section {
-    margin-bottom: var(--space-xl);
+    margin-bottom: 2rem;
 }
 
 .sidebar-title {
@@ -96,11 +105,9 @@ body.dark-mode .sidebar-nuggs .btn {
 
 /* 8.2 About Site */
 .about-site {
-    background: var(--color-background-tertiary);
-    border: 1px solid var(--color-separator);
-    border-radius: var(--radius);
-    margin: 12px 0;
-    padding: 12px 10px;
+    background: #fefefe;
+    margin: 0;
+    padding: 8px 20px;
     transition: var(--transition);
 }
 
@@ -334,9 +341,10 @@ body.dark-mode .about-site ul li span {
     background: #374151;
     color: #f8f8f8;
     display: block;
-    font-family: var(--sans);
-    font-size: 14px;
-    font-weight: 500;
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.02rem;
     margin:0 auto 8px;
     padding: 8px 16px;
     position: relative;
@@ -493,11 +501,13 @@ body.dark-mode .about-site ul li span {
 
 /* 8.5 Sidebar Quotes */
 .sidebar .quotes {
+    background: rgba(255, 255, 255, .6);
+    border-bottom: 1px solid #cfcfcf;
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin-bottom: var(--space-xl);
-    min-height: 19rem;
+    min-height: 25rem;
     text-wrap: balance;
 }
 
@@ -506,8 +516,8 @@ body.dark-mode .about-site ul li span {
     flex-direction: column;
     flex-grow: 1;
     justify-content: center;
-    margin: 24px 0 0;
-    min-height: 16rem;
+    margin:0;
+    padding: 0 1rem;
     text-align: center;
 }
 
@@ -515,8 +525,8 @@ body.dark-mode .about-site ul li span {
     color: var(--gray-dark);
     display: flex;
     flex-direction: column;
-    font-family: var(--sans);
-    font-size: 19px;
+    font-family: var(--display);
+    font-size: 22px;
     font-style: normal;
     font-weight: 700;
     line-height: 1.4;
@@ -528,6 +538,7 @@ body.dark-mode .about-site ul li span {
     align-items: center;
     color: var(--gray-medium);
     display: flex;
+    font-family: var(--sans);
     font-size: 12px;
     font-style: normal;
     font-weight: var(--font-weight-normal);
@@ -560,45 +571,64 @@ body.dark-mode .about-site ul li span {
 .sidebar .quotes img {
     border-radius: 50%;
     display: inline;
-    height: 2rem;
+    height: 50px;
     margin-top: -3px;
     vertical-align: middle;
-    width: 2rem;
+    width: 50px;
 }
 
 .sidebar img.scribble {
     display: block;
     filter: grayscale(70%);
     height: auto;
-    margin: 0 auto 3rem;
+    margin: 0 auto 0;
     width: 120px;
 }
 
 /* 8.6 Collapsible Sections */
-.collapsible-section {
-    margin-bottom: 4px;
-    padding-bottom: 4px;
-}
+.collapsible-section {}
 
 .collapsible-header {
     align-items: center;
+    background: #fff;
+    border-bottom: 1px solid #cfcfcf;
     cursor: pointer;
     display: flex;
     gap:4px;
-    padding: 4px 0;
+    justify-content: space-between;
+    padding: 10px 1rem;
     user-select: none;
     -moz-user-select: none;
     -webkit-user-select: none;
-    border-bottom: 2px solid #9CB4D8;
+}
+
+.collapsible-header:hover {
+    background: rgba(245, 176, 65, .2);
+}
+
+.collapsible-header:hover .collapsible-title {
+    animation: giggle 0.6s ease-in-out;
+}
+
+@keyframes giggle {
+    0% { transform: translateX(0) rotate(0deg); }
+    10% { transform: translateX(-2px) rotate(-0.5deg); }
+    20% { transform: translateX(2px) rotate(0.5deg); }
+    30% { transform: translateX(-1px) rotate(-0.3deg); }
+    40% { transform: translateX(1px) rotate(0.3deg); }
+    50% { transform: translateX(-0.5px) rotate(-0.1deg); }
+    60% { transform: translateX(0.5px) rotate(0.1deg); }
+    70% { transform: translateX(-0.3px) rotate(-0.05deg); }
+    80% { transform: translateX(0.3px) rotate(0.05deg); }
+    90% { transform: translateX(-0.1px) rotate(0deg); }
+    100% { transform: translateX(0) rotate(0deg); }
 }
 
 .collapsible-title {
     color: var(--primary-color);
-    font-family: 'shantell sans', sans;
-    font-size: 16px;
-    font-style: italic;
-    letter-spacing: -0.02rem;
-    font-weight: 700;
+    font-family: var(--display);
+    font-size: 18px;
+    font-weight: 600;
 }
 
 .collapsible-icon {
@@ -623,29 +653,41 @@ body.dark-mode .about-site ul li span {
 
 /* Page list styles */
 .page-list {
-    border-left: 1px dotted var(--color-separator-opaque);
+    background: rgba(255, 255, 255, .75);
     list-style: none;
-    margin: 12px 4px 12px;
+    margin: 0;
     padding: 0;
 }
 
 .page-item {
-    margin: 0 0 var(--size-12) 12px;
+
 }
 
 .page-link {
     align-items: center;
-    color: var(--gray-dark);
+    border-bottom: 1px solid #cfcfcf;
+    color: var(--color-text-primary);
     display: flex;
     font-family: var(--sans);
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 600;
+    padding: 8px 24px;
     text-decoration: none;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .page-link:hover {
-    color: var(--red);
+    background: rgba(245, 176, 65, .2);
+}
+
+@keyframes gentle-wiggle {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(1deg); }
+    75% { transform: rotate(-1deg); }
+}
+
+.page-link:hover {
+    animation: gentle-wiggle 0.6s ease-in-out;
 }
 
 .page-link.active {
@@ -656,7 +698,7 @@ body.dark-mode .about-site ul li span {
     color: var(--gray-dark);
     flex-shrink: 0;
     height: var(--text-base);
-    margin-right: var(--size-6);
+    margin-right: 8px;
     margin-top: -1px;
     width: var(--text-base);
 }

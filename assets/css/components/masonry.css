@@ -1,0 +1,90 @@
+/*
+ * Add this to your assets/css/pages/tag-page.css
+ * or create a new assets/css/components/masonry.css and import it in index.css
+ */
+
+/* Tag Page Masonry Layout */
+.tag-content .posts-container {
+    position: relative;
+}
+
+/* Desktop masonry grid */
+@media (min-width: 768px) {
+    .tag-content .posts-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 2rem;
+        /* Fallback for non-JS users */
+        grid-auto-rows: auto;
+        grid-auto-flow: dense;
+    }
+
+    /* When masonry JS is active */
+    .tag-content .posts-container.masonry-active {
+        grid-auto-rows: 0px;
+        row-gap: 1px !important;
+    }
+
+    /* Ensure all card types work well in grid */
+    .tag-content .posts-container > article {
+        margin-bottom: 0; /* Remove bottom margin, let grid handle spacing */
+    }
+
+    /* Featured posts can optionally span both columns */
+    .tag-content .posts-container .featured-post {
+        grid-column: span 2;
+    }
+
+    /* Ensure cards don't have minimum heights that break layout */
+    .tag-content .posts-container .post-content {
+        min-height: unset;
+    }
+}
+
+/* Progressive enhancement for future native masonry support */
+@supports (grid-template-rows: masonry) {
+    .tag-content .posts-container {
+        grid-template-rows: masonry;
+        grid-auto-rows: auto;
+        row-gap: 2rem !important;
+        align-tracks: stretch;
+    }
+
+    /* Remove JS modifications when native masonry is supported */
+    .tag-content .posts-container > article {
+        grid-row-end: auto !important;
+    }
+}
+
+/* Mobile: Single column */
+@media (max-width: 767px) {
+    .tag-content .posts-container {
+        display: block;
+    }
+
+    .tag-content .posts-container > article {
+        margin-bottom: 2rem;
+    }
+}
+
+/* Dark mode compatibility */
+body.dark-mode .tag-content .posts-container {
+    /* Masonry layout doesn't need special dark mode styles */
+    /* Your existing dark mode card styles will work perfectly */
+}
+
+/* Loading state (optional) */
+.tag-content .posts-container.masonry-loading {
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.tag-content .posts-container.masonry-loaded {
+    opacity: 1;
+}
+
+/* Fix for note cards with grid background */
+.tag-content .posts-container article.note {
+    /* Ensure the background pattern doesn't interfere with masonry */
+    background-attachment: local;
+}
