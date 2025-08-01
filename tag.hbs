@@ -26,28 +26,9 @@
                 <!-- Posts Container -->
                 <div class="posts-container">
                     {{#foreach posts}}
-                    {{#has tag="#featured"}}
-                      {{> "cards/featured-card"}}
-                    {{else}}
-                      {{#has tag="#bookmark"}}
-                        {{> "cards/bookmark-card"}}
-                      {{else}}
-                        {{#has tag="#note"}}
+
                           {{> "cards/note-card"}}
-                        {{else}}
-                          {{#has tag="#quote"}}
-                            {{> "cards/quote-card"}}
-                          {{else}}
-                            {{#has tag="#video"}}
-                              {{> "cards/video-card"}}
-                            {{else}}
-                              {{!-- Default post type if no special tag --}}
-                              {{> "cards/article-card"}}
-                            {{/has}}
-                          {{/has}}
-                        {{/has}}
-                      {{/has}}
-                    {{/has}}
+
                     {{else}}
                     <div class="no-posts">
                         <p>No posts found matching this tag.</p>

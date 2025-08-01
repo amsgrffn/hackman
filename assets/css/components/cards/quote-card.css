@@ -20,8 +20,8 @@
     font-weight: 700;
     letter-spacing: 0.02rem;
     line-height: 1.3;
-    margin: 0 0 4.4rem 0;
-    padding: 0 0 24px;
+    margin: 0 0 3.6rem 0;
+    padding: 0 0 18px;
     position: relative;
     text-transform: none;
 }
@@ -29,10 +29,10 @@
 .quote .post-content blockquote cite {
     color: var(--color-text-secondary);
     display: block;
-    font-family: var(--sans);
-    font-size: 14px;
+    font-family: 'pf-reminder', sans;
+    font-size: 18px;
     font-style: normal;
-    font-weight: 400;
+    font-weight: 500;
     letter-spacing: 0;
     line-height: 1.5;
     margin-top: var(--space-xl);
@@ -64,13 +64,13 @@
 }
 
 .quote .post-content blockquote.lg-quote:after {
-    background-color: var(--color-text-primary);
+    background-color: #9CB4D8;
     content: '';
     display: block;
-    height: var(--size-2);
-    left: -25px;
+    height: var(--size-3);
+    left: 0;
     position: relative;
-    top: 3.8rem;
+    top: 2.6rem;
     width: 12.5rem;
 }
 

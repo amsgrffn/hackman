@@ -4,7 +4,7 @@
 */
 
 .site-header {
-   margin: 2rem 0 0;
+   margin: 3rem 0 1rem;
    padding-bottom: 24px;
    z-index: 100;
 }
@@ -14,7 +14,7 @@
    display: flex;
    flex-wrap: wrap;
    font-family: var(--sans);
-   font-size: 14px;
+   font-size: 17px;
    list-style: none;
    margin: 0;
    padding: 0;
@@ -50,9 +50,10 @@
 }
 
 .breadcrumb-item a.title {
-   font-family: 'ff-market-web', sans-serif;
-   font-size: 20px;
-   font-weight:400;
+    display: block;
+   font-family: "new-spirit-condensed", serif;
+   font-size: 1.3rem;
+   font-weight:600;
    text-shadow: 0 0 8px rgba(255, 255, 255, 0.8), 0 0 16px rgba(255, 255, 255, 0.6);
 }
 

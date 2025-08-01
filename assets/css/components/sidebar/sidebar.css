@@ -4,8 +4,8 @@
  */
 
 .sidebar {
-   background: radial-gradient(circle at center, rgba(80, 160, 210, 0.4) 0.8px, transparent 0.8px),  white;
-   background-size: 16px 16px;
+    background: radial-gradient(circle at center, rgba(80, 160, 210, 0.4) 0.8px, transparent 0.8px),  white;
+    background-size: 16px 16px;
     border-radius: var(--radius);
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1), 0 0 0 1px rgb(17 24 39 / 0.1);
     width: 100%;
@@ -49,7 +49,7 @@
 
 /* Button styling */
 .sidebar-nuggs .btn {
-    border-radius: 9999px;
+    border-radius: var(--radius);
     background: #374151;
     color: #f8f8f8;
     display: block;
@@ -58,12 +58,13 @@
     font-weight: 600;
     letter-spacing: 0.02rem;
     margin:0 auto 8px;
-    padding: 8px 16px;
+    padding: 12px 24px;
+    border-radius: 8px;
     position: relative;
     text-align: center;
     text-decoration: none;
     transition: background-color 0.3s ease, color 0.3s ease, transform 0.1s, box-shadow 0.1s, background-image 0.1s;
-    width: 140px;
+    width: 150px;
 }
 
 body.dark-mode .sidebar-nuggs .btn {
@@ -337,14 +338,14 @@ body.dark-mode .about-site ul li span {
 }
 
 .newsletter-button {
-    border-radius: 9999px;
+    border-radius: var(--radius);
     background: #374151;
     color: #f8f8f8;
     display: block;
-  font-family: var(--sans);
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: 0.02rem;
+    font-family: var(--sans);
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.02rem;
     margin:0 auto 8px;
     padding: 8px 16px;
     position: relative;
@@ -526,9 +527,9 @@ body.dark-mode .about-site ul li span {
     display: flex;
     flex-direction: column;
     font-family: var(--display);
-    font-size: 22px;
+    font-size: 18px;
     font-style: normal;
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1.4;
     position: relative;
     text-wrap: balance;
@@ -626,7 +627,7 @@ body.dark-mode .about-site ul li span {
 
 .collapsible-title {
     color: var(--primary-color);
-    font-family: var(--display);
+    font-family: 'pf-reminder', sans;
     font-size: 18px;
     font-weight: 600;
 }

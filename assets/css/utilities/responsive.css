@@ -47,7 +47,7 @@
         flex: 1;
         flex-shrink: 0;
         margin-bottom: 0;
-        width: 580px;
+        width: 530px;
     }
 
     .copyright {
@@ -89,13 +89,13 @@
     .sidebar {
         flex-shrink: 0;
         margin-left: 0;
-        margin-left: 80px;
+        margin-left: 60px;
         /* Add right margin instead of getting it from the gap */
         order: 1;
         /* This will move the sidebar before content */
         position: sticky;
         top: 5rem;
-        width: 300px;
+        width: 240px;
     }
 
     .sidebar::-webkit-scrollbar {

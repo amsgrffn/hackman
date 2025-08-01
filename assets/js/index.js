@@ -1,5 +1,6 @@
 // Import the continuous carousel module
 import { initContinuousCarousel } from './carousel-continuous.js';
+import { initTagMasonry } from './masonry.js';
 
 // JavaScript files are compiled and minified during the build process to the assets/built folder. See available scripts in the package.json file.
 // Import CSS
@@ -532,6 +533,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initNewsletterModal();
     initBreadcrumbDropdown();
     initContinuousCarousel();
+    initTagMasonry();
 
     // Log to confirm script is running
     console.log('Theme JS initialized including social sharing');

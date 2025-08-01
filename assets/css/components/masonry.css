@@ -17,6 +17,7 @@
         /* Fallback for non-JS users */
         grid-auto-rows: auto;
         grid-auto-flow: dense;
+
     }
 
     /* When masonry JS is active */
@@ -27,7 +28,7 @@
 
     /* Ensure all card types work well in grid */
     .tag-content .posts-container > article {
-        margin-bottom: 0; /* Remove bottom margin, let grid handle spacing */
+        margin-bottom: 2rem; /* Remove bottom margin, let grid handle spacing */
     }
 
     /* Featured posts can optionally span both columns */

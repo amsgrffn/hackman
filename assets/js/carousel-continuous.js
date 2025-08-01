@@ -52,10 +52,14 @@ class ContinuousCarousel {
         this.addPauseControl();
 
         // Handle window resize
-        window.addEventListener('resize', this.handleResize.bind(this));
+        this.debouncedResize = this.debounce(this.handleResize.bind(this), 150);
+        window.addEventListener('resize', this.debouncedResize);
 
         // Start the animation
         this.startAnimation();
+
+        this.hasCloned = false;
+
     }
 
     calculateDimensions() {
@@ -72,23 +76,27 @@ class ContinuousCarousel {
         this.totalWidth = this.slideWidth * 6;
     }
 
-    cloneSlides() {
-        // For a truly continuous effect, we need to clone slides
-        const minSlidesNeeded = Math.ceil(window.innerWidth / this.slideWidth) * 2;
+   cloneSlides() {
+       if (this.hasCloned) return; // ✅ Prevent repeated cloning
+       this.hasCloned = true;
 
-        // Only clone if we don't have enough slides
-        if (this.slides.length < minSlidesNeeded) {
-            // How many sets of clones we need
-            const setsNeeded = Math.ceil(minSlidesNeeded / this.slides.length);
+       const minSlidesNeeded = Math.ceil(window.innerWidth / this.slideWidth) * 2;
 
-            for (let i = 0; i < setsNeeded; i++) {
-                this.slides.forEach(slide => {
-                    const clone = slide.cloneNode(true);
-                    this.track.appendChild(clone);
-                });
-            }
-        }
-    }
+       // How many sets of clones we need
+       const setsNeeded = Math.ceil(minSlidesNeeded / this.slides.length);
+
+       for (let i = 0; i < setsNeeded; i++) {
+           this.slides.forEach(slide => {
+               const clone = slide.cloneNode(true);
+               clone.setAttribute('aria-hidden', 'true'); // Optional, for accessibility
+               this.track.appendChild(clone);
+           });
+       }
+
+       // Refresh the slides list to include clones
+       this.slides = Array.from(this.track.querySelectorAll('.carousel-slide'));
+   }
+
 
     addSpeedControls() {
         if (!this.slowDownButton || !this.speedUpButton) return;
@@ -165,28 +173,30 @@ class ContinuousCarousel {
     }
 
     animateCarousel(timestamp) {
-        // Calculate time elapsed since last frame
         const elapsed = timestamp - this.lastTimestamp;
         this.lastTimestamp = timestamp;
 
-        // Calculate how far to move based on current speed
         const pixelsToMove = elapsed * this.getCurrentSpeed();
-
-        // Update position
         this.position -= pixelsToMove;
 
-        // Reset position when we've scrolled through totalWidth
-        // This creates the infinite scroll effect
-        if (Math.abs(this.position) >= this.totalWidth) {
-            this.position = 0;
+        // ✅ Instead of resetting at totalWidth (visible reset), loop at halfway point
+        const resetPoint = this.track.scrollWidth / 2;
+        if (Math.abs(this.position) >= resetPoint) {
+            this.position += resetPoint;
         }
 
-        // Apply the transform
         this.track.style.transform = `translateX(${this.position}px)`;
-
-        // Continue the animation
         this.animationId = requestAnimationFrame(this.animateCarousel.bind(this));
     }
+
+    debounce(fn, delay) {
+        let timeout;
+        return (...args) => {
+            clearTimeout(timeout);
+            timeout = setTimeout(() => fn(...args), delay);
+        };
+    }
+
 
     handleResize() {
         // Recalculate dimensions

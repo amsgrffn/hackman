@@ -1,5 +1,3 @@
-// Add this to your assets/js/index.js file (or create a separate masonry.js file)
-
 /**
  * Masonry Layout for Ghost Tag Pages
  * Maintains chronological left-to-right order while creating a true masonry effect
@@ -24,8 +22,15 @@ async function setupMasonry(container) {
     // Add class for CSS targeting
     container.classList.add('masonry-active');
 
+    // Flag to prevent infinite loops
+    let isResizing = false;
+
     // Only apply masonry on desktop (768px+)
     const applyMasonry = async () => {
+        // Prevent recursive calls
+        if (isResizing) return;
+        isResizing = true;
+
         if (window.innerWidth < 768) {
             // Reset to normal layout on mobile
             container.style.gridAutoRows = '';
@@ -33,6 +38,7 @@ async function setupMasonry(container) {
             Array.from(container.children).forEach(item => {
                 item.style.gridRowEnd = '';
             });
+            isResizing = false;
             return;
         }
 
@@ -48,30 +54,49 @@ async function setupMasonry(container) {
         // Wait for all media to load
         await waitForMedia(container);
 
+        // Small delay to ensure layout has settled
+        await new Promise(resolve => setTimeout(resolve, 100));
+
         // Calculate and apply heights
         items.forEach(item => {
+            // Reset any previous grid-row-end
+            item.style.gridRowEnd = '';
+
+            // Force layout recalculation
+            void item.offsetHeight;
+
+            // Get the natural height
             const rect = item.getBoundingClientRect();
             const height = rect.height;
 
-            // Set the grid row span based on item height + gap
-            item.style.gridRowEnd = `span ${Math.round(height + colGap)}`;
+            // With grid-auto-rows: 0px and row-gap: 1px, each "row" is 1px
+            // So we need exactly height + desired gap number of rows
+            const rowSpan = Math.round(height + colGap);
+            item.style.gridRowEnd = `span ${rowSpan}`;
         });
+
+        // Reset flag after a delay
+        setTimeout(() => {
+            isResizing = false;
+        }, 200);
     };
 
     // Initial layout
     await applyMasonry();
 
-    // Create resize observer for container changes
-    if (window.ResizeObserver) {
-        const resizeObserver = new ResizeObserver(debounce(async () => {
-            await applyMasonry();
-        }, 150));
+    // Handle window resize with debouncing
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(applyMasonry, 250);
+    });
 
-        resizeObserver.observe(container);
+    // Optional: Re-layout when fonts load
+    if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(() => {
+            setTimeout(applyMasonry, 100);
+        });
     }
-
-    // Handle window resize
-    window.addEventListener('resize', debounce(applyMasonry, 150));
 }
 
 /**
@@ -83,10 +108,13 @@ async function waitForMedia(container) {
     // Wait for images
     const images = container.querySelectorAll('img');
     images.forEach(img => {
-        if (!img.complete) {
+        if (!img.complete && img.src) {
             promises.push(new Promise(resolve => {
                 img.addEventListener('load', resolve, { once: true });
                 img.addEventListener('error', resolve, { once: true });
+
+                // Timeout after 3 seconds per image
+                setTimeout(resolve, 3000);
             }));
         }
     });
@@ -98,11 +126,14 @@ async function waitForMedia(container) {
             promises.push(new Promise(resolve => {
                 video.addEventListener('loadedmetadata', resolve, { once: true });
                 video.addEventListener('error', resolve, { once: true });
+
+                // Timeout after 3 seconds per video
+                setTimeout(resolve, 3000);
             }));
         }
     });
 
-    // Wait for all media or timeout after 5 seconds
+    // Wait for all media with a global timeout
     if (promises.length > 0) {
         await Promise.race([
             Promise.all(promises),
@@ -111,39 +142,10 @@ async function waitForMedia(container) {
     }
 }
 
-/**
- * Debounce helper function
- */
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-}
-
 // Initialize when DOM is ready
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initTagMasonry);
 } else {
-    initTagMasonry();
+    // Small delay to ensure everything is rendered
+    setTimeout(initTagMasonry, 100);
 }
-
-// Export for use in main index.js
-export default initTagMasonry;
-
-/*
- * Integration with your existing index.js:
- *
- * import { initTagMasonry } from './masonry.js';
- *
- * // Or if adding directly to index.js, just call:
- * initTagMasonry();
- *
- * // If you have infinite scroll or load more functionality:
- * // Call initTagMasonry() after new posts are loaded
- */

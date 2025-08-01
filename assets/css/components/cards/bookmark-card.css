@@ -7,27 +7,8 @@
     position: relative;
 }
 
-.bookmark-header {
-    align-items: flex-start;
-    display: flex;
-    gap: var(--space-sm);
-}
-
-.bookmark-header h2 {
-    font-family: var(--display);
-    font-size: var(--heading-lg);
-    font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: 2rem;
-    text-wrap: pretty;
-}
-
-.bookmark-header h2 a {
-    transition: color 0.3s ease;
-}
-
-.bookmark-header h2 a:hover {
-    color: var(--color-red);
+.bookmark-card h2 {
+    display: none;
 }
 
 .bookmark-source {

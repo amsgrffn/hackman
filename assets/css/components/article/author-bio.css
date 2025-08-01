@@ -5,7 +5,8 @@
 
 .author-card {
     align-items: center;
-    background: var(--color-background-primary);
+    background: radial-gradient(circle at center, rgba(80, 160, 210, 0.4) 0.8px, transparent 0.8px),  white;
+    background-size: 16px 16px;
     border-radius: var(--radius);
     box-shadow: var(--shadow);
     display: flex;
