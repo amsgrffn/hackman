@@ -3,40 +3,109 @@
 <div class="container">
     <div class="layout">
         <main class="content">
+            <!-- Debug Information -->
+            <div style="background: #e8f4fd; padding: 20px; margin: 20px 0; border: 2px solid #0066cc; border-radius: 8px;">
+                <h3>🐛 DEBUG INFO - Regular Tags</h3>
+                <p><strong>Total posts found:</strong> {{posts.length}}</p>
+                <p><strong>Posts exist:</strong> {{#if posts}}✅ YES{{else}}❌ NO{{/if}}</p>
+            </div>
+
             <div class="posts-container">
               {{#foreach posts}}
-                {{!-- Determine post type based on tags --}}
-                {{#has tag="#featured"}}
-                  {{> "cards/featured-card"}}
-                {{else}}
-                  {{#has tag="bookmarks"}}
-                    {{> "cards/bookmark-card"}}
-                  {{else}}
-                    {{#has tag="notes"}}
-                      {{> "cards/note-card"}}
-                    {{else}}
-                      {{#has tag="quote"}}
-                        {{> "cards/quote-card"}}
-                      {{else}}
-                        {{#has tag="video"}}
-                          {{> "cards/video-card"}}
+                <div style="border: 2px solid #28a745; padding: 15px; margin: 15px 0; background: #f8f9fa; border-radius: 8px;">
+                    <h4 style="color: #333; margin: 0 0 10px 0;">📝 Post {{@number}}: "{{title}}"</h4>
+                    
+                    <div style="margin-bottom: 15px;">
+                        <p><strong>🏷️ All Tags on this post:</strong></p>
+                        {{#if tags}}
+                            <div style="margin: 5px 0;">
+                            {{#foreach tags}}
+                                <span style="background: #ffd700; padding: 3px 8px; margin: 2px; border-radius: 4px; display: inline-block; font-size: 12px;">"{{name}}"</span>
+                            {{/foreach}}
+                            </div>
                         {{else}}
-                          {{!-- Default post type if no special tag --}}
-                          {{> "cards/article-card"}}
+                            <em style="color: #666;">❌ This post has NO tags</em>
+                        {{/if}}
+                    </div>
+                    
+                    <!-- Test each regular tag condition -->
+                    <div style="background: #fff; padding: 10px; border-radius: 4px; margin: 10px 0;">
+                        <p><strong>🧪 Tag Tests (Regular Tags):</strong></p>
+                        <div style="font-family: monospace; font-size: 13px;">
+                            <div>Has "featured": {{#has tag="featured"}}✅ YES{{else}}❌ NO{{/has}}</div>
+                            <div>Has "bookmarks": {{#has tag="bookmarks"}}✅ YES{{else}}❌ NO{{/has}}</div>
+                            <div>Has "notes": {{#has tag="notes"}}✅ YES{{else}}❌ NO{{/has}}</div>
+                            <div>Has "quote": {{#has tag="quote"}}✅ YES{{else}}❌ NO{{/has}}</div>
+                            <div>Has "video": {{#has tag="video"}}✅ YES{{else}}❌ NO{{/has}}</div>
+                        </div>
+                    </div>
+                    
+                    {{!-- Show which card type is being used --}}
+                    <div style="border-left: 4px solid #007bff; padding-left: 15px; margin: 15px 0;">
+                        {{#has tag="featured"}}
+                            <p style="color: #6f42c1; font-weight: bold; margin: 0;">🎯 USING: Featured Card</p>
+                        {{else}}
+                            {{#has tag="bookmarks"}}
+                                <p style="color: #007bff; font-weight: bold; margin: 0;">🎯 USING: Bookmark Card</p>
+                            {{else}}
+                                {{#has tag="notes"}}
+                                    <p style="color: #fd7e14; font-weight: bold; margin: 0;">🎯 USING: Note Card</p>
+                                {{else}}
+                                    {{#has tag="quote"}}
+                                        <p style="color: #20c997; font-weight: bold; margin: 0;">🎯 USING: Quote Card</p>
+                                    {{else}}
+                                        {{#has tag="video"}}
+                                            <p style="color: #dc3545; font-weight: bold; margin: 0;">🎯 USING: Video Card</p>
+                                        {{else}}
+                                            <p style="color: #28a745; font-weight: bold; margin: 0;">🎯 USING: Article Card (Default)</p>
+                                        {{/has}}
+                                    {{/has}}
+                                {{/has}}
+                            {{/has}}
                         {{/has}}
-                      {{/has}}
-                    {{/has}}
-                  {{/has}}
-                {{/has}}
+                    </div>
+
+                    <!-- Actually render the card -->
+                    <div style="margin-top: 15px; padding: 10px; background: #f1f3f4; border-radius: 4px;">
+                        <p><strong>📋 Rendered Card:</strong></p>
+                        {{#has tag="featured"}}
+                            {{> "cards/featured-card"}}
+                        {{else}}
+                            {{#has tag="bookmarks"}}
+                                {{> "cards/bookmark-card"}}
+                            {{else}}
+                                {{#has tag="notes"}}
+                                    {{> "cards/note-card"}}
+                                {{else}}
+                                    {{#has tag="quote"}}
+                                        {{> "cards/quote-card"}}
+                                    {{else}}
+                                        {{#has tag="video"}}
+                                            {{> "cards/video-card"}}
+                                        {{else}}
+                                            {{> "cards/article-card"}}
+                                        {{/has}}
+                                    {{/has}}
+                                {{/has}}
+                            {{/has}}
+                        {{/has}}
+                    </div>
+                </div>
+              {{else}}
+                <div style="background: #dc3545; color: white; padding: 30px; text-align: center; border-radius: 8px;">
+                    <h2>🚨 NO POSTS FOUND!</h2>
+                    <p>The posts loop is completely empty. Check:</p>
+                    <ul style="text-align: left; margin: 20px auto; max-width: 400px;">
+                        <li>✅ Do you have published posts in Ghost Admin?</li>
+                        <li>✅ Are posts set to "Published" (not "Draft")?</li>
+                        <li>✅ Did you run <code>npm run dev</code> to build assets?</li>
+                        <li>✅ Is Ghost running on localhost:2368?</li>
+                    </ul>
+                </div>
               {{/foreach}}
             </div>
-            {{!-- Load more button --}}
-            {{#if pagination.pages}}
-              <button class="load-more-button">Load More</button>
-              <div class="loading-indicator">Loading posts...</div>
-            {{/if}}
         </main>
         {{> "layout/sidebar"}}
     </div>
 </div>
- {{> "layout/site-footer"}}
+{{> "layout/site-footer"}}
