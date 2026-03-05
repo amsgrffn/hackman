@@ -39,9 +39,16 @@ article {
 }
 
 .posts-container article {
+  display: grid;
+  gap: 0 var(--space-xl);
+  grid-template-columns: 120px 1fr;
   margin-bottom: 6rem;
   position: relative;
   z-index: auto;
+}
+
+.posts-container article.featured-post {
+  display: block;
 }
 
 .post-content blockquote,
@@ -153,21 +160,30 @@ article {
   display: flex;
 }
 
-.meta {
-  align-items: flex-end;
+.posts-container article > .meta {
   color: var(--color-text-primary);
-  display: flex;
   font-size: 18px;
   font-weight: 500;
-  gap: 16px;
+  grid-column: 1;
+  grid-row: 1;
   margin: 0;
+  padding-top: 3px;
   text-align: right;
 }
 
-.meta > * {
-  line-height: 1;
-  margin: 0;
-  padding: 0;
+.posts-container article > .meta span.tag {
+  display: block;
+  text-align: right;
+}
+
+.posts-container article > .card-content,
+.posts-container article > .note-content,
+.posts-container article > .video-comment,
+.posts-container article > .quote-content,
+.posts-container article > .bookmark-comment {
+  grid-column: 2;
+  grid-row: 1 / -1;
+  min-width: 0;
 }
 
 .meta .pub-date {
@@ -183,13 +199,6 @@ article {
     background-color 0.2s ease,
     color 0.2s ease,
     transform 0.2s ease;
-  text-align: right;
-}
-
-.meta span.tag {
-  margin-left: -160px;
-  margin-top: 12px;
-  text-align: right;
 }
 
 .meta .tag {
@@ -197,7 +206,6 @@ article {
   font-weight: 400;
   position: relative;
   z-index: 2;
-  text-align: right;
 }
 
 .meta .tag a {
