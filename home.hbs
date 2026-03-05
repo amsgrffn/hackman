@@ -3,8 +3,9 @@
 <div class="container">
     <div class="layout">
         <main class="content">
-            <div class="posts-container">
+            <div class="posts-container" data-date-group>
               {{#foreach posts}}
+                <div class="post-wrapper" data-published="{{date format="YYYY-MM-DD"}}">
                 {{!-- Determine post type based on tags --}}
                 {{#has tag="#featured"}}
                   {{> "cards/featured-card"}}
@@ -28,6 +29,7 @@
                     {{/has}}
                   {{/has}}
                 {{/has}}
+                </div>
               {{/foreach}}
             </div>
             {{!-- Load more button --}}

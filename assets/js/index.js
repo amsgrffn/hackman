@@ -512,6 +512,45 @@ function initSocialSharing() {
     }
 }
 
+/**
+ * Date Grouping
+ * Inserts date headers above groups of posts published on the same day.
+ * Reads data-published attributes from .post-wrapper elements.
+ */
+function initDateGrouping() {
+    const container = document.querySelector('[data-date-group]');
+    if (!container) return;
+
+    const wrappers = container.querySelectorAll('.post-wrapper[data-published]');
+    let lastDate = null;
+
+    wrappers.forEach((wrapper) => {
+        const dateStr = wrapper.getAttribute('data-published');
+        if (dateStr === lastDate) return;
+
+        lastDate = dateStr;
+        const date = new Date(dateStr + 'T12:00:00');
+        const formatted = date.toLocaleDateString('en-US', {
+            weekday: 'long',
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+
+        const header = document.createElement('header');
+        header.className = 'date-separator';
+        header.setAttribute('role', 'heading');
+        header.setAttribute('aria-level', '2');
+
+        const heading = document.createElement('time');
+        heading.setAttribute('datetime', dateStr);
+        heading.textContent = formatted;
+        header.appendChild(heading);
+
+        container.insertBefore(header, wrapper);
+    });
+}
+
 // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', () => {
     initMobileMenu();
@@ -534,6 +573,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initBreadcrumbDropdown();
     initContinuousCarousel();
     initTagMasonry();
+    initDateGrouping();
 
     // Log to confirm script is running
     console.log('Theme JS initialized including social sharing');
