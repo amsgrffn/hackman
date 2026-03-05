@@ -23,6 +23,7 @@
   ); /* placeholderText: #3c3c43 at 30% opacity */
   --color-text-link: oklch(0.603 0.218 257.4); /* link: #007aff */
   --color-content-on-dark: oklch(1 0 0); /* white text: #ffffff */
+  --color-blue: #0066cc;
 
   /* ===================================================================
        * BACKGROUND COLORS
@@ -80,7 +81,6 @@
        * SYSTEM ACCENT COLORS
        * ================================================================ */
 
-  --color-blue: oklch(0.603 0.218 257.4); /* systemBlue: #007aff */
   --color-green: oklch(0.73 0.194 147.5); /* systemGreen: #34c759 */
   --color-indigo: oklch(0.529 0.191 278.3); /* systemIndigo: #5856d6 */
   --color-orange: oklch(0.765 0.175 62.6); /* systemOrange: #ff9500 */
