@@ -1,6 +1,6 @@
 # Hackman — Ghost Theme
 
-A custom Ghost 5.0+ blog theme built with Handlebars, PostCSS, and Rollup.
+A custom Ghost 6.0+ blog theme built with Handlebars, PostCSS, and Rollup.
 
 ## Philosophy
 
