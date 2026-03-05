@@ -49,14 +49,6 @@
    transition: var(--transition);
 }
 
-.breadcrumb-item a.title {
-    display: block;
-   font-family: "new-spirit-condensed", serif;
-   font-size: 1.3rem;
-   font-weight:600;
-   text-shadow: 0 0 8px rgba(255, 255, 255, 0.8), 0 0 16px rgba(255, 255, 255, 0.6);
-}
-
 .breadcrumb-item a:hover {
    color: var(--color-red);
    text-decoration: underline;

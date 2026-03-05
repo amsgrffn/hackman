@@ -12,9 +12,6 @@
         </div>
         <footer>
             <div class="post-info">
-            {{#primary_author}}
-               <a class="avatar wiggle" href="{{url}}"><img srcset="{{img_url profile_image size="xxs" format="webp"}} 50w, {{img_url profile_image size="xs" format="webp"}} 100w" sizes="50vw" src="{{img_url profile_image size="xs" format="webp"}}" alt="{{name}}'s Avatar" width="40" height="40" loading="lazy"></a>
-               {{/primary_author}}
             <span class="pub-date"><time datetime="{{date format="YYYY-MM-DD"}}">{{date published_at format="dddd, D MMMM, YYYY"}}</time></span>
             </div>
             {{> "utilities/post-dropdown"}}

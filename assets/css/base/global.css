@@ -4,33 +4,33 @@
  */
 
 body {
-background: repeating-linear-gradient(0deg, rgba(80, 160, 210, 0.08) 0px, rgba(80, 160, 210, 0.08) 1px, transparent 1px, transparent 15px),repeating-linear-gradient(90deg, rgba(80, 160, 210, 0.06) 0px, rgba(80, 160, 210, 0.06) 1px, transparent 1px, transparent 15px),linear-gradient(to bottom, #fffdf7 0%, #fffaf0 25%, #fff8ee 50%, #fffaf5 75%, #fffbf2 100%);
-    color: var(--color-text-primary);
-    font-family: var(--serif);
-    font-size: var(--text-base);
-    line-height: var(--line-height-normal);
+  background: #fff; /* #fbfbfb - Main body background */
+  color: var(--color-text-primary);
+  font-family: var(--sans);
+  font-size: var(--text-base);
+  line-height: var(--line-height-normal);
 }
 
 body.dark-mode body {
-    background: #282828;
+  background: #282828;
 }
 
 a {
-    color: var(--color-blue);
-    text-decoration: none;
-    transition: var(--transition);
+  color: var(--color-blue);
+  text-decoration: none;
+  transition: var(--transition);
 }
 
 a:hover {
-    opacity: 0.8;
+  opacity: 0.8;
 }
 
 img {
-    height: auto;
-    max-width: 100%;
+  height: auto;
+  max-width: 100%;
 }
 
-.page .kg-toggle-card  {
-    background: #fff;
-    box-shadow: var(--shadow);
+.page .kg-toggle-card {
+  background: #fff;
+  box-shadow: var(--shadow);
 }

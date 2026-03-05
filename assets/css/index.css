@@ -11,104 +11,96 @@
 /* ---------------------------------------------------------- */
 
 /* Base styles*/
-@import "base/global.css";
-@import "base/layout.css";
-@import "base/reset.css";
-@import "base/typography.css";
-@import "base/variables.css";
+@import 'base/global.css';
+@import 'base/layout.css';
+@import 'base/reset.css';
+@import 'base/typography.css';
+@import 'base/variables.css';
 
 /* Core layout components */
-@import "components/footer.css";
-@import "components/header/breadcrumb-nav.css";
-@import "components/header/mobile-menu.css";
-@import "components/sidebar/appearance-toggle.css";
-@import "components/sidebar/sidebar.css";
+@import 'components/footer.css';
+@import 'components/header/breadcrumb-nav.css';
+@import 'components/header/mobile-menu.css';
+@import 'components/sidebar/appearance-toggle.css';
+@import 'components/sidebar/sidebar.css';
 
 /* Content components */
-@import "components/post-dropdown.css";
-@import "components/cards/cards.css";
-@import "components/cards/bookmark-card.css";
-@import "components/cards/featured-post.css";
-@import "components/cards/quote-card.css";
-@import "components/cards/shared.css";
-@import "components/cards/video-card.css";
-@import "components/carousel/featured-carousel.css";
+@import 'components/post-dropdown.css';
+@import 'components/cards/cards.css';
+@import 'components/cards/bookmark-card.css';
+@import 'components/cards/featured-post.css';
+@import 'components/cards/quote-card.css';
+@import 'components/cards/shared.css';
+@import 'components/cards/video-card.css';
+@import 'components/carousel/featured-carousel.css';
 
 /* Article components */
-@import "components/article/article-base.css";
-@import "components/article/tables.css";
-@import "components/article/code-syntax.css";
-@import "components/article/article-footer.css";
-@import "components/article/author-bio.css";
-@import "components/article/related-articles.css";
-@import "components/article/comments-panel.css";
-@import "components/masonry.css";
+@import 'components/article/article-base.css';
+@import 'components/article/tables.css';
+@import 'components/article/code-syntax.css';
+@import 'components/article/article-footer.css';
+@import 'components/article/author-bio.css';
+@import 'components/article/related-articles.css';
+@import 'components/article/comments-panel.css';
+@import 'components/masonry.css';
 
 /* Page styles */
-@import "pages/_base-page.css";
-@import "pages/contact-page.css";
-@import "pages/error-page.css";
-@import "pages/office-hours.css";
-@import "pages/memberships-page.css";
-@import "pages/tag-page.css";
+@import 'pages/_base-page.css';
+@import 'pages/contact-page.css';
+@import 'pages/error-page.css';
+@import 'pages/office-hours.css';
+@import 'pages/memberships-page.css';
+@import 'pages/tag-page.css';
 
 /* Utilities */
-@import "utilities/dark-mode.css";
-@import "utilities/animations.css";
-@import "utilities/lite-tube.css";
-@import "utilities/responsive.css";
-@import "pagination.css";
-
-
+@import 'utilities/dark-mode.css';
+@import 'utilities/animations.css';
+@import 'utilities/lite-tube.css';
+@import 'utilities/responsive.css';
+@import 'pagination.css';
 
 /***********************************************
     NOTE CARDS
 ***********************************************/
 
 .note {
-    position: relative;
-}
-
-.posts-container article.note {
-background: repeating-linear-gradient(0deg, rgba(80, 160, 210, 0.2) 0px, rgba(80, 160, 210, 0.2) 1px, transparent 1px, transparent 20px),repeating-linear-gradient(90deg, rgba(80, 160, 210, 0.1) 0px, rgba(80, 160, 210, 0.1) 1px, transparent 1px, transparent 20px), white;
+  position: relative;
 }
 
 body.dark-mode .note .post-content {
-    background: #2b2e32;
+  background: #2b2e32;
 }
 
 .note h2 {
-    display: none;
+  display: none;
 }
-
-
 
 /* Add these to your assets/css/index.css file */
 
 /* Date Archive Specific Styles */
 .date-archive-header {
-    margin: 0 auto 3rem;
-    text-align: center;
-    border-bottom: 3px solid #000;
+  margin: 0 auto 3rem;
+  text-align: center;
+  border-bottom: 3px solid #000;
 }
 
 .date-archive-title {
-    color: var(--gray-dark);
-    font-family: var(--display);
-    font-size: clamp(32px, 5vw, 48px);
-    font-weight: 800;
-    letter-spacing: 0.02rem;
-    line-height: 1.1;
-    margin-bottom: var(--space-sm);
-    text-wrap: pretty;
+  color: var(--gray-dark);
+  font-family: var(--display);
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 800;
+  letter-spacing: 0.02rem;
+  line-height: 1.1;
+  margin-bottom: var(--space-sm);
+  text-wrap: pretty;
 }
 
 .date-archive-description {
-    color: var(--gray-dark);
-    font-size: var(--text-2xl);
-    font-weight: 300;
-    line-height: 1.4;
-    margin: 0;
-    padding-bottom: var(--space-2xl);
-    text-wrap: balance;
+  color: var(--gray-dark);
+  font-size: var(--text-2xl);
+  font-weight: 300;
+  line-height: 1.4;
+  margin: 0;
+  padding-bottom: var(--space-2xl);
+  text-wrap: balance;
 }

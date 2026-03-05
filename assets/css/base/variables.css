@@ -4,211 +4,246 @@
  */
 
 :root {
-
-    /* ===================================================================
+  /* ===================================================================
      * TEXT & LABEL COLORS
      * ================================================================ */
 
-      --color-text-primary: oklch(0 0 0); /* label: #000000 */
-      --color-text-secondary: oklch(0.359 0.012 285.7 / 0.9); /* secondaryLabel: #3c3c43 at 80% opacity */
-      --color-text-tertiary: oklch(0.359 0.012 285.7 / 0.3); /* tertiaryLabel: #3c3c43 at 30% opacity */
-      --color-text-quaternary: oklch(0.359 0.012 285.7 / 0.18); /* quaternaryLabel: #3c3c43 at 18% opacity */
-      --color-text-placeholder: oklch(0.359 0.012 285.7 / 0.3); /* placeholderText: #3c3c43 at 30% opacity */
-      --color-text-link: oklch(0.603 0.218 257.4); /* link: #007aff */
-      --color-content-on-dark: oklch(1 0 0); /* white text: #ffffff */
+  --color-text-primary: oklch(0 0 0); /* label: #000000 */
+  --color-text-secondary: oklch(
+    0.359 0.012 285.7 / 0.9
+  ); /* secondaryLabel: #3c3c43 at 80% opacity */
+  --color-text-tertiary: oklch(
+    0.359 0.012 285.7 / 0.3
+  ); /* tertiaryLabel: #3c3c43 at 30% opacity */
+  --color-text-quaternary: oklch(
+    0.359 0.012 285.7 / 0.18
+  ); /* quaternaryLabel: #3c3c43 at 18% opacity */
+  --color-text-placeholder: oklch(
+    0.359 0.012 285.7 / 0.3
+  ); /* placeholderText: #3c3c43 at 30% opacity */
+  --color-text-link: oklch(0.603 0.218 257.4); /* link: #007aff */
+  --color-content-on-dark: oklch(1 0 0); /* white text: #ffffff */
 
-      /* ===================================================================
+  /* ===================================================================
        * BACKGROUND COLORS
        * ================================================================ */
 
-      /* System Backgrounds */
-      --color-background-primary: oklch(1 0 0); /* systemBackground: #ffffff */
-      --color-background-secondary: oklch(0.963 0.007 286); /* secondarySystemBackground: #f2f2f7 */
-      --color-background-tertiary: oklch(0.9706 0.0017 67.8); /* tertiarySystemBackground: #ffffff */
+  /* System Backgrounds */
+  --color-background-primary: oklch(1 0 0); /* systemBackground: #ffffff */
+  --color-background-secondary: oklch(
+    0.963 0.007 286
+  ); /* secondarySystemBackground: #f2f2f7 */
+  --color-background-tertiary: oklch(
+    0.9706 0.0017 67.8
+  ); /* tertiarySystemBackground: #ffffff */
 
-      /* Grouped Backgrounds (for grouped table views) */
-      --color-background-grouped-primary: oklch(0.963 0.007 286); /* systemGroupedBackground: #f2f2f7 */
-      --color-background-grouped-secondary: oklch(1 0 0); /* secondarySystemGroupedBackground: #ffffff */
-      --color-background-grouped-tertiary: oklch(0.963 0.007 286); /* #f6f5f4 */
+  /* Grouped Backgrounds (for grouped table views) */
+  --color-background-grouped-primary: oklch(
+    0.963 0.007 286
+  ); /* systemGroupedBackground: #f2f2f7 */
+  --color-background-grouped-secondary: oklch(
+    1 0 0
+  ); /* secondarySystemGroupedBackground: #ffffff */
+  --color-background-grouped-tertiary: oklch(0.963 0.007 286); /* #f6f5f4 */
 
-      /* ===================================================================
+  /* ===================================================================
        * FILL COLORS (for buttons, controls)
        * ================================================================ */
 
-      --color-fill-primary: oklch(0.575 0.012 285.9 / 0.2); /* systemFill: #787880 at 20% opacity */
-      --color-fill-secondary: oklch(0.575 0.012 285.9 / 0.16); /* secondarySystemFill: #787880 at 16% opacity */
-      --color-fill-tertiary: oklch(0.569 0.015 285.8 / 0.12); /* tertiarySystemFill: #767680 at 12% opacity */
-      --color-fill-quaternary: oklch(0.563 0.018 285.7 / 0.08); /* quaternarySystemFill: #747480 at 8% opacity */
-      --color-fill-dark: oklch(0.227 0.004 286); /* dark gray: #1c1c1e */
+  --color-fill-primary: oklch(
+    0.575 0.012 285.9 / 0.2
+  ); /* systemFill: #787880 at 20% opacity */
+  --color-fill-secondary: oklch(
+    0.575 0.012 285.9 / 0.16
+  ); /* secondarySystemFill: #787880 at 16% opacity */
+  --color-fill-tertiary: oklch(
+    0.569 0.015 285.8 / 0.12
+  ); /* tertiarySystemFill: #767680 at 12% opacity */
+  --color-fill-quaternary: oklch(
+    0.563 0.018 285.7 / 0.08
+  ); /* quaternarySystemFill: #747480 at 8% opacity */
+  --color-fill-dark: oklch(0.227 0.004 286); /* dark gray: #1c1c1e */
 
-      /* ===================================================================
+  /* ===================================================================
        * SEPARATOR COLORS
        * ================================================================ */
 
-      --color-separator: oklch(0.359 0.012 285.7 / 0.29); /* separator: #3c3c43 at 29% opacity */
-      --color-separator-opaque: oklch(0.827 0.003 285.8); /* opaqueSeparator: #c6c6c8 */
-      --color-separator-dark: oklch(0.227 0.004 286); /* dark gray: #1c1c1e */
+  --color-separator: oklch(
+    0.359 0.012 285.7 / 0.29
+  ); /* separator: #3c3c43 at 29% opacity */
+  --color-separator-opaque: oklch(
+    0.827 0.003 285.8
+  ); /* opaqueSeparator: #c6c6c8 */
+  --color-separator-dark: oklch(0.227 0.004 286); /* dark gray: #1c1c1e */
 
-      /* ===================================================================
+  /* ===================================================================
        * SYSTEM ACCENT COLORS
        * ================================================================ */
 
-      --color-blue: oklch(0.603 0.218 257.4); /* systemBlue: #007aff */
-      --color-green: oklch(0.73 0.194 147.5); /* systemGreen: #34c759 */
-      --color-indigo: oklch(0.529 0.191 278.3); /* systemIndigo: #5856d6 */
-      --color-orange: oklch(0.765 0.175 62.6); /* systemOrange: #ff9500 */
-      --color-pink: oklch(0.65 0.238 17.9); /* systemPink: #ff2d55 */
-      --color-purple: oklch(0.615 0.213 312.4); /* systemPurple: #af52de */
-      --color-red: oklch(0.654 0.232 28.7); /* systemRed: #ff3b30 */
-      --color-teal: oklch(0.789 0.123 230.8); /* systemTeal: #5ac8fa */
-      --color-yellow: oklch(0.865 0.177 90.4); /* systemYellow: #ffcc00 */
-      --color-notebook-blue: oklch(0.764, 0.058, 258); /* systemYellow: #9CB4D8 */
+  --color-blue: oklch(0.603 0.218 257.4); /* systemBlue: #007aff */
+  --color-green: oklch(0.73 0.194 147.5); /* systemGreen: #34c759 */
+  --color-indigo: oklch(0.529 0.191 278.3); /* systemIndigo: #5856d6 */
+  --color-orange: oklch(0.765 0.175 62.6); /* systemOrange: #ff9500 */
+  --color-pink: oklch(0.65 0.238 17.9); /* systemPink: #ff2d55 */
+  --color-purple: oklch(0.615 0.213 312.4); /* systemPurple: #af52de */
+  --color-red: oklch(0.654 0.232 28.7); /* systemRed: #ff3b30 */
+  --color-teal: oklch(0.789 0.123 230.8); /* systemTeal: #5ac8fa */
+  --color-yellow: oklch(0.865 0.177 90.4); /* systemYellow: #ffcc00 */
+  --color-notebook-blue: oklch(0.764, 0.058, 258); /* systemYellow: #9CB4D8 */
 
-      /* ===================================================================
+  /* ===================================================================
        * GRAY SCALE SYSTEM COLORS
        * ================================================================ */
 
-      --color-gray: oklch(0.648 0.007 286); /* systemGray: #8e8e93 */
-      --color-gray-2: oklch(0.752 0.006 286); /* systemGray2: #aeaeb2 */
-      --color-gray-3: oklch(0.831 0.007 286); /* systemGray3: #c7c7cc */
-      --color-gray-4: oklch(0.862 0.007 286); /* systemGray4: #d1d1d6 */
-      --color-gray-5: oklch(0.923 0.007 286); /* systemGray5: #e5e5ea */
-      --color-gray-6: oklch(0.963 0.007 286); /* systemGray6: #f2f2f7 */
+  --color-gray: oklch(0.648 0.007 286); /* systemGray: #8e8e93 */
+  --color-gray-2: oklch(0.752 0.006 286); /* systemGray2: #aeaeb2 */
+  --color-gray-3: oklch(0.831 0.007 286); /* systemGray3: #c7c7cc */
+  --color-gray-4: oklch(0.862 0.007 286); /* systemGray4: #d1d1d6 */
+  --color-gray-5: oklch(0.923 0.007 286); /* systemGray5: #e5e5ea */
+  --color-gray-6: oklch(0.963 0.007 286); /* systemGray6: #f2f2f7 */
 
-      /* ===================================================================
+  /* ===================================================================
        * SEMANTIC ALIASES (recommended usage)
-       * ================================================================ */
+* ================================================================ */
 
+  /* Typography */
+  --display:
+    'Suisse Intl Trial', 'neue-haas-grotesk-display', 'aktiv-grotesk-condensed',
+    'aktiv-grotesk', 'new-kansas', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
+    'Helvetica Neue', sans-serif;
+  --sans:
+    'Test Söhne', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  --serif: portada, serif;
+  --mono:
+    'JetBrains Mono', 'calling-code', 'SF Mono', ui-monospace, Menlo, Consolas,
+    Roboto Mono, 'Ubuntu Mono', 'DejaVu Sans Mono', monospace;
 
+  /* Font sizes - core sizes with rem units */
+  --text-2xl: 1.5rem;
+  /* 24px */
+  --text-base: 1rem;
+  /* 16px */
+  --text-baseplus: 1.1rem;
+  /* 17px */
+  --text-lg: 1.125rem;
+  /* 18px */
+  --text-sm: 0.875rem;
+  /* 14px */
+  --text-xl: 1.25rem;
+  /* 20px */
+  --text-xs: 0.75rem;
+  /* 12px */
+  --text-xxs: 0.6875rem;
+  /* 11px */
 
-     /* Typography */
-     --display: "neue-haas-grotesk-display","aktiv-grotesk-condensed",'aktiv-grotesk','new-kansas', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-     --sans: "neue-haas-grotesk-text", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-     --serif: portada, serif;
-     --mono: 'JetBrains Mono', 'calling-code', 'SF Mono', ui-monospace, Menlo, Consolas, Roboto Mono, 'Ubuntu Mono', 'DejaVu Sans Mono', monospace;
+  /* Pixel-to-REM Conversions */
+  --size-1: 0.0625rem;
+  /* 1px */
+  --size-2: 0.125rem;
+  /* 2px */
+  --size-3: 0.1875rem;
+  /* 3px */
+  --size-4: 0.25rem;
+  /* 4px */
+  --size-5: 0.3125rem;
+  /* 5px */
+  --size-6: 0.375rem;
+  /* 6px */
+  --size-7: 0.4375rem;
+  /* 7px */
+  --size-8: 0.5rem;
+  /* 8px */
+  --size-9: 0.5625rem;
+  /* 9px */
+  --size-10: 0.625rem;
+  /* 10px */
+  --size-11: 0.6875rem;
+  /* 11px */
+  --size-12: 0.75rem;
+  /* 12px */
+  --neg-size-2: calc(var(--size-2) * -1);
+  /* -2px */
+  --neg-size-3: calc(var(--size-3) * -1);
+  /* -3px */
 
-     /* Font sizes - core sizes with rem units */
-     --text-2xl: 1.5rem;
-     /* 24px */
-     --text-base: 1rem;
-     /* 16px */
-     --text-baseplus: 1.1rem;
-     /* 17px */
-     --text-lg: 1.125rem;
-     /* 18px */
-     --text-sm: 0.875rem;
-     /* 14px */
-     --text-xl: 1.25rem;
-     /* 20px */
-     --text-xs: 0.75rem;
-     /* 12px */
-     --text-xxs: 0.6875rem;
-     /* 11px */
+  /* Heading sizes with subtle fluid scaling */
+  --heading-lg: clamp(1.75rem, 1.6rem + 0.75vw, 2rem);
+  /* ~28-32px */
+  --heading-md: clamp(1.5rem, 1.4rem + 0.5vw, 1.75rem);
+  /* ~24-28px */
+  --heading-sm: clamp(1.375rem, 1.3rem + 0.3vw, 1.5rem);
+  /* ~22-24px */
+  --heading-xl: clamp(2rem, 1.8rem + 1vw, 2.5rem);
+  /* ~32-40px */
 
-     /* Pixel-to-REM Conversions */
-     --size-1: 0.0625rem;
-     /* 1px */
-     --size-2: 0.125rem;
-     /* 2px */
-     --size-3: 0.1875rem;
-     /* 3px */
-     --size-4: 0.25rem;
-     /* 4px */
-     --size-5: 0.3125rem;
-     /* 5px */
-     --size-6: 0.375rem;
-     /* 6px */
-     --size-7: 0.4375rem;
-     /* 7px */
-     --size-8: 0.5rem;
-     /* 8px */
-     --size-9: 0.5625rem;
-     /* 9px */
-     --size-10: 0.625rem;
-     /* 10px */
-     --size-11: 0.6875rem;
-     /* 11px */
-     --size-12: 0.75rem;
-     /* 12px */
-     --neg-size-2: calc(var(--size-2) * -1);
-     /* -2px */
-     --neg-size-3: calc(var(--size-3) * -1);
-     /* -3px */
+  /* Line heights - unitless for better scaling */
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.7;
+  --line-height-tight: 1.2;
 
-     /* Heading sizes with subtle fluid scaling */
-     --heading-lg: clamp(1.75rem, 1.6rem + 0.75vw, 2rem);
-     /* ~28-32px */
-     --heading-md: clamp(1.5rem, 1.4rem + 0.5vw, 1.75rem);
-     /* ~24-28px */
-     --heading-sm: clamp(1.375rem, 1.3rem + 0.3vw, 1.5rem);
-     /* ~22-24px */
-     --heading-xl: clamp(2rem, 1.8rem + 1vw, 2.5rem);
-     /* ~32-40px */
+  /* Font weights */
+  --font-weight-black: 800;
+  --font-weight-bold: 700;
+  --font-weight-heavy: 900;
+  --font-weight-light: 300;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --font-weight-semibold: 600;
 
-     /* Line heights - unitless for better scaling */
-     --line-height-normal: 1.5;
-     --line-height-relaxed: 1.7;
-     --line-height-tight: 1.2;
+  /* Letter spacing */
+  --letter-spacing-normal: 0;
+  --letter-spacing-tight: -0.03rem;
+  --letter-spacing-tightest: -0.03rem;
+  --letter-spacing-wide: 0.05em;
 
-     /* Font weights */
-     --font-weight-black: 800;
-     --font-weight-bold: 700;
-     --font-weight-heavy: 900;
-     --font-weight-light: 300;
-     --font-weight-medium: 500;
-     --font-weight-normal: 400;
-     --font-weight-semibold: 600;
+  /* Spacing scale */
+  --space-2xs: 0.25rem;
+  /* 4px */
+  --space-xs: 0.5rem;
+  /* 8px */
+  --space-sm: 0.75rem;
+  /* 12px */
+  --space-md: 1rem;
+  /* 16px */
+  --space-lg: 1.25rem;
+  /* 20px */
+  --space-xl: 1.5rem;
+  /* 24px */
+  --space-2xl: 2rem;
+  /* 32px */
+  --space-3xl: 3rem;
+  /* 48px */
 
-     /* Letter spacing */
-     --letter-spacing-normal: 0;
-     --letter-spacing-tight: -0.03rem;
-     --letter-spacing-tightest: -0.03rem;
-     --letter-spacing-wide: 0.05em;
+  /* Container widths */
+  --content-lg: 56.25rem;
+  /* 900px - your current max-width */
+  --content-md: 45rem;
+  /* 720px */
+  --content-sm: 30rem;
+  /* 480px */
+  --content-xl: 75rem;
+  /* 1200px */
+  --content-xs: 20rem;
+  /* 320px */
 
-     /* Spacing scale */
-     --space-2xs: 0.25rem;
-     /* 4px */
-     --space-xs: 0.5rem;
-     /* 8px */
-     --space-sm: 0.75rem;
-     /* 12px */
-     --space-md: 1rem;
-     /* 16px */
-     --space-lg: 1.25rem;
-     /* 20px */
-     --space-xl: 1.5rem;
-     /* 24px */
-     --space-2xl: 2rem;
-     /* 32px */
-     --space-3xl: 3rem;
-     /* 48px */
+  /* UI Elements */
+  --radius: 0.8rem;
+  --shadow:
+    0 3px 4px -1px rgb(0 0 0 / 0.06), 0 1px 3px -1px rgb(0 0 0 / 0.06),
+    0 0 0 1px rgb(17 24 39 / 0.05);
+  --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 
-     /* Container widths */
-     --content-lg: 56.25rem;
-     /* 900px - your current max-width */
-     --content-md: 45rem;
-     /* 720px */
-     --content-sm: 30rem;
-     /* 480px */
-     --content-xl: 75rem;
-     /* 1200px */
-     --content-xs: 20rem;
-     /* 320px */
-
-     /* UI Elements */
-     --radius: 0.5rem;
-     --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1), 0 0 0 1px rgb(17 24 39 / 0.1);
-     --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-
-     /* Toggle appearance */
-     --toggle-active-dark: #3f3f3f;
-     --toggle-active-light: #fffcef;
-     --toggle-bg-dark: #1e2022;
-     --toggle-bg-light: #f7f7f9;
-     --toggle-icon-active-dark: #ffffff;
-     --toggle-icon-active-light: #000000;
-     --toggle-icon-dark: #a1a1aa;
-     --toggle-icon-light: #666666;
-     --toggle-shadow-dark: 0 var(--size-1) var(--size-2) rgba(255, 255, 255, 0.1);
-     --toggle-shadow-light: 0 var(--size-1) var(--size-2) rgba(0, 0, 0, 0.1);
- }
+  /* Toggle appearance */
+  --toggle-active-dark: #3f3f3f;
+  --toggle-active-light: #fffcef;
+  --toggle-bg-dark: #1e2022;
+  --toggle-bg-light: #f7f7f9;
+  --toggle-icon-active-dark: #ffffff;
+  --toggle-icon-active-light: #000000;
+  --toggle-icon-dark: #a1a1aa;
+  --toggle-icon-light: #666666;
+  --toggle-shadow-dark: 0 var(--size-1) var(--size-2) rgba(255, 255, 255, 0.1);
+  --toggle-shadow-light: 0 var(--size-1) var(--size-2) rgba(0, 0, 0, 0.1);
+}

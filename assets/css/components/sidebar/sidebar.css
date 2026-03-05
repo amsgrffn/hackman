@@ -627,8 +627,7 @@ body.dark-mode .about-site ul li span {
 
 .collapsible-title {
     color: var(--primary-color);
-    font-family: 'pf-reminder', sans;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
 }
 

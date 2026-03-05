@@ -4,19 +4,19 @@
  */
 
 .container {
-    margin: 0 auto;
-    max-width: 900px;
-    padding: 0;
-    width: 100%;
+  margin: 0 auto;
+  max-width: 600px;
+  padding: 0;
+  width: 100%;
 }
 
 .layout {
-    display: flex;
-    flex-direction: column;
-    padding: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
 }
 
 .content {
-    margin-bottom: var(--space-2xl);
-    width: 100%;
+  margin-bottom: var(--space-2xl);
+  width: 100%;
 }
