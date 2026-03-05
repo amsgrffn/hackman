@@ -8,6 +8,14 @@ b-cov
 *.gz
 *.zip
 
+# Built assets
+assets/built/
+*.css.map
+*.js.map
+
+# Theme package
+*.zip
+
 pids
 logs
 results
