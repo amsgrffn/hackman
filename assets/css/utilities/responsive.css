@@ -8,6 +8,28 @@
 
 
 @media (max-width: 767px) {
+    .posts-container article {
+        grid-template-columns: 1fr;
+    }
+
+    .posts-container article > .meta {
+        margin-bottom: var(--space-xs);
+        text-align: left;
+    }
+
+    .posts-container article > .meta span.tag {
+        text-align: left;
+    }
+
+    .posts-container article > .card-content,
+    .posts-container article > .note-content,
+    .posts-container article > .video-comment,
+    .posts-container article > .quote-content,
+    .posts-container article > .bookmark-comment {
+        grid-column: 1;
+        grid-row: auto;
+    }
+
     .article-content {
         font-size: 16px;
     }

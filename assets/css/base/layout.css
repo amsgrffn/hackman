@@ -10,6 +10,10 @@
   width: 100%;
 }
 
+.home-template .container {
+  max-width: 750px;
+}
+
 .layout {
   display: flex;
   flex-direction: column;

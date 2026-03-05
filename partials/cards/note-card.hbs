@@ -1,18 +1,17 @@
 <!-- Note -->
 <article class="note {{post_class}}">
-   <header>
-        <div class="meta">
-            <span class="tag">{{#primary_tag}}<a href="{{url}}">{{name}}</a>{{/primary_tag}}</span>
-        </div>
-        <h2><a href="{{url}}">{{title}}</a></h2>
-    </header>
-    <div class="post-content">
-        {{content}}
+    <div class="meta">
+        <span class="tag">{{#primary_tag}}<a href="{{url}}">{{name}}</a>{{/primary_tag}}</span>
     </div>
-    <footer>
-        <div class="post-info">
-        <a href="{{url}}"><span class="pub-date"><time datetime="{{date format="YYYY-MM-DD"}}">{{date published_at format="dddd, D MMMM, YYYY"}}</time></span></a>
+    <div class="note-content">
+        <div class="post-content">
+            {{content}}
         </div>
-        {{> "utilities/post-dropdown"}}
-    </footer>
+        <footer>
+            <div class="post-info">
+            <a href="{{url}}"><span class="pub-date"><time datetime="{{date format="YYYY-MM-DD"}}">{{date published_at format="dddd, D MMMM, YYYY"}}</time></span></a>
+            </div>
+            {{> "utilities/post-dropdown"}}
+        </footer>
+    </div>
 </article>
